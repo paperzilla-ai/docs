@@ -2,6 +2,9 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "🦖 Paperzilla",
+  "icons": {
+    "library": "lucide"
+  },
   "colors": {
     "primary": "#669664",
     "light": "#8fb069",
@@ -14,25 +17,159 @@
         "tab": "Guides",
         "groups": [
           {
+            "group": "What is Paperzilla",
+            "icon": "compass",
+            "pages": [
+              "what-is-paperzilla/index",
+              "what-is-paperzilla/who-its-for",
+              "what-is-paperzilla/use-cases",
+              "what-is-paperzilla/how-it-works",
+              "what-is-paperzilla/why-paperzilla"
+            ]
+          },
+          {
             "group": "Getting started",
+            "icon": "play",
             "pages": [
               "index",
               "quickstart"
             ]
           },
           {
-            "group": "Guides",
+            "group": "Core guides",
+            "icon": "book-open",
             "pages": [
-              "guides/projects",
-              "guides/cli",
-              "guides/feeds"
+              {
+                "group": "Projects and sharing",
+                "icon": "folder-open",
+                "expanded": false,
+                "pages": [
+                  "guides/projects",
+                  "guides/sharing-and-visibility",
+                  "guides/public-projects"
+                ]
+              },
+              {
+                "group": "Feed and delivery",
+                "icon": "rss",
+                "expanded": false,
+                "pages": [
+                  "guides/feed-in-app",
+                  "guides/email-digests",
+                  "guides/feeds",
+                  "guides/cli"
+                ]
+              },
+              {
+                "group": "Summaries and account",
+                "icon": "file-text",
+                "expanded": false,
+                "pages": [
+                  "guides/summaries",
+                  "guides/account-and-sign-in",
+                  "guides/troubleshooting"
+                ]
+              }
             ]
           },
           {
             "group": "Q&A",
+            "icon": "circle-question-mark",
             "pages": [
               "answers/index",
-              "answers/less-email"
+              {
+                "group": "About Paperzilla",
+                "icon": "compass",
+                "expanded": false,
+                "pages": [
+                  "answers/what-problem-paperzilla-solves",
+                  "answers/what-does-paperzilla-do",
+                  "answers/who-should-use-paperzilla",
+                  "answers/is-paperzilla-for-ai-agents",
+                  "answers/do-i-need-to-code",
+                  "answers/how-is-paperzilla-different-from-rss-alerts",
+                  "answers/how-is-paperzilla-different-from-google-scholar-alerts",
+                  "answers/when-should-i-create-multiple-projects",
+                  "answers/can-paperzilla-fit-team-workflows",
+                  "answers/what-are-paperzilla-output-formats",
+                  "answers/why-use-feed-and-email-both",
+                  "answers/is-paperzilla-only-for-ml-or-biomed"
+                ]
+              },
+              {
+                "group": "Projects and setup",
+                "icon": "folder-open",
+                "expanded": false,
+                "pages": [
+                  "answers/what-is-a-project",
+                  "answers/create-first-project",
+                  "answers/tune-keywords",
+                  "answers/must-read-vs-related",
+                  "answers/project-no-papers"
+                ]
+              },
+              {
+                "group": "Feed and delivery",
+                "icon": "rss",
+                "expanded": false,
+                "pages": [
+                  "answers/read-without-email",
+                  "answers/less-email",
+                  "answers/change-max-papers",
+                  "answers/pause-project",
+                  "answers/search-project-feed"
+                ]
+              },
+              {
+                "group": "RSS/Atom and CLI",
+                "icon": "square-terminal",
+                "expanded": false,
+                "pages": [
+                  "answers/copy-rss-atom",
+                  "answers/which-feed-readers",
+                  "answers/rss-url-security"
+                ]
+              },
+              {
+                "group": "Sharing and public",
+                "icon": "share",
+                "expanded": false,
+                "pages": [
+                  "answers/share-project",
+                  "answers/share-paper",
+                  "answers/private-link-not-working",
+                  "answers/public-projects-work",
+                  "answers/subscribe-public-project"
+                ]
+              },
+              {
+                "group": "Summaries",
+                "icon": "file-text",
+                "expanded": false,
+                "pages": [
+                  "answers/how-summaries-work",
+                  "answers/summary-stuck"
+                ]
+              },
+              {
+                "group": "Account and access",
+                "icon": "circle-user",
+                "expanded": false,
+                "pages": [
+                  "answers/account-required",
+                  "answers/magic-link-login",
+                  "answers/existing-account-handoff"
+                ]
+              },
+              {
+                "group": "Data and coverage",
+                "icon": "database",
+                "expanded": false,
+                "pages": [
+                  "answers/sources-covered",
+                  "answers/delete-project"
+                ]
+              }
             ]
           }
         ]
@@ -42,8 +179,10 @@
         "groups": [
           {
             "group": "API documentation",
+            "icon": "terminal",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/introduction",
+              "api-reference/rss-atom-feed"
             ]
           }
         ]
@@ -59,15 +198,15 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {

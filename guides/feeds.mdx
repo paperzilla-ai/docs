@@ -1,10 +1,50 @@
 ---
 title: "RSS and Atom feeds"
-description: "Subscribe to Paperzilla feeds for updates on your projects"
+description: "Copy and use your secure Paperzilla RSS/Atom feed URL in external feed readers."
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/guides/feeds" />
 
-{/* TODO: Write content */}
+Every project supports a secure RSS/Atom feed URL.
+
+## Get your feed URL
+
+From the project page:
+
+1. Click **Copy RSS/Atom URL**.
+2. Paste the URL into your feed reader.
+
+From the CLI:
+
+```bash
+pz feed <project-id> --atom
+```
+
+## Use in feed readers
+
+The URL works with common readers such as:
+
+- Feedly
+- NetNewsWire
+- Vienna RSS
+- Any reader that accepts Atom or RSS URLs
+
+## Security model
+
+The URL includes a personal token in the query string.
+
+- Treat the URL like a secret.
+- Anyone with the URL can read that project feed.
+- Use private sharing practices when storing or sending it.
+
+## Feed URL format
+
+Paperzilla generates URLs in this form:
+
+```text
+https://paperzilla.ai/api/feed/atom/<project-id>?token=<personal-token>
+```
+
+See [API reference: RSS/Atom feed endpoint](/api-reference/rss-atom-feed).

@@ -1,101 +1,57 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+title: "Paperzilla docs"
+description: "Learn how to create projects, follow research feeds, and receive email digests in Paperzilla."
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/index" />
 
-## Setting up
+Paperzilla helps you track a research topic as a **project**.
 
-Get your documentation site up and running in minutes.
+Each project gives you four ways to consume papers:
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
+- In-app feed
+- RSS/Atom feed URL
+- CLI (`pz`)
+- Email digests
 
-## Make it yours
+## Start here
 
-Design a docs site that looks great and empowers your users.
-
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
+<CardGroup cols={2}>
+  <Card title="What is Paperzilla?" icon="compass" href="/what-is-paperzilla">
+    See who it helps, when to use it, and how it fits your workflow.
   </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Create your first project and start reading papers in minutes.
   </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
+  <Card title="Projects" icon="folder-open" href="/guides/projects">
+    Learn how projects work and how to tune relevance.
   </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
+  <Card title="In-app feed" icon="rss" href="/guides/feed-in-app">
+    Use filters, search, and relevance labels in the app.
   </Card>
-</Columns>
+  <Card title="Email digests" icon="envelope" href="/guides/email-digests">
+    Control digest volume and delivery behavior.
+  </Card>
+  <Card title="RSS and Atom" icon="square-rss" href="/guides/feeds">
+    Add secure feed URLs to your feed reader.
+  </Card>
+  <Card title="Questions and answers" icon="circle-question" href="/answers/index">
+    Find fast answers in one-question-per-page format.
+  </Card>
+</CardGroup>
 
-## Create beautiful pages
+## Core terms
 
-Everything you need to create world-class documentation.
+- **Project**: your standing research intent (topic + interests + keywords + settings)
+- **Feed**: continuously updated list of matched papers for a project
+- **Email digest**: a scheduled email selection from your project
+- **Must Read**: highest relevance class in your project
+- **Related**: relevant but lower-priority papers in your project
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+## Next steps
 
-## Need inspiration?
-
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+1. Follow the [quickstart](/quickstart).
+2. Configure your project in [projects](/guides/projects).
+3. Choose your preferred reading surface: [in-app feed](/guides/feed-in-app), [RSS/Atom](/guides/feeds), or [CLI](/guides/cli).

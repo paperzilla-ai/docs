@@ -1,0 +1,46 @@
+---
+title: "AI summaries"
+description: "Generate and read Paperzilla AI summaries for papers in your projects."
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/guides/summaries" />
+
+Paperzilla can generate structured AI summaries for papers.
+
+## Generate a summary
+
+1. Open a paper page.
+2. Click the summary action.
+3. Wait for status to complete.
+
+## Summary statuses
+
+- `queued`: request accepted
+- `processing`: summary generation in progress
+- `failed`: generation failed, retry is available
+- `completed` or `available`: summary is ready
+
+## Summary structure
+
+Summaries can include sections such as:
+
+- ELI5
+- Overview
+- Research question
+- Methodology
+- Results
+- Limitations
+- Takeaway
+- Conflicts of interest
+
+## View all summaries for a project
+
+From the project page, open **View summaries** when summaries exist.
+
+## If generation fails
+
+1. Retry from the paper page.
+2. Check again later.
+3. Confirm you are in the right account for that project.

@@ -1,0 +1,47 @@
+---
+title: "Troubleshooting"
+description: "Fix common Paperzilla issues for projects, feeds, summaries, and sharing."
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/guides/troubleshooting" />
+
+## I created a project but see no papers
+
+1. Wait for initial processing.
+2. Check that the project is not paused.
+3. Broaden interest text slightly.
+4. Remove strict exclude keywords.
+5. Enable adjacent papers.
+
+## Copy RSS/Atom URL fails
+
+1. Confirm you are signed in.
+2. Retry from project page.
+3. Refresh session and try again.
+4. If needed, use `pz feed <project-id> --atom` from CLI.
+
+## Shared link does not open for recipient
+
+1. Confirm project visibility is public.
+2. Re-copy share link from the share modal.
+3. Send updated link.
+
+## Summary is stuck or failed
+
+1. Wait if status is `queued` or `processing`.
+2. Use retry when status is `failed`.
+3. Open from the same account that owns project access.
+
+## I am getting too many emails
+
+1. Lower max papers per email.
+2. Tighten include/exclude keywords.
+3. Pause project when needed.
+
+## I signed in but cannot find my project
+
+1. Check you used the same email from setup.
+2. Look in **Projects** dashboard.
+3. If setup was in progress, reopen the magic link and finish delivery.

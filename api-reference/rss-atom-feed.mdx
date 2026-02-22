@@ -1,0 +1,40 @@
+---
+title: "RSS/Atom feed endpoint"
+description: "URL format and usage notes for Paperzilla project RSS/Atom feeds."
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/api-reference/rss-atom-feed" />
+
+The project feed URL is generated per user and project.
+
+## URL format
+
+```text
+GET /api/feed/atom/{projectId}?token={feedToken}
+```
+
+Example:
+
+```text
+https://paperzilla.ai/api/feed/atom/123e4567-e89b-12d3-a456-426614174000?token=pzft_xxx
+```
+
+## Parameters
+
+- `projectId`: project UUID
+- `token`: personal feed token tied to your account
+
+## How to obtain a URL
+
+Use one of these:
+
+- Project page button: **Copy RSS/Atom URL**
+- CLI: `pz feed <project-id> --atom`
+
+## Security notes
+
+- Treat feed URLs as secrets.
+- Anyone with the URL can read that feed.
+- Do not publish personal tokenized URLs in public repos or docs.
