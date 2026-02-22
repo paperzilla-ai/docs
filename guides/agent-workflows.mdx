@@ -1,0 +1,50 @@
+---
+title: "Agent workflows"
+description: "Use Paperzilla as a data layer for agent and automation workflows through CLI today and MCP soon."
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/guides/agent-workflows" />
+
+Paperzilla is designed for both human reading and programmatic use.
+
+This guide focuses on Paperzilla as a **data layer for agents**.
+
+## Available today: CLI data access
+
+Use the Paperzilla CLI (`pz`) as the primary interface for agents and scripts.
+
+With CLI you can:
+
+- List projects
+- Fetch project feed items
+- Filter for Must Read
+- Request JSON output for automation
+- Get RSS/Atom feed URLs
+
+See [CLI guide](/guides/cli) for commands.
+
+## Recommended setup for agent workflows
+
+1. Create and tune projects in the app.
+2. Authenticate CLI with `pz login`.
+3. Use `pz feed <project-id> --json` in your automation.
+4. Add filters (`--must-read`, `--since`, `--limit`) based on your workflow.
+
+## Data surfaces you can combine
+
+- App feed for visual review
+- CLI for structured automation
+- RSS/Atom for polling in feed infrastructure
+- Email digests for human review cadence
+
+## Coming soon: MCP integration
+
+A Paperzilla MCP integration is planned so LLM tools can call Paperzilla capabilities directly.
+
+Read status and scope: [MCP integration (coming soon)](/guides/mcp-coming-soon).
+
+## Why this matters
+
+If your workflow depends on "fresh papers + relevance filtering + automation," treat Paperzilla projects as the persistent source and let agents consume that data layer.

@@ -10,8 +10,17 @@
     "light": "#8fb069",
     "dark": "#2C5032"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.png",
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Contact",
+          "icon": "life-buoy",
+          "href": "mailto:hello@paperzilla.ai"
+        }
+      ]
+    },
     "tabs": [
       {
         "tab": "Guides",
@@ -40,6 +49,16 @@
             "icon": "book-open",
             "pages": [
               {
+                "group": "Agent workflows",
+                "icon": "bot",
+                "expanded": true,
+                "pages": [
+                  "guides/agent-workflows",
+                  "guides/cli",
+                  "guides/mcp-coming-soon"
+                ]
+              },
+              {
                 "group": "Projects and sharing",
                 "icon": "folder-open",
                 "expanded": false,
@@ -56,8 +75,7 @@
                 "pages": [
                   "guides/feed-in-app",
                   "guides/email-digests",
-                  "guides/feeds",
-                  "guides/cli"
+                  "guides/feeds"
                 ]
               },
               {
@@ -86,6 +104,7 @@
                   "answers/what-does-paperzilla-do",
                   "answers/who-should-use-paperzilla",
                   "answers/is-paperzilla-for-ai-agents",
+                  "answers/does-paperzilla-support-mcp",
                   "answers/do-i-need-to-code",
                   "answers/how-is-paperzilla-different-from-rss-alerts",
                   "answers/how-is-paperzilla-different-from-google-scholar-alerts",
@@ -192,8 +211,8 @@
   "navbar": {
     "primary": {
       "type": "button",
-      "label": "Portal",
-      "href": "https://app.paperzilla.ai"
+      "label": "Dashboard",
+      "href": "https://paperzilla.ai/digests"
     }
   },
   "contextual": {
