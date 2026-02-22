@@ -27,6 +27,23 @@
 - Bold for UI elements: Click **Settings**
 - Code formatting for file names, commands, paths, and code references
 
+## AI agents snippet
+
+Every new page must include the AI agents snippet right after the frontmatter. Add the import and component:
+
+```mdx
+---
+title: "Page title"
+description: "Page description"
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/page-path" />
+```
+
+The `path` prop must match the page's URL path (e.g., `/quickstart`, `/essentials/settings`).
+
 ## Content boundaries
 
 {/* Define what should and shouldn't be documented */}

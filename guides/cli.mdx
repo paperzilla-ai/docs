@@ -1,0 +1,208 @@
+---
+title: "CLI"
+description: "Use the Paperzilla CLI to manage papers from your terminal"
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/guides/cli" />
+
+The Paperzilla CLI (`pz`) lets you browse your curated research feed, manage projects, and stay on top of new papers from the terminal. It works for both humans and AI agents — use `--json` to get structured output.
+
+## Install
+
+<Tabs>
+  <Tab title="macOS">
+    ```bash
+    brew install paperzilla-ai/tap/pz
+    ```
+  </Tab>
+  <Tab title="Windows">
+    Via [Scoop](https://scoop.sh):
+
+    ```bash
+    scoop bucket add paperzilla-ai https://github.com/paperzilla-ai/scoop-bucket
+    scoop install pz
+    ```
+  </Tab>
+  <Tab title="Linux">
+    Download from [GitHub Releases](https://github.com/paperzilla-ai/pz/releases):
+
+    ```bash
+    curl -sL https://github.com/paperzilla-ai/pz/releases/latest/download/pz_linux_amd64.tar.gz | tar xz
+    sudo mv pz /usr/local/bin/
+    ```
+  </Tab>
+  <Tab title="From source">
+    Requires Go 1.23+:
+
+    ```bash
+    git clone https://github.com/paperzilla-ai/pz.git
+    cd pz
+    go build -o pz .
+    mv pz /usr/local/bin/
+    ```
+  </Tab>
+</Tabs>
+
+## Log in
+
+Authenticate with your Paperzilla account. You receive a one-time code via email.
+
+<Info>Don't have an account yet? Follow the [quickstart](/quickstart) to sign up first.</Info>
+
+```bash
+pz login
+```
+
+```
+Email: you@example.com
+Sending magic link...
+Check your email, enter the code: 123456
+Logged in!
+```
+
+Your session persists across commands and refreshes automatically. If it expires, the login flow starts automatically.
+
+## Commands
+
+### pz project list
+
+List all your projects.
+
+```bash
+pz project list
+```
+
+```
+ID                                    NAME                       MODE        VISIBILITY  CREATED
+a1b2c3d4-e5f6-7890-abcd-ef1234567890  Machine Learning Papers    auto        private     2025-06-15 10:30
+b2c3d4e5-f6a7-8901-bcde-f12345678901  Genomics Research          auto        private     2025-07-20 14:15
+```
+
+### pz project \<id\>
+
+Show details for a specific project.
+
+```bash
+pz project a1b2c3d4-e5f6-7890-abcd-ef1234567890
+```
+
+```
+Name:             Machine Learning Papers
+ID:               a1b2c3d4-e5f6-7890-abcd-ef1234567890
+Mode:             auto
+Visibility:       private
+Matching State:   active
+Email Frequency:  daily
+Email Time:       09:00
+Max Candidates:   100
+Max Papers/Digest:20
+Created:          2025-06-15 10:30
+Activated:        2025-06-16 00:00
+Last Digest:      2025-08-01 09:00
+
+Interest:
+  Recent advances in transformer architectures and efficiency
+```
+
+### pz feed \<project-id\>
+
+Browse the curated paper feed for a project.
+
+```bash
+pz feed a1b2c3d4-e5f6-7890-abcd-ef1234567890
+```
+
+```
+Machine Learning Papers — 12 papers (total: 142)
+
+★ Must Read  A Novel Approach to Transformer Efficiency
+  Smith et al. · arxiv · 2025-08-01 · relevance: 92%
+
+○ Related  On the Convergence Properties of Diffusion Models
+  Chen et al. · arxiv · 2025-07-30 · relevance: 74%
+```
+
+Each paper shows a relevance class (`★ Must Read` or `○ Related`), title, first author, source, date, and relevance score.
+
+#### Flags
+
+| Flag | Short | Description |
+|------|-------|-------------|
+| `--json` | `-j` | Output as JSON |
+| `--must-read` | `-m` | Only show must-read papers |
+| `--since` | `-s` | Only papers after this date (ISO 8601 or `YYYY-MM-DD`) |
+| `--limit` | `-n` | Limit number of results |
+| `--atom` | | Print Atom feed URL for feed readers |
+
+#### Examples
+
+```bash
+# Only must-read papers from the last week
+pz feed <project-id> --must-read --since 2025-07-25 --limit 5
+
+# Export as JSON for scripting
+pz feed <project-id> --json
+
+# Pipe to jq
+pz feed <project-id> --json | jq '.[].paper.title'
+
+# Get Atom feed URL for your feed reader
+pz feed <project-id> --atom
+```
+
+### Atom feeds
+
+The `--atom` flag prints a URL you can paste into any feed reader (Vienna RSS, NetNewsWire, Feedly, etc.):
+
+```bash
+pz feed <project-id> --atom
+```
+
+```
+https://paperzilla.ai/api/feed/atom/a1b2c3d4-...?token=pzft_...
+```
+
+The URL contains a personal feed token so the reader can poll without logging in. The token is per-user, and the same URL is returned on repeated calls. See the [feeds guide](/guides/feeds) for more on RSS/Atom.
+
+## JSON output
+
+With `--json`, the feed returns structured data suitable for scripting and AI agents:
+
+```json
+{
+  "items": [
+    {
+      "id": "uuid",
+      "short_id": "abc123",
+      "paper_title": "A Novel Approach to...",
+      "relevance_score": 0.92,
+      "relevance_class": 2,
+      "personalized_note": "Relevant because...",
+      "ready_at": "2025-08-01T09:00:00Z",
+      "paper": {
+        "title": "A Novel Approach to...",
+        "authors": [{"name": "Jane Smith"}],
+        "published_date": "2025-07-20",
+        "pdf_url": "https://arxiv.org/pdf/2507.12345",
+        "url": "https://arxiv.org/abs/2507.12345",
+        "source_id": 1
+      }
+    }
+  ],
+  "total": 142,
+  "limit": 20,
+  "offset": 0
+}
+```
+
+**Relevance classes:** `2` = Must Read, `1` = Related
+
+**Source IDs:** `1` = arXiv, `2` = bioRxiv, `3` = medRxiv, `4` = chinaXiv
+
+## Configuration
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `PZ_API_URL` | API base URL | `https://paperzilla.ai` |
