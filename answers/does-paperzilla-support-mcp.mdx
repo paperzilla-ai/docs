@@ -1,19 +1,27 @@
 ---
 title: "Does Paperzilla support MCP?"
-description: "MCP integration is planned. Today, use CLI and RSS/Atom for agent workflows."
+description: "Yes. You can connect MCP clients to Paperzilla and consume your project feeds."
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/answers/does-paperzilla-support-mcp" />
 
-Not yet.
+Yes.
 
-Paperzilla MCP integration is planned.
+Paperzilla provides an MCP endpoint at:
 
-Today, use:
+`https://paperzilla.ai/api/mcp`
 
-- CLI (`pz`) for structured, scriptable access
-- RSS/Atom feeds for feed-reader and polling integrations
+Use your per-user MCP API key in `Authorization: Bearer <key>`.
 
-See [MCP integration (coming soon)](/guides/mcp-coming-soon).
+Available tools today:
+
+- `projects.list`
+- `projects.get`
+- `feed.get`
+- `feed.atom_url`
+
+There is also one optional prompt: `feed_title_filter`.
+
+See setup and flow details in [MCP integration](/guides/mcp-coming-soon).

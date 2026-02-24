@@ -1,6 +1,6 @@
 ---
 title: "Agent workflows"
-description: "Use Paperzilla as a data layer for agent and automation workflows through CLI today and MCP soon."
+description: "Use Paperzilla as a data layer for agent and automation workflows through CLI, feeds, and MCP."
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
@@ -11,19 +11,15 @@ Paperzilla is designed for both human reading and programmatic use.
 
 This guide focuses on Paperzilla as a **data layer for agents**.
 
-## Available today: CLI data access
+## Available interfaces
 
-Use the Paperzilla CLI (`pz`) as the primary interface for agents and scripts.
+Use these depending on your workflow:
 
-With CLI you can:
+- CLI (`pz`) for shell/script execution
+- MCP (`/api/mcp`) for LLM tool-calling workflows
+- RSS/Atom for polling in feed infrastructure
 
-- List projects
-- Fetch project feed items
-- Filter for Must Read
-- Request JSON output for automation
-- Get RSS/Atom feed URLs
-
-See [CLI guide](/guides/cli) for commands.
+See [CLI guide](/guides/cli), [MCP integration](/guides/mcp-coming-soon), and [RSS/Atom guide](/guides/feeds).
 
 ## Recommended setup for agent workflows
 
@@ -39,11 +35,20 @@ See [CLI guide](/guides/cli) for commands.
 - RSS/Atom for polling in feed infrastructure
 - Email digests for human review cadence
 
-## Coming soon: MCP integration
+## MCP tool surface (MVP)
 
-A Paperzilla MCP integration is planned so LLM tools can call Paperzilla capabilities directly.
+Current tools:
 
-Read status and scope: [MCP integration (coming soon)](/guides/mcp-coming-soon).
+- `projects.list`
+- `projects.get`
+- `feed.get`
+- `feed.atom_url`
+
+Optional prompt:
+
+- `feed_title_filter`
+
+Setup details: [MCP integration](/guides/mcp-coming-soon).
 
 ## Why this matters
 

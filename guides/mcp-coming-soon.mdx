@@ -1,27 +1,104 @@
 ---
-title: "MCP integration (coming soon)"
-description: "Paperzilla MCP integration is planned. Use CLI and RSS/Atom interfaces today."
+title: "Use Paperzilla with MCP"
+description: "Connect your MCP client to Paperzilla and consume your project feeds in natural language."
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/guides/mcp-coming-soon" />
 
-Paperzilla MCP support is planned but not yet available.
+Use Paperzilla MCP when you want your AI assistant to pull your project feeds directly.
 
-## What to use now
+Endpoint:
 
-Use these interfaces today:
+`https://paperzilla.ai/api/mcp`
 
-- [CLI](/guides/cli) for agent/script execution
-- [RSS and Atom feeds](/guides/feeds) for polling-based integrations
+## What you can do
 
-## Planned direction
+- List your projects
+- Open one project
+- Pull feed items with filters like Must Read, since date, and limit
+- Get the project's Atom URL
 
-MCP support is intended to make Paperzilla easier to call from MCP-compatible LLM tools.
+## Quickstart
 
-As this launches, this page will be updated with:
+### 1. Create your MCP API key
 
-- availability status
-- setup instructions
-- supported operations
+Create a personal MCP key in Paperzilla.
+
+If your account does not show a key UI yet, use the API key endpoints in the [developer appendix](/api-reference/mcp).
+
+Keep this key private. You only see the plaintext value when you create or rotate it.
+
+### 2. Add Paperzilla to your MCP client
+
+Use:
+
+- URL: `https://paperzilla.ai/api/mcp`
+- Header: `Authorization: Bearer <your-mcp-api-key>`
+
+Example config shape:
+
+```json
+{
+  "mcpServers": {
+    "paperzilla": {
+      "transport": {
+        "type": "streamable_http",
+        "url": "https://paperzilla.ai/api/mcp"
+      },
+      "headers": {
+        "Authorization": "Bearer pzmcp_..."
+      }
+    }
+  }
+}
+```
+
+### 3. Ask your assistant to call Paperzilla
+
+Try requests like:
+
+- "List my Paperzilla projects."
+- "Show must-read papers for project `<project-id>` since `2026-02-01` limit 20."
+- "Get the Atom URL for project `<project-id>`."
+
+## Available tools today
+
+| Name | Purpose | CLI parity |
+|---|---|---|
+| `projects.list` | List your projects | `pz project list` |
+| `projects.get` | Get one project | `pz project <id>` |
+| `feed.get` | Get project feed with filters | `pz feed <id> --must-read --since --limit` |
+| `feed.atom_url` | Get Atom URL for a project | `pz feed <id> --atom` |
+| `feed_title_filter` (optional prompt) | Ask the model to call `feed.get` and apply title keyword filtering client-side | No direct CLI equivalent |
+
+## About prompts
+
+You can ignore prompts and use direct tool calls only.
+
+If your client supports prompts, `feed_title_filter` helps with one task:
+
+- Pull feed items
+- Filter by title keyword in the client/model layer
+- Return filtered results with that behavior clearly stated
+
+## CLI vs MCP
+
+Use [CLI](/guides/cli) for shell scripts and deterministic command outputs.
+
+Use MCP when your assistant should reason across tools and ask follow-up questions.
+
+Use [RSS/Atom](/guides/feeds) for passive feed-reader polling.
+
+## Key safety
+
+- Treat your MCP key like a password
+- Rotate it immediately if exposed
+- Revoke it if you stop using MCP
+
+## Troubleshooting
+
+- `401 Unauthorized` on `/api/mcp`: missing, revoked, or invalid MCP API key
+- Empty or unexpected results: confirm you are using the key for the correct Paperzilla account
+- `404 Not Found` for project/feed calls: project is not accessible in your account

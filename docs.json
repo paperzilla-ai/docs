@@ -219,6 +219,7 @@
             "icon": "terminal",
             "pages": [
               "api-reference/introduction",
+              "api-reference/mcp",
               "api-reference/rss-atom-feed"
             ]
           }

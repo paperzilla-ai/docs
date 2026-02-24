@@ -1,0 +1,127 @@
+---
+title: "MCP endpoint (developer appendix)"
+description: "Technical MCP endpoint details for developers integrating Paperzilla clients."
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/api-reference/mcp" />
+
+This page is a technical appendix for developers.
+
+If you are a Paperzilla user setting up MCP, start with [Use Paperzilla with MCP](/guides/mcp-coming-soon).
+
+Paperzilla exposes a Streamable HTTP MCP endpoint:
+
+```text
+POST /api/mcp
+```
+
+Base URL example:
+
+```text
+https://paperzilla.ai/api/mcp
+```
+
+## Authentication
+
+Send your MCP API key in the authorization header:
+
+```http
+Authorization: Bearer pzmcp_<prefix>_<secret>
+```
+
+Get or rotate that key from app-authenticated endpoints:
+
+- `GET /api/auth/mcp-key`
+- `POST /api/auth/mcp-key/rotate`
+- `DELETE /api/auth/mcp-key`
+
+These key-management endpoints use your normal app JWT, not your MCP key.
+
+## Key management endpoints (developer use)
+
+```text
+GET /api/auth/mcp-key
+POST /api/auth/mcp-key/rotate
+DELETE /api/auth/mcp-key
+```
+
+## MCP methods used in MVP
+
+Paperzilla supports standard MCP flows including:
+
+- `initialize`
+- `tools/list`
+- `tools/call`
+- `prompts/list`
+- `prompts/get`
+
+## Initialize example
+
+```bash
+curl -s -X POST https://paperzilla.ai/api/mcp \
+  -H "Authorization: Bearer pzmcp_..." \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"initialize",
+    "params":{
+      "protocolVersion":"2025-11-05",
+      "capabilities":{},
+      "clientInfo":{"name":"probe","version":"1.0"}
+    }
+  }'
+```
+
+## Tools
+
+| Tool | Input |
+|---|---|
+| `projects.list` | `{}` |
+| `projects.get` | `{ "project_id": "uuid" }` |
+| `feed.get` | `{ "project_id": "uuid", "must_read"?: boolean, "since"?: string, "limit"?: 1..100, "offset"?: 0.. }` |
+| `feed.atom_url` | `{ "project_id": "uuid" }` |
+
+Outputs follow the same shape as existing project/feed API responses.
+
+## Tool call example
+
+```bash
+curl -s -X POST https://paperzilla.ai/api/mcp \
+  -H "Authorization: Bearer pzmcp_..." \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc":"2.0",
+    "id":2,
+    "method":"tools/call",
+    "params":{
+      "name":"projects.list",
+      "arguments":{}
+    }
+  }'
+```
+
+## Prompt
+
+Prompt name:
+
+- `feed_title_filter`
+
+Arguments:
+
+- `project_id` (required)
+- `title_keyword` (required)
+- `since` (optional)
+- `must_read` (optional)
+- `limit` (optional)
+
+The prompt instructs the model to call `feed.get`, then filter by title keyword client-side and explicitly report that this filter is prompt-side.
+
+## Error semantics
+
+- Invalid/missing key: HTTP `401`
+- Disallowed `Origin`: HTTP `403`
+- Invalid MCP method/JSON-RPC shape: protocol-level error
+- Business/domain errors (ownership, missing project): tool result with `isError: true`
