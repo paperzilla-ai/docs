@@ -2,20 +2,12 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Paperzilla Docs Portal",
-  "metadata": {
-    "title": "Paperzilla Docs Portal",
-    "description": "Official documentation portal for Paperzilla. Learn projects, feeds, CLI, and agent workflows."
-  },
   "seo": {
     "metatags": {
-      "og:title": "Paperzilla Docs Portal",
-      "og:description": "Official documentation portal for Paperzilla. Learn projects, feeds, CLI, and agent workflows.",
       "og:type": "website",
       "og:site_name": "Paperzilla Docs Portal",
       "og:image": "/images/paperzilla-docs-og.png",
       "twitter:card": "summary_large_image",
-      "twitter:title": "Paperzilla Docs Portal",
-      "twitter:description": "Official documentation portal for Paperzilla. Learn projects, feeds, CLI, and agent workflows.",
       "twitter:image": "/images/paperzilla-docs-og.png",
       "twitter:site": "@paperzilla_ai"
     }
