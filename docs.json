@@ -146,6 +146,7 @@
                   "answers/less-email",
                   "answers/change-max-papers",
                   "answers/pause-project",
+                  "answers/pause-email-digests",
                   "answers/search-project-feed"
                 ]
               },
