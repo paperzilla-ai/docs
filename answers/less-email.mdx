@@ -1,19 +1,59 @@
 ---
 title: "How do I get less email?"
-description: "Reduce Paperzilla email volume by lowering max papers, tightening relevance, or pausing the project."
-keywords: ["reduce email", "volume control", "fewer digests"]
+description: "Reduce Paperzilla email volume by tuning your project relevance or pausing email delivery."
+keywords: ["reduce email", "volume control", "fewer digests", "tighten relevance", "pause email"]
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/answers/less-email" />
 
-Use one or more of these controls:
+Open the [dashboard](https://paperzilla.ai/digests) and select the project sending too much email. Then work through the options below, starting with the ones that improve quality before falling back to pausing delivery.
 
-1. Lower **Max papers per email** in delivery settings.
-2. Tighten project interest text.
-3. Add targeted exclude keywords for noisy themes.
-4. Set **Email frequency** to **Pause** to stop emails while keeping discovery running.
-5. Pause the entire project to stop both discovery and emails.
+## Option 1: tune the project (recommended)
 
-You can still read from app, RSS/Atom, or CLI when you reduce email volume.
+Click **Edit project** to adjust relevance settings. These changes improve what the project finds — not just how much it sends.
+
+**Remove irrelevant categories**
+
+If your project covers categories that are too broad for your actual focus, remove them. Fewer categories means fewer off-topic papers enter the feed.
+
+**Tighten the interest description**
+
+The description tells Paperzilla what you care about. A vague description produces a broad feed. Make it specific.
+
+For example, instead of:
+
+> Machine learning and neural networks
+
+Try:
+
+> Efficient transformer architectures for on-device inference, focusing on quantization and pruning techniques. Only include papers where on-device or edge deployment is a primary concern. If a paper is about general model efficiency, data centers, or cloud inference without an on-device angle, do not select it.
+
+The more precise your description, the more selective the matching.
+
+**Remove boost keywords that are too broad**
+
+Review your include (boost) keywords and remove any that are pulling in papers you don't want. Boost keywords increase relevance scores — if a term is too general, it will surface too many papers.
+
+**Add exclude keywords**
+
+Exclude keywords are hard filters: any paper containing an excluded term is removed from your feed entirely.
+
+Use them carefully and only for terms you are confident you never want to see. A few targeted exclude terms can significantly cut noise.
+
+## Option 2: turn off adjacent papers
+
+If **Include adjacent papers** is enabled, Paperzilla surfaces related but non-direct matches alongside your top results. Turning this off limits the feed to papers that match your project more directly.
+
+In **Edit project**, set **Include adjacent papers** to **No**.
+
+## Option 3: pause email delivery
+
+If tuning is not enough and you want to stop receiving emails entirely, go to **Edit Email Delivery** and set **Email frequency** to **Pause email delivery**.
+
+Digests are still created and visible in the app — they just won't be sent to your inbox. Digests in this state show a **Paused** status badge.
+
+<Tip>
+If you pause email delivery, consider setting up an [RSS/Atom feed](/guides/feeds) in a feed reader instead. You keep full access to new papers without inbox pressure.
+</Tip>
