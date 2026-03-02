@@ -1,0 +1,27 @@
+---
+title: "Does Paperzilla have an OpenClaw skill?"
+description: "Install the Paperzilla skill from ClawHub so AI agents can browse your research feeds directly."
+keywords: ["OpenClaw", "ClawHub", "skill", "agent", "Claude Code", "Cursor"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/answers/openclaw-skill" />
+
+Yes. The Paperzilla CLI is published as an [OpenClaw skill on ClawHub](https://clawhub.ai/pors/paperzilla).
+
+Install it:
+
+```bash
+clawhub install paperzilla
+```
+
+Once installed, AI agents (Claude Code, Cursor, Windsurf, and others that support the AgentSkills standard) can list projects, browse feeds, and filter papers using `pz` commands.
+
+You still need the `pz` CLI installed and authenticated — the skill teaches the agent how to use it.
+
+## Related
+
+- [CLI guide](/guides/cli)
+- [Agent workflows](/guides/agent-workflows)
+- [MCP integration](/guides/mcp)
