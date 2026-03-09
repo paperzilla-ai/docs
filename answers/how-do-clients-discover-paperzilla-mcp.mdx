@@ -1,0 +1,61 @@
+---
+title: "How do clients discover the Paperzilla MCP URL and tools?"
+sidebarTitle: "MCP discovery"
+description: "How MCP clients find the Paperzilla server URL, discover available tools, and how this differs from OpenAPI."
+keywords: ["MCP discovery", "OpenAPI", "tools/list", "initialize", "API client"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/answers/how-do-clients-discover-paperzilla-mcp" />
+
+The MCP server URL is discovered out-of-band.
+
+For Paperzilla, that usually means your client or user starts with the documented endpoint from the docs, app setup instructions, or docs indexed via `llms.txt`:
+
+`https://paperzilla.ai/api/mcp`
+
+This URL does **not** come from OpenAPI.
+
+## What happens after the client knows the URL
+
+Once the client is pointed at the MCP endpoint and has a valid MCP API key, it can discover the callable surface from MCP itself.
+
+In practice, the client initializes the MCP connection first, then calls:
+
+1. `tools/list`
+2. Optionally `prompts/list`
+
+`tools/list` returns the available tool names plus input schemas, so the client can see what calls exist and what arguments they take.
+
+That means MCP is self-describing after connection.
+
+## Does MCP have its own endpoints?
+
+Externally, no per-tool endpoints are required.
+
+Paperzilla exposes one MCP endpoint at `/api/mcp`, and tool calls happen over that protocol connection.
+
+Internally, those tools are backed by Paperzilla's own app logic and data access. A tool may read directly from internal services or data stores instead of calling the public REST API.
+
+## How this relates to OpenAPI
+
+OpenAPI documents a REST API.
+
+MCP tool discovery works differently:
+
+- OpenAPI tells a REST client which HTTP routes exist
+- MCP tells an MCP client which tools exist through `tools/list`
+
+So if you are building an MCP client for Paperzilla, you usually need:
+
+- The MCP server URL
+- An MCP API key
+- Standard MCP calls like `initialize` and `tools/list`
+
+Use OpenAPI only for Paperzilla's normal REST endpoints, not for MCP tool discovery.
+
+See also:
+
+- [Use Paperzilla with MCP](/guides/mcp)
+- [MCP endpoint (developer appendix)](/api-reference/mcp)
