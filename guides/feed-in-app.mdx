@@ -1,7 +1,7 @@
 ---
 title: "In-app feed"
-description: "Use Paperzilla's in-app feed to read and filter project papers by relevance."
-keywords: ["in-app feed", "paper list", "relevance filter", "search"]
+description: "Use the in-app project feed to triage papers, filter the list, and teach Paperzilla what belongs in future recommendations."
+keywords: ["in-app feed", "project feed", "feedback", "search", "triage"]
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
@@ -10,45 +10,96 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 Each project has a live paper feed in the app.
 
+This feed is designed for fast review:
+
+- On desktop, you get a two-pane workspace with the paper list on the left and paper details on the right.
+- On smaller screens, the list stays on the page and paper details open in a sheet.
+
 ## Open the feed
 
-1. Go to **Projects**.
+1. Go to the [Dashboard](https://paperzilla.ai/digests).
 2. Open a project.
-3. Click **View full feed**.
 
-## Filter by priority
+When you open a project, you land directly in its feed.
 
-Use filter chips:
+## Use the left-side controls
 
-- **All**: includes `Must Read` and `Related`
-- **Must Read**: highest-priority papers only
+The left side is your triage area.
 
-## Understand paper cards
+### Search
 
-Paper cards show:
-
-- Title and authors
-- Source (for example arXiv, medRxiv, bioRxiv, ChemRxiv, ChinaXiv)
-- Relevance class: **Must Read** or **Related**
-- Relevance percentage
-- Optional summary preview
-
-## Search inside feed
-
-Use search to filter by:
+Use the search box to filter the list by:
 
 - Paper title
 - Author names
-- Summary text
+- Summary terms
+
+### Feedback filters
+
+Use the feedback pills to focus the list:
+
+- **No feedback**: papers you have not rated yet
+- **Useful**: papers that fit the project well
+- **Very useful**: the strongest positive signal
+- **Not for me**: papers that are not a fit for this project
+
+You can combine search and feedback filters. Click an active filter again to clear it.
+
+## Understand paper cards
+
+The paper list is intentionally compact. Each row shows:
+
+- Title and authors
+- Source
+- Relevance percentage
+- Relevance class such as **Must read** or **Related**
+- An optional feedback status icon in the top-right corner
 
 ## Open paper details
 
-From a paper page, you can:
+Click a paper in the list to inspect it in the detail pane.
 
-- Read metadata
-- Open source or PDF links
-- Generate or view AI summary
-- Share (if project visibility allows)
+The right side shows:
+
+- Full title and authors
+- Metadata
+- Feedback controls
+- Abstract
+- Why the paper matched
+- Optional project note
+- Actions such as **View PDF**, **View on source**, **AI summary**, and **Share**
+
+## Leave feedback
+
+The feedback controls help you classify what belongs in the project feed.
+
+- **Useful**: a good match that should help shape future recommendations
+- **Very useful**: a standout paper you want Paperzilla to treat as a strong positive example
+- **Not for me**: a poor fit for the project
+
+If you choose **Not for me**, add a reason:
+
+- **Off-topic**
+- **Low quality**
+
+If a paper no longer matches the active filter after you rate it, it may disappear from the left list. The detail pane stays open so you can finish the feedback action.
+
+## Why feedback matters
+
+Feedback is not just for organizing the current list. It helps Paperzilla improve what it recommends next for that project.
+
+- Positive signals such as **Useful** and **Very useful** help reinforce the kinds of papers you want more often.
+- Negative signals such as **Not for me** help reduce papers that are off-topic or low quality.
+- The **No feedback** filter helps you work through fresh papers without losing track.
+
+## Suggested workflow
+
+1. Start with **No feedback**.
+2. Search if you want to narrow the list by topic, author, or phrase.
+3. Open papers one by one and read the right pane.
+4. Mark each paper as **Useful**, **Very useful**, or **Not for me**.
+5. Use **Very useful** to build a shortlist of the strongest papers.
+6. Use **AI summary** or **Share** when you want to go deeper or send a paper to someone else.
 
 ## When the feed is empty
 
