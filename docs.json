@@ -144,6 +144,7 @@
                 "expanded": false,
                 "pages": [
                   "answers/read-without-email",
+                  "answers/daily-vs-weekly-digests",
                   "answers/less-email",
                   "answers/change-max-papers",
                   "answers/pause-project",

@@ -15,7 +15,7 @@ It includes:
 - Categories
 - Interest description
 - Include and exclude keywords
-- Feed and email-digest settings
+- Feed and email delivery settings
 - Visibility and sharing settings
 
 ## Create a project
@@ -44,6 +44,7 @@ From the project page, you can:
 
 - Edit project details
 - Edit delivery settings
+- Choose **Daily**, **Weekly**, or **Pause** for digest emails
 - Toggle visibility (`private` or `public`)
 - Pause or resume the project
 - Copy RSS/Atom URL
@@ -56,6 +57,14 @@ From the project page, you can:
 - **Paused**: discovery and digest emails are paused
 - **Email paused**: discovery continues but digest emails are not sent (set via **Email frequency** → **Pause** in delivery settings)
 - **Setup needed**: project needs delivery completion
+
+## Delivery behavior
+
+- **Daily**: Paperzilla emails you when new relevant papers are ready. This is not necessarily every calendar day.
+- **Weekly**: Paperzilla keeps your feed current and still builds digests in the app, but sends one weekly email with the best-scoring papers from the past week.
+- **Pause**: Paperzilla continues discovery and keeps your feed available, but sends no digest emails.
+
+Weekly delivery uses the weekday and time you choose in delivery settings, based on the timezone in your user profile.
 
 ## Private vs public
 

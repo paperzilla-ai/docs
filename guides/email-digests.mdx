@@ -8,20 +8,61 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/guides/email-digests" />
 
-Email digests are one way to consume project results. Your project feed is still the source of truth in app, RSS/Atom, and CLI.
+Email digests are one way to consume project results. Your project feed remains the source of truth in app, RSS/Atom, and CLI.
+
+Changing **Email frequency** affects only the emails. Paperzilla still evaluates papers continuously, keeps your feed current, and creates digests you can browse in the app.
 
 ## Set up digest delivery
 
 During project setup:
 
 1. Add a project name.
-2. Set maximum papers per email.
-3. Add your email when prompted.
-4. Save project.
+2. Choose **Email frequency**.
+3. Set maximum papers per email.
+4. Add your email when prompted.
+5. Save project.
+
+## Choose daily, weekly, or paused delivery
+
+### Daily
+
+Choose **Daily** when you want email soon after new relevant papers are ready.
+
+- Daily is event-driven, not a guaranteed every-day blast.
+- If no new papers qualify, no daily email is sent.
+- Your feed and app digests continue as normal.
+
+### Weekly
+
+Choose **Weekly** when you want one scheduled checkpoint instead of email throughout the week.
+
+- Your feed stays live and continues updating as papers are processed.
+- Paperzilla still creates digests in the app during the week.
+- The weekly email includes the best-scoring papers from the past week, up to your max-paper limit.
+- Stronger matches are prioritized ahead of weaker related papers.
+
+### Pause
+
+Choose **Pause** when you want zero digest emails but still want discovery to continue.
+
+- Your feed stays current.
+- Digests are still created for browsing in the app.
+- No digest emails are sent.
 
 ## Change digest volume
 
-To reduce inbox volume, edit **Max papers per email** in delivery settings.
+To reduce inbox volume, you can:
+
+- lower **Max papers per email**
+- switch from **Daily** to **Weekly**
+- turn off **Include adjacent papers**
+- pause email delivery entirely
+
+## Weekly timing and timezone
+
+Weekly delivery runs on the weekday and time you choose in delivery settings.
+
+Paperzilla schedules that weekly email using the timezone in your user profile. If you want the digest to arrive in a different local timezone, update your timezone in your profile settings.
 
 ## Pause email delivery
 
@@ -39,7 +80,12 @@ This is different from [pausing the entire project](/answers/pause-project), whi
 
 A digest email includes a selected set of papers from your project, up to your max-paper limit.
 
-Some days may include fewer papers.
+What that means depends on the schedule:
+
+- **Daily**: recent papers that are ready for that project, up to your limit
+- **Weekly**: the best-scoring papers from the past week, up to your limit
+
+If your project excludes adjacent papers, the email only includes **Must Read** papers even if related papers exist in the app digest.
 
 ## Common controls
 
@@ -49,6 +95,7 @@ Some days may include fewer papers.
 
 ## Related answers
 
+- [Should I choose daily or weekly digest emails?](/answers/daily-vs-weekly-digests)
 - [How do I pause email digests without stopping my project?](/answers/pause-email-digests)
 - [How do I get less email?](/answers/less-email)
 - [How do I change max papers per email?](/answers/change-max-papers)
