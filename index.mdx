@@ -1,7 +1,7 @@
 ---
 title: "Paperzilla docs portal"
-description: "Official Paperzilla docs portal for projects, feeds, CLI, agent workflows, and integrations."
-keywords: ["research tracking", "paper feed", "email digest", "project", "documentation"]
+description: "Official Paperzilla docs portal for projects, feeds, CLI, MCP, agent workflows, and integrations."
+keywords: ["research tracking", "paper feed", "email digest", "project", "MCP", "documentation"]
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
@@ -10,14 +10,15 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 Paperzilla helps you track a research topic as a **project**.
 
-Each project gives you four ways to consume papers:
+Each project gives you five ways to consume papers:
 
 - In-app feed
 - RSS/Atom feed URL
 - CLI (`pz`)
+- MCP
 - Email digests
 
-Paperzilla also works as a **data layer for agents**: CLI, RSS/Atom, and MCP.
+Paperzilla also works as a **data layer for agents** through CLI, RSS/Atom, and MCP.
 
 ## Start here
 
@@ -27,6 +28,9 @@ Paperzilla also works as a **data layer for agents**: CLI, RSS/Atom, and MCP.
   </Card>
   <Card title="Agent workflows" icon="bot" href="/guides/agent-workflows">
     Use CLI, RSS/Atom, and MCP for automation.
+  </Card>
+  <Card title="MCP" icon="plug" href="/guides/mcp">
+    Connect Claude, Cursor, and other MCP clients to Paperzilla.
   </Card>
   <Card title="Quickstart" icon="rocket" href="/quickstart">
     Create your first project and start reading papers in minutes.
@@ -60,5 +64,5 @@ Paperzilla also works as a **data layer for agents**: CLI, RSS/Atom, and MCP.
 
 1. Follow the [quickstart](/quickstart).
 2. Configure your project in [projects](/guides/projects).
-3. Choose your preferred reading surface: [in-app feed](/guides/feed-in-app), [RSS/Atom](/guides/feeds), or [CLI](/guides/cli).
+3. Choose your preferred reading surface: [in-app feed](/guides/feed-in-app), [RSS/Atom](/guides/feeds), [CLI](/guides/cli), or [MCP](/guides/mcp).
 4. If you run agent workflows, start with [Agent workflows](/guides/agent-workflows).
