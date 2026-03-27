@@ -8,7 +8,7 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/guides/cli" />
 
-The Paperzilla CLI (`pz`) lets you browse your curated research feed, manage projects, and stay on top of new papers from the terminal. It works for both humans and AI agents — use `--json` to get structured output.
+The Paperzilla CLI (`pz`) lets you browse your curated research feed, inspect individual papers, manage projects, and stay on top of new papers from the terminal. It works for both humans and AI agents — use `--json` to get structured output.
 
 ## Install
 
@@ -106,6 +106,57 @@ Last Digest:      2025-08-01 09:00
 Interest:
   Recent advances in transformer architectures and efficiency
 ```
+
+### pz paper \<id\>
+
+Show details for a specific paper or feed item.
+
+`id` may be:
+
+- a full paper UUID
+- a paper `short_id`
+- a feed item / `project_paper` UUID returned by `pz feed --json`
+- a feed item / `project_paper` `short_id` returned by `pz feed --json`
+
+```bash
+pz paper 33403e66-bfc3-43e7-a849-14b03341201e
+```
+
+```
+Title:           A Novel Approach to Transformer Efficiency
+ID:              33403e66-bfc3-43e7-a849-14b03341201e
+Short ID:        abc12345
+Slug:            a-novel-approach
+Source:          arxiv
+Published:       2025-07-20
+Authors:         Jane Smith, John Chen
+URL:             https://example.org/paper
+PDF URL:         https://example.org/paper.pdf
+DOI:             10.1234/example
+Source Paper ID: 2507.12345
+```
+
+#### Flags
+
+| Flag | Short | Description |
+|------|-------|-------------|
+| `--json` | `-j` | Output the full paper as JSON |
+| `--markdown` | | Print raw paper markdown to stdout |
+
+#### Examples
+
+```bash
+# Inspect a paper by UUID or short ID
+pz paper <paper-id>
+
+# Fetch a paper using an ID returned by the feed JSON
+pz feed <project-id> --json | jq -r '.items[0].id' | xargs pz paper
+
+# Print raw markdown
+pz paper <paper-id> --markdown
+```
+
+If markdown generation is still pending, the CLI prints a friendly one-line message and asks you to try again in a minute or so.
 
 ### pz feed \<project-id\>
 
@@ -212,7 +263,7 @@ Install the skill:
 clawhub install paperzilla
 ```
 
-Once installed, your agent can list projects, browse feeds, and filter papers without manual CLI invocation. The skill wraps the same `pz` commands documented above.
+Once installed, your agent can list projects, inspect papers, browse feeds, and filter papers without manual CLI invocation. The skill wraps the same `pz` commands documented above.
 
 <Tip>
 You still need the `pz` binary installed and authenticated. The skill teaches the agent how to use it — it does not replace the CLI itself.
