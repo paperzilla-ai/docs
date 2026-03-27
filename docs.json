@@ -51,7 +51,8 @@
             "icon": "play",
             "pages": [
               "index",
-              "quickstart"
+              "quickstart",
+              "guides/cli-getting-started"
             ]
           },
           {

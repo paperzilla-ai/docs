@@ -1,0 +1,108 @@
+---
+title: "CLI getting started"
+description: "Install pz, sign in, create your first project, and learn the first commands to run."
+keywords: ["CLI getting started", "pz", "first project", "terminal onboarding"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/guides/cli-getting-started" />
+
+This is the fastest path from installing `pz` to getting useful output.
+
+## What the CLI expects
+
+The Paperzilla CLI works against your existing Paperzilla account and projects.
+
+That means:
+
+- you need a Paperzilla account
+- you need at least one project
+- then `pz` can list projects, browse feeds, open papers, print markdown, and generate Atom feed URLs
+
+If you installed `pz` first and have not set up Paperzilla yet, that is fine. Start with the web app once, then come back to the CLI.
+
+## Step 1: install pz
+
+Follow the install instructions in the [CLI guide](/guides/cli).
+
+## Step 2: sign in
+
+```bash
+pz login
+```
+
+Paperzilla sends a one-time email code and stores your session locally for reuse.
+
+## Step 3: if you do not have an account yet
+
+Go to [paperzilla.ai](https://paperzilla.ai) and follow the [quickstart](/quickstart).
+
+The short version:
+
+1. Describe what research you want to track.
+2. Review the proposed project setup.
+3. Save delivery.
+4. Confirm your email if prompted.
+
+That creates both your account access and your first project.
+
+## Step 4: if you signed in but have no projects
+
+Run:
+
+```bash
+pz project list
+```
+
+If you see no projects, create your first one in the web app:
+
+- [How do I create my first project?](/answers/create-first-project)
+- [What is a project in Paperzilla?](/answers/what-is-a-project)
+
+## Step 5: run your first useful commands
+
+List projects:
+
+```bash
+pz project list
+```
+
+Browse a project feed:
+
+```bash
+pz feed <project-id>
+```
+
+Inspect a paper or feed item:
+
+```bash
+pz paper <paper-or-feed-id>
+```
+
+Print raw paper markdown:
+
+```bash
+pz paper <paper-id> --markdown
+```
+
+Get an Atom feed URL:
+
+```bash
+pz feed <project-id> --atom
+```
+
+## If your project exists but has no papers yet
+
+That usually means the project is still processing, paused, too narrow, or too strict.
+
+See:
+
+- [Why does my project have no papers yet?](/answers/project-no-papers)
+
+## Next docs
+
+- [CLI guide](/guides/cli)
+- [RSS and Atom feeds](/guides/feeds)
+- [In-app feed](/guides/feed-in-app)
+- [MCP guide](/guides/mcp)
