@@ -1,6 +1,6 @@
 ---
 title: "MCP endpoint (developer appendix)"
-description: "Technical MCP endpoint details for developers integrating Paperzilla clients."
+description: "Technical MCP endpoint details for developers integrating Paperzilla clients with projects, feeds, paper detail, and markdown."
 keywords: ["MCP endpoint", "developer", "SSE", "Bearer token", "tool list"]
 ---
 
@@ -52,7 +52,7 @@ POST /api/auth/mcp-key/rotate
 DELETE /api/auth/mcp-key
 ```
 
-## MCP methods used in MVP
+## MCP methods currently used
 
 Paperzilla supports standard MCP flows including:
 
@@ -88,8 +88,50 @@ curl -s -X POST https://paperzilla.ai/api/mcp \
 | `projects.get` | `{ "project_id": "uuid" }` |
 | `feed.get` | `{ "project_id": "uuid", "must_read"?: boolean, "since"?: string, "limit"?: 1..100, "offset"?: 0.. }` |
 | `feed.atom_url` | `{ "project_id": "uuid" }` |
+| `paper.get` | `{ "paper_id": "uuid-or-short-id-or-feed-item-id" }` |
+| `paper.markdown` | `{ "paper_id": "uuid-or-short-id-or-feed-item-id" }` |
 
-Outputs follow the same shape as existing project/feed API responses.
+`paper.get` accepts the same identifier forms as the paper API:
+
+- paper UUID
+- paper `short_id`
+- `project_paper` UUID
+- `project_paper` `short_id`
+
+`projects.*` and `feed.*` outputs follow the same shape as the corresponding API responses.
+
+`paper.get` returns the same paper detail fields as the authenticated paper API, including `markdown_ready`.
+
+`paper.markdown` always returns a structured object:
+
+- ready:
+  ```json
+  {
+    "status": "ready",
+    "paper_id": "uuid",
+    "markdown": "# Markdown...",
+    "mime_type": "text/markdown",
+    "markdown_ready": true
+  }
+  ```
+- queued:
+  ```json
+  {
+    "status": "queued",
+    "detail": "Markdown queued",
+    "code": "markdown_queued",
+    "job_id": "uuid",
+    "created": true
+  }
+  ```
+- unavailable:
+  ```json
+  {
+    "status": "unavailable",
+    "detail": "Markdown source unavailable",
+    "code": "markdown_source_unavailable"
+  }
+  ```
 
 ## Tool call example
 
@@ -129,4 +171,5 @@ The prompt instructs the model to call `feed.get`, then filter by title keyword 
 - Invalid/missing key: HTTP `401`
 - Disallowed `Origin`: HTTP `403`
 - Invalid MCP method/JSON-RPC shape: protocol-level error
-- Business/domain errors (ownership, missing project): tool result with `isError: true`
+- Business/domain errors (ownership, missing project, missing paper, ambiguous short ID): tool result with `isError: true`
+- `paper.markdown` queueing and source-unavailable cases are normal tool results, not tool errors

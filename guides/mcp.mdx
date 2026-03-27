@@ -1,6 +1,6 @@
 ---
 title: "Use Paperzilla with MCP"
-description: "Connect your MCP client to Paperzilla and consume your project feeds in natural language."
+description: "Connect your MCP client to Paperzilla and access projects, feeds, paper detail, and markdown in natural language."
 keywords: ["MCP", "Model Context Protocol", "AI agent", "Claude", "Cursor"]
 ---
 
@@ -8,7 +8,7 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/guides/mcp" />
 
-Use Paperzilla MCP when you want your AI assistant to pull your project feeds directly.
+Use Paperzilla MCP when you want your AI assistant to pull your Paperzilla data directly.
 
 Endpoint:
 
@@ -21,6 +21,8 @@ If you want the short explanation of how MCP clients discover this URL and then 
 - List your projects
 - Open one project
 - Pull feed items with filters like Must Read, since date, and limit
+- Open one paper by paper ID, paper short ID, feed item ID, or feed item short ID
+- Get markdown for one paper, or queue markdown generation if it is not ready yet
 - Get the project's Atom URL
 
 ## Quickstart
@@ -71,6 +73,8 @@ Try requests like:
 
 - "List my Paperzilla projects."
 - "Show must-read papers for project `<project-id>` since `2026-02-01` limit 20."
+- "Open paper `<paper-id>`."
+- "Get the markdown for paper `<paper-id>`."
 - "Get the Atom URL for project `<project-id>`."
 
 ## Available tools today
@@ -81,6 +85,8 @@ Try requests like:
 | `projects.get` | Get one project | `pz project <id>` |
 | `feed.get` | Get project feed with filters | `pz feed <id> --must-read --since --limit` |
 | `feed.atom_url` | Get Atom URL for a project | `pz feed <id> --atom` |
+| `paper.get` | Get one paper by paper ID or feed item ID | `pz paper <id>` |
+| `paper.markdown` | Get paper markdown or queue markdown generation | `pz paper <id> --markdown` |
 | `feed_title_filter` (optional prompt) | Ask the model to call `feed.get` and apply title keyword filtering client-side | No direct CLI equivalent |
 
 ## About prompts
@@ -92,6 +98,14 @@ If your client supports prompts, `feed_title_filter` helps with one task:
 - Pull feed items
 - Filter by title keyword in the client/model layer
 - Return filtered results with that behavior clearly stated
+
+## Markdown results
+
+`paper.markdown` always returns a structured result.
+
+- `status: "ready"` means markdown content is included in the response
+- `status: "queued"` means Paperzilla accepted the request and queued markdown generation
+- `status: "unavailable"` means that paper does not currently have a usable markdown source
 
 ## CLI vs MCP
 
@@ -111,4 +125,5 @@ Use [RSS/Atom](/guides/feeds) for passive feed-reader polling.
 
 - `401 Unauthorized` on `/api/mcp`: missing, revoked, or invalid MCP API key
 - Empty or unexpected results: confirm you are using the key for the correct Paperzilla account
-- `404 Not Found` for project/feed calls: project is not accessible in your account
+- `404 Not Found` for project/feed/paper calls: the resource is not accessible in your account
+- `isError: true` with an ambiguous short ID message: retry with the full UUID instead of the 8-character short ID
