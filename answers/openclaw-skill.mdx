@@ -10,18 +10,29 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 Yes. The Paperzilla CLI is published as an [OpenClaw skill on ClawHub](https://clawhub.ai/pors/paperzilla).
 
-Install it:
+If you use current OpenClaw, install it with:
+
+```bash
+openclaw skills install paperzilla
+```
+
+If you already use the separate ClawHub CLI, this also works:
 
 ```bash
 clawhub install paperzilla
 ```
 
+If your OpenClaw version is older and `openclaw skills install paperzilla` fails because `skills` does not support subcommands yet, use `clawhub install paperzilla`.
+
 Once installed, AI agents (Claude Code, Cursor, Windsurf, and others that support the AgentSkills standard) can list projects, browse feeds, and filter papers using `pz` commands.
 
 You still need the `pz` CLI installed and authenticated — the skill teaches the agent how to use it.
 
+To update the skill later, use `openclaw skills update paperzilla` or `clawhub update paperzilla`.
+
 ## Related
 
 - [CLI guide](/guides/cli)
+- [Use the Paperzilla CLI with OpenClaw](/guides/openclaw)
 - [Agent workflows](/guides/agent-workflows)
 - [MCP integration](/guides/mcp)

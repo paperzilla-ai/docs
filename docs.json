@@ -66,6 +66,7 @@
                 "pages": [
                   "guides/agent-workflows",
                   "guides/cli",
+                  "guides/openclaw",
                   "guides/mcp",
                   "guides/claude"
                 ]

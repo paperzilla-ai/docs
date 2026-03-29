@@ -257,9 +257,17 @@ With `--json`, the feed returns structured data suitable for scripting and AI ag
 
 ## OpenClaw skill
 
-The Paperzilla CLI is also available as an [OpenClaw skill on ClawHub](https://clawhub.ai/pors/paperzilla). This lets AI agents like Claude Code, Cursor, and Windsurf use `pz` commands directly.
+The Paperzilla CLI is also available as an [OpenClaw skill on ClawHub](https://clawhub.ai/pors/paperzilla). This lets AI agents like OpenClaw, Claude Code, Cursor, and Windsurf use `pz` commands directly.
 
-Install the skill:
+For the full setup flow, see [Use the Paperzilla CLI with OpenClaw](/guides/openclaw).
+
+If you already use OpenClaw, install the skill with:
+
+```bash
+openclaw skills install paperzilla
+```
+
+If you already use the separate ClawHub CLI, this also works:
 
 ```bash
 clawhub install paperzilla

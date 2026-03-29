@@ -1,0 +1,159 @@
+---
+title: "Use the Paperzilla CLI with OpenClaw"
+description: "Install the Paperzilla skill in OpenClaw so your agent can use the pz CLI to list projects, browse feeds, inspect paper metadata, and fetch markdown."
+keywords: ["OpenClaw", "ClawHub", "Paperzilla CLI", "pz", "agent skill"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/guides/openclaw" />
+
+Use this guide when you want OpenClaw to use the Paperzilla CLI (`pz`) directly.
+
+This is the CLI-based path. If you want Paperzilla over MCP instead, use [Use Paperzilla with MCP](/guides/mcp) or [Use Paperzilla MCP with Claude](/guides/claude).
+
+## Before you start
+
+- OpenClaw installed
+- `pz` installed. If you have not installed it yet, start with the [CLI guide](/guides/cli).
+- `pz` authenticated with `pz login`
+- At least one Paperzilla project in your account
+
+## How this works
+
+The Paperzilla skill teaches OpenClaw when to use the `pz` CLI.
+
+It does not replace the `pz` binary or your Paperzilla login.
+
+OpenClaw can find the skill when you mention it in your request.
+
+## Step 1: install and test the Paperzilla CLI
+
+Install `pz`, then log in:
+
+```bash
+pz login
+```
+
+Confirm the CLI works before you add the skill:
+
+```bash
+pz project list
+```
+
+If this command does not work yet, fix the CLI setup first. OpenClaw depends on the same local `pz` install.
+
+## Step 2: install the Paperzilla skill in OpenClaw
+
+If you are using current OpenClaw, install the skill with the native OpenClaw command:
+
+```bash
+openclaw skills install paperzilla
+```
+
+If you already use the separate ClawHub CLI, this also works:
+
+```bash
+clawhub install paperzilla
+```
+
+`openclaw skills install` installs into the active workspace `skills/` directory.
+
+The separate `clawhub` CLI installs into `./skills` under your current working directory, or falls back to the configured OpenClaw workspace.
+
+<Note>If your OpenClaw version is older and `openclaw skills install paperzilla` fails because `skills` does not accept subcommands yet, use `clawhub install paperzilla` instead.</Note>
+
+## Updating the skill
+
+To update the Paperzilla skill to the latest published version:
+
+```bash
+openclaw skills update paperzilla
+```
+
+If you use the separate ClawHub CLI instead:
+
+```bash
+clawhub update paperzilla
+```
+
+To update every installed skill:
+
+```bash
+clawhub update --all
+```
+
+## Step 3: ask OpenClaw to use Paperzilla
+
+After install, ask OpenClaw to use Paperzilla in the workspace where you installed the skill.
+
+You can ask for things like:
+
+- "List my Paperzilla projects."
+- "Show the newest must-read papers from my agents project."
+- "Open the newest must-read paper and summarize the metadata."
+- "Get markdown for that paper."
+- "Compare the two most recent must-read papers from this week."
+- "Get the Atom feed URL for my evaluation project."
+
+## What OpenClaw can do through the skill
+
+The skill wraps the same `pz` workflows documented in the CLI guide.
+
+That includes:
+
+- listing projects
+- opening one project
+- browsing a feed with filters like `--must-read`, `--since`, and `--limit`
+- opening one paper by UUID, short ID, or feed item ID
+- fetching raw paper markdown
+- getting an Atom feed URL
+
+## When to use this vs MCP
+
+Use OpenClaw plus CLI when:
+
+- your agent already works in a terminal or workspace
+- you want to reuse the local `pz` session
+- you prefer deterministic CLI output and shell-friendly workflows
+
+Use [MCP](/guides/mcp) when:
+
+- your client already supports MCP directly
+- you want a remote tool surface instead of a local CLI dependency
+- you do not want to install `pz` in the agent environment
+
+## Troubleshooting
+
+### OpenClaw does not seem to use Paperzilla
+
+Mention Paperzilla explicitly in the request so OpenClaw has a clear reason to use the skill.
+
+### `pz` works in your shell but not for OpenClaw
+
+Make sure `pz` is on `PATH` in the environment where OpenClaw runs.
+
+### `clawhub` is not installed
+
+That is fine. Use `openclaw skills install paperzilla` instead. The separate `clawhub` CLI is mainly for registry workflows such as publish or sync.
+
+### You get no projects or no papers
+
+Check the underlying CLI first:
+
+```bash
+pz project list
+pz feed <project-id>
+```
+
+If the CLI shows no data, fix that first in Paperzilla or the local CLI session.
+
+### Markdown is not ready yet
+
+The Paperzilla CLI may ask you to try again shortly if markdown generation is still pending.
+
+## Related
+
+- [CLI guide](/guides/cli)
+- [Agent workflows](/guides/agent-workflows)
+- [Does Paperzilla have an OpenClaw skill?](/answers/openclaw-skill)
