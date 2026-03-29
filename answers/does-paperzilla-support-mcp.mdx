@@ -14,9 +14,14 @@ Paperzilla provides an MCP endpoint at:
 
 `https://paperzilla.ai/api/mcp`
 
-Use your per-user MCP API key in `Authorization: Bearer <key>`.
+Use your per-user MCP API key in either of these forms:
 
-You can create or revoke this key from **MCP API key** in the top-right of the [dashboard](https://paperzilla.ai/digests).
+- `Authorization: Bearer <key>`
+- `https://paperzilla.ai/api/mcp/?key=<key>`
+
+You can create or revoke this key from **MCP API key** in the top-right of the [dashboard](https://paperzilla.ai/dashboard).
+
+If you are using Claude, see [Use Paperzilla MCP with Claude](/guides/claude).
 
 Available tools today:
 

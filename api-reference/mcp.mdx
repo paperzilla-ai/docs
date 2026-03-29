@@ -1,7 +1,7 @@
 ---
 title: "MCP endpoint (developer appendix)"
 description: "Technical MCP endpoint details for developers integrating Paperzilla clients with projects, feeds, paper detail, and markdown."
-keywords: ["MCP endpoint", "developer", "SSE", "Bearer token", "tool list"]
+keywords: ["MCP endpoint", "developer", "SSE", "Bearer token", "query parameter", "tool list"]
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
@@ -28,13 +28,19 @@ If you want the short version of how discovery works, see [How do clients discov
 
 ## Authentication
 
-Send your MCP API key in the authorization header:
+Send your MCP API key in either of these ways:
 
 ```http
 Authorization: Bearer pzmcp_<prefix>_<secret>
 ```
 
-For most users, create/revoke this key from **MCP API key** in the top-right of the [dashboard](https://paperzilla.ai/digests).
+```text
+https://paperzilla.ai/api/mcp/?key=pzmcp_<prefix>_<secret>
+```
+
+Use the header form when your client supports custom headers. Use the query-string form when your client only accepts a URL, including Claude's custom connector flow.
+
+For most users, create/revoke this key from **MCP API key** in the top-right of the [dashboard](https://paperzilla.ai/dashboard).
 
 Get or rotate that key from app-authenticated endpoints:
 
@@ -63,6 +69,8 @@ Paperzilla supports standard MCP flows including:
 - `prompts/get`
 
 ## Initialize example
+
+The examples below use header auth.
 
 ```bash
 curl -s -X POST https://paperzilla.ai/api/mcp \

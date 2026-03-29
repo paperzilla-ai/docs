@@ -1,0 +1,31 @@
+---
+title: "How do I use Paperzilla MCP with Claude?"
+sidebarTitle: "MCP with Claude"
+description: "Add Paperzilla as a custom connector in Claude, then let Claude use projects, feeds, paper metadata, and markdown from your Paperzilla account."
+keywords: ["Paperzilla Claude MCP", "Claude custom connector", "Paperzilla connector", "Claude paper metadata markdown"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/answers/how-do-i-use-paperzilla-mcp-with-claude" />
+
+Add Paperzilla as a custom connector in Claude.
+
+The short version:
+
+1. Create or copy your **MCP API key** from the [dashboard](https://paperzilla.ai/dashboard).
+2. In Claude, open **Settings** > **Connectors**.
+3. Add a custom connector named `Paperzilla`.
+4. Use `https://paperzilla.ai/api/mcp/?key=pzmcp_...` as the connector URL.
+5. After setup, switch the connector to **Always allow** so Claude can use the tools without asking on every call.
+
+Once connected, Claude can use:
+
+- `projects.list`
+- `projects.get`
+- `feed.get`
+- `feed.atom_url`
+- `paper.get`
+- `paper.markdown`
+
+For the full walkthrough, see [Use Paperzilla MCP with Claude](/guides/claude).

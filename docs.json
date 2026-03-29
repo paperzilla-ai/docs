@@ -66,7 +66,8 @@
                 "pages": [
                   "guides/agent-workflows",
                   "guides/cli",
-                  "guides/mcp"
+                  "guides/mcp",
+                  "guides/claude"
                 ]
               },
               {
@@ -115,8 +116,6 @@
                   "answers/what-does-paperzilla-do",
                   "answers/who-should-use-paperzilla",
                   "answers/is-paperzilla-for-ai-agents",
-                  "answers/does-paperzilla-support-mcp",
-                  "answers/how-do-clients-discover-paperzilla-mcp",
                   "answers/do-i-need-to-code",
                   "answers/how-is-paperzilla-different-from-rss-alerts",
                   "answers/how-is-paperzilla-different-from-google-scholar-alerts",
@@ -125,6 +124,17 @@
                   "answers/what-are-paperzilla-output-formats",
                   "answers/why-use-feed-and-email-both",
                   "answers/is-paperzilla-only-for-ml-or-biomed"
+                ]
+              },
+              {
+                "group": "MCP",
+                "icon": "plug",
+                "expanded": false,
+                "pages": [
+                  "answers/does-paperzilla-support-mcp",
+                  "answers/can-paperzilla-mcp-return-individual-paper-metadata-and-markdown",
+                  "answers/how-do-i-use-paperzilla-mcp-with-claude",
+                  "answers/how-do-clients-discover-paperzilla-mcp"
                 ]
               },
               {
@@ -230,7 +240,7 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://paperzilla.ai/digests"
+      "href": "https://paperzilla.ai/dashboard"
     }
   },
   "contextual": {

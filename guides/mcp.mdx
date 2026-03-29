@@ -10,6 +10,8 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 Use Paperzilla MCP when you want your AI assistant to pull your Paperzilla data directly.
 
+If you are using Claude's custom connector flow, start with [Use Paperzilla MCP with Claude](/guides/claude). Claude uses a client-specific setup flow.
+
 Endpoint:
 
 `https://paperzilla.ai/api/mcp`
@@ -31,7 +33,7 @@ If you want the short explanation of how MCP clients discover this URL and then 
 
 Create a personal MCP key in your Paperzilla dashboard:
 
-1. Open your [dashboard](https://paperzilla.ai/digests).
+1. Open your [dashboard](https://paperzilla.ai/dashboard).
 2. Click **MCP API key** (top-right, key icon).
 3. Click **Generate key**.
 4. Copy the key and store it securely.
@@ -47,9 +49,9 @@ Keep this key private. You only see the plaintext value when you create or rotat
 Use:
 
 - URL: `https://paperzilla.ai/api/mcp`
-- Header: `Authorization: Bearer <your-mcp-api-key>`
+- Auth: either `Authorization: Bearer <your-mcp-api-key>` or `https://paperzilla.ai/api/mcp/?key=<your-mcp-api-key>`
 
-Example config shape:
+Header-based example config shape:
 
 ```json
 {
@@ -65,6 +67,12 @@ Example config shape:
     }
   }
 }
+```
+
+URL-only client example:
+
+```text
+https://paperzilla.ai/api/mcp/?key=pzmcp_...
 ```
 
 ### 3. Ask your assistant to call Paperzilla
