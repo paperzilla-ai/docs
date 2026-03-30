@@ -89,13 +89,15 @@ Try requests like:
 
 | Name | Purpose | CLI parity |
 |---|---|---|
-| `projects.list` | List your projects | `pz project list` |
-| `projects.get` | Get one project | `pz project <id>` |
-| `feed.get` | Get project feed with filters | `pz feed <id> --must-read --since --limit` |
-| `feed.atom_url` | Get Atom URL for a project | `pz feed <id> --atom` |
-| `paper.get` | Get one paper by paper ID or feed item ID | `pz paper <id>` |
-| `paper.markdown` | Get paper markdown or queue markdown generation | `pz paper <id> --markdown` |
-| `feed_title_filter` (optional prompt) | Ask the model to call `feed.get` and apply title keyword filtering client-side | No direct CLI equivalent |
+| `projects_list` | List your projects | `pz project list` |
+| `projects_get` | Get one project | `pz project <id>` |
+| `feed_get` | Get project feed with filters | `pz feed <id> --must-read --since --limit` |
+| `feed_atom_url` | Get Atom URL for a project | `pz feed <id> --atom` |
+| `paper_get` | Get one paper by paper ID or feed item ID | `pz paper <id>` |
+| `paper_markdown` | Get paper markdown or queue markdown generation | `pz paper <id> --markdown` |
+| `feed_title_filter` (optional prompt) | Ask the model to call `feed_get` and apply title keyword filtering client-side | No direct CLI equivalent |
+
+Legacy dotted names like `paper.get` still work for direct `tools/call` compatibility, but Claude-compatible clients should use the underscore names above.
 
 ## About prompts
 
@@ -109,7 +111,7 @@ If your client supports prompts, `feed_title_filter` helps with one task:
 
 ## Markdown results
 
-`paper.markdown` always returns a structured result.
+`paper_markdown` always returns a structured result.
 
 - `status: "ready"` means markdown content is included in the response
 - `status: "queued"` means Paperzilla accepted the request and queued markdown generation

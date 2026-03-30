@@ -92,25 +92,27 @@ curl -s -X POST https://paperzilla.ai/api/mcp \
 
 | Tool | Input |
 |---|---|
-| `projects.list` | `{}` |
-| `projects.get` | `{ "project_id": "uuid" }` |
-| `feed.get` | `{ "project_id": "uuid", "must_read"?: boolean, "since"?: string, "limit"?: 1..100, "offset"?: 0.. }` |
-| `feed.atom_url` | `{ "project_id": "uuid" }` |
-| `paper.get` | `{ "paper_id": "uuid-or-short-id-or-feed-item-id" }` |
-| `paper.markdown` | `{ "paper_id": "uuid-or-short-id-or-feed-item-id" }` |
+| `projects_list` | `{}` |
+| `projects_get` | `{ "project_id": "uuid" }` |
+| `feed_get` | `{ "project_id": "uuid", "must_read"?: boolean, "since"?: string, "limit"?: 1..100, "offset"?: 0.. }` |
+| `feed_atom_url` | `{ "project_id": "uuid" }` |
+| `paper_get` | `{ "paper_id": "uuid-or-short-id-or-feed-item-id" }` |
+| `paper_markdown` | `{ "paper_id": "uuid-or-short-id-or-feed-item-id" }` |
 
-`paper.get` accepts the same identifier forms as the paper API:
+Legacy dotted names such as `paper.get` remain accepted for direct `tools/call` compatibility, but Claude-compatible clients should use the underscore names above.
+
+`paper_get` accepts the same identifier forms as the paper API:
 
 - paper UUID
 - paper `short_id`
 - `project_paper` UUID
 - `project_paper` `short_id`
 
-`projects.*` and `feed.*` outputs follow the same shape as the corresponding API responses.
+`projects_*` and `feed_*` outputs follow the same shape as the corresponding API responses.
 
-`paper.get` returns the same paper detail fields as the authenticated paper API, including `markdown_ready`.
+`paper_get` returns the same paper detail fields as the authenticated paper API, including `markdown_ready`.
 
-`paper.markdown` always returns a structured object:
+`paper_markdown` always returns a structured object:
 
 - ready:
   ```json
@@ -152,7 +154,7 @@ curl -s -X POST https://paperzilla.ai/api/mcp \
     "id":2,
     "method":"tools/call",
     "params":{
-      "name":"projects.list",
+      "name":"projects_list",
       "arguments":{}
     }
   }'
@@ -172,7 +174,7 @@ Arguments:
 - `must_read` (optional)
 - `limit` (optional)
 
-The prompt instructs the model to call `feed.get`, then filter by title keyword client-side and explicitly report that this filter is prompt-side.
+The prompt instructs the model to call `feed_get`, then filter by title keyword client-side and explicitly report that this filter is prompt-side.
 
 ## Error semantics
 
@@ -180,4 +182,4 @@ The prompt instructs the model to call `feed.get`, then filter by title keyword 
 - Disallowed `Origin`: HTTP `403`
 - Invalid MCP method/JSON-RPC shape: protocol-level error
 - Business/domain errors (ownership, missing project, missing paper, ambiguous short ID): tool result with `isError: true`
-- `paper.markdown` queueing and source-unavailable cases are normal tool results, not tool errors
+- `paper_markdown` queueing and source-unavailable cases are normal tool results, not tool errors

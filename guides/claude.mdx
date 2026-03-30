@@ -88,12 +88,14 @@ You can ask things like:
 
 | Tool | What it returns |
 |---|---|
-| `projects.list` | Your projects |
-| `projects.get` | One project |
-| `feed.get` | Feed items with filters such as `must_read`, `since`, `limit`, and `offset` |
-| `feed.atom_url` | The Atom feed URL for one project |
-| `paper.get` | Paper metadata and status |
-| `paper.markdown` | Paper markdown, or a queued/unavailable status |
+| `projects_list` | Your projects |
+| `projects_get` | One project |
+| `feed_get` | Feed items with filters such as `must_read`, `since`, `limit`, and `offset` |
+| `feed_atom_url` | The Atom feed URL for one project |
+| `paper_get` | Paper metadata and status |
+| `paper_markdown` | Paper markdown, or a queued/unavailable status |
+
+Claude-compatible MCP clients should use these underscore tool names. Paperzilla still accepts legacy dotted names like `paper.get` for direct `tools/call` compatibility.
 
 If you want the full protocol and input shapes, see [MCP endpoint (developer appendix)](/api-reference/mcp).
 

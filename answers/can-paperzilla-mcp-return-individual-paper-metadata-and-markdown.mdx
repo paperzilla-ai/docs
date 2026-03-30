@@ -1,8 +1,8 @@
 ---
 title: "Can Paperzilla MCP return individual paper metadata and markdown?"
 sidebarTitle: "Paper metadata and markdown"
-description: "Yes. Paperzilla MCP can return one paper's metadata with paper.get and raw paper markdown with paper.markdown."
-keywords: ["Paperzilla MCP markdown", "paper metadata", "paper.get", "paper.markdown", "MCP paper detail"]
+description: "Yes. Paperzilla MCP can return one paper's metadata with paper_get and paper_markdown."
+keywords: ["Paperzilla MCP markdown", "paper metadata", "paper_get", "paper_markdown", "MCP paper detail"]
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
@@ -13,10 +13,10 @@ Yes.
 
 Paperzilla MCP supports two per-paper tools:
 
-- `paper.get` returns one paper's metadata and status fields
-- `paper.markdown` returns that paper's markdown when it is ready
+- `paper_get` returns one paper's metadata and status fields
+- `paper_markdown` returns that paper's markdown when it is ready
 
-If markdown is not ready yet, `paper.markdown` returns a structured result that tells you whether markdown generation was queued or unavailable.
+If markdown is not ready yet, `paper_markdown` returns a structured result that tells you whether markdown generation was queued or unavailable.
 
 You can look up a paper by:
 
