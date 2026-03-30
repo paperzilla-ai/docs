@@ -1,0 +1,123 @@
+---
+title: "Use Claude in Slack for research briefs"
+description: "Run Paperzilla brief workflows through Claude in Slack and Cowork with Paperzilla MCP."
+keywords: ["Claude", "Slack", "Cowork", "MCP", "Paperzilla", "research brief", "daily brief"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/guides/claude-slack-briefs" />
+
+Use this guide when you want to discuss one Paperzilla project in Slack and send a weekday research brief to Slack from Cowork.
+
+This walkthrough uses Claude in Slack for the live discussion, Paperzilla MCP for Paperzilla data access, and Cowork scheduled tasks for recurring delivery.
+
+## Before you start
+
+- Complete [Use Paperzilla MCP with Claude](/guides/claude).
+- Make sure Claude is already available in Slack. See [Getting started with Claude in Slack](https://support.claude.com/en/articles/11506255-getting-started-with-claude-in-slack).
+- Make sure Cowork is available in Claude Desktop. See [Get started with Cowork](https://support.claude.com/en/articles/13345190-get-started-with-cowork).
+- Pick one Paperzilla project for this workflow.
+- Prepare one short sentence for "our work" if Claude does not already know it. Example: `Our work is evaluation infrastructure for coding agents.`
+
+<Warning>Set up the Paperzilla MCP connection in Claude first. Anthropic says you cannot create or manage integrations from Slack itself.</Warning>
+
+## How this stack works
+
+- You discuss papers with Claude in Slack.
+- Claude reads your Paperzilla data through the Paperzilla MCP connection you already configured in Claude.
+- For the weekday brief, Cowork runs a scheduled task and prepares a Slack-ready post.
+- Start with a Slack draft. Move to direct send only after you trust the brief format.
+
+## Use case 1: on-demand paper discussion
+
+For the cleanest flow, use a Claude DM in Slack. If you want team visibility, mention `@Claude` in a channel or thread and review the private draft before posting it.
+
+First ask for the latest papers from one project:
+
+```text
+Use my Paperzilla project `Agents evaluation`.
+Our work: we build evaluation infrastructure for coding agents.
+
+Pull the latest papers from this project and show the top 5.
+For each one, include the title, date, source, and whether it looks Must Read or Related.
+```
+
+Then ask for metadata for one paper:
+
+```text
+Open the second paper and show the metadata only.
+Include authors, publication date, source, URL, and the Paperzilla ID you used.
+```
+
+Then fetch markdown and connect it back to your team context:
+
+```text
+Fetch the markdown for that paper.
+Summarize the contribution, method, results, and limits.
+Then explain why it matters for our work.
+```
+
+Then keep the discussion going:
+
+```text
+Given our current work, should we read this now, keep it as Related, or ignore it this week?
+Defend the recommendation.
+```
+
+Good replies for this flow should:
+
+- keep the project name and "our work" context in view
+- separate metadata from interpretation
+- explain relevance in terms of your actual work, not generic importance
+- make it easy to continue the discussion in the same Slack conversation
+
+If you use `@Claude` in a shared thread, Claude in Slack shows the draft privately first and lets you decide whether to post it.
+
+## Use case 2: weekday research brief in Slack
+
+This pattern runs in Cowork on weekdays and prepares a brief for Slack.
+
+Start a Cowork task, paste a prompt like this, then type `/schedule` and set the run to weekdays at your preferred time:
+
+```text
+Use my Paperzilla project `Agents evaluation`.
+Our work: we build evaluation infrastructure for coding agents.
+
+Every weekday morning:
+1. Pull the newest papers from this project.
+2. Keep the brief concise.
+3. For each selected paper, include the title, one short summary, and one sentence on why it is relevant to our work.
+4. Include the project name and today's date at the top.
+5. If there are no new papers, say that explicitly.
+6. Draft a Slack post for #research-briefs and show it to me first.
+```
+
+Start with the draft pattern above. Once the output is stable, you can switch the last line to direct send:
+
+```text
+Send the Slack message to #research-briefs instead of drafting it.
+```
+
+The expected brief format is:
+
+- project name and date
+- how many new papers were checked
+- for each selected paper, one short summary and one sentence on why it is relevant to your work
+- a clear "no new papers today" line when nothing new qualifies
+
+<Warning>Cowork scheduled tasks only run while your computer is awake and the Claude Desktop app is open.</Warning>
+
+See [Get started with Cowork](https://support.claude.com/en/articles/13345190-get-started-with-cowork) for scheduling entry points and [Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude) for Slack draft/send behavior.
+
+## Limits and troubleshooting
+
+- If Claude in Slack cannot access Paperzilla, reconnect or re-enable the Paperzilla connector in Claude settings first.
+- If Claude in Slack cannot access Slack delivery actions, check your Slack connector and permissions in Claude.
+- If the scheduled task does not run, confirm Claude Desktop is open and your computer is awake.
+- If the agent returns no papers, confirm the project is active and already has feed items.
+- If `paper_markdown` is queued or unavailable, retry later instead of changing the workflow.
+
+## Optional shortcut
+
+If you want this workflow packaged as a reusable skill, see the [`paperzilla-monitor` skill repo](https://github.com/paperzilla-ai/paperzilla-skills). Current install and distribution details live in that repo's README.

@@ -67,8 +67,10 @@
                   "guides/agent-workflows",
                   "guides/cli",
                   "guides/openclaw",
+                  "guides/openclaw-telegram-briefs",
                   "guides/mcp",
-                  "guides/claude"
+                  "guides/claude",
+                  "guides/claude-slack-briefs"
                 ]
               },
               {

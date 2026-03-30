@@ -1,0 +1,118 @@
+---
+title: "Use OpenClaw and Telegram for research briefs"
+description: "Run Paperzilla brief workflows in Telegram through OpenClaw and the Paperzilla CLI."
+keywords: ["OpenClaw", "Telegram", "Paperzilla CLI", "pz", "research brief", "daily brief"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/guides/openclaw-telegram-briefs" />
+
+Use this guide when you want to discuss one Paperzilla project in Telegram and receive a weekday research brief there.
+
+This walkthrough uses OpenClaw for chat and scheduling, Telegram as the delivery surface, and the Paperzilla CLI (`pz`) as the Paperzilla data transport.
+
+## Before you start
+
+- Complete the [CLI guide](/guides/cli) and [OpenClaw guide](/guides/openclaw).
+- Make sure `pz project list` works in the same environment where OpenClaw runs.
+- Make sure your Telegram channel is working in OpenClaw. See [Telegram in OpenClaw](https://docs.openclaw.ai/channels/telegram).
+- Pick one Paperzilla project for this workflow.
+- Prepare one short sentence for "our work" if the agent does not already know it. Example: `Our work is evaluation infrastructure for coding agents.`
+
+## How this stack works
+
+- You ask for papers in Telegram.
+- OpenClaw reads your Paperzilla data through `pz`.
+- For the weekday brief, OpenClaw runs a cron job and sends the result back to Telegram.
+- Paperzilla still owns the project, feed, and relevance ranking. OpenClaw is the chat and delivery layer on top.
+
+## Use case 1: on-demand paper discussion
+
+Start in a Telegram DM or group where your OpenClaw agent is already active.
+
+First ask for the latest papers from one project:
+
+```text
+Use my Paperzilla project `Agents evaluation`.
+Our work: we build evaluation infrastructure for coding agents.
+
+Pull the latest papers from this project and show the top 5.
+For each one, include the title, date, source, and whether it looks Must Read or Related.
+```
+
+Then ask for metadata for one paper:
+
+```text
+Open the second paper and show the metadata only.
+Include authors, publication date, source, URL, and the Paperzilla ID you used.
+```
+
+Then fetch markdown and connect it back to your team context:
+
+```text
+Fetch the markdown for that paper.
+Summarize the contribution, method, results, and limits.
+Then explain why it matters for our work.
+```
+
+Then keep the discussion going in the same Telegram chat:
+
+```text
+Given our current work, should we read this now, keep it as Related, or ignore it this week?
+Defend the recommendation.
+```
+
+Good replies for this flow should:
+
+- keep the project name and "our work" context in view
+- separate metadata from interpretation
+- explain relevance in terms of your actual work, not generic importance
+- keep the paper discussion going instead of stopping at one summary
+
+If markdown is still being prepared, ask again after a short wait.
+
+## Use case 2: weekday research brief in Telegram
+
+This pattern sends one brief to Telegram every weekday.
+
+Use an OpenClaw cron job for the schedule and Telegram for delivery. OpenClaw's cron docs use standard cron syntax, so `1-5` in the day-of-week field means weekdays.
+
+```bash
+openclaw cron add \
+  --name "Paperzilla weekday brief" \
+  --cron "30 8 * * 1-5" \
+  --tz "Europe/Athens" \
+  --session isolated \
+  --message "Use my Paperzilla project <project-name>. Our work: <one-sentence team context>. Pull the newest papers from the feed. Return a Telegram-ready brief with: project name and date; newest papers checked; for each selected paper, one short summary and one sentence on why it is relevant to our work; if there are no new papers, say that explicitly. Keep it concise." \
+  --announce \
+  --channel telegram \
+  --to "<telegram target>"
+```
+
+Replace these placeholders before you run it:
+
+- `<project-name>` with the Paperzilla project name you want to follow
+- `<one-sentence team context>` with your short "our work" description
+- `Europe/Athens` with your own timezone
+- `<telegram target>` with the Telegram target format you use in OpenClaw
+
+The expected brief format is:
+
+- project name and date
+- how many new papers were checked
+- for each selected paper, one short summary and one sentence on why it is relevant to your work
+- a clear "no new papers today" line when nothing new qualifies
+
+See [OpenClaw cron jobs](https://docs.openclaw.ai/automation/cron-jobs) and [OpenClaw message delivery](https://docs.openclaw.ai/cli/message) for channel and target details.
+
+## Limits and troubleshooting
+
+- If `pz` does not work in OpenClaw, fix the CLI setup first with [CLI guide](/guides/cli) and [OpenClaw guide](/guides/openclaw).
+- If the agent returns no papers, confirm the project is active and already has feed items.
+- If markdown is not ready yet, retry after a short wait instead of changing the prompt.
+- If the cron job does not fire, check that the OpenClaw Gateway is running continuously and that your timezone is correct.
+
+## Optional shortcut
+
+If you want this workflow packaged as a reusable skill, see the [`paperzilla-monitor` skill repo](https://github.com/paperzilla-ai/paperzilla-skills). Current install and distribution details live in that repo's README.
