@@ -1,0 +1,37 @@
+---
+title: "How do feedback signals work in the CLI?"
+description: "CLI feedback is attached to a project recommendation, not to the canonical paper."
+keywords: ["CLI feedback", "recommendation feedback", "upvote", "downvote", "star", "pz feedback"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/answers/how-do-feedback-signals-work-in-the-cli" />
+
+Feedback in the CLI is project-specific.
+
+That means you leave feedback on a recommendation in one project, not on the canonical paper itself.
+
+Use:
+
+```bash
+pz feedback <project-paper-id> upvote
+pz feedback <project-paper-id> star
+pz feedback <project-paper-id> downvote --reason not_relevant
+pz feedback clear <project-paper-id>
+```
+
+The feedback values map to the same ideas as the app:
+
+- `upvote` = useful
+- `star` = very useful
+- `downvote` = not for me
+
+Optional downvote reasons:
+
+- `not_relevant`
+- `low_quality`
+
+This matters because the same canonical paper can appear in multiple projects. One project may treat it as highly relevant, while another may treat it as a poor fit.
+
+Use [CLI](/guides/cli) for the full command reference, and [Why should I rate papers in the feed?](/answers/why-rate-papers-in-feed) for the product reason behind these signals.

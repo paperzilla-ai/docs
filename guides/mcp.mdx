@@ -23,8 +23,8 @@ If you want the short explanation of how MCP clients discover this URL and then 
 - List your projects
 - Open one project
 - Pull feed items with filters like Must Read, since date, and limit
-- Open one paper by paper ID, paper short ID, feed item ID, or feed item short ID
-- Get markdown for one paper, or queue markdown generation if it is not ready yet
+- Open one canonical paper by paper ID, or one project recommendation by recommendation ID
+- Get markdown for one paper or recommendation, and queue markdown generation when project context allows it
 - Get the project's Atom URL
 
 ## Quickstart
@@ -82,7 +82,8 @@ Try requests like:
 - "List my Paperzilla projects."
 - "Show must-read papers for project `<project-id>` since `2026-02-01` limit 20."
 - "Open paper `<paper-id>`."
-- "Get the markdown for paper `<paper-id>`."
+- "Open recommendation `<project-paper-id>`."
+- "Get the markdown for paper `<paper-id>` or recommendation `<project-paper-id>`."
 - "Get the Atom URL for project `<project-id>`."
 
 ## Available tools today
@@ -93,8 +94,8 @@ Try requests like:
 | `projects_get` | Get one project | `pz project <id>` |
 | `feed_get` | Get project feed with filters | `pz feed <id> --must-read --since --limit` |
 | `feed_atom_url` | Get Atom URL for a project | `pz feed <id> --atom` |
-| `paper_get` | Get one paper by paper ID or feed item ID | `pz paper <id>` |
-| `paper_markdown` | Get paper markdown or queue markdown generation | `pz paper <id> --markdown` |
+| `paper_get` | Get one paper by paper ID or one recommendation by recommendation ID | `pz paper <paper-ref>` or `pz rec <project-paper-ref>` |
+| `paper_markdown` | Get paper markdown or queue markdown generation | `pz paper <paper-ref> --markdown` or `pz rec <project-paper-ref> --markdown` |
 | `feed_title_filter` (optional prompt) | Ask the model to call `feed_get` and apply title keyword filtering client-side | No direct CLI equivalent |
 
 Legacy dotted names like `paper.get` still work for direct `tools/call` compatibility, but Claude-compatible clients should use the underscore names above.

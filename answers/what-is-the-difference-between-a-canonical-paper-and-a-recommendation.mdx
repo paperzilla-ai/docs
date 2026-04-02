@@ -1,0 +1,35 @@
+---
+title: "What is the difference between a canonical paper and a recommendation?"
+description: "A canonical paper is the shared Paperzilla paper record. A recommendation is that paper as it appears inside one project."
+keywords: ["canonical paper", "recommendation", "project paper", "CLI", "paper id", "project paper id"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/answers/what-is-the-difference-between-a-canonical-paper-and-a-recommendation" />
+
+In Paperzilla, a canonical paper and a recommendation are not the same thing.
+
+A canonical paper is the shared paper record.
+
+- it has a Paperzilla paper ID
+- it contains the paper metadata itself
+- you open it with `pz paper <paper-id>`
+- it can be read without logging in
+
+A recommendation is that same paper as it appears inside one of your projects.
+
+- it has a recommendation ID (`project_paper.id` / short ID)
+- it includes project-specific context such as relevance, summary, personalized note, and feedback
+- you open it with `pz rec <project-paper-id>`
+- it requires login because it belongs to one of your projects
+
+You can also bridge between the two:
+
+```bash
+pz paper <paper-id> --project <project-id>
+```
+
+That resolves the canonical paper inside one project and shows the recommendation context for that project.
+
+This split is important because one canonical paper can appear in multiple projects with different summaries, scores, and feedback.
