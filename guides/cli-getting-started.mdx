@@ -12,13 +12,18 @@ This is the fastest path from installing `pz` to getting useful output.
 
 ## What the CLI expects
 
-The Paperzilla CLI works against your existing Paperzilla account and projects.
+The Paperzilla CLI supports two modes:
 
-That means:
+- canonical paper mode
+- project mode
+
+Canonical paper mode works with a Paperzilla paper ID and does not require login.
+
+Project mode works against your existing Paperzilla account and projects. That means:
 
 - you need a Paperzilla account
 - you need at least one project
-- then `pz` can list projects, browse feeds, open papers, print markdown, and generate Atom feed URLs
+- then `pz` can list projects, browse feeds, open recommendations, leave feedback, print markdown, and generate Atom feed URLs
 
 If you installed `pz` first and have not set up Paperzilla yet, that is fine. Start with the web app once, then come back to the CLI.
 
@@ -26,7 +31,23 @@ If you installed `pz` first and have not set up Paperzilla yet, that is fine. St
 
 Follow the install instructions in the [CLI guide](/guides/cli).
 
-## Step 2: sign in
+## Step 2: if you already have a Paperzilla paper ID, open it immediately
+
+```bash
+pz paper <paper-id>
+```
+
+That works without logging in.
+
+To keep the CLI up to date:
+
+```bash
+pz update
+```
+
+That command checks whether you are on the latest release and prints the right upgrade steps for Homebrew, Scoop, GitHub release installs, or source builds.
+
+## Step 3: sign in for project commands
 
 ```bash
 pz login
@@ -34,7 +55,7 @@ pz login
 
 Paperzilla sends a one-time email code and stores your session locally for reuse.
 
-## Step 3: if you do not have an account yet
+## Step 4: if you do not have an account yet
 
 Go to [paperzilla.ai](https://paperzilla.ai) and follow the [quickstart](/quickstart).
 
@@ -47,7 +68,7 @@ The short version:
 
 That creates both your account access and your first project.
 
-## Step 4: if you signed in but have no projects
+## Step 5: if you signed in but have no projects
 
 Run:
 
@@ -60,7 +81,7 @@ If you see no projects, create your first one in the web app:
 - [How do I create my first project?](/answers/create-first-project)
 - [What is a project in Paperzilla?](/answers/what-is-a-project)
 
-## Step 5: run your first useful commands
+## Step 6: run your first useful commands
 
 List projects:
 
@@ -74,22 +95,52 @@ Browse a project feed:
 pz feed <project-id>
 ```
 
-Inspect a paper or feed item:
+Inspect a canonical paper by Paperzilla paper ID:
 
 ```bash
-pz paper <paper-or-feed-id>
+pz paper <paper-id>
+```
+
+Inspect one recommendation from the feed:
+
+```bash
+pz rec <project-paper-id>
+```
+
+Open a canonical paper with project context:
+
+```bash
+pz paper <paper-id> --project <project-id>
+```
+
+Leave recommendation feedback:
+
+```bash
+pz feedback <project-paper-id> upvote
 ```
 
 Print raw paper markdown:
 
 ```bash
-pz paper <paper-id> --markdown
+pz rec <project-paper-id> --markdown
 ```
 
 Get an Atom feed URL:
 
 ```bash
 pz feed <project-id> --atom
+```
+
+Update the CLI:
+
+```bash
+pz update
+```
+
+If needed, override install-method detection:
+
+```bash
+pz update --install-method source
 ```
 
 ## If your project exists but has no papers yet

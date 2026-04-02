@@ -1,14 +1,14 @@
 ---
 title: "CLI"
-description: "Use the Paperzilla CLI to manage papers from your terminal"
-keywords: ["CLI", "terminal", "command line", "pz", "paper management"]
+description: "Use the Paperzilla CLI to read papers, inspect recommendations, and manage projects from your terminal"
+keywords: ["CLI", "terminal", "command line", "pz", "paper management", "recommendations"]
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/guides/cli" />
 
-The Paperzilla CLI (`pz`) lets you browse your curated research feed, inspect individual papers, manage projects, and stay on top of new papers from the terminal. It works for both humans and AI agents — use `--json` to get structured output.
+The Paperzilla CLI (`pz`) lets you read canonical papers by Paperzilla paper ID, browse your curated project feeds, inspect project-specific recommendations, and leave feedback from the terminal. It works for both humans and AI agents. Use `--json` when you want structured output.
 
 If you just installed `pz` and want the shortest path to a working setup, start with [CLI getting started](/guides/cli-getting-started).
 
@@ -48,6 +48,40 @@ If you just installed `pz` and want the shortest path to a working setup, start 
   </Tab>
 </Tabs>
 
+## Update
+
+Run:
+
+```bash
+pz update
+```
+
+`pz update` checks whether your current CLI is on the latest release and then prints upgrade instructions for how you installed it.
+
+- Homebrew installs show `brew update` and `brew upgrade pz`
+- Scoop installs show `scoop update pz`
+- GitHub release installs tell you which release artifact to download
+- Source builds tell you to `git pull` and rebuild
+
+`pz update` auto-detects common install methods from the current executable and build metadata.
+
+If detection is ambiguous, override it explicitly:
+
+```bash
+pz update --install-method homebrew
+pz update --install-method scoop
+pz update --install-method release
+pz update --install-method source
+```
+
+Supported values are `auto`, `homebrew`, `scoop`, `release`, and `source`.
+
+To check the currently installed version:
+
+```bash
+pz --version
+```
+
 ## Log in
 
 Authenticate with your Paperzilla account. You receive a one-time code via email.
@@ -65,9 +99,25 @@ Check your email, enter the code: 123456
 Logged in!
 ```
 
-Your session persists across commands and refreshes automatically. If it expires, the login flow starts automatically.
+You need to sign in for project-oriented commands such as `project`, `feed`, `rec`, and `feedback`, and to request markdown generation for project recommendations.
+
+If you only want to open a canonical paper by internal Paperzilla paper ID, `pz paper <paper-ref>` also works without logging in.
 
 ## Commands
+
+### pz update
+
+Check whether your CLI is current and print install-specific upgrade steps.
+
+```bash
+pz update
+```
+
+If you use a source build or the install method was guessed incorrectly, override detection:
+
+```bash
+pz update --install-method source
+```
 
 ### pz project list
 
@@ -109,16 +159,18 @@ Interest:
   Recent advances in transformer architectures and efficiency
 ```
 
-### pz paper \<id\>
+### pz paper \<paper-ref\>
 
-Show details for a specific paper or feed item.
+Show details for a canonical Paperzilla paper.
 
-`id` may be:
+`paper-ref` may be:
 
 - a full paper UUID
 - a paper `short_id`
-- a feed item / `project_paper` UUID returned by `pz feed --json`
-- a feed item / `project_paper` `short_id` returned by `pz feed --json`
+
+This command works without logging in.
+
+When you add `--project <project-id>`, `pz paper` resolves that canonical paper inside one of your projects and shows recommendation context. That mode requires login.
 
 ```bash
 pz paper 33403e66-bfc3-43e7-a849-14b03341201e
@@ -143,22 +195,118 @@ Source Paper ID: 2507.12345
 | Flag | Short | Description |
 |------|-------|-------------|
 | `--json` | `-j` | Output the full paper as JSON |
-| `--markdown` | | Print raw paper markdown to stdout |
+| `--markdown` | | Print raw paper markdown to stdout when it is already available |
+| `--project` | | Resolve this paper inside one of your projects and show recommendation context |
 
 #### Examples
 
 ```bash
-# Inspect a paper by UUID or short ID
+# Inspect a canonical paper by UUID or short ID
 pz paper <paper-id>
 
-# Fetch a paper using an ID returned by the feed JSON
-pz feed <project-id> --json | jq -r '.items[0].id' | xargs pz paper
+# Show the same paper as it appears in one of your projects
+pz paper <paper-id> --project <project-id>
 
-# Print raw markdown
+# Print raw markdown when it is already prepared
 pz paper <paper-id> --markdown
 ```
 
-If markdown generation is still pending, the CLI prints a friendly one-line message and asks you to try again in a minute or so.
+If markdown is not ready yet, the CLI prints a friendly message. Anonymous `pz paper --markdown` does not queue markdown generation.
+
+If you are new to the model, see [What is the difference between a canonical paper and a recommendation?](/answers/what-is-the-difference-between-a-canonical-paper-and-a-recommendation).
+
+### pz rec \<project-paper-ref\>
+
+Show details for one recommendation from one of your projects.
+
+`project-paper-ref` may be:
+
+- a full `project_paper` UUID returned by `pz feed --json`
+- a `project_paper` `short_id` returned by `pz feed --json`
+
+This command requires login.
+
+```bash
+pz rec bb31f558
+```
+
+```
+Title:             A Novel Approach to Transformer Efficiency
+Recommendation ID: bb31f558-9613-4552-990a-30fb3ac48602
+Short ID:          bb31f558
+Relevance:         Must Read (92%)
+Feedback:          star
+Ready At:          2025-08-01 09:00
+
+Summary:
+  This paper is highly relevant because it introduces...
+
+Paper:
+  ID:              33403e66-bfc3-43e7-a849-14b03341201e
+  Short ID:        abc12345
+  Source:          arxiv
+  Published:       2025-07-20
+```
+
+#### Flags
+
+| Flag | Short | Description |
+|------|-------|-------------|
+| `--json` | `-j` | Output the recommendation as JSON |
+| `--markdown` | | Print raw paper markdown to stdout, queueing generation if needed |
+
+#### Examples
+
+```bash
+# Open a recommendation using the ID returned by the feed
+pz rec <project-paper-id>
+
+# Fetch the first recommendation from a project feed
+pz feed <project-id> --json | jq -r '.items[0].id' | xargs pz rec
+
+# Print markdown for the recommended paper
+pz rec <project-paper-id> --markdown
+```
+
+If markdown is still being prepared, the CLI prints a one-line message and asks you to try again in a minute or so.
+
+### pz feedback \<project-paper-ref\> \<upvote\|downvote\|star\>
+
+Leave a recommendation signal for one paper in one project.
+
+Supported feedback values:
+
+- `upvote`
+- `downvote`
+- `star`
+
+#### Flags
+
+| Flag | Short | Description |
+|------|-------|-------------|
+| `--reason` | | Optional downvote reason: `not_relevant` or `low_quality` |
+
+#### Examples
+
+```bash
+# Positive signal
+pz feedback <project-paper-id> upvote
+
+# Strong positive signal
+pz feedback <project-paper-id> star
+
+# Negative signal with an explicit reason
+pz feedback <project-paper-id> downvote --reason not_relevant
+
+# Clear any existing feedback
+pz feedback clear <project-paper-id>
+```
+
+Feedback is project-specific. The same canonical paper can have different feedback in different projects.
+
+To remove feedback entirely, use `pz feedback clear <project-paper-ref>`.
+
+For a shorter explanation, see [How do feedback signals work in the CLI?](/answers/how-do-feedback-signals-work-in-the-cli).
 
 ### pz feed \<project-id\>
 
@@ -180,6 +328,8 @@ Machine Learning Papers — 12 papers (total: 142)
 
 Each paper shows a relevance class (`★ Must Read` or `○ Related`), title, first author, source, date, and relevance score.
 
+Use recommendation IDs from the feed with `pz rec`, and canonical paper IDs with `pz paper`.
+
 #### Flags
 
 | Flag | Short | Description |
@@ -200,7 +350,7 @@ pz feed <project-id> --must-read --since 2025-07-25 --limit 5
 pz feed <project-id> --json
 
 # Pipe to jq
-pz feed <project-id> --json | jq '.[].paper.title'
+pz feed <project-id> --json | jq '.items[].paper.title'
 
 # Get Atom feed URL for your feed reader
 pz feed <project-id> --atom
@@ -228,20 +378,30 @@ With `--json`, the feed returns structured data suitable for scripting and AI ag
 {
   "items": [
     {
-      "id": "uuid",
-      "short_id": "abc123",
+      "id": "bb31f558-9613-4552-990a-30fb3ac48602",
+      "short_id": "bb31f558",
       "paper_title": "A Novel Approach to...",
       "relevance_score": 0.92,
       "relevance_class": 2,
       "personalized_note": "Relevant because...",
       "ready_at": "2025-08-01T09:00:00Z",
+      "feedback": {
+        "vote": "star",
+        "downvote_reason": null,
+        "updated_at": "2025-08-01T09:10:00Z"
+      },
       "paper": {
+        "id": "33403e66-bfc3-43e7-a849-14b03341201e",
+        "short_id": "abc12345",
         "title": "A Novel Approach to...",
         "authors": [{"name": "Jane Smith"}],
         "published_date": "2025-07-20",
         "pdf_url": "https://arxiv.org/pdf/2507.12345",
         "url": "https://arxiv.org/abs/2507.12345",
-        "source_id": 1
+        "source_id": 1,
+        "source": {
+          "name": "arxiv"
+        }
       }
     }
   ],
@@ -252,6 +412,10 @@ With `--json`, the feed returns structured data suitable for scripting and AI ag
 ```
 
 **Relevance classes:** `2` = Must Read, `1` = Related
+
+**Recommendation IDs:** use `items[].id` or `items[].short_id` with `pz rec` and `pz feedback`
+
+**Paper IDs:** use `items[].paper.id` or `items[].paper.short_id` with `pz paper`
 
 **Source IDs:** `1` = arXiv, `2` = medRxiv, `3` = bioRxiv, `4` = ChinaXiv, `6` = ChemRxiv
 
