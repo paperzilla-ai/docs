@@ -1,0 +1,37 @@
+---
+title: "Can Paperzilla MCP search across an entire project feed?"
+sidebarTitle: "MCP feed search"
+description: "Yes. Paperzilla MCP supports full-feed project search with the feed_search tool."
+keywords: ["Paperzilla MCP search", "feed_search", "project feed", "MCP tools"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/answers/can-paperzilla-mcp-search-across-an-entire-project-feed" />
+
+Yes.
+
+Use the `feed_search` tool.
+
+`feed_search` searches across the full project feed, not just currently visible items. It searches:
+
+- title
+- author names
+- abstract text
+- summary text
+
+You can also add:
+
+- `feedback_filter`
+- `must_read`
+- `limit`
+- `offset`
+
+Search is server-side and rank-first. It returns `items`, `limit`, `offset`, `has_more`, and `query`.
+
+Paperzilla also accepts the legacy alias `feed.search`, but new MCP clients should use `feed_search`.
+
+See:
+
+- [Use Paperzilla with MCP](/guides/mcp)
+- [MCP endpoint (developer appendix)](/api-reference/mcp)

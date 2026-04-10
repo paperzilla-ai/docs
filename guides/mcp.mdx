@@ -1,7 +1,7 @@
 ---
 title: "Use Paperzilla with MCP"
-description: "Connect your MCP client to Paperzilla and access projects, feeds, paper detail, and markdown in natural language."
-keywords: ["MCP", "Model Context Protocol", "AI agent", "Claude", "Cursor"]
+description: "Connect your MCP client to Paperzilla and access projects, feed search, paper detail, and markdown in natural language."
+keywords: ["MCP", "Model Context Protocol", "AI agent", "Claude", "Cursor", "feed search"]
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
@@ -23,6 +23,7 @@ If you want the short explanation of how MCP clients discover this URL and then 
 - List your projects
 - Open one project
 - Pull feed items with filters like Must Read, since date, and limit
+- Search across a full project feed by title, author, abstract, or summary text
 - Open one canonical paper by paper ID, or one project recommendation by recommendation ID
 - Get markdown for one paper or recommendation, and queue markdown generation when project context allows it
 - Get the project's Atom URL
@@ -81,6 +82,7 @@ Try requests like:
 
 - "List my Paperzilla projects."
 - "Show must-read papers for project `<project-id>` since `2026-02-01` limit 20."
+- "Search project `<project-id>` for papers about proximity graphs."
 - "Open paper `<paper-id>`."
 - "Open recommendation `<project-paper-id>`."
 - "Get the markdown for paper `<paper-id>` or recommendation `<project-paper-id>`."
@@ -93,12 +95,42 @@ Try requests like:
 | `projects_list` | List your projects | `pz project list` |
 | `projects_get` | Get one project | `pz project <id>` |
 | `feed_get` | Get project feed with filters | `pz feed <id> --must-read --since --limit` |
+| `feed_search` | Search the full project feed with text query plus optional filters | No direct `pz` command yet |
 | `feed_atom_url` | Get Atom URL for a project | `pz feed <id> --atom` |
 | `paper_get` | Get one paper by paper ID or one recommendation by recommendation ID | `pz paper <paper-ref>` or `pz rec <project-paper-ref>` |
 | `paper_markdown` | Get paper markdown or queue markdown generation | `pz paper <paper-ref> --markdown` or `pz rec <project-paper-ref> --markdown` |
-| `feed_title_filter` (optional prompt) | Ask the model to call `feed_get` and apply title keyword filtering client-side | No direct CLI equivalent |
+| `feed_title_filter` (optional prompt) | Ask the model to call `feed_search` for a server-side full-feed title search | No direct CLI equivalent |
 
 Legacy dotted names like `paper.get` still work for direct `tools/call` compatibility, but Claude-compatible clients should use the underscore names above.
+
+## How feed search works
+
+Use `feed_search` when you want your MCP client to search across the whole project feed, not just currently visible items.
+
+`feed_search` supports:
+
+- `project_id`
+- `q`
+- `feedback_filter`
+- `must_read`
+- `limit`
+- `offset`
+
+It returns:
+
+- `items`
+- `limit`
+- `offset`
+- `has_more`
+- `query`
+
+Notes:
+
+- search is server-side and scans the full feed
+- query terms use prefix matching, so `Proxi` matches `Proximity`
+- search is rank-first and does not return an exact total count in v1
+
+If you want a focused Q&A version, see [Can Paperzilla MCP search across an entire project feed?](/answers/can-paperzilla-mcp-search-across-an-entire-project-feed) and [How do I search a project feed through Paperzilla MCP?](/answers/how-do-i-search-a-project-feed-through-paperzilla-mcp).
 
 ## About prompts
 
@@ -106,9 +138,9 @@ You can ignore prompts and use direct tool calls only.
 
 If your client supports prompts, `feed_title_filter` helps with one task:
 
-- Pull feed items
-- Filter by title keyword in the client/model layer
-- Return filtered results with that behavior clearly stated
+- Call `feed_search`
+- Search the full feed server-side for a title keyword
+- Return matching results and explain that the search covers the full feed
 
 ## Markdown results
 

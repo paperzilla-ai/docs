@@ -1,7 +1,7 @@
 ---
 title: "Does Paperzilla support MCP?"
-description: "Yes. You can connect MCP clients to Paperzilla and access projects, feeds, paper detail, and markdown."
-keywords: ["MCP", "Model Context Protocol", "client connection"]
+description: "Yes. You can connect MCP clients to Paperzilla and access projects, feeds, full-feed search, paper detail, and markdown."
+keywords: ["MCP", "Model Context Protocol", "client connection", "feed search"]
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
@@ -28,10 +28,13 @@ Available tools today:
 - `projects_list`
 - `projects_get`
 - `feed_get`
+- `feed_search`
 - `feed_atom_url`
 - `paper_get`
 - `paper_markdown`
 
 There is also one optional prompt: `feed_title_filter`.
+
+`feed_search` searches title, author, abstract, and summary text across the full project feed, not just currently visible items.
 
 See setup and flow details in [MCP integration](/guides/mcp).

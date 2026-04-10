@@ -1,7 +1,7 @@
 ---
 title: "Use Paperzilla MCP with Claude"
-description: "Add Paperzilla as a custom connector in Claude and use your projects, feeds, paper detail, and markdown in Claude."
-keywords: ["Claude", "MCP", "connector", "custom connector", "Cowork"]
+description: "Add Paperzilla as a custom connector in Claude and use your projects, full-feed search, paper detail, and markdown in Claude."
+keywords: ["Claude", "MCP", "connector", "custom connector", "Cowork", "feed search"]
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
@@ -63,12 +63,12 @@ This URL form fits Claude's custom connector flow because you provide a URL dire
 
 For Claude Desktop, add remote MCP servers through **Settings** > **Connectors**. Anthropic says Claude Desktop does not use remote servers that you place directly in `claude_desktop_config.json`.
 
-After you save the connector, Claude should show the six Paperzilla tools. Claude asks for approval by default. We recommend switching the connector to **Always allow**, as shown here, so Claude can use the Paperzilla tools without prompting on each call.
+After you save the connector, Claude should show the seven Paperzilla tools. Claude asks for approval by default. We recommend switching the connector to **Always allow**, as shown here, so Claude can use the Paperzilla tools without prompting on each call.
 
 <Frame caption="Paperzilla connector tools in Claude">
   <img
     src="/images/guides/claude/tool-permissions.png"
-    alt="Claude connector settings showing the six Paperzilla tools and the tool permission controls."
+    alt="Claude connector settings showing the Paperzilla tools and the tool permission controls."
   />
 </Frame>
 
@@ -80,6 +80,7 @@ You can ask things like:
 
 - "What Paperzilla projects do I have?"
 - "Show must-read papers from my `Autonomous Agents` project from this week."
+- "Search my `Autonomous Agents` project for papers about proximity graphs."
 - "Compare the two newest must-read papers in my evaluation project."
 - "Pull markdown for the TRAJEVAL paper and explain the main contribution."
 - "Draft a weekly summary of new must-read papers across all my projects."
@@ -91,11 +92,14 @@ You can ask things like:
 | `projects_list` | Your projects |
 | `projects_get` | One project |
 | `feed_get` | Feed items with filters such as `must_read`, `since`, `limit`, and `offset` |
+| `feed_search` | Full-feed search across title, author, abstract, and summary text |
 | `feed_atom_url` | The Atom feed URL for one project |
 | `paper_get` | Paper metadata and status |
 | `paper_markdown` | Paper markdown, or a queued/unavailable status |
 
 Claude-compatible MCP clients should use these underscore tool names. Paperzilla still accepts legacy dotted names like `paper.get` for direct `tools/call` compatibility.
+
+Use `feed_search` when you want Claude to search the full feed, not just browse the feed page by page.
 
 If you want the full protocol and input shapes, see [MCP endpoint (developer appendix)](/api-reference/mcp).
 

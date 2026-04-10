@@ -135,6 +135,8 @@
                 "expanded": false,
                 "pages": [
                   "answers/does-paperzilla-support-mcp",
+                  "answers/can-paperzilla-mcp-search-across-an-entire-project-feed",
+                  "answers/how-do-i-search-a-project-feed-through-paperzilla-mcp",
                   "answers/can-paperzilla-mcp-return-individual-paper-metadata-and-markdown",
                   "answers/how-do-i-use-paperzilla-mcp-with-claude",
                   "answers/how-do-clients-discover-paperzilla-mcp"

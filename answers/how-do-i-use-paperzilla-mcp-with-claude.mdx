@@ -1,8 +1,8 @@
 ---
 title: "How do I use Paperzilla MCP with Claude?"
 sidebarTitle: "MCP with Claude"
-description: "Add Paperzilla as a custom connector in Claude, then let Claude use projects, feeds, paper metadata, and markdown from your Paperzilla account."
-keywords: ["Paperzilla Claude MCP", "Claude custom connector", "Paperzilla connector", "Claude paper metadata markdown"]
+description: "Add Paperzilla as a custom connector in Claude, then let Claude use projects, full-feed search, paper metadata, and markdown from your Paperzilla account."
+keywords: ["Paperzilla Claude MCP", "Claude custom connector", "Paperzilla connector", "Claude paper metadata markdown", "feed search"]
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
@@ -24,8 +24,11 @@ Once connected, Claude can use:
 - `projects_list`
 - `projects_get`
 - `feed_get`
+- `feed_search`
 - `feed_atom_url`
 - `paper_get`
 - `paper_markdown`
+
+Use `feed_search` when you want Claude to search across the whole project feed by title, author, abstract, or summary text.
 
 For the full walkthrough, see [Use Paperzilla MCP with Claude](/guides/claude).

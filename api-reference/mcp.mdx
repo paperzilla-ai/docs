@@ -1,7 +1,7 @@
 ---
 title: "MCP endpoint (developer appendix)"
-description: "Technical MCP endpoint details for developers integrating Paperzilla clients with projects, feeds, paper detail, and markdown."
-keywords: ["MCP endpoint", "developer", "SSE", "Bearer token", "query parameter", "tool list"]
+description: "Technical MCP endpoint details for developers integrating Paperzilla clients with projects, full-feed search, paper detail, and markdown."
+keywords: ["MCP endpoint", "developer", "SSE", "Bearer token", "query parameter", "tool list", "feed search"]
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
@@ -95,11 +95,12 @@ curl -s -X POST https://paperzilla.ai/api/mcp \
 | `projects_list` | `{}` |
 | `projects_get` | `{ "project_id": "uuid" }` |
 | `feed_get` | `{ "project_id": "uuid", "must_read"?: boolean, "since"?: string, "limit"?: 1..100, "offset"?: 0.. }` |
+| `feed_search` | `{ "project_id": "uuid", "q": "string (3..200 chars after trim)", "feedback_filter"?: "enum", "must_read"?: boolean, "limit"?: 1..100, "offset"?: 0.. }` |
 | `feed_atom_url` | `{ "project_id": "uuid" }` |
 | `paper_get` | `{ "paper_id": "uuid-or-short-id-or-feed-item-id" }` |
 | `paper_markdown` | `{ "paper_id": "uuid-or-short-id-or-feed-item-id" }` |
 
-Legacy dotted names such as `paper.get` remain accepted for direct `tools/call` compatibility, but Claude-compatible clients should use the underscore names above.
+Legacy dotted names such as `paper.get` remain accepted for direct `tools/call` compatibility, but Claude-compatible clients should use the underscore names above. The feed search alias is `feed.search`.
 
 `paper_get` accepts the same identifier forms as the paper API:
 
@@ -109,6 +110,32 @@ Legacy dotted names such as `paper.get` remain accepted for direct `tools/call` 
 - `project_paper` `short_id`
 
 `projects_*` and `feed_*` outputs follow the same shape as the corresponding API responses.
+
+`feed_search` is the MCP path for full-feed text search. It searches title, author, abstract, and summary text across the entire project feed.
+
+`feed_search.feedback_filter` accepts:
+
+- `all`
+- `unrated`
+- `liked`
+- `disliked`
+- `starred`
+- `not-relevant`
+- `low-quality`
+
+`feed_search` returns:
+
+- `items`
+- `limit`
+- `offset`
+- `has_more`
+- `query`
+
+Search semantics:
+
+- query terms use prefix matching, so `Proxi` matches `Proximity`
+- search is rank-first, not browse-order-first
+- no exact `total` is returned in v1
 
 `paper_get` returns the same paper detail fields as the authenticated paper API, including `markdown_ready`.
 
@@ -143,7 +170,9 @@ Legacy dotted names such as `paper.get` remain accepted for direct `tools/call` 
   }
   ```
 
-## Tool call example
+## Tool call examples
+
+List projects:
 
 ```bash
 curl -s -X POST https://paperzilla.ai/api/mcp \
@@ -160,6 +189,29 @@ curl -s -X POST https://paperzilla.ai/api/mcp \
   }'
 ```
 
+Search a full project feed:
+
+```bash
+curl -s -X POST https://paperzilla.ai/api/mcp \
+  -H "Authorization: Bearer pzmcp_..." \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc":"2.0",
+    "id":3,
+    "method":"tools/call",
+    "params":{
+      "name":"feed_search",
+      "arguments":{
+        "project_id":"20a9c4fd-779a-41c7-92e9-efabc5e9eea5",
+        "q":"latent retrieval",
+        "feedback_filter":"all",
+        "limit":20,
+        "offset":0
+      }
+    }
+  }'
+```
+
 ## Prompt
 
 Prompt name:
@@ -170,11 +222,11 @@ Arguments:
 
 - `project_id` (required)
 - `title_keyword` (required)
-- `since` (optional)
 - `must_read` (optional)
+- `feedback_filter` (optional)
 - `limit` (optional)
 
-The prompt instructs the model to call `feed_get`, then filter by title keyword client-side and explicitly report that this filter is prompt-side.
+The prompt instructs the model to call `feed_search` and explain that the search is server-side across the full feed.
 
 ## Error semantics
 
