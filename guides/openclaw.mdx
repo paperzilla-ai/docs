@@ -1,6 +1,6 @@
 ---
 title: "Use the Paperzilla CLI with OpenClaw"
-description: "Install the Paperzilla skill in OpenClaw so your agent can use the pz CLI to list projects, browse feeds, inspect paper metadata, and fetch markdown."
+description: "Install the Paperzilla skill in OpenClaw so your agent can use the pz CLI to list projects, browse or search feeds, inspect paper metadata, and fetch markdown."
 keywords: ["OpenClaw", "ClawHub", "Paperzilla CLI", "pz", "agent skill"]
 ---
 
@@ -91,6 +91,7 @@ You can ask for things like:
 
 - "List my Paperzilla projects."
 - "Show the newest must-read papers from my agents project."
+- "Search my agents project for proximity graphs papers."
 - "Open the newest must-read paper and summarize the metadata."
 - "Get markdown for that paper."
 - "Compare the two most recent must-read papers from this week."
@@ -105,6 +106,7 @@ That includes:
 - listing projects
 - opening one project
 - browsing a feed with filters like `--must-read`, `--since`, and `--limit`
+- searching the full feed with `pz feed search --project-id <id> --query <q>`
 - opening one paper by UUID, short ID, or feed item ID
 - fetching raw paper markdown
 - getting an Atom feed URL

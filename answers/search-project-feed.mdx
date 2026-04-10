@@ -8,9 +8,13 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/answers/search-project-feed" />
 
-1. Open a project from the [Dashboard](https://paperzilla.ai/dashboard).
-2. Use the search box above the paper list.
-3. Search by title, author name, abstract text, or summary terms.
+You have three main ways to search a project feed:
+
+1. In the app, open a project from the [Dashboard](https://paperzilla.ai/dashboard) and use the search box above the paper list.
+2. In the CLI, run `pz feed search --project-id <project-id> --query "<terms>"`.
+3. In MCP, use `feed_search`.
+
+All three paths search by title, author name, abstract text, or summary terms.
 
 You can combine search with the feedback filters to focus on:
 
@@ -20,3 +24,5 @@ You can combine search with the feedback filters to focus on:
 - **Not for me**
 
 If you want to do the same thing through Paperzilla MCP, see [Can Paperzilla MCP search across an entire project feed?](/answers/can-paperzilla-mcp-search-across-an-entire-project-feed).
+
+If you want the CLI-specific steps, see [How do I search a project feed from the CLI?](/answers/how-do-i-search-a-project-feed-from-the-cli).

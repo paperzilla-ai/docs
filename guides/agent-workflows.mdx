@@ -26,8 +26,9 @@ See [CLI guide](/guides/cli), [MCP integration](/guides/mcp), [Claude guide](/gu
 
 1. Create and tune projects in the app.
 2. Authenticate CLI with `pz login`.
-3. Use `pz feed <project-id> --json` in your automation.
-4. Add filters (`--must-read`, `--since`, `--limit`) based on your workflow.
+3. Use `pz project list` to get the project ID you need.
+4. Use `pz feed <project-id> --json` for browse-style automation, or `pz feed search --project-id <id> --query <q> --json` for text search across the full feed.
+5. Add filters (`--must-read`, `--since`, `--limit`, `--feedback-filter`) based on your workflow.
 
 ## OpenClaw skill
 

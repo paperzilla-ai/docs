@@ -1,0 +1,48 @@
+---
+title: "How do I search a project feed from the CLI?"
+description: "Use pz feed search with a project ID and query to search the full Paperzilla project feed from the terminal."
+keywords: ["CLI feed search", "pz feed search", "project feed search", "project ID", "query"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/answers/how-do-i-search-a-project-feed-from-the-cli" />
+
+Use `pz feed search`.
+
+If you do not know the project ID yet, get it first:
+
+```bash
+pz project list
+```
+
+Then search the full feed for one project:
+
+```bash
+pz feed search --project-id <project-id> --query "latent retrieval"
+```
+
+Useful examples:
+
+```bash
+# Prefix matching
+pz feed search --project-id <project-id> --query "Proxi"
+
+# Only Must Read papers
+pz feed search --project-id <project-id> --query "retrieval" --must-read
+
+# Only starred papers
+pz feed search --project-id <project-id> --query "retrieval" --feedback-filter starred
+
+# JSON output for scripting
+pz feed search --project-id <project-id> --query "latent retrieval" --json
+```
+
+Notes:
+
+- search covers the full project feed, not just already loaded browse pages
+- search is rank-first
+- query terms use prefix matching
+- the JSON envelope includes `items`, `limit`, `offset`, `has_more`, and `query`
+
+See [CLI guide](/guides/cli) for the full command reference.

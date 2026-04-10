@@ -23,7 +23,7 @@ Project mode works against your existing Paperzilla account and projects. That m
 
 - you need a Paperzilla account
 - you need at least one project
-- then `pz` can list projects, browse feeds, open recommendations, leave feedback, print markdown, and generate Atom feed URLs
+- then `pz` can list projects, browse or search feeds, open recommendations, leave feedback, print markdown, and generate Atom feed URLs
 
 If you installed `pz` first and have not set up Paperzilla yet, that is fine. Start with the web app once, then come back to the CLI.
 
@@ -93,6 +93,13 @@ Browse a project feed:
 
 ```bash
 pz feed <project-id>
+```
+
+Find a project ID, then search across the full feed:
+
+```bash
+pz project list
+pz feed search --project-id <project-id> --query "latent retrieval"
 ```
 
 Inspect a canonical paper by Paperzilla paper ID:

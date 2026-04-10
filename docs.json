@@ -178,6 +178,8 @@
                   "answers/copy-rss-atom",
                   "answers/which-feed-readers",
                   "answers/rss-url-security",
+                  "answers/how-do-i-find-my-project-id-for-cli-commands",
+                  "answers/how-do-i-search-a-project-feed-from-the-cli",
                   "answers/how-do-feedback-signals-work-in-the-cli",
                   "answers/openclaw-skill",
                   "answers/what-is-the-difference-between-a-canonical-paper-and-a-recommendation"

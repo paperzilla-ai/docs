@@ -1,0 +1,38 @@
+---
+title: "How do I find my project ID for CLI commands?"
+description: "Run pz project list to get the Paperzilla project ID you need for feed, search, and project-scoped paper commands."
+keywords: ["project ID", "pz project list", "CLI project ID", "feed command", "project search"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/answers/how-do-i-find-my-project-id-for-cli-commands" />
+
+Run:
+
+```bash
+pz project list
+```
+
+That prints a table with an `ID` column.
+
+Use that ID with project-scoped commands such as:
+
+```bash
+pz feed <project-id>
+pz feed search --project-id <project-id> --query "latent retrieval"
+pz paper <paper-id> --project <project-id>
+pz feed <project-id> --atom
+```
+
+Example flow:
+
+```bash
+# 1. Find the project ID
+pz project list
+
+# 2. Search that project
+pz feed search --project-id a1b2c3d4-e5f6-7890-abcd-ef1234567890 --query "proximity graphs"
+```
+
+If you want to search by project name instead of copying the ID manually, use the app or an MCP client. The CLI uses the project ID directly.

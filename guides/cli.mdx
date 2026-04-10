@@ -1,14 +1,14 @@
 ---
 title: "CLI"
-description: "Use the Paperzilla CLI to read papers, inspect recommendations, and manage projects from your terminal"
-keywords: ["CLI", "terminal", "command line", "pz", "paper management", "recommendations"]
+description: "Use the Paperzilla CLI to read papers, search project feeds, inspect recommendations, and manage projects from your terminal"
+keywords: ["CLI", "terminal", "command line", "pz", "paper management", "recommendations", "feed search"]
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/guides/cli" />
 
-The Paperzilla CLI (`pz`) lets you read canonical papers by Paperzilla paper ID, browse your curated project feeds, inspect project-specific recommendations, and leave feedback from the terminal. It works for both humans and AI agents. Use `--json` when you want structured output.
+The Paperzilla CLI (`pz`) lets you read canonical papers by Paperzilla paper ID, browse or search your curated project feeds, inspect project-specific recommendations, and leave feedback from the terminal. It works for both humans and AI agents. Use `--json` when you want structured output.
 
 If you just installed `pz` and want the shortest path to a working setup, start with [CLI getting started](/guides/cli-getting-started).
 
@@ -99,7 +99,7 @@ Check your email, enter the code: 123456
 Logged in!
 ```
 
-You need to sign in for project-oriented commands such as `project`, `feed`, `rec`, and `feedback`, and to request markdown generation for project recommendations.
+You need to sign in for project-oriented commands such as `project`, `feed`, `feed search`, `rec`, and `feedback`, and to request markdown generation for project recommendations.
 
 If you only want to open a canonical paper by internal Paperzilla paper ID, `pz paper <paper-ref>` also works without logging in.
 
@@ -132,6 +132,8 @@ ID                                    NAME                       MODE        VIS
 a1b2c3d4-e5f6-7890-abcd-ef1234567890  Machine Learning Papers    auto        private     2025-06-15 10:30
 b2c3d4e5-f6a7-8901-bcde-f12345678901  Genomics Research          auto        private     2025-07-20 14:15
 ```
+
+Use the `ID` column for project-scoped commands such as `pz feed`, `pz feed search`, and `pz paper --project`.
 
 ### pz project \<id\>
 
@@ -356,6 +358,85 @@ pz feed <project-id> --json | jq '.items[].paper.title'
 pz feed <project-id> --atom
 ```
 
+### pz feed search
+
+Search across the full feed for one project.
+
+Use `pz project list` first if you need to look up the project ID.
+
+```bash
+pz project list
+```
+
+```bash
+pz feed search --project-id a1b2c3d4-e5f6-7890-abcd-ef1234567890 --query "latent retrieval"
+```
+
+```
+Machine Learning Papers — 2 papers
+Query: latent retrieval
+Has more: true
+
+★ Must Read [★]  Latent Retrieval for Papers
+  Smith et al. · arXiv · 2026-04-01 · relevance: 95%
+
+○ Related  Prefix Matching in Search
+  Chen · ICLR · 2026-03-30 · relevance: 76%
+```
+
+This command searches the whole project feed, not just already loaded browse pages.
+
+Search is rank-first. It does not return an exact total count in v1.
+
+Query terms use prefix matching, so `Proxi` matches `Proximity`.
+
+#### Flags
+
+| Flag | Short | Description |
+|------|-------|-------------|
+| `--project-id` | | Project ID to search |
+| `--query` | `-q` | Search query, 3 to 200 characters after trim |
+| `--feedback-filter` | | Filter by `all`, `unrated`, `liked`, `disliked`, `starred`, `not-relevant`, or `low-quality` |
+| `--must-read` | `-m` | Only return Must Read papers |
+| `--limit` | `-n` | Limit results per page, up to 100 |
+| `--offset` | | Skip results for pagination |
+| `--json` | `-j` | Output the search envelope as JSON |
+
+#### Examples
+
+```bash
+# Find your project ID first
+pz project list
+
+# Search one project feed
+pz feed search --project-id <project-id> --query "latent retrieval"
+
+# Use prefix search
+pz feed search --project-id <project-id> --query "Proxi"
+
+# Search only starred papers
+pz feed search --project-id <project-id> --query "retrieval" --feedback-filter starred
+
+# Search only Must Read papers
+pz feed search --project-id <project-id> --query "retrieval" --must-read
+
+# Get JSON for scripting
+pz feed search --project-id <project-id> --query "latent retrieval" --json
+
+# Fetch the next page only if the previous response had has_more = true
+pz feed search --project-id <project-id> --query "latent retrieval" --limit 20 --offset 20
+```
+
+The JSON response includes:
+
+- `items`
+- `limit`
+- `offset`
+- `has_more`
+- `query`
+
+If you want a shorter answer, see [How do I search a project feed from the CLI?](/answers/how-do-i-search-a-project-feed-from-the-cli) and [How do I find my project ID for CLI commands?](/answers/how-do-i-find-my-project-id-for-cli-commands).
+
 ### Atom feeds
 
 The `--atom` flag prints a URL you can paste into any feed reader (Vienna RSS, NetNewsWire, Feedly, etc.):
@@ -372,7 +453,7 @@ The URL contains a personal feed token so the reader can poll without logging in
 
 ## JSON output
 
-With `--json`, the feed returns structured data suitable for scripting and AI agents:
+With `--json`, `pz feed` returns structured data suitable for scripting and AI agents:
 
 ```json
 {
@@ -419,6 +500,8 @@ With `--json`, the feed returns structured data suitable for scripting and AI ag
 
 **Source IDs:** `1` = arXiv, `2` = medRxiv, `3` = bioRxiv, `4` = ChinaXiv, `6` = ChemRxiv
 
+`pz feed search --json` returns a search envelope with `items`, `limit`, `offset`, `has_more`, and `query`.
+
 ## OpenClaw skill
 
 The Paperzilla CLI is also available as an [OpenClaw skill on ClawHub](https://clawhub.ai/pors/paperzilla). This lets AI agents like OpenClaw, Claude Code, Cursor, and Windsurf use `pz` commands directly.
@@ -437,7 +520,7 @@ If you already use the separate ClawHub CLI, this also works:
 clawhub install paperzilla
 ```
 
-Once installed, your agent can list projects, inspect papers, browse feeds, and filter papers without manual CLI invocation. The skill wraps the same `pz` commands documented above.
+Once installed, your agent can list projects, inspect papers, browse or search feeds, and filter papers without manual CLI invocation. The skill wraps the same `pz` commands documented above.
 
 <Tip>
 You still need the `pz` binary installed and authenticated. The skill teaches the agent how to use it — it does not replace the CLI itself.
