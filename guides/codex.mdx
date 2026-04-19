@@ -122,35 +122,97 @@ If you want to force the MCP path when both MCP and CLI are available, say so ex
 
 ### Optional: add a Codex skill for repeatable MCP behavior
 
-Yes. A small Codex skill is helpful even when you use MCP.
+Yes. For the MCP path, the skill should do more than say "prefer Paperzilla."
 
-The skill does not replace the MCP server. It teaches Codex to:
+A good Codex skill explains what Codex needs to know to make the Paperzilla MCP path work reliably:
 
-- prefer the `paperzilla` MCP server when Paperzilla data is needed
-- use `projects_list` before guessing project IDs
-- use `feed_search` for full-feed text search
-- take `paper.id` from feed results before calling `paper_markdown`
-- avoid falling back to `pz` unless you ask for the CLI path
+- when the skill should trigger
+- how to verify that the `paperzilla` MCP server is installed and enabled
+- where the Paperzilla setup docs live
+- which Paperzilla MCP tool sequence to follow
+- when not to fall back to `pz`
+- that MCP auth belongs in Codex config, not in the skill itself
 
-Store a repo skill under `.agents/skills/paperzilla-mcp/SKILL.md` or a user skill under `$HOME/.agents/skills/...`.
+This matches how Codex skills are meant to work: a skill can package instructions, references, and optional scripts for a reusable workflow.
 
-Minimal example:
+Store a repo skill under `.agents/skills/paperzilla-mcp/` or a user skill under `$HOME/.agents/skills/paperzilla-mcp/`.
+
+A practical layout looks like this:
+
+```text
+.agents/skills/paperzilla-mcp/
+  SKILL.md
+  references/
+    setup.md
+```
+
+`SKILL.md` holds the workflow instructions. `references/setup.md` is where you put the install and troubleshooting context that Codex can consult when needed.
+
+Recommended example:
 
 ```md
 ---
 name: paperzilla-mcp
-description: Use when the task needs Paperzilla data through the configured paperzilla MCP server.
+description: Use when the task needs Paperzilla projects, feed items, paper metadata, or markdown through the configured `paperzilla` MCP server. Do not use for `pz` CLI tasks unless the user explicitly asks for the CLI path.
 ---
 
 Use the `paperzilla` MCP server for Paperzilla tasks unless the user explicitly asks for `pz`.
 
-Start with `projects_list` when you need to identify a project.
-Use `feed_get` for browse-style feed retrieval.
-Use `feed_search` for title, author, abstract, or summary search across a full project feed.
-Use `paper_get` only when you need standalone paper metadata.
-Use `paper_markdown` with the canonical `paper.id` from feed results.
-Treat `paper_markdown` statuses `ready`, `queued`, and `unavailable` as normal outcomes.
+Before using Paperzilla, verify that the MCP server is available if there is any setup ambiguity.
+Check `/mcp paperzilla` or `/mcp`.
+
+If the MCP server is missing, disabled, or failing auth:
+- do not invent Paperzilla results
+- explain that the Paperzilla MCP setup needs attention
+- point the user to `references/setup.md`
+
+Do not store API keys or secrets in this skill.
+Paperzilla MCP auth belongs in `~/.codex/config.toml` or project `.codex/config.toml`.
+
+Workflow:
+- start with `projects_list` when you need to identify a project
+- use `projects_get` when the user asks for project settings or project details
+- use `feed_get` for browse-style feed retrieval
+- use `feed_search` for title, author, abstract, or summary search across a full project feed
+- use `paper_get` only when you need standalone canonical paper metadata
+- use `paper_markdown` with the canonical `paper.id` from feed results
+- treat `paper_markdown` statuses `ready`, `queued`, and `unavailable` as normal outcomes
+
+If both MCP and `pz` are available and the user did not specify, prefer MCP for Paperzilla tasks.
+Only fall back to `pz` if the user explicitly asks for the CLI path or the MCP setup is unavailable.
+
+If the user asks how to set up or debug Paperzilla MCP, consult `references/setup.md`.
 ```
+
+Example `references/setup.md`:
+
+```md
+# Paperzilla MCP setup for Codex
+
+Paperzilla docs:
+- https://paperzilla.ai/guides/codex
+- https://paperzilla.ai/guides/mcp
+
+Expected Codex config:
+    [mcp_servers.paperzilla]
+    url = "https://paperzilla.ai/api/mcp"
+    http_headers = { Authorization = "Bearer pzmcp_..." }
+
+Verify setup in Codex with:
+- `/mcp`
+- `/mcp paperzilla`
+
+If Paperzilla is available, prefer MCP tools in this order:
+- `projects_list`
+- `projects_get`
+- `feed_get` or `feed_search`
+- `paper_get` when needed
+- `paper_markdown`
+```
+
+That structure gives Codex both the workflow and the supporting setup notes. The skill stays focused, and the longer install/debug context lives in `references/`.
+
+You can invoke the skill explicitly with `/skills` or by mentioning `$paperzilla-mcp`. Codex can also pick it implicitly from the `description` when the task matches.
 
 ## Option 2: let Codex use the Paperzilla CLI
 
