@@ -69,6 +69,7 @@
                   "guides/openclaw",
                   "guides/openclaw-telegram-briefs",
                   "guides/mcp",
+                  "guides/codex",
                   "guides/claude",
                   "guides/claude-slack-briefs"
                 ]
@@ -180,6 +181,9 @@
                   "answers/rss-url-security",
                   "answers/how-do-i-find-my-project-id-for-cli-commands",
                   "answers/how-do-i-search-a-project-feed-from-the-cli",
+                  "answers/how-do-i-use-paperzilla-cli-with-codex",
+                  "answers/how-do-i-use-paperzilla-cli-with-claude",
+                  "answers/how-do-i-use-paperzilla-cli-with-openclaw",
                   "answers/how-do-feedback-signals-work-in-the-cli",
                   "answers/openclaw-skill",
                   "answers/what-is-the-difference-between-a-canonical-paper-and-a-recommendation"

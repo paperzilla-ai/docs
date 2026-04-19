@@ -1,0 +1,45 @@
+---
+title: "How do I use the Paperzilla CLI with Claude?"
+sidebarTitle: "How do I use the Paperzilla CLI with Claude?"
+description: "Use the pz CLI directly in Claude Code to list projects, search feeds, inspect paper metadata, and fetch markdown."
+keywords: ["Claude", "Claude Code", "Paperzilla CLI", "pz", "CLI with Claude", "agent workflow"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/answers/how-do-i-use-paperzilla-cli-with-claude" />
+
+Use `pz` directly in Claude Code.
+
+The short version:
+
+1. Install the [Paperzilla CLI](/guides/cli) and run `pz login`.
+2. Make sure `pz` works in the same terminal environment where Claude Code runs.
+3. Ask Claude Code to use `pz` for Paperzilla tasks.
+
+Typical flow:
+
+```bash
+pz project list --json
+pz feed search --project-id <project-id> --query "retrieval evaluation" --json
+pz paper <paper-id> --json
+pz rec <project-paper-id> --markdown
+```
+
+`pz project list --json` returns a compact project summary array, which is usually enough to pick the right `project-id`.
+
+Use `pz paper` for canonical paper metadata.
+
+Use `pz rec --markdown` after a project feed search when you want markdown in project context. That path can queue markdown generation if it is not ready yet.
+
+You do not need a custom Paperzilla connector for this CLI path. Claude Code can already run shell commands in your workspace.
+
+If you want the remote tool-calling path in Claude instead, use [Paperzilla MCP with Claude](/guides/claude).
+
+For the full CLI command reference, see [CLI guide](/guides/cli).
+
+## Related
+
+- [Use Paperzilla MCP with Claude](/guides/claude)
+- [CLI guide](/guides/cli)
+- [What is the difference between a canonical paper and a recommendation?](/answers/what-is-the-difference-between-a-canonical-paper-and-a-recommendation)

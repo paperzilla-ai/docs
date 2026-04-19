@@ -1,0 +1,45 @@
+---
+title: "How do I use the Paperzilla CLI with Codex?"
+sidebarTitle: "How do I use the Paperzilla CLI with Codex?"
+description: "Use the pz CLI directly in Codex to list projects, search feeds, inspect paper metadata, and fetch markdown."
+keywords: ["Codex", "Paperzilla CLI", "pz", "CLI with Codex", "agent workflow", "markdown"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/answers/how-do-i-use-paperzilla-cli-with-codex" />
+
+Use `pz` directly in Codex.
+
+The short version:
+
+1. Install the [Paperzilla CLI](/guides/cli) and run `pz login`.
+2. Make sure `pz` works in the same environment where Codex runs.
+3. Ask Codex to use `pz` for Paperzilla tasks.
+
+Typical flow:
+
+```bash
+pz project list --json
+pz feed search --project-id <project-id> --query "retrieval evaluation" --json
+pz paper <paper-id> --json
+pz rec <project-paper-id> --markdown
+```
+
+`pz project list --json` returns a compact project summary array, which is usually enough to pick the right `project-id`.
+
+Use `pz paper` for canonical paper metadata.
+
+Use `pz rec --markdown` after a project feed search when you want markdown in project context. That path can queue markdown generation if it is not ready yet.
+
+You do not need a plugin for this CLI path. Codex can already run shell commands in your workspace.
+
+A Codex skill is optional. Add one only if you want Codex to remember when to use `pz` without extra prompting.
+
+For the full walkthrough, see [Use Paperzilla with Codex](/guides/codex).
+
+## Related
+
+- [Use Paperzilla with Codex](/guides/codex)
+- [CLI guide](/guides/cli)
+- [What is the difference between a canonical paper and a recommendation?](/answers/what-is-the-difference-between-a-canonical-paper-and-a-recommendation)

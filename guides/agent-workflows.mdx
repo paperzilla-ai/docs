@@ -20,19 +20,23 @@ Use these depending on your workflow:
 - MCP (`/api/mcp`) for LLM tool-calling workflows
 - RSS/Atom for polling in feed infrastructure
 
-See [CLI guide](/guides/cli), [MCP integration](/guides/mcp), [Claude guide](/guides/claude), and [RSS/Atom guide](/guides/feeds).
+See [CLI guide](/guides/cli), [MCP integration](/guides/mcp), [Codex guide](/guides/codex), [Claude guide](/guides/claude), and [RSS/Atom guide](/guides/feeds).
 
 ## Recommended setup for agent workflows
 
 1. Create and tune projects in the app.
 2. Authenticate CLI with `pz login`.
-3. Use `pz project list` to get the project ID you need.
+3. Use `pz project list --json` to get the project ID you need from structured output.
 4. Use `pz feed <project-id> --json` for browse-style automation, or `pz feed search --project-id <id> --query <q> --json` for text search across the full feed.
 5. Add filters (`--must-read`, `--since`, `--limit`, `--feedback-filter`) based on your workflow.
 
 ## OpenClaw skill
 
 The Paperzilla CLI is published as an [OpenClaw skill on ClawHub](https://clawhub.ai/pors/paperzilla). Install it with `openclaw skills install paperzilla` to let OpenClaw use `pz` commands directly. If you already use the separate ClawHub CLI, `clawhub install paperzilla` also works. See [Use the Paperzilla CLI with OpenClaw](/guides/openclaw) for the full setup flow.
+
+## Codex
+
+Codex works with Paperzilla in two ways. Add Paperzilla MCP to `~/.codex/config.toml` with a static `Authorization` header when you want native tool calling. Then confirm the server in `/mcp`. Use `pz` directly when Codex already works in a shell or repo. A small Codex skill is helpful for either path because it teaches Codex when to prefer MCP, when to use the CLI, and which Paperzilla tool sequence to follow. A plugin is only needed when you want an installable package. See [Use Paperzilla with Codex](/guides/codex).
 
 ## Data surfaces you can combine
 

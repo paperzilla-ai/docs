@@ -16,10 +16,16 @@ Use:
 
 ```bash
 pz feedback <project-paper-id> upvote
+pz feedback <project-paper-id> upvote --json
 pz feedback <project-paper-id> star
 pz feedback <project-paper-id> downvote --reason not_relevant
 pz feedback clear <project-paper-id>
+pz feedback clear <project-paper-id> --json
 ```
+
+`clear` is a subcommand, so the valid syntax is `pz feedback clear <project-paper-id>`.
+
+`pz feedback ... --json` returns the feedback object. `pz feedback clear ... --json` returns a small confirmation envelope because the clear endpoint returns no body.
 
 The feedback values map to the same ideas as the app:
 

@@ -1,0 +1,264 @@
+---
+title: "Use Paperzilla with Codex"
+description: "Connect Paperzilla MCP to Codex, or let Codex use the pz CLI with an optional skill."
+keywords: ["Codex", "OpenAI Codex", "MCP", "Paperzilla CLI", "pz", "skill", "plugin"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/guides/codex" />
+
+Use this guide when you want Codex to work with your Paperzilla data.
+
+Codex supports two Paperzilla paths:
+
+- Paperzilla MCP for native tool calling over the MCP endpoint
+- Paperzilla CLI (`pz`) for local terminal workflows
+
+You do not need a plugin for the basic MCP setup.
+
+A plugin is only useful when you want an installable Codex package that bundles Paperzilla MCP config, a Paperzilla CLI skill, or both.
+
+## Choose the right path
+
+Use Paperzilla MCP when:
+
+- you want Codex to reason over Paperzilla tools directly
+- you do not want a local `pz` dependency
+- you want the same remote Paperzilla surface you use with other MCP clients
+
+Use `pz` when:
+
+- Codex already works in the terminal or repository where `pz` is installed
+- you want deterministic CLI output
+- you want to reuse your existing `pz login` session
+
+Use a Codex plugin when:
+
+- you want to distribute a reusable Codex setup to a team
+- you want one installable package instead of manual skill and MCP setup
+
+## Before you start
+
+- A Paperzilla account with at least one project
+- Codex access in the client you use
+- Your Paperzilla MCP API key from **MCP API key** in the [dashboard](https://paperzilla.ai/dashboard) if you want the MCP path
+- `pz` installed and authenticated with `pz login` if you want the CLI path
+
+## Option 1: add Paperzilla MCP to Codex
+
+Codex supports streamable HTTP MCP servers. For Paperzilla, use Codex's `config.toml` path with a static `Authorization` header.
+
+### Step 1: copy your Paperzilla MCP key
+
+1. Open your [dashboard](https://paperzilla.ai/dashboard).
+2. Click **MCP API key**.
+3. Generate or copy your key.
+4. Keep it private.
+
+### Step 2: add Paperzilla to Codex config
+
+Add this to `~/.codex/config.toml`, or to a project-scoped `.codex/config.toml` if you want the setup only for one repo:
+
+```toml
+[mcp_servers.paperzilla]
+url = "https://paperzilla.ai/api/mcp"
+http_headers = { Authorization = "Bearer pzmcp_..." }
+```
+
+Replace `pzmcp_...` with your real Paperzilla MCP key.
+
+This keeps the whole Codex setup in `config.toml`. You do not need a separate environment variable.
+
+Paperzilla also accepts `?key=<key>` auth, but Codex supports header auth directly, so `http_headers` is the cleaner Codex setup.
+
+### Step 3: confirm the server is active
+
+In Codex, run `/mcp` or `/mcp paperzilla` to confirm that `paperzilla` is available and enabled.
+
+In the Codex app, the Paperzilla entry should show API key auth and `Enabled`.
+
+If you do not see the updated config right away, reopen Codex and check again.
+
+After that, ask Codex things like:
+
+- "List my Paperzilla projects."
+- "Show Must Read papers from my agents project from this week."
+- "Search my evaluation project for papers about proximity graphs."
+- "Get markdown for the newest Must Read paper in my retrieval project."
+
+For the generic MCP contract and full tool list, see [Use Paperzilla with MCP](/guides/mcp).
+
+### How Codex uses Paperzilla MCP
+
+In practice, Codex will often follow a flow like this:
+
+- `projects_list` to find the project you mean
+- `projects_get` when it needs project settings or project detail
+- `feed_get` for browse-style feed retrieval
+- `feed_search` for title, author, abstract, or summary search across the full project feed
+- `paper_get` when it needs standalone paper metadata
+- `paper_markdown` once it has the canonical paper ID
+
+Feed results include both the project-scoped recommendation ID and nested canonical paper metadata.
+
+Because `feed_get` and `feed_search` already include nested paper metadata, Codex will often skip `paper_get` unless it needs a standalone paper lookup.
+
+That means a common Codex MCP pattern is:
+
+1. Search a project feed with `feed_search`.
+2. Take the `paper.id` from the matching result.
+3. Call `paper_markdown` with that paper ID.
+
+`paper_markdown` returns a structured status:
+
+- `ready` when the markdown content is returned immediately
+- `queued` when Paperzilla accepted the request but the markdown is not ready yet
+- `unavailable` when that paper does not currently have a usable markdown source
+
+If you want to force the MCP path when both MCP and CLI are available, say so explicitly. For example:
+
+- "Use the `paperzilla` MCP server. Do not use `pz`."
+
+### Optional: add a Codex skill for repeatable MCP behavior
+
+Yes. A small Codex skill is helpful even when you use MCP.
+
+The skill does not replace the MCP server. It teaches Codex to:
+
+- prefer the `paperzilla` MCP server when Paperzilla data is needed
+- use `projects_list` before guessing project IDs
+- use `feed_search` for full-feed text search
+- take `paper.id` from feed results before calling `paper_markdown`
+- avoid falling back to `pz` unless you ask for the CLI path
+
+Store a repo skill under `.agents/skills/paperzilla-mcp/SKILL.md` or a user skill under `$HOME/.agents/skills/...`.
+
+Minimal example:
+
+```md
+---
+name: paperzilla-mcp
+description: Use when the task needs Paperzilla data through the configured paperzilla MCP server.
+---
+
+Use the `paperzilla` MCP server for Paperzilla tasks unless the user explicitly asks for `pz`.
+
+Start with `projects_list` when you need to identify a project.
+Use `feed_get` for browse-style feed retrieval.
+Use `feed_search` for title, author, abstract, or summary search across a full project feed.
+Use `paper_get` only when you need standalone paper metadata.
+Use `paper_markdown` with the canonical `paper.id` from feed results.
+Treat `paper_markdown` statuses `ready`, `queued`, and `unavailable` as normal outcomes.
+```
+
+## Option 2: let Codex use the Paperzilla CLI
+
+Codex can already run shell commands in your workspace. That means the CLI path works even without a custom Codex skill.
+
+### Step 1: confirm the CLI works where Codex runs
+
+```bash
+pz login
+pz project list
+```
+
+If `pz project list` does not work in the same environment where Codex runs, fix that first.
+
+### Step 2: ask Codex to use `pz`
+
+You can ask for things like:
+
+- "Use `pz` to list my Paperzilla projects."
+- "Use `pz` to show the newest Must Read papers from my agents project."
+- "Use `pz feed search` to search my evaluation project for proximity graphs."
+- "Use `pz` to get markdown for that paper."
+
+In practice, Codex will often follow this CLI flow:
+
+```bash
+pz project list --json
+pz project <project-id> --json
+pz feed search --project-id <project-id> --query "retrieval evaluation" --json
+pz paper <paper-id> --json
+pz rec <project-paper-id> --markdown
+```
+
+That flow matches the way Paperzilla separates project recommendations from canonical papers.
+
+`pz project list --json` returns a compact project summary array, which is usually enough for Codex to pick the right `project-id`.
+
+### How Codex uses Paperzilla objects
+
+- `pz project list` gives Codex the project ID it needs for project-scoped work
+- `pz feed` and `pz feed search` return recommendation entries from one project feed
+- each recommendation includes both a recommendation ID and a canonical paper ID
+- `pz paper` is the right path for canonical paper metadata
+- `pz rec` is the right path for project-scoped context such as Must Read vs Related, recommendation feedback, and markdown queueing
+
+If you are new to this model, see [What is the difference between a canonical paper and a recommendation?](/answers/what-is-the-difference-between-a-canonical-paper-and-a-recommendation).
+
+### JSON output and markdown behavior
+
+Use `--json` when Codex should read structured output instead of terminal tables.
+
+Across the CLI, `--json` is available on commands such as `project list`, `project`, `feed`, `feed search`, `paper`, `rec`, and `feedback`. The main exceptions are `login` and `update`.
+
+Markdown behavior also depends on which object you open:
+
+- `pz paper <paper-id> --markdown` prints markdown only when it is already ready
+- `pz rec <project-paper-id> --markdown` can queue markdown generation because it has project context
+
+For Codex and other agents, `pz rec --markdown` is often the better path after a project feed search.
+
+### Optional: add a Codex skill for repeatable CLI behavior
+
+A Codex skill is useful when you want Codex to know when to reach for `pz` without re-explaining the workflow each time.
+
+Store a repo skill under `.agents/skills/paperzilla-cli/SKILL.md` or a user skill under `$HOME/.agents/skills/...`.
+
+Minimal example:
+
+```md
+---
+name: paperzilla-cli
+description: Use when the task needs Paperzilla data through the local pz CLI in this environment.
+---
+
+Use `pz` for Paperzilla tasks in this environment.
+
+Start by confirming `pz project list` works.
+Prefer `--json` when structured output helps.
+Use `pz feed search --project-id <id> --query <q>` for full-feed search.
+Use `pz paper <paper-ref>` for canonical metadata.
+Use `pz rec <project-paper-ref> --markdown` when markdown may need to be queued.
+```
+
+The skill teaches Codex how to use `pz`. It does not replace the `pz` binary or your Paperzilla login.
+
+## When a plugin is worth it
+
+You do not need a plugin just to connect Codex to Paperzilla MCP.
+
+Build a Codex plugin only when you want a reusable, installable package for other Codex users.
+
+That plugin can bundle:
+
+- MCP config for Paperzilla
+- a skill for Paperzilla MCP workflows
+- a `skills/` directory for Paperzilla CLI workflows
+- both, if you want MCP and CLI paths in one package
+
+In other words:
+
+- MCP server: the Paperzilla integration surface
+- skill: instructions for how Codex should use Paperzilla through MCP, CLI, or both
+- plugin: the distribution wrapper around one or both
+
+If you later want a published Codex setup, packaging the Paperzilla MCP config and one or more Paperzilla skills into one plugin is the right next step.
+
+## Related
+
+- [Use Paperzilla with MCP](/guides/mcp)
+- [CLI guide](/guides/cli)
+- [Agent workflows](/guides/agent-workflows)

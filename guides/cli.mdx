@@ -8,7 +8,7 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/guides/cli" />
 
-The Paperzilla CLI (`pz`) lets you read canonical papers by Paperzilla paper ID, browse or search your curated project feeds, inspect project-specific recommendations, and leave feedback from the terminal. It works for both humans and AI agents. Use `--json` when you want structured output.
+The Paperzilla CLI (`pz`) lets you read canonical papers by Paperzilla paper ID, browse or search your curated project feeds, inspect project-specific recommendations, and leave feedback from the terminal. It works for both humans and AI agents. Use `--json` when you want structured output. The main exceptions are `login` and `update`.
 
 If you just installed `pz` and want the shortest path to a working setup, start with [CLI getting started](/guides/cli-getting-started).
 
@@ -135,6 +135,10 @@ b2c3d4e5-f6a7-8901-bcde-f12345678901  Genomics Research          auto        pri
 
 Use the `ID` column for project-scoped commands such as `pz feed`, `pz feed search`, and `pz paper --project`.
 
+Add `--json` when you want structured output for scripting or AI agents.
+
+`pz project list --json` returns a compact summary array with the same project identity fields shown in the table: `id`, `name`, `mode`, and `visibility`.
+
 ### pz project \<id\>
 
 Show details for a specific project.
@@ -159,6 +163,12 @@ Last Digest:      2025-08-01 09:00
 
 Interest:
   Recent advances in transformer architectures and efficiency
+```
+
+Add `--json` to return the full project record:
+
+```bash
+pz project a1b2c3d4-e5f6-7890-abcd-ef1234567890 --json
 ```
 
 ### pz paper \<paper-ref\>
@@ -214,6 +224,8 @@ pz paper <paper-id> --markdown
 ```
 
 If markdown is not ready yet, the CLI prints a friendly message. Anonymous `pz paper --markdown` does not queue markdown generation.
+
+For project-scoped agent workflows, `pz rec <project-paper-id> --markdown` is often a better follow-up after `pz feed` or `pz feed search`, because the recommendation context can queue markdown generation.
 
 If you are new to the model, see [What is the difference between a canonical paper and a recommendation?](/answers/what-is-the-difference-between-a-canonical-paper-and-a-recommendation).
 
@@ -286,6 +298,7 @@ Supported feedback values:
 
 | Flag | Short | Description |
 |------|-------|-------------|
+| `--json` | `-j` | Output the feedback object as JSON |
 | `--reason` | | Optional downvote reason: `not_relevant` or `low_quality` |
 
 #### Examples
@@ -293,6 +306,9 @@ Supported feedback values:
 ```bash
 # Positive signal
 pz feedback <project-paper-id> upvote
+
+# Positive signal as JSON
+pz feedback <project-paper-id> upvote --json
 
 # Strong positive signal
 pz feedback <project-paper-id> star
@@ -302,11 +318,16 @@ pz feedback <project-paper-id> downvote --reason not_relevant
 
 # Clear any existing feedback
 pz feedback clear <project-paper-id>
+
+# Clear feedback and get a confirmation envelope
+pz feedback clear <project-paper-id> --json
 ```
 
 Feedback is project-specific. The same canonical paper can have different feedback in different projects.
 
 To remove feedback entirely, use `pz feedback clear <project-paper-ref>`.
+
+`clear` is a subcommand. Use `pz feedback clear <project-paper-ref>`, not `pz feedback <project-paper-ref> clear`.
 
 For a shorter explanation, see [How do feedback signals work in the CLI?](/answers/how-do-feedback-signals-work-in-the-cli).
 
@@ -499,6 +520,14 @@ With `--json`, `pz feed` returns structured data suitable for scripting and AI a
 **Paper IDs:** use `items[].paper.id` or `items[].paper.short_id` with `pz paper`
 
 **Source IDs:** `1` = arXiv, `2` = medRxiv, `3` = bioRxiv, `4` = ChinaXiv, `6` = ChemRxiv
+
+`pz project list --json` returns project summary objects with `id`, `name`, `mode`, and `visibility`.
+
+`pz project <project-id> --json` returns the full project record.
+
+`pz feedback <project-paper-id> ... --json` returns the feedback object.
+
+`pz feedback clear <project-paper-id> --json` returns a small confirmation envelope because the backend clear endpoint returns `204 No Content`.
 
 `pz feed search --json` returns a search envelope with `items`, `limit`, `offset`, `has_more`, and `query`.
 

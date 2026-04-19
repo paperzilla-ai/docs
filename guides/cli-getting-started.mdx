@@ -89,6 +89,8 @@ List projects:
 pz project list
 ```
 
+For scripts and agents, use `pz project list --json` to get the same project identity fields as structured output: `id`, `name`, `mode`, and `visibility`.
+
 Browse a project feed:
 
 ```bash
@@ -125,6 +127,8 @@ Leave recommendation feedback:
 ```bash
 pz feedback <project-paper-id> upvote
 ```
+
+Use `pz feedback <project-paper-id> upvote --json` when you want the feedback object as structured output.
 
 Print raw paper markdown:
 
