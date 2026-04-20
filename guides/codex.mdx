@@ -17,7 +17,7 @@ Codex supports two Paperzilla paths:
 
 You do not need a plugin for the basic MCP setup.
 
-A plugin is only useful when you want an installable Codex package that bundles Paperzilla MCP config, a Paperzilla CLI skill, or both.
+For most users, the easiest MCP setup is the Codex app's **Integrations & MCP** settings. Use a plugin only when you want an installable Codex package that bundles Paperzilla workflow instructions, a Paperzilla MCP endpoint declaration, a Paperzilla CLI skill, or a combination of those pieces.
 
 ## Choose the right path
 
@@ -26,6 +26,7 @@ Use Paperzilla MCP when:
 - you want Codex to reason over Paperzilla tools directly
 - you do not want a local `pz` dependency
 - you want the same remote Paperzilla surface you use with other MCP clients
+- you prefer a GUI setup in the Codex app
 
 Use `pz` when:
 
@@ -38,6 +39,8 @@ Use a Codex plugin when:
 - you want to distribute a reusable Codex setup to a team
 - you want one installable package instead of manual skill and MCP setup
 
+Do not use a Codex plugin just to connect Paperzilla MCP. Current Codex plugin installs do not collect Paperzilla MCP API keys for non-OAuth MCP servers. If you install a Paperzilla Codex plugin, still connect Paperzilla in **Integrations & MCP** or configure the MCP key in Codex MCP config.
+
 ## Before you start
 
 - A Paperzilla account with at least one project
@@ -45,9 +48,9 @@ Use a Codex plugin when:
 - Your Paperzilla MCP API key from **MCP API key** in the [dashboard](https://paperzilla.ai/dashboard) if you want the MCP path
 - `pz` installed and authenticated with `pz login` if you want the CLI path
 
-## Option 1: add Paperzilla MCP to Codex
+## Option 1: add Paperzilla MCP in Codex settings
 
-Codex supports streamable HTTP MCP servers. For Paperzilla, use Codex's `config.toml` path with a static `Authorization` header.
+Codex supports streamable HTTP MCP servers. In the Codex app, add Paperzilla from **Settings** > **Integrations & MCP**.
 
 ### Step 1: copy your Paperzilla MCP key
 
@@ -56,9 +59,41 @@ Codex supports streamable HTTP MCP servers. For Paperzilla, use Codex's `config.
 3. Generate or copy your key.
 4. Keep it private.
 
-### Step 2: add Paperzilla to Codex config
+### Step 2: add Paperzilla in Integrations & MCP
 
-Add this to `~/.codex/config.toml`, or to a project-scoped `.codex/config.toml` if you want the setup only for one repo:
+1. Open Codex settings. On macOS, press `Cmd` + `,`.
+2. Open **Integrations & MCP**.
+3. Click **Add your own** or the equivalent custom MCP server action.
+4. In **Connect to a custom MCP**, fill the settings like this:
+
+| Setting | Value |
+| --- | --- |
+| **Name** | `paperzilla` |
+| Connection type | **Streamable HTTP** |
+| URL | `https://paperzilla.ai/api/mcp/?key=pzmcp_...` |
+
+Replace `pzmcp_...` with your real key.
+
+Make sure **Streamable HTTP** is selected. Do not use **STDIO** for Paperzilla. If you still see fields such as **Command to launch**, **Arguments**, **Environment variables**, or **Working directory**, you are still on the STDIO setup screen.
+
+5. Click **Save**.
+
+<Frame caption="Add Paperzilla as a custom MCP server in Codex">
+  <img
+    src="/images/guides/Codex_Paperzilla_MCP.png"
+    alt="Codex custom MCP settings showing Paperzilla configured as a Streamable HTTP server with a sanitized Paperzilla MCP URL."
+  />
+</Frame>
+
+The full MCP URL should look like this:
+
+```txt
+https://paperzilla.ai/api/mcp/?key=pzmcp_...
+```
+
+This is the simplest Codex app setup because it fits clients that only ask for an MCP server URL.
+
+If you prefer header auth, or if the Codex app opens the config file for advanced setup, use this `~/.codex/config.toml` block instead:
 
 ```toml
 [mcp_servers.paperzilla]
@@ -68,15 +103,17 @@ http_headers = { Authorization = "Bearer pzmcp_..." }
 
 Replace `pzmcp_...` with your real Paperzilla MCP key.
 
-This keeps the whole Codex setup in `config.toml`. You do not need a separate environment variable.
+You do not need a separate environment variable.
 
-Paperzilla also accepts `?key=<key>` auth, but Codex supports header auth directly, so `http_headers` is the cleaner Codex setup.
+The `?key=<key>` URL is easier for GUI setup. The `http_headers` block is cleaner for users who are already comfortable editing Codex config.
 
 ### Step 3: confirm the server is active
 
 In Codex, run `/mcp` or `/mcp paperzilla` to confirm that `paperzilla` is available and enabled.
 
-In the Codex app, the Paperzilla entry should show API key auth and `Enabled`.
+In the Codex app, the Paperzilla entry should show `Enabled`.
+
+The Auth column may show `Unsupported`. For this setup, that means Codex does not offer an interactive OAuth login for Paperzilla. It does not prove that the static `http_headers` API key is missing.
 
 If you do not see the updated config right away, reopen Codex and check again.
 
@@ -131,7 +168,7 @@ A good Codex skill explains what Codex needs to know to make the Paperzilla MCP 
 - where the Paperzilla setup docs live
 - which Paperzilla MCP tool sequence to follow
 - when not to fall back to `pz`
-- that MCP auth belongs in Codex config, not in the skill itself
+- that MCP auth belongs in Codex **Integrations & MCP** or Codex config, not in the skill itself
 
 This matches how Codex skills are meant to work: a skill can package instructions, references, and optional scripts for a reusable workflow.
 
@@ -167,7 +204,7 @@ If the MCP server is missing, disabled, or failing auth:
 - point the user to `references/setup.md`
 
 Do not store API keys or secrets in this skill.
-Paperzilla MCP auth belongs in `~/.codex/config.toml` or project `.codex/config.toml`.
+Paperzilla MCP auth belongs in Codex **Integrations & MCP**, `~/.codex/config.toml`, or project `.codex/config.toml`.
 
 Workflow:
 - start with `projects_list` when you need to identify a project
@@ -194,6 +231,10 @@ Paperzilla docs:
 - https://paperzilla.ai/guides/mcp
 
 Expected Codex config:
+    [mcp_servers.paperzilla]
+    url = "https://paperzilla.ai/api/mcp/?key=pzmcp_..."
+
+Advanced header-auth config:
     [mcp_servers.paperzilla]
     url = "https://paperzilla.ai/api/mcp"
     http_headers = { Authorization = "Bearer pzmcp_..." }
@@ -306,10 +347,20 @@ Build a Codex plugin only when you want a reusable, installable package for othe
 
 That plugin can bundle:
 
-- MCP config for Paperzilla
+- the Paperzilla MCP endpoint declaration
 - a skill for Paperzilla MCP workflows
 - a `skills/` directory for Paperzilla CLI workflows
 - both, if you want MCP and CLI paths in one package
+
+For Paperzilla MCP, the plugin does not remove the need for the Codex MCP auth block:
+
+```toml
+[mcp_servers.paperzilla]
+url = "https://paperzilla.ai/api/mcp"
+http_headers = { Authorization = "Bearer pzmcp_..." }
+```
+
+For normal users, prefer **Settings** > **Integrations & MCP** instead of a plugin installer. If you install only from the Codex **Plugins** UI, verify `/mcp paperzilla` before expecting live Paperzilla tools.
 
 In other words:
 
@@ -318,6 +369,18 @@ In other words:
 - plugin: the distribution wrapper around one or both
 
 If you later want a published Codex setup, packaging the Paperzilla MCP config and one or more Paperzilla skills into one plugin is the right next step.
+
+## Troubleshoot plugin MCP access
+
+If Codex says the Paperzilla MCP tools are not exposed, the plugin skill may be installed without an authenticated `paperzilla` MCP server.
+
+Check `/mcp paperzilla` first. If Paperzilla is missing, add Paperzilla from **Settings** > **Integrations & MCP** or add the `mcp_servers.paperzilla` config block above.
+
+If Paperzilla appears with `Auth unsupported` and `Enabled`, that can be normal for static API-key auth. Try a live Paperzilla request. If that fails, check that the custom MCP URL includes `?key=...` or that `~/.codex/config.toml` contains the `http_headers` block.
+
+If Paperzilla appears but a live request fails auth, regenerate your **MCP API key** in the Paperzilla dashboard and update the same config block.
+
+Do not solve this by installing the skill again. The skill tells Codex how to use Paperzilla after the MCP server is available. It does not authenticate the MCP server by itself.
 
 ## Related
 
