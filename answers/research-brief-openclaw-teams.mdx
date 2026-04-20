@@ -1,0 +1,24 @@
+---
+title: "Can I use OpenClaw and Microsoft Teams for academic paper briefs?"
+sidebarTitle: "OpenClaw + Teams briefs"
+description: "Use OpenClaw, Microsoft Teams, and the Paperzilla CLI to create scheduled academic paper briefs when the Teams channel is configured."
+keywords: ["OpenClaw Microsoft Teams academic paper brief", "OpenClaw Teams research brief", "Paperzilla OpenClaw Teams", "Teams paper brief", "academic paper brief"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/answers/research-brief-openclaw-teams" />
+
+Yes, if the Microsoft Teams channel or plugin is configured in OpenClaw.
+
+OpenClaw can use [Teams as a channel](https://docs.openclaw.ai/channels/msteams), but setup is more involved than Telegram or Slack. Teams may require a Microsoft Teams app package, Azure Bot configuration, and Microsoft Graph permissions depending on the features you need.
+
+The Paperzilla part stays the same: OpenClaw runs the schedule, the Paperzilla CLI (`pz`) reads your project feed, and OpenClaw sends the academic paper brief to the configured Teams target.
+
+Use [OpenClaw and Telegram for research briefs](/guides/openclaw-telegram-briefs) as the closest detailed guide. Replace the Telegram channel setup and delivery target with the OpenClaw Microsoft Teams channel.
+
+## Related
+
+- [Use the Paperzilla CLI with OpenClaw](/guides/openclaw)
+- [Use OpenClaw and Telegram for research briefs](/guides/openclaw-telegram-briefs)
+- [How do I use the Paperzilla CLI with OpenClaw?](/answers/how-do-i-use-paperzilla-cli-with-openclaw)

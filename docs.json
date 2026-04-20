@@ -70,6 +70,7 @@
                   "guides/openclaw-telegram-briefs",
                   "guides/mcp",
                   "guides/codex",
+                  "guides/codex-teams-briefs",
                   "guides/claude",
                   "guides/claude-slack-briefs"
                 ]
@@ -141,6 +142,22 @@
                   "answers/can-paperzilla-mcp-return-individual-paper-metadata-and-markdown",
                   "answers/how-do-i-use-paperzilla-mcp-with-claude",
                   "answers/how-do-clients-discover-paperzilla-mcp"
+                ]
+              },
+              {
+                "group": "Research briefs",
+                "icon": "send",
+                "expanded": false,
+                "pages": [
+                  "answers/research-brief-codex-telegram",
+                  "answers/research-brief-codex-slack",
+                  "answers/research-brief-codex-teams",
+                  "answers/research-brief-claude-cowork-telegram",
+                  "answers/research-brief-claude-cowork-slack",
+                  "answers/research-brief-claude-cowork-teams",
+                  "answers/research-brief-openclaw-telegram",
+                  "answers/research-brief-openclaw-slack",
+                  "answers/research-brief-openclaw-teams"
                 ]
               },
               {

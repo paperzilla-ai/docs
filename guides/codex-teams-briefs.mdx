@@ -1,0 +1,146 @@
+---
+title: "Use Codex and Microsoft Teams for research briefs"
+description: "Run Paperzilla brief workflows in Codex and turn them into Microsoft Teams-ready updates."
+keywords: ["Codex", "Microsoft Teams", "Paperzilla MCP", "research brief", "automation", "Teams app", "Teams plugin"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/guides/codex-teams-briefs" />
+
+Use this guide when you want Codex to read one Paperzilla project and prepare research briefs for Microsoft Teams.
+
+This walkthrough uses Paperzilla MCP for Paperzilla data access, Codex for analysis and scheduling, and the Microsoft Teams app or plugin for optional team context. The default output is a Teams-ready draft.
+
+OpenAI's current help docs call this an app. Codex may surface the same integration as a plugin.
+
+Paperzilla documents the Paperzilla side of this workflow. Teams search and write behavior is controlled by OpenAI, Microsoft, and your workspace settings.
+
+## Before you start
+
+- Complete [Use Paperzilla with Codex](/guides/codex).
+- Confirm `/mcp paperzilla` shows Paperzilla as enabled in Codex.
+- Connect the Microsoft Teams app or plugin in ChatGPT or Codex. See [Microsoft Teams app for ChatGPT](https://help.openai.com/en/articles/12552368-microsoft-teams-connector-for-chatgpt).
+- If you use a Business or Enterprise/Edu workspace, confirm your admin has enabled the Teams app and the Teams actions you need. See [Apps in ChatGPT](https://help.openai.com/en/articles/11487775-connectors-in-chatgpt).
+- Pick one Paperzilla project for this workflow.
+- Prepare one short sentence for "our work" if Codex should not infer it from Teams. Example: `Our work is evaluation infrastructure for coding agents.`
+
+<Warning>Start with a Teams-ready draft. Only move to direct posting after you confirm that the Teams app exposes the right write actions and Codex asks for confirmation before posting.</Warning>
+
+## How this stack works
+
+- Codex reads your Paperzilla project through Paperzilla MCP.
+- Codex can use recent Microsoft Teams context when the Teams app is connected and allowed.
+- Codex can prepare a Teams-ready research brief from the newest papers in one project.
+- Codex automations can run the brief on a schedule and put the result in Triage.
+- If Teams write actions are available in your workspace, Codex may be able to ask for confirmation before posting to Teams.
+
+Use Teams context when the brief should reflect what your team is actively discussing. Use only Paperzilla context when you want the brief to stay independent from chat history.
+
+## Use case 1: on-demand paper discussion
+
+Start in Codex and mention both the Paperzilla project and the Teams context you want Codex to use.
+
+First ask for recent team context and the latest papers:
+
+```text
+Use my Paperzilla project `Agents evaluation`.
+Use recent Microsoft Teams context from the research discussion if available.
+Our work: we build evaluation infrastructure for coding agents.
+
+Pull the latest papers from this project and show the top 5.
+For each one, include the title, date, source, and whether it looks Must Read or Related.
+Then add one sentence explaining how it connects to recent team priorities.
+```
+
+Then ask for metadata for one paper:
+
+```text
+Open the second paper and show the metadata only.
+Include authors, publication date, source, URL, and the Paperzilla ID you used.
+```
+
+Then fetch markdown and connect it back to the Teams context:
+
+```text
+Fetch the markdown for that paper.
+Summarize the contribution, method, results, and limits.
+Then explain why it matters for our work and for the recent Teams discussion.
+```
+
+Then ask Codex to draft a Teams-ready post:
+
+```text
+Draft a Microsoft Teams update for the research channel.
+Include:
+- project name
+- paper title
+- one short summary
+- why the team should read it
+- one suggested next step
+
+Do not post it yet. Show me the draft first.
+```
+
+If Codex confirms that a Teams write action is available in your workspace, you can ask it to post after review:
+
+```text
+Post that draft to Microsoft Teams.
+Ask for confirmation before sending.
+```
+
+Good replies for this flow should:
+
+- keep the project name and "our work" context in view
+- separate Paperzilla metadata from Codex interpretation
+- cite or name the Teams context only when Codex actually used it
+- produce a brief that is useful as a Teams message, not a long paper review
+
+## Use case 2: weekday research brief for Teams
+
+This pattern uses a Codex automation to prepare a brief on weekdays.
+
+Codex automations report findings in Triage. Treat that as the default review point. After you review the output, ask Codex to post the approved draft to Teams only if the Teams app supports posting in your workspace.
+
+Create a Codex automation with a prompt like this:
+
+```text
+Use my Paperzilla project `Agents evaluation`.
+Use recent Microsoft Teams context from the research discussion if available.
+Our work: we build evaluation infrastructure for coding agents.
+
+Every weekday morning:
+1. Pull the newest papers from this project.
+2. Prefer Must Read papers, then strong Related papers.
+3. Keep the brief concise.
+4. For each selected paper, include the title, one short summary, and one sentence on why it is relevant to our work.
+5. Include the project name and today's date at the top.
+6. If there are no new papers, say that explicitly.
+7. Prepare a Microsoft Teams-ready draft and put it in Triage.
+8. Do not post to Teams automatically unless I explicitly approve the send action.
+```
+
+The expected brief format is:
+
+- project name and date
+- how many new papers were checked
+- for each selected paper, one short summary and one sentence on why it is relevant to your work
+- a short "why this matters now" line when Teams context was used
+- a clear "no new papers today" line when nothing new qualifies
+
+If the first few briefs are useful, keep the automation. If they are too noisy, narrow the project, add a topic filter, or ask Codex to use only Must Read papers.
+
+## Limits and troubleshooting
+
+- If Codex cannot access Paperzilla, fix the Paperzilla MCP setup first in [Use Paperzilla with Codex](/guides/codex).
+- If Codex cannot access Teams, reconnect the Microsoft Teams app and check workspace app controls.
+- If Teams posting fails, keep using Teams-ready drafts. Your workspace may allow search but not write actions.
+- If an automation produces no Triage item, confirm the Codex app is running and the automation is enabled.
+- If the agent returns no papers, confirm the project is active and already has feed items.
+- If `paper_markdown` is queued or unavailable, retry later instead of changing the workflow.
+
+## Related
+
+- [Use Paperzilla with Codex](/guides/codex)
+- [Use Paperzilla with MCP](/guides/mcp)
+- [Agent workflows](/guides/agent-workflows)

@@ -1,0 +1,26 @@
+---
+title: "Can I use Claude Cowork and Telegram for academic paper briefs?"
+sidebarTitle: "Cowork + Telegram briefs"
+description: "Use Claude Cowork to prepare Telegram-ready Paperzilla academic paper briefs, with Telegram delivery through Claude Code Channels, OpenClaw, or another tested bridge."
+keywords: ["Claude Cowork Telegram academic paper brief", "Claude Code Channels Telegram", "Claude Telegram research brief", "Paperzilla Claude Telegram", "Telegram paper brief", "academic paper brief"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/answers/research-brief-claude-cowork-telegram" />
+
+Yes, but be precise about which Claude surface is doing the Telegram part.
+
+Use Claude Cowork with Paperzilla MCP to create a Telegram-ready academic paper brief.
+
+For Telegram delivery, Anthropic documents [Claude Code Channels](https://code.claude.com/docs/en/channels) with a Telegram plugin. That sends Telegram messages into a running Claude Code session and lets Claude reply through Telegram.
+
+That is not exactly the same as a Cowork scheduled task posting directly to Telegram. For a recurring Cowork brief, keep the output as a Telegram-ready draft unless you have tested Claude Code Channels, OpenClaw, or another Telegram bridge in your own setup.
+
+If Telegram delivery is the main requirement, use [OpenClaw and Telegram for research briefs](/guides/openclaw-telegram-briefs) or the Claude Code Channels setup. If Claude Cowork is the main requirement, use [Claude in Slack for research briefs](/guides/claude-slack-briefs) as the closest detailed Cowork guide, but replace Slack with your tested Telegram delivery path.
+
+## Related
+
+- [Use Paperzilla MCP with Claude](/guides/claude)
+- [Use Claude in Slack for research briefs](/guides/claude-slack-briefs)
+- [Use OpenClaw and Telegram for research briefs](/guides/openclaw-telegram-briefs)
