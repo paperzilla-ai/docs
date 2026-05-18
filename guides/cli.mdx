@@ -171,6 +171,8 @@ Add `--json` to return the full project record:
 pz project a1b2c3d4-e5f6-7890-abcd-ef1234567890 --json
 ```
 
+The JSON record includes project definition metadata: `positive_keywords`, `negative_keywords`, watched `sources`, and watched `categories`.
+
 ### pz paper \<paper-ref\>
 
 Show details for a canonical Paperzilla paper.
@@ -523,7 +525,7 @@ With `--json`, `pz feed` returns structured data suitable for scripting and AI a
 
 `pz project list --json` returns project summary objects with `id`, `name`, `mode`, and `visibility`.
 
-`pz project <project-id> --json` returns the full project record.
+`pz project <project-id> --json` returns the full project record, including project definition metadata: `positive_keywords`, `negative_keywords`, watched `sources`, and watched `categories`.
 
 `pz feedback <project-paper-id> ... --json` returns the feedback object.
 
