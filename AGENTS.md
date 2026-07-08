@@ -37,6 +37,12 @@
 - For client-specific integrations, explain what is client-specific and link to the generic Paperzilla page instead of duplicating protocol detail everywhere
 - For time-sensitive third-party behavior, verify it and name the external product explicitly, for example Claude or Cursor
 
+## Codex skill usage
+
+- Superpowers skills are opt-in only.
+  - Use Superpowers skills only when Mark explicitly asks for them in the current turn.
+  - Do not auto-activate Superpowers based only on task type.
+
 ## AI agents snippet
 
 Every new page must include the AI agents snippet right after the frontmatter. Add the import and component:
