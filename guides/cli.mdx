@@ -19,6 +19,15 @@ If you just installed `pz` and want the shortest path to a working setup, start 
     ```bash
     brew install paperzilla-ai/tap/pz
     ```
+
+    Homebrew 6.0 and later requires explicit trust for non-official taps. If Homebrew reports `Refusing to load formula paperzilla-ai/tap/pz from untrusted tap paperzilla-ai/tap`, trust only the Paperzilla formula and retry:
+
+    ```bash
+    brew trust --formula paperzilla-ai/tap/pz
+    brew install paperzilla-ai/tap/pz
+    ```
+
+    See [Homebrew's tap trust documentation](https://docs.brew.sh/Tap-Trust). Do not disable tap trust globally.
   </Tab>
   <Tab title="Windows">
     Via [Scoop](https://scoop.sh):
@@ -62,6 +71,16 @@ pz update
 - Scoop installs show `scoop update pz`
 - GitHub release installs tell you which release artifact to download
 - Source builds tell you to `git pull` and rebuild
+
+On Homebrew 6.0 and later, an existing installation may need explicit trust before it can update. If `brew update` refuses to load the Paperzilla formula from an untrusted tap, run:
+
+```bash
+brew trust --formula paperzilla-ai/tap/pz
+brew update
+brew upgrade pz
+```
+
+Trusting only the formula follows Homebrew's recommended narrower scope. Do not disable tap trust globally.
 
 `pz update` auto-detects common install methods from the current executable and build metadata.
 

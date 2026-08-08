@@ -47,6 +47,16 @@ pz update
 
 That command checks whether you are on the latest release and prints the right upgrade steps for Homebrew, Scoop, GitHub release installs, or source builds.
 
+Homebrew 6.0 and later may require explicit trust for an existing Paperzilla installation. If `brew update` reports that `paperzilla-ai/tap/pz` is from an untrusted tap, run:
+
+```bash
+brew trust --formula paperzilla-ai/tap/pz
+brew update
+brew upgrade pz
+```
+
+Trust only the formula. Do not disable Homebrew's tap trust globally. See the [CLI guide](/guides/cli) for full installation and update instructions.
+
 ## Step 3: sign in for project commands
 
 ```bash
