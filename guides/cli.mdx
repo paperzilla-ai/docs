@@ -519,11 +519,14 @@ With `--json`, `pz feed` returns structured data suitable for scripting and AI a
         "title": "A Novel Approach to...",
         "authors": [{"name": "Jane Smith"}],
         "published_date": "2025-07-20",
-        "pdf_url": "https://arxiv.org/pdf/2507.12345",
-        "url": "https://arxiv.org/abs/2507.12345",
-        "source_id": 1,
+        "reference_label": "PMID 45678901",
+        "doi": "10.1000/example.2026.12345",
+        "pdf_url": null,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/45678901/",
+        "source_id": 5,
+        "source_paper_id": "45678901",
         "source": {
-          "name": "arxiv"
+          "name": "pubmed"
         }
       }
     }
@@ -540,7 +543,9 @@ With `--json`, `pz feed` returns structured data suitable for scripting and AI a
 
 **Paper IDs:** use `items[].paper.id` or `items[].paper.short_id` with `pz paper`
 
-**Source IDs:** `1` = arXiv, `2` = medRxiv, `3` = bioRxiv, `4` = ChinaXiv, `6` = ChemRxiv
+**Source IDs:** `1` = arXiv, `2` = medRxiv, `3` = bioRxiv, `4` = ChinaXiv, `5` = PubMed, `6` = ChemRxiv
+
+For PubMed records, `reference_label` uses the PMID even when `doi` is present. `pdf_url` is nullable for every source. Use `url` for the source landing page when no PDF is available.
 
 `pz project list --json` returns project summary objects with `id`, `name`, `mode`, and `visibility`.
 

@@ -139,6 +139,8 @@ Search semantics:
 
 `paper_get` returns the same paper detail fields as the authenticated paper API, including `markdown_ready`.
 
+PubMed paper details use `PMID <number>` as `reference_label`, preserve a DOI separately when present, and link to the PubMed record. `pdf_url` can be `null`; do not infer that a PubMed record has public full text.
+
 `paper_markdown` always returns a structured object:
 
 - ready:
