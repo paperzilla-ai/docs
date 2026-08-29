@@ -184,6 +184,10 @@ async function main() {
         mintIgnore.split(/\r?\n/).includes('.i18n/'),
         '.mintignore must exclude the internal .i18n/ directory.',
     );
+    report(
+        mintIgnore.split(/\r?\n/).includes('AGENTS.md'),
+        '.mintignore must exclude internal AGENTS.md instructions.',
+    );
 
     const agents = await readFile(agentsPath, 'utf8');
     report(
