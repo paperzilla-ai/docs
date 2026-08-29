@@ -1,6 +1,6 @@
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const internalDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.dirname(internalDirectory);
@@ -10,49 +10,91 @@ const mintIgnorePath = path.join(repositoryRoot, '.mintignore');
 const agentsPath = path.join(repositoryRoot, 'AGENTS.md');
 const canonicalPlan = 'docs/multilingual/00-rollout-index.md';
 
-const expectedRegistry = {
-    schemaVersion: 1,
-    sourceLocale: 'en',
-    defaultLocale: 'en',
-    defaultFormatLocale: 'en-US',
-    urlPolicy: {
-        prefixDefaultLocale: false,
-    },
-    locales: [
-        {
-            tag: 'en',
-            englishName: 'English',
-            nativeName: 'English',
-            direction: 'ltr',
-            fallback: null,
-            pathPrefix: '',
-            stage: 'live',
-            indexable: true,
-        },
-    ],
-    testLocales: [
-        {
-            tag: 'en-XA',
-            kind: 'pseudo',
-            direction: 'ltr',
-            fallback: 'en',
-        },
-    ],
+const rootKeys = [
+    'schemaVersion',
+    'sourceLocale',
+    'defaultLocale',
+    'defaultFormatLocale',
+    'urlPolicy',
+    'locales',
+    'testLocales',
+];
+const productionLocaleKeys = [
+    'tag',
+    'englishName',
+    'nativeName',
+    'direction',
+    'fallback',
+    'pathPrefix',
+    'stage',
+    'indexable',
+];
+const testLocaleKeys = ['tag', 'kind', 'direction', 'fallback'];
+const stages = new Set(['planned', 'preview', 'live', 'retired']);
+const directions = new Set(['ltr', 'rtl']);
+const languageTagPattern = /^[A-Za-z]{2,8}(?:-[A-Za-z]{4})?(?:-(?:[A-Za-z]{2}|[0-9]{3}))?$/;
+
+export const expectedEnglishLocale = {
+    tag: 'en',
+    englishName: 'English',
+    nativeName: 'English',
+    direction: 'ltr',
+    fallback: null,
+    pathPrefix: '',
+    stage: 'live',
+    indexable: true,
 };
 
-const errors = [];
+export const expectedSpanishPilot = {
+    tag: 'es',
+    englishName: 'Spanish',
+    nativeName: 'Español',
+    direction: 'ltr',
+    fallback: 'en',
+    pathPrefix: 'es',
+    stage: 'planned',
+    indexable: false,
+};
 
-function report(condition, message) {
+export const expectedPseudoLocale = {
+    tag: 'en-XA',
+    kind: 'pseudo',
+    direction: 'ltr',
+    fallback: 'en',
+};
+
+function canonicalJson(value) {
+    return `${JSON.stringify(value, null, 2)}\n`;
+}
+
+function isPlainObject(value) {
+    return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+}
+
+function hasExactKeys(value, keys) {
+    return isPlainObject(value)
+        && JSON.stringify(Object.keys(value)) === JSON.stringify(keys);
+}
+
+function matchesExpected(value, expected) {
+    return JSON.stringify(value) === JSON.stringify(expected);
+}
+
+function report(errors, condition, message) {
     if (!condition) {
         errors.push(message);
     }
 }
 
-function isLocaleSegment(segment) {
+function escapeRegex(value) {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+export function isLocaleSegment(segment) {
     return /^[a-z]{2}(?:-(?:[A-Z][a-z]{3}|[A-Z]{2}|[0-9]{3}))*$/.test(segment);
 }
 
-function findNavigationLanguageKeys(value, location = 'navigation') {
+export function findNavigationLanguageKeys(value, location = 'navigation') {
     if (!value || typeof value !== 'object') {
         return [];
     }
@@ -74,7 +116,7 @@ function isLocalizedPath(value) {
     return isLocaleSegment(firstSegment);
 }
 
-function findLocalizedNavigationValues(value, location = 'navigation') {
+export function findLocalizedNavigationValues(value, location = 'navigation') {
     if (!value || typeof value !== 'object') {
         return [];
     }
@@ -97,106 +139,227 @@ function findLocalizedNavigationValues(value, location = 'navigation') {
     return matches;
 }
 
-async function findLocalizedPublicPaths() {
-    const entries = await readdir(repositoryRoot, { withFileTypes: true });
+export function validateRegistry(registry, rawRegistry) {
+    const errors = [];
+    if (!isPlainObject(registry)) {
+        return ['The generated locale registry root must be an object.'];
+    }
+
+    report(
+        errors,
+        hasExactKeys(registry, rootKeys),
+        'The generated locale registry fields or field order differ from the canonical contract.',
+    );
+    report(errors, registry.schemaVersion === 1, 'The locale registry schemaVersion must be 1.');
+    report(errors, registry.sourceLocale === 'en', 'English must remain the source locale.');
+    report(errors, registry.defaultLocale === 'en', 'English must remain the default locale.');
+    report(errors, registry.defaultFormatLocale === 'en-US', 'en-US must remain the default format locale.');
+    report(
+        errors,
+        matchesExpected(registry.urlPolicy, { prefixDefaultLocale: false }),
+        'Existing English documentation URLs must remain unprefixed.',
+    );
+
+    const locales = Array.isArray(registry.locales) ? registry.locales : [];
+    report(errors, locales.length > 0, 'The locale registry must contain production locales.');
+    const tags = new Set();
+    const prefixes = new Set();
+    for (const [index, locale] of locales.entries()) {
+        const label = `locales[${index}]`;
+        report(errors, hasExactKeys(locale, productionLocaleKeys), `${label} differs from the production-locale contract.`);
+        if (!isPlainObject(locale)) {
+            continue;
+        }
+        report(errors, typeof locale.tag === 'string' && languageTagPattern.test(locale.tag), `${label}.tag is invalid.`);
+        report(errors, !tags.has(locale.tag), `${label}.tag duplicates ${locale.tag}.`);
+        tags.add(locale.tag);
+        report(errors, typeof locale.englishName === 'string' && locale.englishName.length > 0, `${label}.englishName is empty.`);
+        report(errors, typeof locale.nativeName === 'string' && locale.nativeName.length > 0, `${label}.nativeName is empty.`);
+        report(errors, directions.has(locale.direction), `${label}.direction must be ltr or rtl.`);
+        report(errors, locale.fallback === null || typeof locale.fallback === 'string', `${label}.fallback is invalid.`);
+        report(errors, stages.has(locale.stage), `${label}.stage is invalid.`);
+        report(errors, typeof locale.indexable === 'boolean', `${label}.indexable must be boolean.`);
+        report(
+            errors,
+            (locale.stage === 'live') === (locale.indexable === true),
+            `${label} must be indexable exactly when it is live.`,
+        );
+        report(
+            errors,
+            typeof locale.pathPrefix === 'string' && /^(?:|[a-z0-9]+(?:-[a-z0-9]+)*)$/.test(locale.pathPrefix),
+            `${label}.pathPrefix is invalid.`,
+        );
+        if (locale.pathPrefix) {
+            report(errors, !prefixes.has(locale.pathPrefix), `${label}.pathPrefix duplicates ${locale.pathPrefix}.`);
+            prefixes.add(locale.pathPrefix);
+        }
+    }
+
+    for (const [index, locale] of locales.entries()) {
+        if (isPlainObject(locale) && typeof locale.fallback === 'string') {
+            report(errors, tags.has(locale.fallback), `locales[${index}].fallback is not a production locale.`);
+        }
+    }
+
+    report(errors, matchesExpected(locales[0], expectedEnglishLocale), 'English must remain the first, live, indexable locale.');
+    const spanish = locales.find((locale) => locale?.tag === 'es');
+    report(
+        errors,
+        matchesExpected(spanish, expectedSpanishPilot),
+        'Spanish must remain the approved planned, non-indexable neutral-Spanish pilot.',
+    );
+    const nonEnglish = locales.filter((locale) => locale?.tag !== 'en');
+    report(
+        errors,
+        nonEnglish.every((locale) => locale?.stage === 'planned' && locale?.indexable === false),
+        'Docs may mirror only planned, non-indexable non-English locales before public localization.',
+    );
+    report(
+        errors,
+        locales.filter((locale) => locale?.stage === 'live').every((locale) => locale?.tag === 'en'),
+        'English must remain the sole live docs locale.',
+    );
+    report(
+        errors,
+        locales.filter((locale) => locale?.indexable === true).every((locale) => locale?.tag === 'en'),
+        'English must remain the sole indexable docs locale.',
+    );
+
+    const testLocales = Array.isArray(registry.testLocales) ? registry.testLocales : [];
+    report(
+        errors,
+        testLocales.length === 1 && hasExactKeys(testLocales[0], testLocaleKeys)
+            && matchesExpected(testLocales[0], expectedPseudoLocale),
+        'en-XA must remain the sole English-fallback pseudolocale.',
+    );
+    report(errors, !tags.has('en-XA'), 'en-XA must remain test-only and outside the production locale list.');
+    if (typeof rawRegistry === 'string') {
+        report(
+            errors,
+            rawRegistry === canonicalJson(registry),
+            'The generated locale registry must use canonical two-space JSON with a final newline.',
+        );
+    }
+    return errors;
+}
+
+export function findTextExposure(text, location, registry) {
+    const matches = [];
+    if (/\bhreflang\b/i.test(text)) {
+        matches.push(`${location}: hreflang`);
+    }
+
+    const productionPrefixes = (registry?.locales ?? [])
+        .filter((locale) => locale?.tag !== registry?.defaultLocale && locale?.pathPrefix)
+        .map((locale) => locale.pathPrefix);
+    const testTags = (registry?.testLocales ?? []).map((locale) => locale?.tag).filter(Boolean);
+    for (const prefix of [...new Set([...productionPrefixes, ...testTags])]) {
+        const routePattern = new RegExp(`/${escapeRegex(prefix)}(?=$|[\\s/?#\"')>])`, 'i');
+        if (routePattern.test(text)) {
+            matches.push(`${location}: /${prefix}`);
+        }
+    }
+    for (const tag of testTags) {
+        const tagPattern = new RegExp(`(^|[^A-Za-z0-9-])${escapeRegex(tag)}(?=$|[^A-Za-z0-9-])`, 'i');
+        if (tagPattern.test(text)) {
+            matches.push(`${location}: pseudolocale ${tag}`);
+        }
+    }
+    return matches;
+}
+
+async function findLocalizedPublicPaths(root = repositoryRoot) {
+    const entries = await readdir(root, { withFileTypes: true });
     return entries
-        .filter((entry) => !entry.name.startsWith('.') && isLocaleSegment(entry.name))
+        .filter((entry) => !entry.name.startsWith('.') && entry.isDirectory() && isLocaleSegment(entry.name))
         .map((entry) => entry.name)
         .sort();
 }
 
+async function findPublicMdxFiles(directory = repositoryRoot) {
+    const entries = await readdir(directory, { withFileTypes: true });
+    const files = [];
+    for (const entry of entries) {
+        if (entry.name.startsWith('.')) {
+            continue;
+        }
+        const entryPath = path.join(directory, entry.name);
+        if (entry.isDirectory()) {
+            files.push(...await findPublicMdxFiles(entryPath));
+        } else if (entry.isFile() && entry.name.endsWith('.mdx')) {
+            files.push(entryPath);
+        }
+    }
+    return files.sort();
+}
+
 async function main() {
-    let rawRegistry;
-    let registry;
+    const errors = [];
+    let rawRegistry = '';
+    let registry = null;
     try {
         rawRegistry = await readFile(registryPath, 'utf8');
         registry = JSON.parse(rawRegistry);
+        errors.push(...validateRegistry(registry, rawRegistry));
     } catch (error) {
         errors.push(`Cannot read valid JSON from ${path.relative(repositoryRoot, registryPath)}: ${error.message}`);
-        registry = null;
     }
 
-    if (registry) {
-        const expectedBytes = `${JSON.stringify(expectedRegistry, null, 2)}\n`;
-        report(
-            rawRegistry === expectedBytes,
-            'The generated locale registry must match the approved Foundation contract byte-for-byte (two-space JSON with a final newline).',
-        );
-
-        const publicLocales = Array.isArray(registry.locales) ? registry.locales : [];
-        const liveLocales = publicLocales.filter((locale) => locale.stage === 'live');
-        const indexableLocales = publicLocales.filter((locale) => locale.indexable === true);
-        report(
-            publicLocales.length === 1 && publicLocales[0]?.tag === 'en',
-            'English must be the sole public locale during Foundation.',
-        );
-        report(
-            liveLocales.length === 1 && liveLocales[0]?.tag === 'en',
-            'English must be the sole live locale during Foundation.',
-        );
-        report(
-            indexableLocales.length === 1 && indexableLocales[0]?.tag === 'en',
-            'English must be the sole indexable locale during Foundation.',
-        );
-
-        const testLocales = Array.isArray(registry.testLocales) ? registry.testLocales : [];
-        const pseudoLocale = testLocales.find((locale) => locale.tag === 'en-XA');
-        report(
-            Boolean(pseudoLocale) && pseudoLocale.kind === 'pseudo' && pseudoLocale.fallback === 'en',
-            'en-XA must exist only as an English-fallback pseudolocale.',
-        );
-        report(
-            !publicLocales.some((locale) => locale.tag === 'en-XA'),
-            'en-XA must remain test-only and must not appear in the public locale list.',
-        );
-    }
-
-    let docsConfig;
+    let rawDocsConfig = '';
+    let docsConfig = null;
     try {
-        docsConfig = JSON.parse(await readFile(docsConfigPath, 'utf8'));
+        rawDocsConfig = await readFile(docsConfigPath, 'utf8');
+        docsConfig = JSON.parse(rawDocsConfig);
     } catch (error) {
         errors.push(`Cannot read valid docs.json: ${error.message}`);
-        docsConfig = null;
     }
 
     if (docsConfig) {
         const languageKeys = findNavigationLanguageKeys(docsConfig.navigation);
         report(
+            errors,
             languageKeys.length === 0,
-            `Foundation must not expose a Mintlify language selector; found ${languageKeys.join(', ')}.`,
+            `Planned locales must not expose a Mintlify language selector; found ${languageKeys.join(', ')}.`,
         );
 
         const localizedNavigationValues = findLocalizedNavigationValues(docsConfig.navigation);
         report(
+            errors,
             localizedNavigationValues.length === 0,
-            `Foundation navigation must not reference localized public paths; found ${localizedNavigationValues.join(', ')}.`,
+            `Docs navigation must not reference localized public paths; found ${localizedNavigationValues.join(', ')}.`,
         );
     }
 
     const localizedPublicPaths = await findLocalizedPublicPaths();
     report(
+        errors,
         localizedPublicPaths.length === 0,
-        `Foundation must not contain top-level localized public paths; found ${localizedPublicPaths.join(', ')}.`,
+        `Planned and test locales must not have top-level public paths; found ${localizedPublicPaths.join(', ')}.`,
     );
+
+    if (registry) {
+        errors.push(...findTextExposure(rawDocsConfig, 'docs.json', registry));
+        for (const filePath of await findPublicMdxFiles()) {
+            const relativePath = path.relative(repositoryRoot, filePath);
+            const content = await readFile(filePath, 'utf8');
+            errors.push(...findTextExposure(content, relativePath, registry));
+        }
+    }
 
     const mintIgnore = await readFile(mintIgnorePath, 'utf8');
-    report(
-        mintIgnore.split(/\r?\n/).includes('.i18n/'),
-        '.mintignore must exclude the internal .i18n/ directory.',
-    );
-    report(
-        mintIgnore.split(/\r?\n/).includes('AGENTS.md'),
-        '.mintignore must exclude internal AGENTS.md instructions.',
-    );
+    report(errors, mintIgnore.split(/\r?\n/).includes('.i18n/'), '.mintignore must exclude the internal .i18n/ directory.');
+    report(errors, mintIgnore.split(/\r?\n/).includes('AGENTS.md'), '.mintignore must exclude internal AGENTS.md instructions.');
 
     const agents = await readFile(agentsPath, 'utf8');
+    report(errors, agents.includes(canonicalPlan), `AGENTS.md must point to the canonical backend plan at ${canonicalPlan}.`);
     report(
-        agents.includes(canonicalPlan),
-        `AGENTS.md must point to the canonical backend plan at ${canonicalPlan}.`,
+        errors,
+        agents.includes('do not create or use Git worktrees'),
+        'AGENTS.md must require ordinary branches and prohibit Git worktrees.',
     );
 
     if (errors.length > 0) {
-        console.error('Multilingual Foundation check failed:');
+        console.error('Multilingual docs exposure check failed:');
         for (const error of errors) {
             console.error(`- ${error}`);
         }
@@ -204,7 +367,10 @@ async function main() {
         return;
     }
 
-    console.log('Multilingual Foundation check passed.');
+    console.log('Multilingual docs exposure check passed.');
 }
 
-await main();
+const invokedPath = process.argv[1] ? pathToFileURL(path.resolve(process.argv[1])).href : '';
+if (invokedPath === import.meta.url) {
+    await main();
+}

@@ -16,6 +16,16 @@
       "pathPrefix": "",
       "stage": "live",
       "indexable": true
+    },
+    {
+      "tag": "es",
+      "englishName": "Spanish",
+      "nativeName": "Español",
+      "direction": "ltr",
+      "fallback": "en",
+      "pathPrefix": "es",
+      "stage": "planned",
+      "indexable": false
     }
   ],
   "testLocales": [
