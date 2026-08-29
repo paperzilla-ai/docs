@@ -3,6 +3,7 @@
 ## About this project
 
 - This is the user-facing documentation site for Paperzilla, built on [Mintlify](https://mintlify.com)
+- The canonical multilingual rollout plan is in the backend repository at `docs/multilingual/00-rollout-index.md`; this repository contains only its generated locale-registry mirror and user-facing localized content.
 - Pages are MDX files with YAML frontmatter
 - Configuration lives in `docs.json`
 - Main content areas:

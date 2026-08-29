@@ -1,0 +1,42 @@
+name: Multilingual Foundation
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/i18n.yml'
+      - '.i18n/**'
+      - '.mintignore'
+      - 'AGENTS.md'
+      - 'docs.json'
+      - '**/*.mdx'
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/i18n.yml'
+      - '.i18n/**'
+      - '.mintignore'
+      - 'AGENTS.md'
+      - 'docs.json'
+      - '**/*.mdx'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Check docs locale contract
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Validate multilingual Foundation
+        run: node .i18n/check.mjs

@@ -5,3 +5,6 @@
 # Draft content
 drafts/
 *.draft.mdx
+
+# Internal multilingual implementation contract; never publish this directory.
+.i18n/

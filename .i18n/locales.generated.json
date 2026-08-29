@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "sourceLocale": "en",
+  "defaultLocale": "en",
+  "defaultFormatLocale": "en-US",
+  "urlPolicy": {
+    "prefixDefaultLocale": false
+  },
+  "locales": [
+    {
+      "tag": "en",
+      "englishName": "English",
+      "nativeName": "English",
+      "direction": "ltr",
+      "fallback": null,
+      "pathPrefix": "",
+      "stage": "live",
+      "indexable": true
+    }
+  ],
+  "testLocales": [
+    {
+      "tag": "en-XA",
+      "kind": "pseudo",
+      "direction": "ltr",
+      "fallback": "en"
+    }
+  ]
+}
