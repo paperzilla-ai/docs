@@ -5,6 +5,7 @@
 - This is the user-facing documentation site for Paperzilla, built on [Mintlify](https://mintlify.com)
 - The canonical multilingual rollout plan is in the backend repository at `docs/multilingual/00-rollout-index.md`; this repository contains only its generated locale-registry mirror and user-facing localized content.
 - Adding or promoting a locale must follow the backend playbook at `docs/multilingual/HOWTO_ADD_A_LANGUAGE.md`.
+- Run 3 migrates the app/web product UI only. Public documentation remains English-only; planned Spanish must not add `/es` pages, language navigation, `hreflang`, sitemap entries, or indexable content.
 - Use ordinary Git branches for multilingual work; do not create or use Git worktrees.
 - Pages are MDX files with YAML frontmatter
 - Configuration lives in `docs.json`
