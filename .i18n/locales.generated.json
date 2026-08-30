@@ -6,6 +6,16 @@
   "urlPolicy": {
     "prefixDefaultLocale": false
   },
+  "translation": {
+    "promptPath": "prompt-v2.txt",
+    "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
+    "guides": {
+      "es": {
+        "path": "es-style-v1.md",
+        "sha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076"
+      }
+    }
+  },
   "locales": [
     {
       "tag": "en",

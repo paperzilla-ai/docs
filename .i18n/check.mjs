@@ -16,9 +16,12 @@ const rootKeys = [
     'defaultLocale',
     'defaultFormatLocale',
     'urlPolicy',
+    'translation',
     'locales',
     'testLocales',
 ];
+const translationKeys = ['promptPath', 'promptSha256', 'guides'];
+const translationGuideKeys = ['path', 'sha256'];
 const productionLocaleKeys = [
     'tag',
     'englishName',
@@ -33,6 +36,8 @@ const testLocaleKeys = ['tag', 'kind', 'direction', 'fallback'];
 const stages = new Set(['planned', 'preview', 'live', 'retired']);
 const directions = new Set(['ltr', 'rtl']);
 const languageTagPattern = /^[A-Za-z]{2,8}(?:-[A-Za-z]{4})?(?:-(?:[A-Za-z]{2}|[0-9]{3}))?$/;
+const sha256Pattern = /^[a-f0-9]{64}$/;
+const guidanceFilePattern = /^[A-Za-z0-9][A-Za-z0-9._-]*$/;
 
 export const expectedEnglishLocale = {
     tag: 'en',
@@ -43,17 +48,6 @@ export const expectedEnglishLocale = {
     pathPrefix: '',
     stage: 'live',
     indexable: true,
-};
-
-export const expectedSpanishPilot = {
-    tag: 'es',
-    englishName: 'Spanish',
-    nativeName: 'Español',
-    direction: 'ltr',
-    fallback: 'en',
-    pathPrefix: 'es',
-    stage: 'planned',
-    indexable: false,
 };
 
 export const expectedPseudoLocale = {
@@ -160,6 +154,39 @@ export function validateRegistry(registry, rawRegistry) {
         'Existing English documentation URLs must remain unprefixed.',
     );
 
+    const translation = isPlainObject(registry.translation) ? registry.translation : {};
+    report(
+        errors,
+        hasExactKeys(translation, translationKeys),
+        'Translation metadata differs from the canonical contract.',
+    );
+    report(
+        errors,
+        typeof translation.promptPath === 'string' && guidanceFilePattern.test(translation.promptPath),
+        'Translation metadata must identify the shared prompt path.',
+    );
+    report(
+        errors,
+        sha256Pattern.test(translation.promptSha256 ?? ''),
+        'Translation metadata must contain the shared prompt SHA-256.',
+    );
+    const guides = isPlainObject(translation.guides) ? translation.guides : {};
+    report(errors, isPlainObject(translation.guides), 'Translation guides must be an object keyed by locale.');
+    for (const [tag, guide] of Object.entries(guides)) {
+        const label = `translation.guides.${tag}`;
+        report(errors, languageTagPattern.test(tag), `${label} has an invalid locale tag.`);
+        report(errors, hasExactKeys(guide, translationGuideKeys), `${label} differs from the guide contract.`);
+        if (!isPlainObject(guide)) {
+            continue;
+        }
+        report(
+            errors,
+            typeof guide.path === 'string' && guidanceFilePattern.test(guide.path),
+            `${label}.path is invalid.`,
+        );
+        report(errors, sha256Pattern.test(guide.sha256 ?? ''), `${label}.sha256 is invalid.`);
+    }
+
     const locales = Array.isArray(registry.locales) ? registry.locales : [];
     report(errors, locales.length > 0, 'The locale registry must contain production locales.');
     const tags = new Set();
@@ -202,12 +229,6 @@ export function validateRegistry(registry, rawRegistry) {
     }
 
     report(errors, matchesExpected(locales[0], expectedEnglishLocale), 'English must remain the first, live, indexable locale.');
-    const spanish = locales.find((locale) => locale?.tag === 'es');
-    report(
-        errors,
-        matchesExpected(spanish, expectedSpanishPilot),
-        'Spanish must remain the approved planned, non-indexable neutral-Spanish pilot.',
-    );
     const nonEnglish = locales.filter((locale) => locale?.tag !== 'en');
     report(
         errors,
@@ -223,6 +244,19 @@ export function validateRegistry(registry, rawRegistry) {
         errors,
         locales.filter((locale) => locale?.indexable === true).every((locale) => locale?.tag === 'en'),
         'English must remain the sole indexable docs locale.',
+    );
+    const managedNonSourceTags = locales
+        .filter((locale) => locale?.tag !== registry.sourceLocale && locale?.stage !== 'retired')
+        .map((locale) => locale.tag);
+    report(
+        errors,
+        managedNonSourceTags.every((tag) => isPlainObject(guides[tag])),
+        'Every managed non-source locale must have translation-guide metadata.',
+    );
+    report(
+        errors,
+        Object.keys(guides).every((tag) => tags.has(tag) && tag !== registry.sourceLocale),
+        'Translation-guide metadata must reference registered non-source locales only.',
     );
 
     const testLocales = Array.isArray(registry.testLocales) ? registry.testLocales : [];
@@ -268,7 +302,7 @@ export function findTextExposure(text, location, registry) {
     return matches;
 }
 
-async function findLocalizedPublicPaths(root = repositoryRoot) {
+export async function findLocalizedPublicPaths(root = repositoryRoot) {
     const entries = await readdir(root, { withFileTypes: true });
     return entries
         .filter((entry) => !entry.name.startsWith('.') && entry.isDirectory() && isLocaleSegment(entry.name))
