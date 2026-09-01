@@ -1,9 +1,10 @@
 import assert from 'node:assert/strict';
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import { buildManifest } from './manifest.mjs';
+import { assertNonPromotableArtifact, nonPromotableMarkerName } from './artifact-guard.mjs';
 import {
     expectedRecord,
     validateAuthoredContent,
@@ -144,6 +145,30 @@ test('English navigation label drift invalidates stale Spanish provenance', asyn
     }
 });
 
+test('retired validation freezes Spanish artifacts while allowing future English changes', async () => {
+    const { root } = await createFixtureRepository();
+    try {
+        await writeFile(
+            path.join(root, 'index.mdx'),
+            sourceFixture.replace('Read the [guide]', 'Read the newly updated [guide]'),
+        );
+        const docsConfig = JSON.parse(await readFile(path.join(root, 'docs.json'), 'utf8'));
+        docsConfig.navigation.tabs[0].tab = 'Documentation';
+        await writeFile(path.join(root, 'docs.json'), `${JSON.stringify(docsConfig, null, 2)}\n`);
+        assert((await validateAuthoredContent(root)).some((error) => error.includes('stale')));
+        assert.deepEqual(await validateAuthoredContent(root, { sourceMode: 'frozen' }), []);
+
+        await writeFile(
+            path.join(root, 'es/index.mdx'),
+            translationFixture.replace('Consulta la [guía]', 'Consulta la [guía modificada]'),
+        );
+        const frozenErrors = await validateAuthoredContent(root, { sourceMode: 'frozen' });
+        assert(frozenErrors.some((error) => error.includes('translationSha256 is stale')));
+    } finally {
+        await rm(root, { recursive: true, force: true });
+    }
+});
+
 test('Spanish navigation requires NFC text and LF-only line endings', async () => {
     const { root } = await createFixtureRepository();
     const navigationPath = path.join(root, '.i18n/navigation.es.json');
@@ -194,7 +219,7 @@ test('unchanged reviewed segments retain provenance across a one-segment delta',
             model: null,
             provider: 'human',
             reviewStatus: 'human-reviewed',
-            reviewer: 'reviewer@example.com',
+            reviewer: 'trusted-spanish-reviewer',
         };
         await writeFile(path.join(root, '.i18n/content.manifest.json'), canonicalJson(manifest));
         await writeFile(path.join(root, 'index.mdx'), sourceFixture.replace('Read the [guide]', 'Read the updated [guide]'));
@@ -218,7 +243,7 @@ test('human provenance requires model null, human review, and a reviewer', async
             model: null,
             provider: 'human',
             reviewStatus: 'human-reviewed',
-            reviewer: 'reviewer@example.com',
+            reviewer: 'trusted-spanish-reviewer',
         });
         await writeFile(path.join(root, '.i18n/content.manifest.json'), canonicalJson(manifest));
         assert.deepEqual(await validateAuthoredContent(root), []);
@@ -236,12 +261,70 @@ test('tone guard catches formal and vosotros prose without touching code, URLs, 
     assert.equal(normalizeDirectVoice(source), 'Usa este texto, `Use command`, https://example.com/use y href="/use".');
 });
 
-test('tracked Run 6 corpus and 97-record manifest validate offline', async () => {
+test('tracked Run 7 corpus keeps all 96 pages, navigation, and 2,286 segments in parity', async () => {
     assert.deepEqual(await validateAuthoredContent(), []);
+    const manifest = JSON.parse(await readFile(new URL('./content.manifest.json', import.meta.url), 'utf8'));
+    assert.equal(manifest.documents.filter((record) => record.contentId !== 'docs:navigation').length, 96);
+    assert.equal(manifest.documents.flatMap((record) => record.segments).length, 2286);
     const source = await readFile(new URL('../index.mdx', import.meta.url), 'utf8');
     const translated = await readFile(new URL('../es/index.mdx', import.meta.url), 'utf8');
     assert.equal(expectedRecord('index.mdx', source, translated, metadata).protectedStructureSha256,
         'c710fe71286949aa2e927c6707a2408c97a429d1c5b758e2a78d46574f966ae9');
+});
+
+test('preview and live review gate requires every document and segment to have a named human review', async () => {
+    const { root, manifest } = await createFixtureRepository();
+    try {
+        const pendingErrors = await validateAuthoredContent(root, { requireHumanReview: true });
+        assert(pendingErrors.some((error) => error.includes('named human review')));
+        for (const record of manifest.documents) {
+            Object.assign(record, {
+                model: null,
+                provider: 'human',
+                reviewStatus: 'human-reviewed',
+                reviewer: 'trusted-spanish-reviewer',
+            });
+            for (const segment of record.segments) {
+                Object.assign(segment, {
+                    model: null,
+                    provider: 'human',
+                    reviewStatus: 'human-reviewed',
+                    reviewer: 'trusted-spanish-reviewer',
+                });
+            }
+        }
+        await writeFile(path.join(root, '.i18n/content.manifest.json'), canonicalJson(manifest));
+        assert.deepEqual(await validateAuthoredContent(root, { requireHumanReview: true }), []);
+    } finally {
+        await rm(root, { recursive: true, force: true });
+    }
+});
+
+test('content-manifest reviewer provenance rejects contact details', async () => {
+    const { root, manifest } = await createFixtureRepository();
+    try {
+        for (const reviewer of [
+            'reviewer@example.com',
+            'https://example.com/reviewer',
+            '+1 (555) 123-4567',
+            'Spanish reviewer phone 555 123 4567',
+        ]) {
+            Object.assign(manifest.documents[0], {
+                model: null,
+                provider: 'human',
+                reviewStatus: 'human-reviewed',
+                reviewer,
+            });
+            await writeFile(path.join(root, '.i18n/content.manifest.json'), canonicalJson(manifest));
+            const errors = await validateAuthoredContent(root);
+            assert(
+                errors.some((error) => error.includes('stable non-contact label')),
+                `${reviewer} must not be retained as a reviewer label`,
+            );
+        }
+    } finally {
+        await rm(root, { recursive: true, force: true });
+    }
 });
 
 test('preview rejects repo-local output and atomically replaces stale temporary output', async () => {
@@ -253,6 +336,12 @@ test('preview rejects repo-local output and atomically replaces stale temporary 
     const base = await mkdtemp(path.join(os.tmpdir(), 'paperzilla-docs-preview-test-'));
     const output = path.join(base, 'projection');
     try {
+        const repositoryLink = path.join(base, 'repository-link');
+        await symlink(path.resolve(new URL('../', import.meta.url).pathname), repositoryLink, 'dir');
+        await assert.rejects(
+            buildPreviewProjection({ output: path.join(repositoryLink, 'projection') }),
+            /including through symlinks/,
+        );
         await mkdir(output);
         await writeFile(path.join(output, 'stale.txt'), 'stale\n');
         await assert.rejects(buildPreviewProjection({ output }), /already exists/);
@@ -260,9 +349,28 @@ test('preview rejects repo-local output and atomically replaces stale temporary 
         await buildPreviewProjection({ output, replace: true });
         await assert.rejects(readFile(path.join(output, 'stale.txt'), 'utf8'), /ENOENT/);
         assert.match(await readFile(path.join(output, 'PREVIEW_ONLY.txt'), 'utf8'), /Never deploy/);
+        await assertNonPromotableArtifact(output);
+        await readFile(path.join(output, nonPromotableMarkerName), 'utf8');
+        await readFile(path.join(output, 'index.mdx'), 'utf8');
         await readFile(path.join(output, 'es/index.mdx'), 'utf8');
+        await assert.rejects(readFile(path.join(output, '.mintignore'), 'utf8'), /ENOENT/);
+        await assert.rejects(readFile(path.join(output, '.i18n/content.manifest.json'), 'utf8'), /ENOENT/);
         const previewConfig = JSON.parse(await readFile(path.join(output, 'docs.json'), 'utf8'));
-        assert(previewConfig.navigation.tabs.some((tab) => JSON.stringify(tab).includes('es/index')));
+        assert.deepEqual(previewConfig.navigation.languages.map((entry) => entry.language), ['en', 'es']);
+        assert.equal(previewConfig.seo.metatags.robots, 'noindex, nofollow, noarchive');
+        assert(previewConfig.navigation.languages[1].tabs.some((tab) => JSON.stringify(tab).includes('es/index')));
+        const evidence = await readFile(path.join(output, 'review-evidence.json'), 'utf8');
+        const parsedEvidence = JSON.parse(evidence);
+        assert.equal(parsedEvidence.sourceDocumentCount, 96);
+        assert.equal(parsedEvidence.translatedDocumentCount, 96);
+        assert.equal(parsedEvidence.contentReviewEligible, false);
+        assert.deepEqual(parsedEvidence.approvedSpecialistRoles, []);
+        assert.deepEqual(
+            parsedEvidence.pendingSpecialistRoles,
+            ['linguistic', 'editorial', 'product-technical', 'seo'],
+        );
+        await buildPreviewProjection({ output, replace: true });
+        assert.equal(await readFile(path.join(output, 'review-evidence.json'), 'utf8'), evidence);
     } finally {
         await rm(base, { recursive: true, force: true });
     }

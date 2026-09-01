@@ -1,0 +1,490 @@
+{
+  "schemaVersion": 1,
+  "localeRegistrySha256": "7999cc6e7f31f7d16191ea702d490d2258f8797e411a01bf7e3dfec620344a4f",
+  "artifacts": [
+    {
+      "id": "frontend-product-catalog",
+      "locale": "es",
+      "repository": "frontend",
+      "surface": "product-and-marketing-ui",
+      "sourcePaths": [
+        "i18n/locales/en/messages.po"
+      ],
+      "artifactPaths": [
+        "i18n/locales/es/messages.po",
+        "i18n/locales/es/messages.provenance.json"
+      ],
+      "requiredRoles": [
+        "linguistic",
+        "product-technical",
+        "commercial",
+        "seo"
+      ],
+      "requiredFor": [
+        "preview",
+        "live",
+        "run7-complete"
+      ]
+    },
+    {
+      "id": "frontend-runtime-and-public-web",
+      "locale": "es",
+      "repository": "frontend",
+      "surface": "product-language-runtime-and-public-web",
+      "sourcePaths": [
+        "i18n/locales.generated.json",
+        "i18n/public-web.generated.json",
+        "i18n/locales/en/messages.po"
+      ],
+      "artifactPaths": [
+        "app.config.js",
+        "components/Header.tsx",
+        "components/NavigationMenu.tsx",
+        "components/account/SettingsScreen.tsx",
+        "components/i18n/LanguageSelector.tsx",
+        "lib/SessionContext.tsx",
+        "lib/i18n/AppI18nProvider.tsx",
+        "lib/i18n/catalogs.generated.ts",
+        "lib/i18n/catalogs.ts",
+        "lib/i18n/locales.ts",
+        "lib/i18n/profileLanguagePreference.ts",
+        "lib/i18n/publicSeo.ts",
+        "lib/i18n/publicWeb.ts",
+        "lib/i18n/staticTranslation.ts",
+        "scripts/build-static.js",
+        "scripts/i18n/build-target-contract.cjs",
+        "scripts/i18n/generate-catalog-wiring.mjs",
+        "scripts/i18n/static-smoke.mjs",
+        ".github/workflows/i18n.yml",
+        "eas.json",
+        "deploy.sh",
+        "package.json",
+        "docs/multilingual/07-frontend-live-sequence.md",
+        "app/(public)/field/[[]id]/[[]...slug].tsx",
+        "app/(public)/fields.tsx",
+        "app/(public)/incident-post-mortem.tsx",
+        "app/(public)/news/[[]slug].tsx",
+        "app/(public)/news/index.tsx",
+        "app/(public)/newsletter/[[]slug].tsx",
+        "app/(public)/newsletter/index.tsx",
+        "app/(public)/privacy.tsx",
+        "app/(public)/subfield/[[]fieldId]/[[]fieldSlug]/[[]id]/[[]...slug].tsx",
+        "app/(public)/terms.tsx",
+        "components/AuthScreen.tsx",
+        "components/MetaTags.tsx",
+        "components/legal/LongFormDocument.tsx",
+        "content/legal/useLocalizedLegalDocument.ts",
+        "lib/clientSessionMetadata.ts",
+        "lib/passwordlessEmail.ts",
+        "lib/staticArticleAssets.js",
+        "lib/i18n/autoPersistLanguage.ts",
+        "lib/i18n/signupLanguage.ts",
+        "lib/i18n/taxonomy.generated.ts",
+        "lib/i18n/taxonomy.ts",
+        "lib/i18n/taxonomyOverlay.ts",
+        "scripts/article-builder.js",
+        "scripts/assert-static-i18n.mjs",
+        "scripts/build-legal-content.mjs",
+        "scripts/check-legal-content.mjs",
+        "scripts/legal-content-lib.mjs",
+        "scripts/legal-content-manifest.mjs",
+        "scripts/i18n/generate-taxonomy-wiring.mjs",
+        "scripts/i18n/provenance-contract.mjs",
+        "scripts/i18n/reviewer-label-contract.mjs",
+        "scripts/i18n/launch-review-contract.mjs",
+        "scripts/i18n/static-export-assembly.cjs",
+        "scripts/i18n/validate-deployment-artifact.mjs"
+      ],
+      "requiredRoles": [
+        "product-technical",
+        "auth-email",
+        "seo"
+      ],
+      "requiredFor": [
+        "preview",
+        "live",
+        "run7-complete"
+      ]
+    },
+    {
+      "id": "backend-email-and-crawler-catalog",
+      "locale": "es",
+      "repository": "backend",
+      "surface": "email-and-public-crawler-copy",
+      "sourcePaths": [
+        "locales/messages.pot"
+      ],
+      "artifactPaths": [
+        "locales/es/LC_MESSAGES/messages.po",
+        "locales/es/LC_MESSAGES/messages.provenance.json"
+      ],
+      "requiredRoles": [
+        "linguistic",
+        "product-technical",
+        "commercial",
+        "auth-email",
+        "seo"
+      ],
+      "requiredFor": [
+        "preview",
+        "live",
+        "run7-complete"
+      ]
+    },
+    {
+      "id": "taxonomy-overlay",
+      "locale": "es",
+      "repository": "backend",
+      "surface": "taxonomy",
+      "sourcePaths": [
+        "config/i18n/taxonomy/en.json"
+      ],
+      "artifactPaths": [
+        "config/i18n/taxonomy/es.json",
+        "config/i18n/taxonomy/es.provenance.json"
+      ],
+      "requiredRoles": [
+        "linguistic",
+        "product-technical",
+        "seo"
+      ],
+      "requiredFor": [
+        "preview",
+        "live",
+        "run7-complete"
+      ]
+    },
+    {
+      "id": "legal-content",
+      "locale": "es",
+      "repository": "frontend",
+      "surface": "legal",
+      "sourcePaths": [
+        "content/legal/en/*.md"
+      ],
+      "artifactPaths": [
+        "content/legal/es/*.md",
+        "content/legal/authored-content-manifest.json"
+      ],
+      "requiredRoles": [
+        "linguistic",
+        "editorial",
+        "legal-risk"
+      ],
+      "requiredFor": [
+        "preview",
+        "live",
+        "run7-complete"
+      ]
+    },
+    {
+      "id": "news-content",
+      "locale": "es",
+      "repository": "backend",
+      "surface": "news",
+      "sourcePaths": [
+        "news/*.md"
+      ],
+      "artifactPaths": [
+        "news/es/*.md",
+        "config/i18n/authored-content-backend.es.json"
+      ],
+      "requiredRoles": [
+        "linguistic",
+        "editorial",
+        "seo"
+      ],
+      "requiredFor": [
+        "preview",
+        "live",
+        "run7-complete"
+      ]
+    },
+    {
+      "id": "newsletter-content",
+      "locale": "es",
+      "repository": "backend",
+      "surface": "newsletter",
+      "sourcePaths": [
+        "newsletters/*.md"
+      ],
+      "artifactPaths": [
+        "newsletters/es/*.md",
+        "config/i18n/authored-content-backend.es.json"
+      ],
+      "requiredRoles": [
+        "linguistic",
+        "editorial",
+        "commercial",
+        "auth-email"
+      ],
+      "requiredFor": [
+        "preview",
+        "live",
+        "run7-complete"
+      ]
+    },
+    {
+      "id": "documentation",
+      "locale": "es",
+      "repository": "docs",
+      "surface": "documentation",
+      "sourcePaths": [
+        ".i18n/content.manifest.json",
+        "docs.json"
+      ],
+      "artifactPaths": [
+        ".i18n/content.manifest.json",
+        ".i18n/navigation.es.json",
+        "es/**/*.mdx"
+      ],
+      "requiredRoles": [
+        "linguistic",
+        "editorial",
+        "product-technical",
+        "seo"
+      ],
+      "requiredFor": [
+        "preview",
+        "live",
+        "run7-complete"
+      ]
+    },
+    {
+      "id": "documentation-runtime-and-deployment",
+      "locale": "es",
+      "repository": "docs",
+      "surface": "documentation-runtime-and-deployment",
+      "sourcePaths": [
+        ".i18n/content.manifest.json",
+        ".i18n/navigation.es.json",
+        ".i18n/locales.generated.json"
+      ],
+      "artifactPaths": [
+        ".mintignore",
+        "docs.json",
+        ".i18n/check.mjs",
+        ".i18n/deploy-config.mjs",
+        ".i18n/launch-review.mjs",
+        ".i18n/navigation.mjs",
+        ".i18n/preview.mjs",
+        ".i18n/artifact-guard.mjs",
+        ".i18n/hosted-smoke.mjs",
+        ".i18n/content.mjs",
+        ".i18n/content-segments.mjs",
+        ".i18n/content-structure.mjs",
+        ".i18n/retired-content.mjs",
+        ".i18n/tone.mjs",
+        ".github/workflows/i18n.yml",
+        "package.json",
+        "package-lock.json"
+      ],
+      "requiredRoles": [
+        "product-technical",
+        "seo"
+      ],
+      "requiredFor": [
+        "preview",
+        "live",
+        "run7-complete"
+      ]
+    },
+    {
+      "id": "auth-templates",
+      "locale": "es",
+      "repository": "backend",
+      "surface": "supabase-auth",
+      "sourcePaths": [
+        "api/i18n/auth_email_spec.py",
+        "scripts/i18n_auth_templates.py",
+        "scripts/i18n_auth_templates_core.py",
+        "scripts/i18n_auth_templates_sync.py",
+        "locales/messages.pot"
+      ],
+      "artifactPaths": [
+        "locales/es/LC_MESSAGES/messages.po",
+        "locales/es/LC_MESSAGES/messages.provenance.json",
+        "config/i18n/supabase-auth-hosted.generated.json",
+        "supabase/supabase/config.toml",
+        "supabase/supabase/templates/confirmation.html",
+        "supabase/supabase/templates/magic_link.html",
+        "supabase/supabase/templates/email_change.html",
+        "supabase/supabase/migrations/20260901120500_run7_signup_language_live_gate.sql",
+        "config/i18n/run7-live-locale-activation.sql.template",
+        "tests/test_i18n_auth_templates.py",
+        "tests/test_run7_signup_language_migration.py"
+      ],
+      "requiredRoles": [
+        "linguistic",
+        "auth-email"
+      ],
+      "requiredFor": [
+        "preview",
+        "live",
+        "run7-complete"
+      ]
+    },
+    {
+      "id": "public-routing-and-seo",
+      "locale": "es",
+      "repository": "backend",
+      "surface": "public-routing-and-seo",
+      "sourcePaths": [
+        "config/i18n/locales.json",
+        "config/i18n/public-web-surfaces.json",
+        "config/i18n/taxonomy/en.json",
+        "api/i18n/stages.py",
+        "api/i18n/catalogs.py",
+        "api/i18n/jinja.py",
+        "api/i18n/authored_content.py",
+        "api/i18n/taxonomy.py",
+        "api/i18n/public_web.py",
+        "api/routers/meta.py"
+      ],
+      "artifactPaths": [
+        "config/i18n/public-web-surfaces.json",
+        "config/i18n/taxonomy/es.json",
+        "scripts/i18n_public_web_nginx.py",
+        "api/templates/paper_jinja.html",
+        "api/templates/digest_jinja.html",
+        "api/templates/digest_paper_jinja.html",
+        "api/templates/subfield_jinja.html",
+        "api/templates/news_index_jinja.html",
+        "api/templates/news_article_jinja.html",
+        "api/templates/newsletter_index_jinja.html",
+        "api/templates/newsletter_article_jinja.html",
+        "tests/test_i18n_stage_policy.py",
+        "tests/test_i18n_public_web.py",
+        "tests/test_i18n_public_web_nginx.py",
+        "tests/test_i18n_taxonomy_runtime.py",
+        "tests/test_i18n_content_runtime.py",
+        "tests/test_meta_social_images.py"
+      ],
+      "requiredRoles": [
+        "product-technical",
+        "seo"
+      ],
+      "requiredFor": [
+        "preview",
+        "live",
+        "run7-complete"
+      ]
+    },
+    {
+      "id": "newsletter-delivery",
+      "locale": "es",
+      "repository": "backend",
+      "surface": "newsletter-delivery",
+      "sourcePaths": [
+        "newsletters/*.md",
+        "config/i18n/authored-content-backend.es.json",
+        "config/i18n/email-surfaces.json"
+      ],
+      "artifactPaths": [
+        "scripts/send_newsletter.py",
+        "api/services/newsletter_delivery.py",
+        "api/templates/newsletter_email.html",
+        "scripts/check_email_i18n_scope.py",
+        "supabase/supabase/migrations/20260901120000_run7_newsletter_delivery_durability.sql",
+        "tests/test_send_newsletter.py",
+        "tests/test_newsletter_delivery.py",
+        "tests/test_run7_newsletter_delivery_migration.py",
+        "tests/test_run7_newsletter_delivery_state_machine.py"
+      ],
+      "requiredRoles": [
+        "product-technical",
+        "commercial",
+        "auth-email"
+      ],
+      "requiredFor": [
+        "preview",
+        "live",
+        "run7-complete"
+      ]
+    },
+    {
+      "id": "launch-control-plane",
+      "locale": "es",
+      "repository": "backend",
+      "surface": "launch-control-plane",
+      "sourcePaths": [
+        "docs/multilingual/07-spanish-launch-gate.md",
+        "docs/multilingual/HOWTO_ADD_A_LANGUAGE.md"
+      ],
+      "artifactPaths": [
+        "config/i18n/launch-review-matrix.schema.json",
+        "scripts/i18n_launch_review.py",
+        "scripts/i18n_launch_review_core.py",
+        "tests/test_i18n_launch_review.py"
+      ],
+      "requiredRoles": [
+        "product-technical"
+      ],
+      "requiredFor": [
+        "preview",
+        "live",
+        "run7-complete"
+      ]
+    },
+    {
+      "id": "native-preview",
+      "locale": "es",
+      "repository": "frontend",
+      "surface": "native-app",
+      "sourcePaths": [
+        "i18n/locales/en/messages.po",
+        "eas.json"
+      ],
+      "artifactPaths": [
+        "i18n/locales/es/messages.po",
+        "eas.json",
+        "app.config.js",
+        "lib/i18n/AppI18nProvider.tsx",
+        "lib/i18n/locales.ts",
+        "lib/i18n/autoPersistLanguage.ts",
+        "lib/i18n/profileLanguagePreference.ts",
+        "lib/SessionContext.tsx",
+        "components/i18n/LanguageSelector.tsx",
+        "docs/multilingual/07-frontend-live-sequence.md"
+      ],
+      "requiredRoles": [
+        "linguistic",
+        "product-technical"
+      ],
+      "requiredFor": [
+        "live",
+        "run7-complete"
+      ]
+    },
+    {
+      "id": "native-production-release",
+      "locale": "es",
+      "repository": "frontend",
+      "surface": "native-production-release",
+      "sourcePaths": [
+        "eas.json",
+        "app.config.js",
+        "docs/multilingual/07-frontend-live-sequence.md"
+      ],
+      "artifactPaths": [
+        "eas.json",
+        "app.config.js",
+        "lib/i18n/AppI18nProvider.tsx",
+        "lib/i18n/locales.ts",
+        "lib/i18n/autoPersistLanguage.ts",
+        "lib/i18n/profileLanguagePreference.ts",
+        "lib/SessionContext.tsx",
+        "components/i18n/LanguageSelector.tsx",
+        "i18n/locales/es/messages.po"
+      ],
+      "requiredRoles": [
+        "product-technical"
+      ],
+      "requiredFor": [
+        "run7-complete"
+      ]
+    }
+  ],
+  "reviews": [],
+  "promotionApprovals": []
+}

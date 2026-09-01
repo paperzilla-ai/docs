@@ -4,6 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import {
+    authoredContentOptionsForLocale,
     expectedEnglishLocale,
     expectedPseudoLocale,
     findMintIgnoreNegations,
@@ -61,14 +62,36 @@ test('committed hidden registry satisfies the Spanish pilot contract', async () 
     assert.deepEqual(validateRegistry(JSON.parse(raw), raw), []);
 });
 
-test('planned Spanish cannot become live or indexable in docs', () => {
+test('Spanish preview and live stages obey the shared indexability contract', () => {
+    const preview = pilotRegistry();
+    preview.locales[1].stage = 'preview';
+    assert.deepEqual(validateRegistry(preview, canonicalJson(preview)), []);
+
     const live = pilotRegistry();
     live.locales[1].stage = 'live';
     live.locales[1].indexable = true;
-    const errors = validateRegistry(live, canonicalJson(live));
-    assert(errors.some((error) => error.includes('planned, non-indexable')));
-    assert(errors.some((error) => error.includes('sole live')));
-    assert(errors.some((error) => error.includes('sole indexable')));
+    assert.deepEqual(validateRegistry(live, canonicalJson(live)), []);
+
+    live.locales[1].indexable = false;
+    assert(validateRegistry(live, canonicalJson(live)).some((error) => error.includes('indexable exactly when')));
+});
+
+test('retired docs validate frozen retained artifacts instead of moving English', () => {
+    const registry = pilotRegistry();
+    assert.deepEqual(authoredContentOptionsForLocale(registry), {
+        requireHumanReview: false,
+        sourceMode: 'current',
+    });
+    registry.locales[1].stage = 'preview';
+    assert.deepEqual(authoredContentOptionsForLocale(registry), {
+        requireHumanReview: true,
+        sourceMode: 'current',
+    });
+    registry.locales[1].stage = 'retired';
+    assert.deepEqual(authoredContentOptionsForLocale(registry), {
+        requireHumanReview: true,
+        sourceMode: 'frozen',
+    });
 });
 
 test('a synthetic second planned locale remains hidden, non-indexable, and route-guarded', () => {
@@ -93,12 +116,11 @@ test('a synthetic second planned locale remains hidden, non-indexable, and route
         'page.mdx: /de',
     ]);
 
+    registry.locales[2].stage = 'preview';
+    assert.deepEqual(validateRegistry(registry, canonicalJson(registry)), []);
     registry.locales[2].stage = 'live';
     registry.locales[2].indexable = true;
-    const exposedErrors = validateRegistry(registry, canonicalJson(registry));
-    assert(exposedErrors.some((error) => error.includes('planned, non-indexable')));
-    assert(exposedErrors.some((error) => error.includes('sole live')));
-    assert(exposedErrors.some((error) => error.includes('sole indexable')));
+    assert.deepEqual(validateRegistry(registry, canonicalJson(registry)), []);
 });
 
 test('translation metadata is generic and complete for every managed locale', () => {

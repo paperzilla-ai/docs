@@ -13,6 +13,7 @@ import {
 } from './content-structure.mjs';
 import { documentProtectedStructureSha256, extractSegments } from './content-segments.mjs';
 import { expectedNavigationRecord } from './navigation.mjs';
+import { validateRetiredAuthoredContent } from './retired-content.mjs';
 
 export {
     delocalizeDocsTarget,
@@ -67,6 +68,14 @@ const segmentKeys = [
 const manifestKeys = ['documents', 'locale', 'promptSha256', 'schemaVersion', 'styleGuideSha256'];
 const sha256Pattern = /^[a-f0-9]{64}$/;
 const generatedAtPattern = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/;
+const reviewerContactPattern = /(?:@|:\/\/|\bwww\.|\bmailto:|\btel:|\b(?:phone|mobile|whatsapp)\b|(?:\+?\d[\d(). -]{6,}\d))/i;
+
+function reviewerLabelIsSafe(value) {
+    if (typeof value !== 'string' || value.length === 0 || value.length > 80 || /[<>\r\n]/.test(value)) {
+        return false;
+    }
+    return value.trim().length > 0 && !reviewerContactPattern.test(value);
+}
 
 function canonicalJson(value) {
     function sortKeys(item) {
@@ -245,7 +254,35 @@ function validateRecordContract(record, expected, label, errors) {
     }
 }
 
-export async function validateAuthoredContent(root = repositoryRoot) {
+export function contentReviewSummary(manifest) {
+    const documents = Array.isArray(manifest?.documents) ? manifest.documents : [];
+    const segments = documents.flatMap((record) => (
+        Array.isArray(record?.segments) ? record.segments : []
+    ));
+    const reviewedDocuments = documents.filter((record) => (
+        record?.reviewStatus === 'human-reviewed'
+        && reviewerLabelIsSafe(record?.reviewer)
+    ));
+    const reviewedSegments = segments.filter((segment) => (
+        segment?.reviewStatus === 'human-reviewed'
+        && reviewerLabelIsSafe(segment?.reviewer)
+    ));
+    return {
+        documentCount: documents.length,
+        reviewedDocumentCount: reviewedDocuments.length,
+        segmentCount: segments.length,
+        reviewedSegmentCount: reviewedSegments.length,
+        promotionEligible: documents.length > 0
+            && reviewedDocuments.length === documents.length
+            && segments.length > 0
+            && reviewedSegments.length === segments.length,
+    };
+}
+
+export async function validateAuthoredContent(
+    root = repositoryRoot,
+    { requireHumanReview = false, sourceMode = 'current' } = {},
+) {
     const errors = [];
     let manifest;
     let rawManifest;
@@ -259,11 +296,19 @@ export async function validateAuthoredContent(root = repositoryRoot) {
         return [`Cannot read valid .i18n/content.manifest.json: ${error.message}`];
     }
     try {
-        docsConfig = JSON.parse(await readFile(path.join(root, 'docs.json'), 'utf8'));
         rawNavigation = await readFile(path.join(root, '.i18n/navigation.es.json'), 'utf8');
         navigation = JSON.parse(rawNavigation);
     } catch (error) {
-        errors.push(`Cannot read docs navigation inputs: ${error.message}`);
+        errors.push(`Cannot read Spanish docs navigation: ${error.message}`);
+    }
+    if (sourceMode === 'current') {
+        try {
+            docsConfig = JSON.parse(await readFile(path.join(root, 'docs.json'), 'utf8'));
+        } catch (error) {
+            errors.push(`Cannot read current docs navigation source: ${error.message}`);
+        }
+    } else if (sourceMode !== 'frozen') {
+        errors.push(`Unknown authored-content source mode: ${sourceMode}.`);
     }
     if (rawNavigation !== '') {
         report(errors, rawNavigation === rawNavigation.normalize('NFC'), 'navigation.es.json must be NFC-normalized.');
@@ -277,6 +322,24 @@ export async function validateAuthoredContent(root = repositoryRoot) {
     report(errors, sha256Pattern.test(manifest?.styleGuideSha256 ?? ''), 'Content manifest styleGuideSha256 is invalid.');
     report(errors, Array.isArray(manifest?.documents), 'Content manifest documents must be an array.');
     report(errors, rawManifest === canonicalJson(manifest), 'Content manifest JSON must be canonical with a final newline.');
+
+    if (requireHumanReview) {
+        const review = contentReviewSummary(manifest);
+        report(
+            errors,
+            review.promotionEligible,
+            `Spanish docs require named human review before preview/live: ${review.reviewedDocumentCount}/${review.documentCount} documents and ${review.reviewedSegmentCount}/${review.segmentCount} segments are reviewed.`,
+        );
+    }
+    if (sourceMode === 'frozen') {
+        errors.push(...await validateRetiredAuthoredContent({
+            root,
+            manifest,
+            rawNavigation,
+            validateProvenance,
+        }));
+        return errors;
+    }
 
     const english = await englishMdxInventory(root);
     let spanish = [];
@@ -373,8 +436,16 @@ function validateProvenance(value, label, errors) {
     report(errors, generatedAtPattern.test(value.generatedAt ?? ''), `${label}.generatedAt is invalid.`);
     report(errors, statuses.has(value.reviewStatus), `${label}.reviewStatus is invalid.`);
     if (value.reviewStatus === 'human-reviewed') {
-        report(errors, typeof value.reviewer === 'string' && value.reviewer.trim().length > 0, `${label}.reviewer is required after human review.`);
+        report(
+            errors,
+            reviewerLabelIsSafe(value.reviewer),
+            `${label}.reviewer must be a stable non-contact label after human review.`,
+        );
     } else {
-        report(errors, value.reviewer === null || (typeof value.reviewer === 'string' && value.reviewer.trim().length > 0), `${label}.reviewer is invalid.`);
+        report(
+            errors,
+            value.reviewer === null || reviewerLabelIsSafe(value.reviewer),
+            `${label}.reviewer must be null or a stable non-contact label.`,
+        );
     }
 }

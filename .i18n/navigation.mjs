@@ -1,5 +1,6 @@
 import { documentProtectedStructureSha256, protectedTokens } from './content-segments.mjs';
 import { sha256 } from './content-structure.mjs';
+import { englishDocsConfig } from './deploy-config.mjs';
 
 const labelKeys = new Set(['anchor', 'group', 'label', 'tab']);
 
@@ -12,12 +13,13 @@ function prettyJson(value) {
 }
 
 export function docsNavigationSource(value) {
+    const sourceConfig = englishDocsConfig(value);
     const projection = {
         schemaVersion: 1,
         locale: 'en',
         source: 'docs.json',
-        navigation: value?.navigation,
-        navbar: value?.navbar,
+        navigation: sourceConfig?.navigation,
+        navbar: sourceConfig?.navbar,
     };
     if (!isObject(projection.navigation) || !isObject(projection.navbar)) {
         throw new Error('docs.json must contain navigation and navbar objects.');

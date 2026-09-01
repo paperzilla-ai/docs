@@ -6,8 +6,8 @@
 drafts/
 *.draft.mdx
 
-# Run 6 keeps the complete planned Spanish tree tracked but dormant. This
-# exact directory entry must remain until the locale is promoted in Run 7.
+# Run 7 keeps the complete Spanish tree tracked but dormant while the locale is
+# planned or preview. Remove this exact entry only in the coordinated live release.
 es/
 
 # Internal multilingual implementation and agent instructions; never publish.

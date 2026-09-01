@@ -2,6 +2,8 @@ import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { validateAuthoredContent } from './content.mjs';
+import { buildDeployConfig } from './deploy-config.mjs';
+import { loadAndValidateLaunchReview } from './launch-review.mjs';
 
 const internalDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.dirname(internalDirectory);
@@ -57,6 +59,14 @@ export const expectedPseudoLocale = {
     direction: 'ltr',
     fallback: 'en',
 };
+
+export function authoredContentOptionsForLocale(registry, localeTag = 'es') {
+    const locale = registry?.locales?.find((entry) => entry?.tag === localeTag);
+    return {
+        requireHumanReview: ['preview', 'live', 'retired'].includes(locale?.stage),
+        sourceMode: locale?.stage === 'retired' ? 'frozen' : 'current',
+    };
+}
 
 function canonicalJson(value) {
     return `${JSON.stringify(value, null, 2)}\n`;
@@ -230,22 +240,6 @@ export function validateRegistry(registry, rawRegistry) {
     }
 
     report(errors, matchesExpected(locales[0], expectedEnglishLocale), 'English must remain the first, live, indexable locale.');
-    const nonEnglish = locales.filter((locale) => locale?.tag !== 'en');
-    report(
-        errors,
-        nonEnglish.every((locale) => locale?.stage === 'planned' && locale?.indexable === false),
-        'Docs may mirror only planned, non-indexable non-English locales before public localization.',
-    );
-    report(
-        errors,
-        locales.filter((locale) => locale?.stage === 'live').every((locale) => locale?.tag === 'en'),
-        'English must remain the sole live docs locale.',
-    );
-    report(
-        errors,
-        locales.filter((locale) => locale?.indexable === true).every((locale) => locale?.tag === 'en'),
-        'English must remain the sole indexable docs locale.',
-    );
     const managedNonSourceTags = locales
         .filter((locale) => locale?.tag !== registry.sourceLocale && locale?.stage !== 'retired')
         .map((locale) => locale.tag);
@@ -285,7 +279,11 @@ export function findTextExposure(text, location, registry) {
     }
 
     const productionPrefixes = (registry?.locales ?? [])
-        .filter((locale) => locale?.tag !== registry?.defaultLocale && locale?.pathPrefix)
+        .filter((locale) => (
+            locale?.tag !== registry?.defaultLocale
+            && locale?.stage !== 'live'
+            && locale?.pathPrefix
+        ))
         .map((locale) => locale.pathPrefix);
     const testTags = (registry?.testLocales ?? []).map((locale) => locale?.tag).filter(Boolean);
     for (const prefix of [...new Set([...productionPrefixes, ...testTags])]) {
@@ -358,36 +356,78 @@ async function main() {
         errors.push(`Cannot read valid docs.json: ${error.message}`);
     }
 
+    const liveNonSourceLocales = (registry?.locales ?? []).filter((locale) => (
+        locale?.tag !== registry?.sourceLocale && locale?.stage === 'live'
+    ));
+    const hiddenNonSourceLocales = (registry?.locales ?? []).filter((locale) => (
+        locale?.tag !== registry?.sourceLocale && locale?.stage !== 'live'
+    ));
+    const trackedNonSourceLocales = (registry?.locales ?? []).filter((locale) => (
+        locale?.tag !== registry?.sourceLocale && locale?.pathPrefix
+    ));
+
     if (docsConfig) {
         const languageKeys = findNavigationLanguageKeys(docsConfig.navigation);
         report(
             errors,
-            languageKeys.length === 0,
-            `Planned locales must not expose a Mintlify language selector; found ${languageKeys.join(', ')}.`,
+            liveNonSourceLocales.length > 0
+                ? JSON.stringify(languageKeys) === JSON.stringify(['navigation.languages'])
+                : languageKeys.length === 0,
+            liveNonSourceLocales.length > 0
+                ? `Live localized docs require exactly navigation.languages; found ${languageKeys.join(', ')}.`
+                : `Planned, preview, and retired locales must not expose a Mintlify language selector; found ${languageKeys.join(', ')}.`,
         );
 
         const localizedNavigationValues = findLocalizedNavigationValues(docsConfig.navigation);
         report(
             errors,
-            localizedNavigationValues.length === 0,
-            `Docs navigation must not reference localized public paths; found ${localizedNavigationValues.join(', ')}.`,
+            liveNonSourceLocales.length > 0 || localizedNavigationValues.length === 0,
+            `Hidden docs navigation must not reference localized public paths; found ${localizedNavigationValues.join(', ')}.`,
         );
+
+        if (registry) {
+            const localizedNavigation = {};
+            for (const locale of trackedNonSourceLocales) {
+                try {
+                    localizedNavigation[locale.tag] = JSON.parse(await readFile(
+                        path.join(internalDirectory, `navigation.${locale.tag}.json`),
+                        'utf8',
+                    ));
+                } catch (error) {
+                    errors.push(`Cannot read localized navigation for ${locale.tag}: ${error.message}`);
+                }
+            }
+            try {
+                const expectedConfig = canonicalJson(buildDeployConfig(
+                    docsConfig,
+                    registry,
+                    localizedNavigation,
+                ));
+                report(
+                    errors,
+                    rawDocsConfig === expectedConfig,
+                    'docs.json is stale or does not exactly match the current registry stages.',
+                );
+            } catch (error) {
+                errors.push(`Cannot derive the stage-aware docs config: ${error.message}`);
+            }
+        }
     }
 
     const localizedPublicPaths = await findLocalizedPublicPaths();
-    const plannedPrefixes = (registry?.locales ?? [])
-        .filter((locale) => locale?.tag !== registry?.sourceLocale && locale?.stage === 'planned')
+    const trackedPrefixes = trackedNonSourceLocales
         .map((locale) => locale.pathPrefix)
         .sort();
     report(
         errors,
-        JSON.stringify(localizedPublicPaths) === JSON.stringify(plannedPrefixes),
-        `Tracked locale trees must exactly match planned locale prefixes; found ${localizedPublicPaths.join(', ')}.`,
+        JSON.stringify(localizedPublicPaths) === JSON.stringify(trackedPrefixes),
+        `Tracked locale trees must exactly match registered non-source locale prefixes; found ${localizedPublicPaths.join(', ')}.`,
     );
 
     if (registry) {
         errors.push(...findTextExposure(rawDocsConfig, 'docs.json', registry));
-        for (const filePath of await findPublicMdxFiles(repositoryRoot, new Set(plannedPrefixes))) {
+        const hiddenPrefixes = hiddenNonSourceLocales.map((locale) => locale.pathPrefix);
+        for (const filePath of await findPublicMdxFiles(repositoryRoot, new Set(hiddenPrefixes))) {
             const relativePath = path.relative(repositoryRoot, filePath);
             const content = await readFile(filePath, 'utf8');
             errors.push(...findTextExposure(content, relativePath, registry));
@@ -399,20 +439,34 @@ async function main() {
     const mintIgnoreNegations = findMintIgnoreNegations(mintIgnore);
     report(errors, mintIgnoreLines.includes('.i18n/'), '.mintignore must exclude the internal .i18n/ directory.');
     report(errors, mintIgnoreLines.includes('AGENTS.md'), '.mintignore must exclude internal AGENTS.md instructions.');
-    for (const prefix of plannedPrefixes) {
+    for (const locale of hiddenNonSourceLocales) {
+        const prefix = locale.pathPrefix;
         const exactEntry = `${prefix}/`;
         report(
             errors,
             mintIgnoreLines.filter((line) => line === exactEntry).length === 1,
-            `.mintignore must contain exactly one exact ${exactEntry} exclusion while ${prefix} is planned.`,
+            `.mintignore must contain exactly one exact ${exactEntry} exclusion while ${prefix} is ${locale.stage}.`,
+        );
+    }
+    for (const locale of liveNonSourceLocales) {
+        const exactEntry = `${locale.pathPrefix}/`;
+        report(
+            errors,
+            !mintIgnoreLines.includes(exactEntry),
+            `.mintignore must not exclude live locale ${exactEntry}.`,
         );
     }
     report(
         errors,
         mintIgnoreNegations.length === 0,
-        `.mintignore must not contain negation rules that can weaken planned-locale exclusions; found ${mintIgnoreNegations.join(', ')}.`,
+        `.mintignore must not contain negation rules that can weaken locale exclusions; found ${mintIgnoreNegations.join(', ')}.`,
     );
-    errors.push(...await validateAuthoredContent(repositoryRoot));
+    errors.push(...await validateAuthoredContent(
+        repositoryRoot,
+        authoredContentOptionsForLocale(registry),
+    ));
+    const launchReview = await loadAndValidateLaunchReview(repositoryRoot);
+    errors.push(...launchReview.errors);
 
     const agents = await readFile(agentsPath, 'utf8');
     report(errors, agents.includes(canonicalPlan), `AGENTS.md must point to the canonical backend plan at ${canonicalPlan}.`);

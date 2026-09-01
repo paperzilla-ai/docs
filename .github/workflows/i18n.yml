@@ -1,4 +1,4 @@
-name: Multilingual Foundation
+name: Multilingual docs
 
 on:
   pull_request:
@@ -8,6 +8,8 @@ on:
       - '.mintignore'
       - 'AGENTS.md'
       - 'docs.json'
+      - 'package.json'
+      - 'package-lock.json'
       - '**/*.mdx'
   push:
     branches:
@@ -18,6 +20,8 @@ on:
       - '.mintignore'
       - 'AGENTS.md'
       - 'docs.json'
+      - 'package.json'
+      - 'package-lock.json'
       - '**/*.mdx'
   workflow_dispatch:
 
@@ -28,7 +32,7 @@ jobs:
   check:
     name: Check docs locale contract
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -37,6 +41,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
+          cache: npm
+
+      - name: Install lockfile-pinned Mint CLI
+        run: npm ci --ignore-scripts --no-audit --no-fund
 
       - name: Test docs locale guard
         run: node --test .i18n/*.test.mjs
@@ -44,5 +52,21 @@ jobs:
       - name: Validate multilingual docs exposure
         run: node .i18n/check.mjs
 
-      - name: Build isolated Spanish preview projection
-        run: node .i18n/preview.mjs --output /tmp/paperzilla-docs-es-preview --replace
+      - name: Check stage-derived deploy config
+        run: node .i18n/deploy-config.mjs check
+
+      - name: Build isolated Spanish review projection
+        run: node .i18n/preview.mjs --output /tmp/paperzilla-docs-es-run7-review --replace
+
+      - name: Validate hidden production docs
+        run: |
+          node .i18n/artifact-guard.mjs assert-deployable --root .
+          npm run mint:validate
+          npm run mint:broken-links
+
+      - name: Validate future bilingual review projection
+        run: |
+          cd /tmp/paperzilla-docs-es-run7-review
+          node "$GITHUB_WORKSPACE/.i18n/artifact-guard.mjs" assert-non-promotable --root .
+          "$GITHUB_WORKSPACE/node_modules/.bin/mint" validate
+          "$GITHUB_WORKSPACE/node_modules/.bin/mint" broken-links

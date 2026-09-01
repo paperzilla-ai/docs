@@ -5,13 +5,13 @@
 - This is the user-facing documentation site for Paperzilla, built on [Mintlify](https://mintlify.com)
 - The canonical multilingual rollout plan is in the backend repository at `docs/multilingual/00-rollout-index.md`; this repository contains only its generated locale-registry mirror and user-facing localized content.
 - Adding or promoting a locale must follow the backend playbook at `docs/multilingual/HOWTO_ADD_A_LANGUAGE.md`.
-- Run 6 tracks a complete Spanish mirror under `es/` with provenance and hidden
-  navigation data under `.i18n/`. The exact `es/` entry in `.mintignore` keeps
-  that tree unprocessed, unpublished, unindexed, and absent from Mintlify AI,
-  search, and MCP surfaces while Spanish remains `planned`. Production
-  `docs.json` stays English-only: do not add a language selector, `hreflang`,
-  sitemap entry, or other public Spanish exposure before the coordinated Run 7
-  promotion.
+- Run 7 reviews and gates the complete Spanish mirror under `es/`. The exact
+  `es/` entry in `.mintignore` keeps that tree unprocessed, unpublished,
+  unindexed, and absent from Mintlify AI, search, and MCP surfaces while Spanish
+  is `planned` or `preview`. Production `docs.json` stays English-only in both
+  stages. Use the isolated `.i18n/preview.mjs` projection for review; never add
+  a public language selector, localized navigation, or Spanish discovery before
+  the coordinated `live` promotion passes the launch matrix.
 - Use ordinary Git branches for multilingual work; do not create or use Git worktrees.
 - Pages are MDX files with YAML frontmatter
 - Configuration lives in `docs.json`
@@ -23,10 +23,19 @@
 - Run `mint dev` to preview locally
 - Run `mint broken-links` to check links
 - Run `mint validate` when you add pages, change navigation, or touch shared doc structure
-- Run `node .i18n/preview.mjs --output /tmp/paperzilla-docs-es-preview --replace`
-  for the hidden Spanish preview, then run `mint dev --root
-  /tmp/paperzilla-docs-es-preview`; never project preview files inside this
+- Install the exact Mint CLI with `npm ci --ignore-scripts --no-audit --no-fund`;
+  `package-lock.json`
+  is the dependency source of truth. Package installation is the sole project
+  check that fetches dependencies; validation itself uses no credentials or models.
+- Run `node .i18n/preview.mjs --output /tmp/paperzilla-docs-es-run7-review --replace`
+  for the hidden Spanish review projection, then run `mint dev --root
+  /tmp/paperzilla-docs-es-run7-review`; never project preview files inside this
   repository or deploy the preview directory.
+- Deployment tooling must run `node .i18n/artifact-guard.mjs assert-deployable
+  --root PATH`. The review projection carries a deterministic marker that makes
+  this guard fail closed.
+- Run `.i18n/hosted-smoke.mjs` manually only after Spanish is live; it refuses
+  planned/preview registries and must not add hosted network checks to planned CI.
 
 ## Terminology
 
