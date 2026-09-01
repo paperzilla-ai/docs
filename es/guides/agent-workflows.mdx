@@ -1,0 +1,76 @@
+---
+title: "Flujos de trabajo con agentes"
+description: "Usa Paperzilla como capa de datos para flujos con agentes y automatizaciones mediante CLI, fuentes y MCP."
+keywords: ["agente de IA", "automatización", "CLI", "RSS", "MCP", "capa de datos"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/agent-workflows" />
+
+Paperzilla está diseñado tanto para la lectura humana como para el uso programático.
+
+Esta guía se centra en Paperzilla como **capa de datos para agentes**.
+
+## Interfaces disponibles
+
+Usa estas interfaces según tu flujo:
+
+- CLI (`pz`) para ejecutar comandos del shell o scripts
+- MCP (`/api/mcp`) para flujos de llamadas a herramientas con LLM
+- RSS/Atom para sondeos en infraestructura de fuentes
+
+Consulta la [guía de CLI](/es/guides/cli), [Integración con MCP](/es/guides/mcp), la [guía de Codex](/es/guides/codex), la [guía de Claude](/es/guides/claude) y la [guía de RSS/Atom](/es/guides/feeds).
+
+## Configuración recomendada para flujos con agentes
+
+1. Crea y ajusta proyectos en la aplicación.
+2. Autentica la CLI con `pz login`.
+3. Usa `pz project list --json` para obtener el ID de proyecto desde un resultado estructurado.
+4. Usa `pz feed <project-id> --json` para automatizar la exploración, o `pz feed search --project-id <id> --query <q> --json` para buscar texto en toda la lista.
+5. Añade filtros (`--must-read`, `--since`, `--limit`, `--feedback-filter`) según el flujo.
+
+## Skill de OpenClaw
+
+La CLI de Paperzilla está publicada como [skill de OpenClaw en ClawHub](https://clawhub.ai/pors/paperzilla). Instálala con `openclaw skills install paperzilla` para que OpenClaw use directamente comandos de `pz`. Si ya usas la CLI independiente de ClawHub, también funciona `clawhub install paperzilla`. Consulta [Usar la CLI de Paperzilla con OpenClaw](/es/guides/openclaw) para ver el flujo completo.
+
+## Codex
+
+Codex funciona con Paperzilla de dos formas. Añade Paperzilla MCP desde **Settings** > **Integrations & MCP** de Codex para usar llamadas nativas a herramientas. Confirma después el servidor en `/mcp`. Usa `pz` directamente cuando Codex ya trabaje en un shell o repositorio. Una skill útil de Codex debe cubrir la verificación, los enlaces a documentación y la secuencia de herramientas de Paperzilla, no solo «preferir MCP» o «usar la CLI». Solo necesitas un plugin si quieres un paquete instalable. Consulta [Usar Paperzilla con Codex](/es/guides/codex).
+
+## Superficies de datos que puedes combinar
+
+- Lista de la aplicación para revisión visual
+- CLI para automatización estructurada
+- RSS/Atom para sondeos en infraestructura de fuentes
+- Resúmenes por correo para establecer un ritmo de revisión humana
+
+## Superficie de herramientas MCP
+
+Herramientas actuales:
+
+- `projects_list`
+- `projects_get`
+- `feed_get`
+- `feed_search`
+- `feed_atom_url`
+- `paper_get`
+- `paper_markdown`
+
+Prompt opcional:
+
+- `feed_title_filter`
+
+Usa `feed_search` cuando el flujo necesite buscar texto en toda la lista de un proyecto. Es la vía MCP para buscar por título, autor, resumen científico o términos del resumen.
+
+Detalles de configuración: [Integración con MCP](/es/guides/mcp).
+
+## Flujos de ejemplo
+
+- [Usar OpenClaw y Telegram para informes de investigación](/es/guides/openclaw-telegram-briefs)
+- [Usar Codex y Microsoft Teams para informes de investigación](/es/guides/codex-teams-briefs)
+- [Usar Claude en Slack para informes de investigación](/es/guides/claude-slack-briefs)
+
+## Por qué es importante
+
+Si tu flujo depende de «artículos nuevos + filtrado por relevancia + automatización», trata los proyectos de Paperzilla como fuente persistente y permite que los agentes consuman esa capa de datos.

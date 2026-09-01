@@ -1,0 +1,47 @@
+---
+title: "Resúmenes por IA"
+description: "Genera y lee resúmenes por IA de Paperzilla para los artículos de tus proyectos."
+keywords: ["resumen por IA", "resumen de artículo", "síntesis estructurada"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/summaries" />
+
+Paperzilla puede generar resúmenes estructurados por IA para artículos.
+
+## Generar un resumen
+
+1. Abre la página de un artículo.
+2. Haz clic en la acción de resumen.
+3. Espera a que se complete el estado.
+
+## Estados de los resúmenes
+
+- `queued`: solicitud aceptada
+- `processing`: generación del resumen en curso
+- `failed`: la generación ha fallado; se puede reintentar
+- `completed` o `available`: el resumen está listo
+
+## Estructura del resumen
+
+Los resúmenes pueden incluir secciones como:
+
+- ELI5
+- Información general
+- Pregunta de investigación
+- Metodología
+- Resultados
+- Limitaciones
+- Conclusión principal
+- Conflictos de intereses
+
+## Ver todos los resúmenes de un proyecto
+
+En la página del proyecto, abre **Ver resúmenes** cuando estén disponibles.
+
+## Si falla la generación
+
+1. Vuelve a intentarlo desde la página del artículo.
+2. Compruébalo de nuevo más tarde.
+3. Confirma que has iniciado sesión en la cuenta correcta (consulta [cuenta y acceso](/es/guides/account-and-sign-in)).

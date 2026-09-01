@@ -1,0 +1,71 @@
+---
+title: "¿Cómo recibo menos correos?"
+description: "Reduce el correo de Paperzilla ajustando la relevancia, cambiando a resúmenes semanales o pausando la entrega."
+keywords: ["reducir correo", "control de volumen", "menos resúmenes", "resúmenes semanales", "pausar correo"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/answers/less-email" />
+
+Abre el [panel](https://paperzilla.ai/dashboard) y selecciona el proyecto que envía demasiados correos. Revisa las opciones siguientes empezando por las que mejoran la calidad antes de pausar la entrega.
+
+## Opción 1: ajustar el proyecto (recomendado)
+
+Haz clic en **Editar proyecto** para ajustar la relevancia. Estos cambios mejoran lo que encuentra el proyecto, no solo cuánto envía.
+
+**Quitar categorías irrelevantes**
+
+Si el proyecto incluye categorías demasiado amplias para tu objetivo, quítalas. Con menos categorías entrarán menos artículos fuera de tema en la lista.
+
+**Precisar la descripción del interés**
+
+La descripción indica a Paperzilla qué te interesa. Una descripción vaga produce una lista amplia. Sé específico.
+
+Por ejemplo, en lugar de:
+
+> Machine learning and neural networks
+
+Prueba:
+
+> Efficient transformer architectures for on-device inference, focusing on quantization and pruning techniques. Only include papers where on-device or edge deployment is a primary concern. If a paper is about general model efficiency, data centers, or cloud inference without an on-device angle, do not select it.
+
+Cuanto más precisa sea la descripción, más selectiva será la búsqueda de artículos relevantes.
+
+**Quitar palabras clave de prioridad demasiado amplias**
+
+Revisa las palabras clave incluidas (de prioridad) y quita las que atraigan artículos no deseados. Estas palabras aumentan la relevancia; si un término es demasiado general, mostrará demasiados artículos.
+
+**Añadir palabras clave excluidas**
+
+Las palabras clave excluidas son filtros estrictos: cualquier artículo que contenga un término excluido se elimina por completo de la lista.
+
+Úsalas con cuidado y solo para términos que sepas que nunca quieres ver. Unos pocos términos específicos pueden reducir mucho el ruido.
+
+## Opción 2: desactivar los artículos adyacentes
+
+Si **Incluir artículos adyacentes** está activado, Paperzilla muestra resultados relacionados pero no directos junto con los principales. Desactivarlo limita la lista a artículos que encajan más directamente.
+
+En **Editar proyecto**, establece **Incluir artículos adyacentes** en **No**.
+
+## Opción 3: cambiar de frecuencia diaria a semanal
+
+Si los artículos son adecuados pero llegan demasiados correos, cambia **Frecuencia de correo** de **Diaria** a **Semanal**.
+
+La frecuencia semanal solo cambia los correos:
+
+- la lista sigue actualizándose continuamente
+- Paperzilla continúa creando resúmenes en la aplicación
+- el correo semanal envía los artículos mejor puntuados de la última semana hasta el límite máximo
+
+Es un buen punto intermedio si quieres un resumen regular, pero menos correos.
+
+## Opción 4: pausar la entrega por correo
+
+Si los ajustes no bastan y quieres dejar de recibir correos, ve a **Editar entrega por correo** y establece **Frecuencia de correo** en **Pausar entrega por correo**.
+
+Los resúmenes se siguen creando y mostrando en la aplicación, pero no se envían a la bandeja. En este estado muestran la insignia **Pausado**.
+
+<Tip>
+Si pausas la entrega por correo, puedes configurar una [fuente RSS/Atom](/es/guides/feeds) en un lector. Mantendrás acceso completo a los artículos nuevos sin llenar la bandeja.
+</Tip>

@@ -6,6 +6,7 @@ import test from 'node:test';
 import {
     expectedEnglishLocale,
     expectedPseudoLocale,
+    findMintIgnoreNegations,
     findLocalizedPublicPaths,
     findLocalizedNavigationValues,
     findNavigationLanguageKeys,
@@ -158,4 +159,9 @@ test('content guard finds localized routes, hreflang, and pseudolocale names', (
         'page.mdx: pseudolocale en-XA',
     ]);
     assert.deepEqual(findTextExposure('See /essentials/settings.', 'page.mdx', registry), []);
+});
+
+test('mintignore policy rejects negations that could re-include a planned tree', () => {
+    assert.deepEqual(findMintIgnoreNegations('es/\n!es/**\n'), ['!es/**']);
+    assert.deepEqual(findMintIgnoreNegations('es/\n.i18n/\n'), []);
 });

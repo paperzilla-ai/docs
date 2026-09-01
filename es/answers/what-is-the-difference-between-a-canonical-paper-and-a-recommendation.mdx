@@ -1,0 +1,35 @@
+---
+title: "¿Cuál es la diferencia entre un artículo canónico y una recomendación?"
+description: "Un artículo canónico es el registro compartido de Paperzilla. Una recomendación es ese artículo tal como aparece en un proyecto."
+keywords: ["artículo canónico", "recomendación", "artículo de proyecto", "CLI", "ID de artículo", "ID de artículo de proyecto"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/answers/what-is-the-difference-between-a-canonical-paper-and-a-recommendation" />
+
+En Paperzilla, un artículo canónico y una recomendación no son lo mismo.
+
+Un artículo canónico es el registro compartido del artículo.
+
+- tiene un ID de artículo de Paperzilla
+- contiene los propios metadatos del artículo
+- se abre con `pz paper <paper-id>`
+- puede leerse sin iniciar sesión
+
+Una recomendación es ese mismo artículo tal como aparece dentro de uno de tus proyectos.
+
+- tiene un ID de recomendación (`project_paper.id` / ID corto)
+- incluye contexto específico del proyecto, como relevancia, resumen, nota personalizada y valoraciones
+- se abre con `pz rec <project-paper-id>`
+- requiere iniciar sesión porque pertenece a uno de tus proyectos
+
+También puedes conectar ambos:
+
+```bash
+pz paper <paper-id> --project <project-id>
+```
+
+Esto resuelve el artículo canónico dentro de un proyecto y muestra el contexto de la recomendación para ese proyecto.
+
+Esta separación es importante porque un artículo canónico puede aparecer en varios proyectos con resúmenes, puntuaciones y valoraciones diferentes.

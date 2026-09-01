@@ -1,0 +1,28 @@
+---
+title: "Introducción"
+description: "Superficies de integración de Paperzilla: MCP, fuentes RSS/Atom y acceso por CLI."
+keywords: ["API", "integración", "MCP", "RSS", "CLI", "desarrollo"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/api-reference/introduction" />
+
+Paperzilla se utiliza principalmente mediante estas superficies del producto:
+
+- Lista de artículos del proyecto en la aplicación web
+- Resúmenes por correo
+- URL de fuentes RSS/Atom
+- CLI (`pz`)
+- Endpoint MCP (`/api/mcp`)
+
+Esta sección de referencia de API documenta las superficies públicas de integración para fuentes y MCP.
+
+Los metadatos de los artículos pueden proceder de servidores de preprints o de literatura biomédica y clínica indexada en PubMed. Los registros de PubMed incluyen una URL a la página de la fuente, mientras que `pdf_url` puede ser `null` si no se conoce un PDF público.
+
+## Puntos de partida
+
+- [Endpoint MCP](/es/api-reference/mcp)
+- [Endpoint de fuente RSS/Atom](/es/api-reference/rss-atom-feed)
+- [Guía de RSS y Atom](/es/guides/feeds)
+- [Guía de CLI](/es/guides/cli)

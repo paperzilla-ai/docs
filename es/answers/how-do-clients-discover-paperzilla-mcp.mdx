@@ -1,0 +1,68 @@
+---
+title: "¿Cómo descubren los clientes la URL y las herramientas de Paperzilla MCP?"
+sidebarTitle: "Descubrimiento de MCP"
+description: "Cómo encuentran los clientes MCP la URL del servidor de Paperzilla y las herramientas disponibles, y en qué se diferencia de OpenAPI."
+keywords: ["descubrimiento de MCP", "OpenAPI", "tools/list", "initialize", "cliente de API"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/answers/how-do-clients-discover-paperzilla-mcp" />
+
+La URL del servidor MCP se descubre fuera del protocolo.
+
+En Paperzilla, normalmente el cliente o usuario parte del endpoint indicado en la documentación, las instrucciones de configuración o los documentos indexados mediante `llms.txt`:
+
+`https://paperzilla.ai/api/mcp`
+
+Esta URL **no** procede de OpenAPI.
+
+## Qué ocurre cuando el cliente conoce la URL
+
+Cuando el cliente apunta al endpoint MCP y tienes una MCP API key válida, puedes descubrir la superficie invocable desde el propio MCP.
+
+En la práctica, el cliente primero inicializa la conexión MCP y luego llama a:
+
+1. `tools/list`
+2. Opcionalmente, `prompts/list`
+
+`tools/list` devuelve los nombres de las herramientas y sus esquemas de entrada, para que el cliente sepa qué llamadas existen y qué argumentos aceptan.
+
+Esto incluye herramientas para explorar y buscar en listas, como:
+
+- `feed_get`
+- `feed_search`
+- `paper_get`
+- `paper_markdown`
+
+Por tanto, MCP se describe a sí mismo después de la conexión.
+
+## ¿Tienes MCP endpoints propios?
+
+Externamente, no hacen falta endpoints por herramienta.
+
+Paperzilla expone un único endpoint MCP en `/api/mcp`; las llamadas a herramientas se realizan mediante esa conexión.
+
+Internamente, estas herramientas usan la lógica y el acceso a datos propios de Paperzilla. Pueden leer directamente de servicios o almacenes internos en lugar de llamar a la API REST pública.
+
+## Relación con OpenAPI
+
+OpenAPI documenta una API REST.
+
+El descubrimiento de herramientas MCP funciona de otro modo:
+
+- OpenAPI indica a un cliente REST qué rutas HTTP existen
+- MCP indica a un cliente MCP qué herramientas existen mediante `tools/list`
+
+Por tanto, para crear un cliente MCP para Paperzilla normalmente necesitas:
+
+- La URL del servidor MCP
+- Una MCP API key
+- Llamadas MCP estándar como `initialize` y `tools/list`
+
+Usa OpenAPI solo para los endpoints REST normales de Paperzilla, no para descubrir herramientas MCP.
+
+Consulta también:
+
+- [Usar Paperzilla con MCP](/es/guides/mcp)
+- [Endpoint MCP (apéndice para desarrollo)](/es/api-reference/mcp)

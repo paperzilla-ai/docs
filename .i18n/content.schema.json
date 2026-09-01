@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://paperzilla.ai/schemas/docs-authored-content-manifest-v1.json",
+  "title": "Paperzilla docs authored-content manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "locale",
+    "promptSha256",
+    "styleGuideSha256",
+    "documents"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "locale": { "const": "es" },
+    "promptSha256": { "$ref": "#/$defs/sha256" },
+    "styleGuideSha256": { "$ref": "#/$defs/sha256" },
+    "documents": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/document" }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contentId",
+        "contentClass",
+        "sourcePath",
+        "translatedPath",
+        "publicPath",
+        "sourceSha256",
+        "translationSha256",
+        "protectedStructureSha256",
+        "provider",
+        "model",
+        "promptSha256",
+        "styleGuideSha256",
+        "generatedAt",
+        "reviewStatus",
+        "reviewer",
+        "segments"
+      ],
+      "properties": {
+        "contentId": { "type": "string", "pattern": "^docs:" },
+        "contentClass": { "const": "docs" },
+        "sourcePath": {
+          "anyOf": [
+            { "type": "string", "pattern": "^[^.].*\\.mdx$" },
+            { "const": "docs.json" }
+          ]
+        },
+        "translatedPath": {
+          "anyOf": [
+            { "type": "string", "pattern": "^es/.*\\.mdx$" },
+            { "const": ".i18n/navigation.es.json" }
+          ]
+        },
+        "publicPath": { "type": ["string", "null"] },
+        "sourceSha256": { "$ref": "#/$defs/sha256" },
+        "translationSha256": { "$ref": "#/$defs/sha256" },
+        "protectedStructureSha256": { "$ref": "#/$defs/sha256" },
+        "provider": { "enum": ["openai", "google", "human"] },
+        "model": { "type": ["string", "null"] },
+        "promptSha256": { "$ref": "#/$defs/sha256" },
+        "styleGuideSha256": { "$ref": "#/$defs/sha256" },
+        "generatedAt": { "type": "string", "format": "date-time" },
+        "reviewStatus": { "enum": ["machine", "technical-approved", "human-reviewed"] },
+        "reviewer": { "type": ["string", "null"] },
+        "segments": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/segment" }
+        }
+      }
+    },
+    "segment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "sourceSha256",
+        "translationSha256",
+        "protectedStructureSha256",
+        "provider",
+        "model",
+        "promptSha256",
+        "styleGuideSha256",
+        "generatedAt",
+        "reviewStatus",
+        "reviewer"
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "sourceSha256": { "$ref": "#/$defs/sha256" },
+        "translationSha256": { "$ref": "#/$defs/sha256" },
+        "protectedStructureSha256": { "$ref": "#/$defs/sha256" },
+        "provider": { "enum": ["openai", "google", "human"] },
+        "model": { "type": ["string", "null"] },
+        "promptSha256": { "$ref": "#/$defs/sha256" },
+        "styleGuideSha256": { "$ref": "#/$defs/sha256" },
+        "generatedAt": { "type": "string", "format": "date-time" },
+        "reviewStatus": { "enum": ["machine", "technical-approved", "human-reviewed"] },
+        "reviewer": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

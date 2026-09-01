@@ -1,0 +1,162 @@
+---
+title: "Usar la CLI de Paperzilla con OpenClaw"
+description: "Instala la skill de Paperzilla en OpenClaw para que el agente use la CLI pz al listar proyectos, explorar o buscar listas, inspeccionar metadatos y obtener Markdown."
+keywords: ["OpenClaw", "ClawHub", "CLI de Paperzilla", "pz", "skill de agente"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/openclaw" />
+
+Usa esta guía si quieres que OpenClaw use directamente la CLI de Paperzilla (`pz`).
+
+Esta es la vía basada en CLI. Si prefieres Paperzilla mediante MCP, consulta [Usar Paperzilla con MCP](/es/guides/mcp) o [Usar Paperzilla MCP con Claude](/es/guides/claude).
+
+## Antes de empezar
+
+- OpenClaw instalado
+- `pz` instalado. Si aún no lo instalaste, empieza por la [guía de CLI](/es/guides/cli).
+- `pz` autenticado con `pz login`
+- Al menos un proyecto de Paperzilla en tu cuenta
+
+## Cómo funciona
+
+La skill de Paperzilla enseña a OpenClaw cuándo usar `pz` como CLI.
+
+No sustituye el binario `pz` ni tu inicio de sesión en Paperzilla.
+
+OpenClaw puede encontrar la skill cuando la mencionas en la solicitud.
+
+## Paso 1: instalar y probar la CLI de Paperzilla
+
+Instala `pz` e inicia sesión:
+
+```bash
+pz login
+```
+
+Confirma que la CLI funciona antes de añadir la skill:
+
+```bash
+pz project list
+```
+
+Si este comando aún no funciona, corrige primero la configuración de CLI. OpenClaw depende de la misma instalación local de `pz`.
+
+## Paso 2: instalar la skill de Paperzilla en OpenClaw
+
+Si usas una versión actual de OpenClaw, instala la skill con el comando nativo de OpenClaw:
+
+```bash
+openclaw skills install paperzilla
+```
+
+Si ya usas la CLI independiente de ClawHub, también funciona:
+
+```bash
+clawhub install paperzilla
+```
+
+`openclaw skills install` instala en el directorio `skills/` del espacio de trabajo activo.
+
+La herramienta independiente `clawhub` se instala como CLI en `./skills` bajo el directorio de trabajo actual o, como alternativa, en el espacio de OpenClaw configurado.
+
+<Note>Si tu versión de OpenClaw es antigua y `openclaw skills install paperzilla` falla porque `skills` aún no acepta subcomandos, usa `clawhub install paperzilla`.</Note>
+
+## Actualizar la skill
+
+Para actualizar la skill de Paperzilla a la última versión publicada:
+
+```bash
+openclaw skills update paperzilla
+```
+
+Si usas la CLI independiente de ClawHub:
+
+```bash
+clawhub update paperzilla
+```
+
+Para actualizar todas las skills instaladas:
+
+```bash
+clawhub update --all
+```
+
+## Paso 3: pedir a OpenClaw que use Paperzilla
+
+Tras instalarla, pide a OpenClaw que use Paperzilla en el espacio donde instalaste la skill.
+
+Puedes pedir cosas como:
+
+- «Lista mis proyectos de Paperzilla».
+- «Muestra los artículos Must Read más recientes de mi proyecto de agentes».
+- «Busca artículos sobre grafos de proximidad en mi proyecto de agentes».
+- «Abre el artículo Must Read más reciente y resume sus metadatos».
+- «Obtén el Markdown de ese artículo».
+- «Compara los dos artículos Must Read más recientes de esta semana».
+- «Obtén la URL de fuente Atom de mi proyecto de evaluación».
+
+## Qué puede hacer OpenClaw mediante la skill
+
+La skill incluye los mismos flujos de `pz` documentados en la guía de CLI.
+
+Esto incluye:
+
+- listar proyectos
+- abrir un proyecto
+- explorar una lista con filtros como `--must-read`, `--since` y `--limit`
+- buscar en toda la lista con `pz feed search --project-id <id> --query <q>`
+- abrir un artículo por UUID, ID corto o ID de elemento de la lista
+- obtener el Markdown sin procesar del artículo
+- obtener una URL de fuente Atom
+
+## Cuándo usar esta vía o MCP
+
+Usa OpenClaw con CLI cuando:
+
+- el agente ya trabaja en una terminal o espacio de trabajo
+- quieres reutilizar la sesión local de `pz`
+- prefieres resultados deterministas de CLI y flujos adecuados para el shell
+
+Usa [MCP](/es/guides/mcp) cuando:
+
+- el cliente ya admite MCP directamente
+- quieres una superficie remota en lugar de una dependencia local de CLI
+- no quieres instalar `pz` en el entorno del agente
+
+## Solución de problemas
+
+### OpenClaw no parece usar Paperzilla
+
+Menciona Paperzilla explícitamente en la solicitud para que OpenClaw tenga un motivo claro para usar la skill.
+
+### `pz` funciona en el shell, pero no en OpenClaw
+
+Comprueba que `pz` está en `PATH` dentro del entorno donde se ejecuta OpenClaw.
+
+### `clawhub` no está instalado
+
+No hay problema. Usa `openclaw skills install paperzilla` en su lugar. La herramienta independiente `clawhub` se destina principalmente como CLI a flujos del registro, como publicar o sincronizar.
+
+### No aparecen proyectos ni artículos
+
+Comprueba primero la CLI subyacente:
+
+```bash
+pz project list
+pz feed <project-id>
+```
+
+Si la CLI no muestra datos, corrígelo primero en Paperzilla o en la sesión local de CLI.
+
+### El Markdown aún no está listo
+
+La CLI de Paperzilla puede pedirte que vuelvas a intentarlo en breve si la generación sigue pendiente.
+
+## Contenido relacionado
+
+- [Guía de CLI](/es/guides/cli)
+- [Flujos de trabajo con agentes](/es/guides/agent-workflows)
+- [Usar OpenClaw y Telegram para informes de investigación](/es/guides/openclaw-telegram-briefs)
+- [¿Tiene Paperzilla una skill de OpenClaw?](/es/answers/openclaw-skill)

@@ -1,0 +1,102 @@
+---
+title: "Resúmenes por correo"
+description: "Configura y controla los resúmenes por correo de Paperzilla para cada proyecto."
+keywords: ["resumen por correo", "programación de entrega", "máximo de artículos", "notificación"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/email-digests" />
+
+Los resúmenes por correo son una forma de consultar resultados del proyecto. La lista sigue siendo la fuente de verdad en la aplicación, RSS/Atom y CLI.
+
+Cambiar la **Frecuencia de correo** solo afecta a los mensajes. Paperzilla sigue evaluando artículos, mantiene la lista actualizada y crea resúmenes consultables en la aplicación.
+
+## Configurar la entrega de resúmenes
+
+Durante la configuración del proyecto:
+
+1. Añade un nombre de proyecto.
+2. Elige la **Frecuencia de correo**.
+3. Establece el máximo de artículos por correo.
+4. Añade tu correo cuando se solicite.
+5. Guarda el proyecto.
+
+## Elegir una entrega diaria, semanal o pausada
+
+### Diaria
+
+Elige **Diaria** para recibir un correo poco después de que estén listos los artículos nuevos relevantes.
+
+- La frecuencia diaria depende de eventos; no garantiza un mensaje cada día.
+- Si no hay artículos nuevos que cumplan los criterios, no se envía un correo diario.
+- La lista y los resúmenes de la aplicación continúan con normalidad.
+
+### Semanal
+
+Elige **Semanal** para tener un punto de revisión programado en lugar de recibir correos toda la semana.
+
+- La lista permanece activa y se actualiza a medida que se procesan artículos.
+- Paperzilla sigue creando resúmenes en la aplicación durante la semana.
+- El correo semanal incluye los artículos mejor puntuados de la última semana hasta el límite máximo.
+- Los artículos más relevantes se priorizan frente a los relacionados menos relevantes.
+
+### Pausa
+
+Elige **Pausa** para no recibir resúmenes por correo sin detener el descubrimiento.
+
+- La lista se mantiene actualizada.
+- Los resúmenes se siguen creando para consultarlos en la aplicación.
+- No se envían resúmenes por correo.
+
+## Cambiar el volumen de los resúmenes
+
+Para reducir el volumen de la bandeja puedes:
+
+- reducir el **Máximo de artículos por correo**
+- cambiar de **Diaria** a **Semanal**
+- desactivar **Incluir artículos adyacentes**
+- pausar por completo la entrega por correo
+
+## Hora y zona horaria de la entrega semanal
+
+La entrega semanal se ejecuta el día y la hora elegidos en la configuración de entrega.
+
+Paperzilla programa el correo semanal según tu **Zona horaria preferida** en la [Configuración de la cuenta](https://paperzilla.ai/account/settings). Para recibirlo en otra zona local, actualiza allí la **Zona horaria preferida**.
+
+## Pausar la entrega por correo
+
+Para detener los resúmenes por correo sin detener el proyecto:
+
+1. Abre la configuración de entrega.
+2. Establece **Frecuencia de correo** en **Pausa**.
+3. Guarda los cambios.
+
+Se siguen descubriendo artículos y creando resúmenes para la aplicación, pero no se envían correos. Estos resúmenes muestran la insignia **Pausado**.
+
+Esto es distinto de [pausar todo el proyecto](/es/answers/pause-project), que detiene por completo el descubrimiento.
+
+## Qué contienen los resúmenes por correo
+
+Un resumen por correo incluye una selección de artículos del proyecto hasta alcanzar tu límite máximo.
+
+El contenido depende de la programación:
+
+- **Diaria**: artículos recientes listos para el proyecto, hasta el límite
+- **Semanal**: artículos mejor puntuados de la última semana, hasta el límite
+
+Si el proyecto excluye artículos adyacentes, el correo solo incluye artículos **Must Read**, aunque el resumen de la aplicación contenga otros relacionados.
+
+## Controles habituales
+
+- Editar la configuración de entrega del proyecto
+- Pausar o reanudar el proyecto
+- Ajustar palabras clave para reducir resultados de poco valor
+
+## Respuestas relacionadas
+
+- [¿Debo elegir resúmenes diarios o semanales?](/es/answers/daily-vs-weekly-digests)
+- [¿Cómo pauso los resúmenes por correo sin detener el proyecto?](/es/answers/pause-email-digests)
+- [¿Cómo recibo menos correos?](/es/answers/less-email)
+- [¿Cómo cambio el máximo de artículos por correo?](/es/answers/change-max-papers)
+- [¿Cómo pauso un proyecto?](/es/answers/pause-project)

@@ -1,0 +1,51 @@
+---
+title: "Fuentes RSS y Atom"
+description: "Copia y usa la URL RSS/Atom segura de Paperzilla en lectores de fuentes externos."
+keywords: ["RSS", "Atom", "URL de fuente", "lector de fuentes", "Feedly", "Inoreader"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/feeds" />
+
+Cada proyecto admite una URL de fuente RSS/Atom segura.
+
+## Obtener la URL de la fuente
+
+Desde la página del proyecto:
+
+1. Haz clic en **Copiar URL RSS/Atom**.
+2. Pega la URL en el lector de fuentes.
+
+Desde la CLI:
+
+```bash
+pz feed <project-id> --atom
+```
+
+## Usar en lectores de fuentes
+
+La URL funciona con lectores habituales como:
+
+- Feedly
+- NetNewsWire
+- Vienna RSS
+- Cualquier lector que acepte URL Atom o RSS
+
+## Modelo de seguridad
+
+La URL incluye un token personal en el parámetro de consulta.
+
+- Trata la URL como un secreto.
+- Cualquier persona que tenga la URL puede leer la lista del proyecto.
+- Usa prácticas de uso compartido privado al guardarla o enviarla.
+
+## Formato de la URL de fuente
+
+Paperzilla genera URL con este formato:
+
+```text
+https://paperzilla.ai/api/feed/atom/<project-id>?token=<personal-token>
+```
+
+Consulta [Referencia de API: endpoint de fuente RSS/Atom](/es/api-reference/rss-atom-feed).

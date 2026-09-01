@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "locale": "es",
+  "source": "docs.json",
+  "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Contacto",
+          "icon": "life-buoy",
+          "href": "mailto:hello@paperzilla.ai"
+        }
+      ]
+    },
+    "tabs": [
+      {
+        "tab": "Guías",
+        "groups": [
+          {
+            "group": "Qué es Paperzilla",
+            "icon": "compass",
+            "pages": [
+              "es/what-is-paperzilla/index",
+              "es/what-is-paperzilla/who-its-for",
+              "es/what-is-paperzilla/use-cases",
+              "es/what-is-paperzilla/how-it-works",
+              "es/what-is-paperzilla/why-paperzilla"
+            ]
+          },
+          {
+            "group": "Primeros pasos",
+            "icon": "play",
+            "pages": [
+              "es/index",
+              "es/quickstart",
+              "es/guides/cli-getting-started"
+            ]
+          },
+          {
+            "group": "Guías principales",
+            "icon": "book-open",
+            "pages": [
+              {
+                "group": "Flujos de trabajo con agentes",
+                "icon": "bot",
+                "expanded": true,
+                "pages": [
+                  "es/guides/agent-workflows",
+                  "es/guides/cli",
+                  "es/guides/openclaw",
+                  "es/guides/openclaw-telegram-briefs",
+                  "es/guides/mcp",
+                  "es/guides/codex",
+                  "es/guides/codex-teams-briefs",
+                  "es/guides/claude",
+                  "es/guides/claude-slack-briefs"
+                ]
+              },
+              {
+                "group": "Proyectos y uso compartido",
+                "icon": "folder-open",
+                "expanded": false,
+                "pages": [
+                  "es/guides/projects",
+                  "es/guides/sharing-and-visibility",
+                  "es/guides/public-projects"
+                ]
+              },
+              {
+                "group": "Lista de artículos y entrega",
+                "icon": "rss",
+                "expanded": false,
+                "pages": [
+                  "es/guides/feed-in-app",
+                  "es/guides/email-digests",
+                  "es/guides/feeds"
+                ]
+              },
+              {
+                "group": "Resúmenes y cuenta",
+                "icon": "file-text",
+                "expanded": false,
+                "pages": [
+                  "es/guides/summaries",
+                  "es/guides/account-and-sign-in",
+                  "es/guides/troubleshooting"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Preguntas y respuestas",
+            "icon": "circle-question-mark",
+            "pages": [
+              "es/answers/index",
+              {
+                "group": "Acerca de Paperzilla",
+                "icon": "compass",
+                "expanded": false,
+                "pages": [
+                  "es/answers/what-problem-paperzilla-solves",
+                  "es/answers/what-does-paperzilla-do",
+                  "es/answers/who-should-use-paperzilla",
+                  "es/answers/is-paperzilla-for-ai-agents",
+                  "es/answers/do-i-need-to-code",
+                  "es/answers/how-is-paperzilla-different-from-rss-alerts",
+                  "es/answers/how-is-paperzilla-different-from-google-scholar-alerts",
+                  "es/answers/when-should-i-create-multiple-projects",
+                  "es/answers/can-paperzilla-fit-team-workflows",
+                  "es/answers/what-are-paperzilla-output-formats",
+                  "es/answers/why-use-feed-and-email-both",
+                  "es/answers/is-paperzilla-only-for-ml-or-biomed"
+                ]
+              },
+              {
+                "group": "MCP",
+                "icon": "plug",
+                "expanded": false,
+                "pages": [
+                  "es/answers/does-paperzilla-support-mcp",
+                  "es/answers/can-paperzilla-mcp-search-across-an-entire-project-feed",
+                  "es/answers/how-do-i-search-a-project-feed-through-paperzilla-mcp",
+                  "es/answers/can-paperzilla-mcp-return-individual-paper-metadata-and-markdown",
+                  "es/answers/how-do-i-use-paperzilla-mcp-with-claude",
+                  "es/answers/how-do-clients-discover-paperzilla-mcp"
+                ]
+              },
+              {
+                "group": "Informes de investigación",
+                "icon": "send",
+                "expanded": false,
+                "pages": [
+                  "es/answers/research-brief-codex-telegram",
+                  "es/answers/research-brief-codex-slack",
+                  "es/answers/research-brief-codex-teams",
+                  "es/answers/research-brief-claude-cowork-telegram",
+                  "es/answers/research-brief-claude-cowork-slack",
+                  "es/answers/research-brief-claude-cowork-teams",
+                  "es/answers/research-brief-openclaw-telegram",
+                  "es/answers/research-brief-openclaw-slack",
+                  "es/answers/research-brief-openclaw-teams"
+                ]
+              },
+              {
+                "group": "Proyectos y configuración",
+                "icon": "folder-open",
+                "expanded": false,
+                "pages": [
+                  "es/answers/what-is-a-project",
+                  "es/answers/create-first-project",
+                  "es/answers/tune-keywords",
+                  "es/answers/must-read-vs-related",
+                  "es/answers/project-no-papers"
+                ]
+              },
+              {
+                "group": "Lista de artículos y entrega",
+                "icon": "rss",
+                "expanded": false,
+                "pages": [
+                  "es/answers/read-without-email",
+                  "es/answers/daily-vs-weekly-digests",
+                  "es/answers/less-email",
+                  "es/answers/change-max-papers",
+                  "es/answers/pause-project",
+                  "es/answers/pause-email-digests",
+                  "es/answers/search-project-feed",
+                  "es/answers/what-do-useful-very-useful-and-not-for-me-mean",
+                  "es/answers/why-rate-papers-in-feed"
+                ]
+              },
+              {
+                "group": "RSS/Atom y CLI",
+                "icon": "square-terminal",
+                "expanded": false,
+                "pages": [
+                  "es/answers/copy-rss-atom",
+                  "es/answers/which-feed-readers",
+                  "es/answers/rss-url-security",
+                  "es/answers/how-do-i-find-my-project-id-for-cli-commands",
+                  "es/answers/how-do-i-search-a-project-feed-from-the-cli",
+                  "es/answers/how-do-i-use-paperzilla-cli-with-codex",
+                  "es/answers/how-do-i-use-paperzilla-cli-with-claude",
+                  "es/answers/how-do-i-use-paperzilla-cli-with-openclaw",
+                  "es/answers/how-do-feedback-signals-work-in-the-cli",
+                  "es/answers/openclaw-skill",
+                  "es/answers/what-is-the-difference-between-a-canonical-paper-and-a-recommendation"
+                ]
+              },
+              {
+                "group": "Uso compartido y acceso público",
+                "icon": "share",
+                "expanded": false,
+                "pages": [
+                  "es/answers/share-project",
+                  "es/answers/share-paper",
+                  "es/answers/private-link-not-working",
+                  "es/answers/public-projects-work",
+                  "es/answers/subscribe-public-project"
+                ]
+              },
+              {
+                "group": "Resúmenes",
+                "icon": "file-text",
+                "expanded": false,
+                "pages": [
+                  "es/answers/how-summaries-work",
+                  "es/answers/summary-stuck"
+                ]
+              },
+              {
+                "group": "Cuenta y acceso",
+                "icon": "circle-user",
+                "expanded": false,
+                "pages": [
+                  "es/answers/account-required",
+                  "es/answers/magic-link-login",
+                  "es/answers/existing-account-handoff"
+                ]
+              },
+              {
+                "group": "Datos y cobertura",
+                "icon": "database",
+                "expanded": false,
+                "pages": [
+                  "es/answers/sources-covered",
+                  "es/answers/delete-project"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Referencia de API",
+        "groups": [
+          {
+            "group": "Documentación de API",
+            "icon": "terminal",
+            "pages": [
+              "es/api-reference/introduction",
+              "es/api-reference/mcp",
+              "es/api-reference/rss-atom-feed"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "navbar": {
+    "primary": {
+      "type": "button",
+      "label": "Panel",
+      "href": "https://paperzilla.ai/dashboard"
+    }
+  }
+}

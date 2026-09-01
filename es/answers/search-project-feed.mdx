@@ -1,0 +1,28 @@
+---
+title: "¿Cómo busco dentro de la lista de un proyecto?"
+description: "Usa la búsqueda de la lista para filtrar artículos por título, autor, resumen científico y texto de resumen."
+keywords: ["buscar", "filtrar", "búsqueda en la lista", "encontrar artículo", "resumen científico"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/answers/search-project-feed" />
+
+Hay tres formas principales de buscar en la lista de un proyecto:
+
+1. En la aplicación, abre un proyecto desde el [Panel](https://paperzilla.ai/dashboard) y usa el cuadro situado sobre la lista de artículos.
+2. En la CLI, ejecuta `pz feed search --project-id <project-id> --query "<terms>"`.
+3. En MCP, usa `feed_search`.
+
+Las tres vías buscan por título, nombre del autor, texto del resumen científico o términos del resumen.
+
+Puedes combinar la búsqueda con los filtros de valoraciones para centrarte en:
+
+- **Sin comentarios**
+- **Útil**
+- **Muy útil**
+- **No es para mí**
+
+Para hacer lo mismo mediante Paperzilla MCP, consulta [¿Puede Paperzilla MCP buscar en toda la lista de un proyecto?](/es/answers/can-paperzilla-mcp-search-across-an-entire-project-feed).
+
+Para conocer los pasos específicos de CLI, consulta [¿Cómo busco en la lista de un proyecto desde la CLI?](/es/answers/how-do-i-search-a-project-feed-from-the-cli).

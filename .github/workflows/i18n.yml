@@ -39,7 +39,10 @@ jobs:
           node-version: 24
 
       - name: Test docs locale guard
-        run: node --test .i18n/check.test.mjs
+        run: node --test .i18n/*.test.mjs
 
       - name: Validate multilingual docs exposure
         run: node .i18n/check.mjs
+
+      - name: Build isolated Spanish preview projection
+        run: node .i18n/preview.mjs --output /tmp/paperzilla-docs-es-preview --replace

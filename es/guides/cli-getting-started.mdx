@@ -1,0 +1,180 @@
+---
+title: "Primeros pasos con la CLI"
+description: "Instala pz, inicia sesión, crea tu primer proyecto y aprende los primeros comandos que debes ejecutar."
+keywords: ["primeros pasos con CLI", "pz", "primer proyecto", "inicio en terminal"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/cli-getting-started" />
+
+Esta es la vía más rápida desde la instalación de `pz` hasta obtener resultados útiles.
+
+## Qué espera la CLI
+
+La CLI de Paperzilla admite dos modos:
+
+- modo de artículo canónico
+- modo de proyecto
+
+El modo de artículo canónico funciona con un ID de artículo de Paperzilla y no requiere iniciar sesión.
+
+El modo de proyecto funciona con tu cuenta y proyectos existentes de Paperzilla. Esto significa que:
+
+- necesitas una cuenta de Paperzilla
+- necesitas al menos un proyecto
+- después, `pz` puede listar proyectos, explorar o buscar en listas, abrir recomendaciones, dejar valoraciones, imprimir Markdown y generar URL de fuentes Atom
+
+Si instalaste primero `pz` y aún no configuraste Paperzilla, no hay problema. Empieza una vez en la aplicación web y vuelve después a la CLI.
+
+## Paso 1: instalar pz
+
+Sigue las instrucciones de instalación de la [guía de CLI](/es/guides/cli).
+
+## Paso 2: abrir un artículo si ya tienes tu ID de Paperzilla
+
+```bash
+pz paper <paper-id>
+```
+
+Este comando funciona sin iniciar sesión.
+
+Para mantener actualizada la CLI:
+
+```bash
+pz update
+```
+
+Este comando comprueba si tienes la versión más reciente y muestra los pasos adecuados para actualizar instalaciones de Homebrew, Scoop, versiones de GitHub o compilaciones desde el código fuente.
+
+Homebrew 6.0 y posteriores pueden exigir confianza explícita para una instalación existente de Paperzilla. Si `brew update` indica que `paperzilla-ai/tap/pz` procede de un tap no fiable, ejecuta:
+
+```bash
+brew trust --formula paperzilla-ai/tap/pz
+brew update
+brew upgrade pz
+```
+
+Confía solo en la fórmula. No desactives globalmente la confianza en taps de Homebrew. Consulta la [guía de CLI](/es/guides/cli) para ver todas las instrucciones.
+
+## Paso 3: iniciar sesión para usar comandos de proyecto
+
+```bash
+pz login
+```
+
+Paperzilla envía un código de correo de un solo uso y almacena la sesión localmente para reutilizarla.
+
+## Paso 4: crear una cuenta si aún no tienes una
+
+Ve a [paperzilla.ai](https://paperzilla.ai) y sigue el [inicio rápido](/es/quickstart).
+
+Versión breve:
+
+1. Describe la investigación que quieres seguir.
+2. Revisa la configuración propuesta del proyecto.
+3. Guarda la entrega.
+4. Confirma tu correo si se solicita.
+
+Esto crea tanto el acceso a la cuenta como el primer proyecto.
+
+## Paso 5: crear un proyecto si has iniciado sesión pero no tienes ninguno
+
+Ejecuta:
+
+```bash
+pz project list
+```
+
+Si no aparece ningún proyecto, crea el primero en la aplicación web:
+
+- [¿Cómo creo mi primer proyecto?](/es/answers/create-first-project)
+- [¿Qué es un proyecto en Paperzilla?](/es/answers/what-is-a-project)
+
+## Paso 6: ejecutar los primeros comandos útiles
+
+Listar proyectos:
+
+```bash
+pz project list
+```
+
+Para scripts y agentes, usa `pz project list --json` para obtener los mismos campos de identidad como resultado estructurado: `id`, `name`, `mode` y `visibility`.
+
+Explorar la lista de un proyecto:
+
+```bash
+pz feed <project-id>
+```
+
+Encontrar un ID de proyecto y buscar en toda la lista:
+
+```bash
+pz project list
+pz feed search --project-id <project-id> --query "latent retrieval"
+```
+
+Inspeccionar un artículo canónico mediante un ID de artículo de Paperzilla:
+
+```bash
+pz paper <paper-id>
+```
+
+Inspeccionar una recomendación de la lista:
+
+```bash
+pz rec <project-paper-id>
+```
+
+Abrir un artículo canónico con contexto del proyecto:
+
+```bash
+pz paper <paper-id> --project <project-id>
+```
+
+Dejar una valoración sobre una recomendación:
+
+```bash
+pz feedback <project-paper-id> upvote
+```
+
+Usa `pz feedback <project-paper-id> upvote --json` para obtener el objeto de valoración como resultado estructurado.
+
+Imprimir el Markdown sin procesar del artículo:
+
+```bash
+pz rec <project-paper-id> --markdown
+```
+
+Obtener una URL de fuente Atom:
+
+```bash
+pz feed <project-id> --atom
+```
+
+Actualizar la CLI:
+
+```bash
+pz update
+```
+
+Si es necesario, reemplaza la detección del método de instalación:
+
+```bash
+pz update --install-method source
+```
+
+## Si el proyecto existe pero aún no tiene artículos
+
+Normalmente significa que el proyecto sigue procesándose, está pausado o tiene un alcance o filtros demasiado estrictos.
+
+Consulta:
+
+- [¿Por qué mi proyecto aún no tiene artículos?](/es/answers/project-no-papers)
+
+## Siguiente documentación
+
+- [Guía de CLI](/es/guides/cli)
+- [Fuentes RSS y Atom](/es/guides/feeds)
+- [Lista de artículos en la aplicación](/es/guides/feed-in-app)
+- [Guía de MCP](/es/guides/mcp)

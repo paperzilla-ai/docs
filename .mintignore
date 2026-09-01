@@ -6,6 +6,10 @@
 drafts/
 *.draft.mdx
 
+# Run 6 keeps the complete planned Spanish tree tracked but dormant. This
+# exact directory entry must remain until the locale is promoted in Run 7.
+es/
+
 # Internal multilingual implementation and agent instructions; never publish.
 .i18n/
 AGENTS.md

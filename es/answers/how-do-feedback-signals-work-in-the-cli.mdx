@@ -1,0 +1,43 @@
+---
+title: "¿Cómo funcionan las señales de valoración en la CLI?"
+description: "Las valoraciones de CLI se asocian a una recomendación del proyecto, no al artículo canónico."
+keywords: ["valoraciones en CLI", "valoraciones de recomendación", "upvote", "downvote", "star", "pz feedback"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/answers/how-do-feedback-signals-work-in-the-cli" />
+
+Las valoraciones de la CLI son específicas del proyecto.
+
+Esto significa que valoras una recomendación dentro de un proyecto, no el propio artículo canónico.
+
+Usa:
+
+```bash
+pz feedback <project-paper-id> upvote
+pz feedback <project-paper-id> upvote --json
+pz feedback <project-paper-id> star
+pz feedback <project-paper-id> downvote --reason not_relevant
+pz feedback clear <project-paper-id>
+pz feedback clear <project-paper-id> --json
+```
+
+`clear` es un subcomando, por lo que la sintaxis válida es `pz feedback clear <project-paper-id>`.
+
+`pz feedback ... --json` devuelve el objeto de valoración. `pz feedback clear ... --json` devuelve un pequeño contenedor de confirmación porque el endpoint de borrado no devuelve cuerpo.
+
+Los valores se corresponden con los mismos conceptos que en la aplicación:
+
+- `upvote` = útil
+- `star` = muy útil
+- `downvote` = no es para mí
+
+Motivos opcionales de valoración negativa:
+
+- `not_relevant`
+- `low_quality`
+
+Esto importa porque un mismo artículo canónico puede aparecer en varios proyectos. En uno puede ser muy relevante y en otro encajar mal.
+
+Consulta [CLI](/es/guides/cli) para ver la referencia completa de comandos y [¿Por qué debo valorar los artículos de la lista?](/es/answers/why-rate-papers-in-feed) para entender el motivo de estas señales.

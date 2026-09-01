@@ -1,0 +1,34 @@
+---
+title: "¿Cómo uso Paperzilla MCP con Claude?"
+sidebarTitle: "MCP con Claude"
+description: "Añade Paperzilla como conector personalizado en Claude para que Claude use proyectos, búsqueda completa, metadatos y Markdown de tu cuenta de Paperzilla."
+keywords: ["Paperzilla Claude MCP", "conector personalizado de Claude", "conector de Paperzilla", "metadatos y Markdown de artículos en Claude", "búsqueda en la lista"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/answers/how-do-i-use-paperzilla-mcp-with-claude" />
+
+Añade Paperzilla como conector personalizado en Claude.
+
+Versión breve:
+
+1. Crea o copia tu **MCP API key** desde el [panel](https://paperzilla.ai/dashboard).
+2. En Claude, abre **Settings** > **Connectors**.
+3. Añade un conector personalizado llamado `Paperzilla`.
+4. Usa `https://paperzilla.ai/api/mcp/?key=pzmcp_...` como URL del conector.
+5. Después de configurarlo, establece el conector en **Always allow** para que Claude use las herramientas sin pedir permiso en cada llamada.
+
+Una vez conectado, Claude puede usar:
+
+- `projects_list`
+- `projects_get`
+- `feed_get`
+- `feed_search`
+- `feed_atom_url`
+- `paper_get`
+- `paper_markdown`
+
+Usa `feed_search` cuando quieras que Claude busque por título, autor, resumen científico o texto de resumen en toda la lista del proyecto.
+
+Para consultar el procedimiento completo, ve [Usar Paperzilla MCP con Claude](/es/guides/claude).

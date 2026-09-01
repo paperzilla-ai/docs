@@ -1,0 +1,53 @@
+---
+title: "Solución de problemas"
+description: "Resuelve problemas habituales de Paperzilla con proyectos, listas, resúmenes y uso compartido."
+keywords: ["solución de problemas", "corregir", "problemas habituales", "depuración"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/troubleshooting" />
+
+## Creé un proyecto, pero no veo artículos
+
+1. Espera al procesamiento inicial.
+2. Comprueba que el proyecto no está pausado.
+3. Amplía ligeramente el texto de interés.
+4. Quita palabras clave excluidas demasiado estrictas.
+5. Activa los artículos adyacentes.
+
+## No se puede copiar la URL RSS/Atom
+
+1. Confirma que has iniciado sesión.
+2. Vuelve a intentarlo desde la página del proyecto.
+3. Actualiza la sesión e inténtalo de nuevo.
+4. Si es necesario, usa `pz feed <project-id> --atom` desde la CLI.
+
+## El enlace compartido no se abre para el destinatario
+
+1. Confirma que la visibilidad del proyecto es pública.
+2. Vuelve a copiar el enlace desde la ventana de uso compartido.
+3. Envía el enlace actualizado.
+
+## El resumen está bloqueado o ha fallado
+
+1. Espera si el estado es `queued` o `processing`.
+2. Usa reintentar cuando el estado sea `failed`.
+3. Ábrelo desde la misma cuenta propietaria del proyecto.
+
+## Recibo demasiados correos
+
+- Quita las categorías irrelevantes del proyecto.
+- Precisa la descripción del interés para definir mejor qué cumple los criterios.
+- Quita palabras clave de prioridad amplias que atraigan artículos fuera de tema.
+- Añade palabras clave excluidas para el ruido recurrente (con moderación: son filtros estrictos).
+- Desactiva **Incluir artículos adyacentes**.
+- Como último recurso, pausa los correos en **Editar entrega por correo** y usa una [fuente RSS/Atom](/es/guides/feeds).
+
+Consulta [¿Cómo recibo menos correos?](/es/answers/less-email) para conocer cada opción.
+
+## Inicié sesión, pero no encuentro mi proyecto
+
+1. Comprueba que usaste el mismo correo que durante la configuración.
+2. Busca en el panel de [**Proyectos**](https://paperzilla.ai/dashboard).
+3. Si la configuración estaba en curso, vuelve a abrir el enlace mágico y completa la entrega.

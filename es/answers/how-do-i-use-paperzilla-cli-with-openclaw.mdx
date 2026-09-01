@@ -1,0 +1,52 @@
+---
+title: "¿Cómo uso la CLI de Paperzilla con OpenClaw?"
+sidebarTitle: "¿Cómo uso la CLI de Paperzilla con OpenClaw?"
+description: "Instala la skill de Paperzilla en OpenClaw para usar la CLI pz al listar proyectos, buscar en listas, inspeccionar metadatos y obtener Markdown."
+keywords: ["OpenClaw", "CLI de Paperzilla", "pz", "skill de agente", "ClawHub", "CLI con OpenClaw"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/answers/how-do-i-use-paperzilla-cli-with-openclaw" />
+
+Instala la skill de Paperzilla en OpenClaw y permite que OpenClaw use `pz`.
+
+Versión breve:
+
+1. Instala la [CLI de Paperzilla](/es/guides/cli) y ejecuta `pz login`.
+2. En OpenClaw, instala la skill de Paperzilla:
+
+```bash
+openclaw skills install paperzilla
+```
+
+Si ya usas la CLI independiente de ClawHub, también funciona:
+
+```bash
+clawhub install paperzilla
+```
+
+Después, pide a OpenClaw que use Paperzilla en el espacio de trabajo donde instalaste la skill.
+
+OpenClaw podrá usar los mismos flujos de CLI:
+
+```bash
+pz project list --json
+pz feed search --project-id <project-id> --query "retrieval evaluation" --json
+pz paper <paper-id> --json
+pz rec <project-paper-id> --markdown
+```
+
+`pz project list --json` devuelve una matriz resumida de proyectos que suele bastar para elegir el `project-id` correcto.
+
+Usa `pz paper` para los metadatos del artículo canónico.
+
+Usa `pz rec --markdown` después de buscar en la lista cuando necesites Markdown con contexto del proyecto. Esta vía puede poner en cola la generación si aún no está lista.
+
+Para consultar toda la configuración, ve [Usar la CLI de Paperzilla con OpenClaw](/es/guides/openclaw).
+
+## Contenido relacionado
+
+- [Usar la CLI de Paperzilla con OpenClaw](/es/guides/openclaw)
+- [¿Tiene Paperzilla una skill de OpenClaw?](/es/answers/openclaw-skill)
+- [Guía de CLI](/es/guides/cli)

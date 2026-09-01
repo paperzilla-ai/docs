@@ -1,0 +1,123 @@
+---
+title: "Usar Claude en Slack para informes de investigación"
+description: "Ejecuta flujos de informes de Paperzilla mediante Claude en Slack y Cowork con Paperzilla MCP."
+keywords: ["Claude", "Slack", "Cowork", "MCP", "Paperzilla", "informe de investigación", "informe diario"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/claude-slack-briefs" />
+
+Usa esta guía para debatir un proyecto de Paperzilla en Slack y enviar a Slack un informe entre semana desde Cowork.
+
+Este procedimiento usa Claude en Slack para el debate, Paperzilla MCP para acceder a los datos de Paperzilla y las tareas programadas de Cowork para la entrega recurrente.
+
+## Antes de empezar
+
+- Completa [Usar Paperzilla MCP con Claude](/es/guides/claude).
+- Comprueba que Claude ya está disponible en Slack. Consulta [Primeros pasos con Claude en Slack](https://support.claude.com/en/articles/11506255-getting-started-with-claude-in-slack).
+- Comprueba que Cowork está disponible en Claude Desktop. Consulta [Primeros pasos con Cowork](https://support.claude.com/en/articles/13345190-get-started-with-cowork).
+- Elige un proyecto de Paperzilla para este flujo.
+- Prepara una frase breve sobre «nuestro trabajo» si Claude aún no lo conoce. Ejemplo: `Our work is evaluation infrastructure for coding agents.`
+
+<Warning>Configura primero la conexión de Paperzilla MCP en Claude. Anthropic indica que no puedes crear ni gestionar integraciones desde Slack.</Warning>
+
+## Cómo funciona este conjunto
+
+- Debate artículos con Claude en Slack.
+- Claude lee los datos de Paperzilla mediante la conexión de Paperzilla MCP ya configurada en Claude.
+- Para el informe entre semana, Cowork ejecuta una tarea programada y prepara una publicación para Slack.
+- Empieza con un borrador listo para Slack. Pasa al envío directo solo cuando confíes en el formato.
+
+## Caso de uso 1: debate de artículos bajo demanda
+
+Para obtener el flujo más limpio, usa un mensaje directo con Claude en Slack. Si quieres visibilidad del equipo, menciona a `@Claude` en un canal o hilo y revisa el borrador privado antes de publicarlo.
+
+Primero pide los artículos más recientes de un proyecto:
+
+```text
+Use my Paperzilla project `Agents evaluation`.
+Our work: we build evaluation infrastructure for coding agents.
+
+Pull the latest papers from this project and show the top 5.
+For each one, include the title, date, source, and whether it looks Must Read or Related.
+```
+
+Después pide los metadatos de un artículo:
+
+```text
+Open the second paper and show the metadata only.
+Include authors, publication date, source, URL, and the Paperzilla ID you used.
+```
+
+Después obtén el Markdown y relaciónalo con el contexto del equipo:
+
+```text
+Fetch the markdown for that paper.
+Summarize the contribution, method, results, and limits.
+Then explain why it matters for our work.
+```
+
+Continúa el debate:
+
+```text
+Given our current work, should we read this now, keep it as Related, or ignore it this week?
+Defend the recommendation.
+```
+
+Las buenas respuestas para este flujo deben:
+
+- mantener visibles el nombre del proyecto y el contexto de «nuestro trabajo»
+- separar los metadatos de la interpretación
+- explicar la relevancia según tu trabajo real, no según una importancia genérica
+- facilitar que el debate continúe en la misma conversación de Slack
+
+Si usas `@Claude` en un hilo compartido, Claude en Slack muestra primero el borrador en privado y permite decidir si se publica.
+
+## Caso de uso 2: informe entre semana en Slack
+
+Este patrón se ejecuta en Cowork los días laborables y prepara un informe para Slack.
+
+Inicia una tarea de Cowork, pega un prompt como este, escribe `/schedule` y prográmala para los días laborables a la hora que prefieras:
+
+```text
+Use my Paperzilla project `Agents evaluation`.
+Our work: we build evaluation infrastructure for coding agents.
+
+Every weekday morning:
+1. Pull the newest papers from this project.
+2. Keep the brief concise.
+3. For each selected paper, include the title, one short summary, and one sentence on why it is relevant to our work.
+4. Include the project name and today's date at the top.
+5. If there are no new papers, say that explicitly.
+6. Draft a Slack post for #research-briefs and show it to me first.
+```
+
+Empieza con el patrón de borrador anterior. Cuando el resultado sea estable, puedes cambiar la última línea por un envío directo:
+
+```text
+Send the Slack message to #research-briefs instead of drafting it.
+```
+
+El formato esperado del informe es:
+
+- nombre del proyecto y fecha
+- número de artículos nuevos revisados
+- para cada artículo seleccionado, un resumen breve y una frase sobre su relevancia para el trabajo
+- una línea clara de «hoy no hay artículos nuevos» cuando ninguno cumpla los criterios
+
+<Warning>Las tareas programadas de Cowork solo se ejecutan mientras el equipo está activo y la aplicación Claude Desktop permanece abierta.</Warning>
+
+Consulta [Primeros pasos con Cowork](https://support.claude.com/en/articles/13345190-get-started-with-cowork) para las opciones de programación y [Usar conectores interactivos en Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude) para los borradores y envíos a Slack.
+
+## Límites y solución de problemas
+
+- Si Claude en Slack no puede acceder a Paperzilla, vuelve a conectar o activa el conector de Paperzilla en la configuración de Claude.
+- Si Claude en Slack no puede acceder a las acciones de entrega de Slack, comprueba el conector y los permisos de Slack en Claude.
+- Si la tarea programada no se ejecuta, confirma que Claude Desktop está abierto y el equipo activo.
+- Si el agente no devuelve artículos, confirma que el proyecto está activo y ya tienes elementos en la lista.
+- Si `paper_markdown` está en cola o no disponible, reintenta más tarde en lugar de cambiar el flujo.
+
+## Atajo opcional
+
+Si quieres este flujo como skill reutilizable, consulta el [repositorio de la skill `paperzilla-monitor`](https://github.com/paperzilla-ai/paperzilla-skills). Su README contiene los detalles actuales de instalación y distribución.

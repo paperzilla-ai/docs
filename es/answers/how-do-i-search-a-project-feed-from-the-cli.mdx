@@ -1,0 +1,50 @@
+---
+title: "¿Cómo busco en la lista de un proyecto desde la CLI?"
+description: "Usa pz feed search con un ID de proyecto y una consulta para buscar en toda la lista de Paperzilla desde la terminal."
+keywords: ["búsqueda de lista en CLI", "pz feed search", "búsqueda en lista de proyecto", "ID de proyecto", "consulta"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/answers/how-do-i-search-a-project-feed-from-the-cli" />
+
+Usa `pz feed search`.
+
+Si aún no conoces el ID del proyecto, obtenlo primero:
+
+```bash
+pz project list
+```
+
+Para scripts y agentes de IA, `pz project list --json` devuelve una matriz resumida con `id`, `name`, `mode` y `visibility`.
+
+Después, busca en toda la lista de un proyecto:
+
+```bash
+pz feed search --project-id <project-id> --query "latent retrieval"
+```
+
+Ejemplos útiles:
+
+```bash
+# Prefix matching
+pz feed search --project-id <project-id> --query "Proxi"
+
+# Only Must Read papers
+pz feed search --project-id <project-id> --query "retrieval" --must-read
+
+# Only starred papers
+pz feed search --project-id <project-id> --query "retrieval" --feedback-filter starred
+
+# JSON output for scripting
+pz feed search --project-id <project-id> --query "latent retrieval" --json
+```
+
+Notas:
+
+- la búsqueda cubre toda la lista del proyecto, no solo las páginas ya cargadas
+- la búsqueda ordena primero por rango
+- los términos de consulta usan coincidencia por prefijo
+- el contenedor JSON incluye `items`, `limit`, `offset`, `has_more` y `query`
+
+Consulta la [guía de CLI](/es/guides/cli) para ver la referencia completa de comandos.

@@ -1,6 +1,7 @@
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { validateAuthoredContent } from './content.mjs';
 
 const internalDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.dirname(internalDirectory);
@@ -302,6 +303,12 @@ export function findTextExposure(text, location, registry) {
     return matches;
 }
 
+export function findMintIgnoreNegations(text) {
+    return text.split(/\r?\n/)
+        .map((line) => line.trim())
+        .filter((line) => line.startsWith('!'));
+}
+
 export async function findLocalizedPublicPaths(root = repositoryRoot) {
     const entries = await readdir(root, { withFileTypes: true });
     return entries
@@ -310,16 +317,19 @@ export async function findLocalizedPublicPaths(root = repositoryRoot) {
         .sort();
 }
 
-async function findPublicMdxFiles(directory = repositoryRoot) {
+async function findPublicMdxFiles(directory = repositoryRoot, excludedTopLevel = new Set(), depth = 0) {
     const entries = await readdir(directory, { withFileTypes: true });
     const files = [];
     for (const entry of entries) {
         if (entry.name.startsWith('.')) {
             continue;
         }
+        if (depth === 0 && excludedTopLevel.has(entry.name)) {
+            continue;
+        }
         const entryPath = path.join(directory, entry.name);
         if (entry.isDirectory()) {
-            files.push(...await findPublicMdxFiles(entryPath));
+            files.push(...await findPublicMdxFiles(entryPath, excludedTopLevel, depth + 1));
         } else if (entry.isFile() && entry.name.endsWith('.mdx')) {
             files.push(entryPath);
         }
@@ -365,15 +375,19 @@ async function main() {
     }
 
     const localizedPublicPaths = await findLocalizedPublicPaths();
+    const plannedPrefixes = (registry?.locales ?? [])
+        .filter((locale) => locale?.tag !== registry?.sourceLocale && locale?.stage === 'planned')
+        .map((locale) => locale.pathPrefix)
+        .sort();
     report(
         errors,
-        localizedPublicPaths.length === 0,
-        `Planned and test locales must not have top-level public paths; found ${localizedPublicPaths.join(', ')}.`,
+        JSON.stringify(localizedPublicPaths) === JSON.stringify(plannedPrefixes),
+        `Tracked locale trees must exactly match planned locale prefixes; found ${localizedPublicPaths.join(', ')}.`,
     );
 
     if (registry) {
         errors.push(...findTextExposure(rawDocsConfig, 'docs.json', registry));
-        for (const filePath of await findPublicMdxFiles()) {
+        for (const filePath of await findPublicMdxFiles(repositoryRoot, new Set(plannedPrefixes))) {
             const relativePath = path.relative(repositoryRoot, filePath);
             const content = await readFile(filePath, 'utf8');
             errors.push(...findTextExposure(content, relativePath, registry));
@@ -381,8 +395,24 @@ async function main() {
     }
 
     const mintIgnore = await readFile(mintIgnorePath, 'utf8');
-    report(errors, mintIgnore.split(/\r?\n/).includes('.i18n/'), '.mintignore must exclude the internal .i18n/ directory.');
-    report(errors, mintIgnore.split(/\r?\n/).includes('AGENTS.md'), '.mintignore must exclude internal AGENTS.md instructions.');
+    const mintIgnoreLines = mintIgnore.split(/\r?\n/);
+    const mintIgnoreNegations = findMintIgnoreNegations(mintIgnore);
+    report(errors, mintIgnoreLines.includes('.i18n/'), '.mintignore must exclude the internal .i18n/ directory.');
+    report(errors, mintIgnoreLines.includes('AGENTS.md'), '.mintignore must exclude internal AGENTS.md instructions.');
+    for (const prefix of plannedPrefixes) {
+        const exactEntry = `${prefix}/`;
+        report(
+            errors,
+            mintIgnoreLines.filter((line) => line === exactEntry).length === 1,
+            `.mintignore must contain exactly one exact ${exactEntry} exclusion while ${prefix} is planned.`,
+        );
+    }
+    report(
+        errors,
+        mintIgnoreNegations.length === 0,
+        `.mintignore must not contain negation rules that can weaken planned-locale exclusions; found ${mintIgnoreNegations.join(', ')}.`,
+    );
+    errors.push(...await validateAuthoredContent(repositoryRoot));
 
     const agents = await readFile(agentsPath, 'utf8');
     report(errors, agents.includes(canonicalPlan), `AGENTS.md must point to the canonical backend plan at ${canonicalPlan}.`);

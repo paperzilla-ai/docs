@@ -1,0 +1,116 @@
+---
+title: "Lista de artículos en la aplicación"
+description: "Usa la lista del proyecto para priorizar y filtrar artículos y enseñar a Paperzilla qué debe recomendar en el futuro."
+keywords: ["lista en la aplicación", "lista del proyecto", "valoraciones", "búsqueda", "priorización"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/feed-in-app" />
+
+Cada proyecto tiene en la aplicación una lista actualizada de artículos.
+
+Esta lista está diseñada para una revisión rápida:
+
+- En el escritorio, dispone de dos paneles: la lista a la izquierda y los detalles del artículo a la derecha.
+- En pantallas pequeñas, la lista permanece en la página y los detalles se abren en una hoja.
+
+## Abrir la lista
+
+1. Ve al [Panel](https://paperzilla.ai/dashboard).
+2. Abre un proyecto.
+
+Al abrir un proyecto, accederás directamente a tu lista de artículos.
+
+## Usar los controles de la izquierda
+
+El lado izquierdo es el área de priorización.
+
+### Búsqueda
+
+Usa el cuadro de búsqueda para filtrar la lista por:
+
+- Título del artículo
+- Nombres de autores
+- Términos del resumen
+
+### Filtros de valoraciones
+
+Usa los botones de valoración para limitar la lista:
+
+- **Sin comentarios**: artículos que aún no has valorado
+- **Útil**: artículos que encajan bien en el proyecto
+- **Muy útil**: la señal positiva más fuerte
+- **No es para mí**: artículos que no encajan en el proyecto
+
+Puedes combinar la búsqueda y los filtros de valoraciones. Vuelve a hacer clic en un filtro activo para quitarlo.
+
+## Entender las tarjetas de artículos
+
+La lista es compacta de forma intencionada. Cada fila muestra:
+
+- Título y autores
+- Fuente
+- Porcentaje de relevancia
+- Clase de relevancia, como **Must Read** o **Related**
+- Un icono opcional de estado de valoración en la esquina superior derecha
+
+## Abrir los detalles de un artículo
+
+Haz clic en un artículo de la lista para inspeccionarlo en el panel de detalles.
+
+El lado derecho muestra:
+
+- Título completo y autores
+- Metadatos
+- Controles de valoración
+- Resumen científico
+- Por qué resultó relevante el artículo
+- Nota opcional del proyecto
+- Acciones **Ver en la fuente**, **Resumen por IA** y **Compartir**
+- **Ver PDF** cuando hay una URL de PDF disponible
+
+Para artículos de PubMed, **Ver en la fuente** abre el registro de PubMed. Algunos registros no tienen un PDF público, por lo que Paperzilla no muestra esa acción para esos artículos de PubMed.
+
+## Dejar una valoración
+
+Los controles de valoración ayudan a clasificar qué pertenece a la lista del proyecto.
+
+- **Útil**: un buen resultado que debe ayudar a orientar recomendaciones futuras
+- **Muy útil**: un artículo destacado que Paperzilla debe tratar como ejemplo positivo fuerte
+- **No es para mí**: un artículo que encaja mal en el proyecto
+
+Si eliges **No es para mí**, añade un motivo:
+
+- **Fuera de tema**
+- **Baja calidad**
+
+Si después de valorarlo un artículo deja de coincidir con el filtro activo, puede desaparecer de la lista izquierda. El panel de detalles permanece abierto para terminar la acción.
+
+## Por qué importan las valoraciones
+
+Las valoraciones no solo organizan la lista actual. Ayudan a Paperzilla a mejorar las próximas recomendaciones del proyecto.
+
+- Las señales positivas como **Útil** y **Muy útil** refuerzan los tipos de artículos que quieres ver más a menudo.
+- Las señales negativas como **No es para mí** reducen los artículos fuera de tema o de baja calidad.
+- El filtro **Sin comentarios** permite revisar artículos nuevos sin perder el hilo.
+
+## Flujo recomendado
+
+1. Empieza por **Sin comentarios**.
+2. Busca para limitar la lista por tema, autor o frase.
+3. Abre los artículos uno a uno y lee el panel derecho.
+4. Marca cada artículo como **Útil**, **Muy útil** o **No es para mí**.
+5. Usa **Muy útil** para crear una lista breve con los artículos más sólidos.
+6. Usa **Resumen por IA** o **Compartir** para profundizar o enviar un artículo a otra persona.
+
+## Cuando la lista está vacía
+
+Si un proyecto es nuevo o muy específico, puede que aún no muestre artículos.
+
+Prueba:
+
+1. Esperar al siguiente ciclo de evaluación.
+2. Ampliar ligeramente el texto de interés.
+3. Quitar términos excluidos demasiado estrictos.
+4. Activar los artículos adyacentes.

@@ -1,0 +1,37 @@
+---
+title: "¿Puede Paperzilla MCP buscar en toda la lista de un proyecto?"
+sidebarTitle: "Búsqueda MCP en la lista"
+description: "Sí. Paperzilla MCP permite buscar en toda la lista del proyecto con la herramienta feed_search."
+keywords: ["búsqueda con Paperzilla MCP", "feed_search", "lista del proyecto", "herramientas MCP"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/answers/can-paperzilla-mcp-search-across-an-entire-project-feed" />
+
+Sí.
+
+Usa la herramienta `feed_search`.
+
+`feed_search` busca en toda la lista del proyecto, no solo en los elementos visibles. Busca en:
+
+- título
+- nombres de autores
+- texto del resumen científico
+- texto del resumen
+
+También puedes añadir:
+
+- `feedback_filter`
+- `must_read`
+- `limit`
+- `offset`
+
+La búsqueda se realiza en el servidor y ordena primero por rango. Devuelve `items`, `limit`, `offset`, `has_more` y `query`.
+
+Paperzilla también acepta el alias heredado `feed.search`, pero los clientes MCP nuevos deben usar `feed_search`.
+
+Consulta:
+
+- [Usar Paperzilla con MCP](/es/guides/mcp)
+- [Endpoint MCP (apéndice para desarrollo)](/es/api-reference/mcp)

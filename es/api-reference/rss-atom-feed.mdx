@@ -1,0 +1,45 @@
+---
+title: "Endpoint de fuente RSS/Atom"
+description: "Formato de URL y notas de uso para las fuentes RSS/Atom de proyectos de Paperzilla."
+keywords: ["endpoint RSS", "URL Atom", "formato de fuente", "XML"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/api-reference/rss-atom-feed" />
+
+La URL de la fuente del proyecto se genera para cada usuario y proyecto.
+
+## Formato de la URL
+
+```text
+GET /api/feed/atom/{projectId}?token={feedToken}
+```
+
+Ejemplo:
+
+```text
+https://paperzilla.ai/api/feed/atom/123e4567-e89b-12d3-a456-426614174000?token=pzft_xxx
+```
+
+## Parámetros
+
+- `projectId`: UUID del proyecto
+- `token`: token personal de la fuente vinculado a la cuenta
+
+## Cómo obtener una URL
+
+Usa una de estas opciones:
+
+- Botón de la página del proyecto: **Copiar URL RSS/Atom**
+- CLI: `pz feed <project-id> --atom`
+
+## Enlaces a artículos
+
+Cada entrada de la fuente enlaza con la página del artículo en Paperzilla. Desde allí puedes abrir la página de la fuente y, cuando esté disponible, un PDF. Los artículos de PubMed enlazan con su registro de PubMed; no se garantiza que exista un PDF.
+
+## Notas de seguridad
+
+- Trata las URL de fuentes como secretos.
+- Cualquier persona que tenga la URL puede leer esa fuente.
+- No publiques URL personales con token en repositorios ni documentación públicos.

@@ -1,0 +1,38 @@
+---
+title: "¿Tiene Paperzilla una skill de OpenClaw?"
+description: "Instala la skill de Paperzilla desde ClawHub para que los agentes de IA exploren o busquen directamente en tus listas de investigación."
+keywords: ["OpenClaw", "ClawHub", "skill", "agente", "Claude Code", "Cursor"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/answers/openclaw-skill" />
+
+Sí. La CLI de Paperzilla está publicada como [skill de OpenClaw en ClawHub](https://clawhub.ai/pors/paperzilla).
+
+Si usas una versión actual de OpenClaw, instálala con:
+
+```bash
+openclaw skills install paperzilla
+```
+
+Si ya usas la CLI independiente de ClawHub, también funciona:
+
+```bash
+clawhub install paperzilla
+```
+
+Si tu versión de OpenClaw es antigua y `openclaw skills install paperzilla` falla porque `skills` aún no admite subcomandos, usa `clawhub install paperzilla`.
+
+Una vez instalada, los agentes de IA (Claude Code, Cursor, Windsurf y otros compatibles con el estándar AgentSkills) pueden listar proyectos, explorar listas, buscar en ellas y filtrar artículos mediante comandos de `pz`.
+
+Todavía necesitas `pz` instalado y autenticado; la CLI enseña al agente a usarlo.
+
+Para actualizar la skill más adelante, usa `openclaw skills update paperzilla` o `clawhub update paperzilla`.
+
+## Contenido relacionado
+
+- [Guía de CLI](/es/guides/cli)
+- [Usar la CLI de Paperzilla con OpenClaw](/es/guides/openclaw)
+- [Flujos de trabajo con agentes](/es/guides/agent-workflows)
+- [Integración con MCP](/es/guides/mcp)

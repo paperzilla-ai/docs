@@ -5,7 +5,13 @@
 - This is the user-facing documentation site for Paperzilla, built on [Mintlify](https://mintlify.com)
 - The canonical multilingual rollout plan is in the backend repository at `docs/multilingual/00-rollout-index.md`; this repository contains only its generated locale-registry mirror and user-facing localized content.
 - Adding or promoting a locale must follow the backend playbook at `docs/multilingual/HOWTO_ADD_A_LANGUAGE.md`.
-- Run 3 migrates the app/web product UI only. Public documentation remains English-only; planned Spanish must not add `/es` pages, language navigation, `hreflang`, sitemap entries, or indexable content.
+- Run 6 tracks a complete Spanish mirror under `es/` with provenance and hidden
+  navigation data under `.i18n/`. The exact `es/` entry in `.mintignore` keeps
+  that tree unprocessed, unpublished, unindexed, and absent from Mintlify AI,
+  search, and MCP surfaces while Spanish remains `planned`. Production
+  `docs.json` stays English-only: do not add a language selector, `hreflang`,
+  sitemap entry, or other public Spanish exposure before the coordinated Run 7
+  promotion.
 - Use ordinary Git branches for multilingual work; do not create or use Git worktrees.
 - Pages are MDX files with YAML frontmatter
 - Configuration lives in `docs.json`
@@ -17,6 +23,10 @@
 - Run `mint dev` to preview locally
 - Run `mint broken-links` to check links
 - Run `mint validate` when you add pages, change navigation, or touch shared doc structure
+- Run `node .i18n/preview.mjs --output /tmp/paperzilla-docs-es-preview --replace`
+  for the hidden Spanish preview, then run `mint dev --root
+  /tmp/paperzilla-docs-es-preview`; never project preview files inside this
+  repository or deploy the preview directory.
 
 ## Terminology
 
@@ -63,6 +73,10 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 ```
 
 The `path` prop must match the page's URL path (e.g., `/quickstart`, `/essentials/settings`).
+For a tracked Spanish mirror, deterministically prefix internal docs imports,
+links, navigation page identities, and the `AiAgents` path with `es` as enforced
+by `.i18n/path-map.mjs`; do not rewrite external/app/API/image or `/llms*.txt`
+targets.
 
 ## Content boundaries
 

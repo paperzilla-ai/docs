@@ -1,0 +1,24 @@
+---
+title: "¿Puedo usar OpenClaw y Microsoft Teams para informes de artículos académicos?"
+sidebarTitle: "Informes con OpenClaw + Teams"
+description: "Usa OpenClaw, Microsoft Teams y la CLI de Paperzilla para crear informes académicos programados cuando el canal de Teams esté configurado."
+keywords: ["informe académico OpenClaw Microsoft Teams", "informe de investigación OpenClaw Teams", "Paperzilla OpenClaw Teams", "informe de artículos Teams", "informe de artículos académicos"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/answers/research-brief-openclaw-teams" />
+
+Sí, si el canal o plugin de Microsoft Teams está configurado en OpenClaw.
+
+OpenClaw puede usar [Microsoft Teams como canal](https://docs.openclaw.ai/channels/msteams), pero la configuración es más compleja que con Telegram o Slack. Según las funciones necesarias, Teams puede requerir un paquete de aplicación, la configuración de Azure Bot y permisos de Microsoft Graph.
+
+La parte de Paperzilla no cambia: OpenClaw ejecuta la programación, la CLI de Paperzilla (`pz`) lee la lista del proyecto y OpenClaw envía el informe académico al destino de Teams configurado.
+
+Usa [OpenClaw y Telegram para informes de investigación](/es/guides/openclaw-telegram-briefs) como la guía detallada más cercana. Sustituye la configuración del canal y el destino de Telegram por el canal de Microsoft Teams en OpenClaw.
+
+## Contenido relacionado
+
+- [Usar la CLI de Paperzilla con OpenClaw](/es/guides/openclaw)
+- [Usar OpenClaw y Telegram para informes de investigación](/es/guides/openclaw-telegram-briefs)
+- [¿Cómo uso la CLI de Paperzilla con OpenClaw?](/es/answers/how-do-i-use-paperzilla-cli-with-openclaw)

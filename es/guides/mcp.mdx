@@ -1,0 +1,174 @@
+---
+title: "Usar Paperzilla con MCP"
+description: "Conecta tu cliente MCP con Paperzilla y accede a proyectos, búsqueda en listas, detalles de artículos y Markdown mediante lenguaje natural."
+keywords: ["MCP", "Model Context Protocol", "agente de IA", "Claude", "Cursor", "búsqueda en la lista"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/mcp" />
+
+Usa Paperzilla MCP cuando quieras que tu asistente de IA obtenga directamente tus datos de Paperzilla.
+
+Si usas el flujo de conectores personalizados de Claude, empieza por [Usar Paperzilla MCP con Claude](/es/guides/claude). Claude tiene un flujo específico.
+
+Si usas Codex, empieza por [Usar Paperzilla con Codex](/es/guides/codex). Codex tiene su propio flujo de configuración MCP y también una vía independiente basada en CLI.
+
+Endpoint:
+
+`https://paperzilla.ai/api/mcp`
+
+Para consultar una explicación breve de cómo los clientes MCP descubren la URL y las herramientas, ve [¿Cómo descubren los clientes la URL y las herramientas de Paperzilla MCP?](/es/answers/how-do-clients-discover-paperzilla-mcp).
+
+## Qué puedes hacer
+
+- Listar tus proyectos
+- Abrir un proyecto
+- Obtener artículos con filtros como Must Read, fecha inicial y límite
+- Buscar en toda la lista por título, autor, resumen científico o texto de resumen
+- Abrir un artículo canónico por ID o una recomendación del proyecto por su ID
+- Obtener el Markdown de un artículo o recomendación y poner en cola su generación cuando el contexto lo permite
+- Obtener la URL Atom del proyecto
+
+## Inicio rápido
+
+### 1. Crear tu MCP API key
+
+Crea una clave MCP personal en el panel de Paperzilla:
+
+1. Abre tu [panel](https://paperzilla.ai/dashboard).
+2. Haz clic en **MCP API key** (arriba a la derecha, icono de llave).
+3. Haz clic en **Generar clave**.
+4. Copia la clave y guárdala de forma segura.
+
+También puedes revocar la clave desde el mismo panel **MCP API key**.
+
+Si la cuenta aún no muestra el botón, usa los endpoints de claves de API del [apéndice para desarrollo](/es/api-reference/mcp).
+
+Mantén privada la clave. Solo verás el valor sin cifrar al crearla o rotarla.
+
+### 2. Añadir Paperzilla al cliente MCP
+
+Usa:
+
+- URL: `https://paperzilla.ai/api/mcp`
+- Autenticación: `Authorization: Bearer <your-mcp-api-key>` o `https://paperzilla.ai/api/mcp/?key=<your-mcp-api-key>`
+
+Ejemplo de configuración con encabezado:
+
+```json
+{
+  "mcpServers": {
+    "paperzilla": {
+      "transport": {
+        "type": "streamable_http",
+        "url": "https://paperzilla.ai/api/mcp"
+      },
+      "headers": {
+        "Authorization": "Bearer pzmcp_..."
+      }
+    }
+  }
+}
+```
+
+Ejemplo de cliente que solo acepta una URL:
+
+```text
+https://paperzilla.ai/api/mcp/?key=pzmcp_...
+```
+
+### 3. Pedir al asistente que llame a Paperzilla
+
+Prueba solicitudes como:
+
+- «Lista mis proyectos de Paperzilla».
+- «Muestra los artículos Must Read del proyecto `<project-id>` desde `2026-02-01`, con límite 20».
+- «Busca artículos sobre grafos de proximidad en el proyecto `<project-id>`».
+- «Abre el artículo `<paper-id>`».
+- «Abre la recomendación `<project-paper-id>`».
+- «Obtén el Markdown del artículo `<paper-id>` o la recomendación `<project-paper-id>`».
+- «Obtén la URL Atom del proyecto `<project-id>`».
+
+## Herramientas disponibles actualmente
+
+| Nombre | Finalidad | Equivalente en CLI |
+|---|---|---|
+| `projects_list` | Listar tus proyectos | `pz project list --json` |
+| `projects_get` | Obtener un proyecto | `pz project <id> --json` |
+| `feed_get` | Obtener la lista del proyecto con filtros | `pz feed <id> --must-read --since --limit` |
+| `feed_search` | Buscar texto en toda la lista con filtros opcionales | `pz feed search --project-id <id> --query <q>` |
+| `feed_atom_url` | Obtener la URL Atom de un proyecto | `pz feed <id> --atom` |
+| `paper_get` | Obtener un artículo por ID o una recomendación por su ID | `pz paper <paper-ref>` o `pz rec <project-paper-ref>` |
+| `paper_markdown` | Obtener Markdown o poner en cola su generación | `pz paper <paper-ref> --markdown` o `pz rec <project-paper-ref> --markdown` |
+| `feed_title_filter` (prompt opcional) | Pedir al modelo que llame a `feed_search` para buscar títulos en toda la lista desde el servidor | Sin equivalente directo en CLI |
+
+Los nombres heredados con puntos como `paper.get` siguen funcionando para compatibilidad directa con `tools/call`, pero los clientes compatibles con Claude deben usar los nombres con guion bajo.
+
+## Cómo funciona la búsqueda en la lista
+
+Usa `feed_search` para que el cliente MCP busque en toda la lista del proyecto, no solo en los elementos visibles.
+
+`feed_search` admite:
+
+- `project_id`
+- `q`
+- `feedback_filter`
+- `must_read`
+- `limit`
+- `offset`
+
+Devuelve:
+
+- `items`
+- `limit`
+- `offset`
+- `has_more`
+- `query`
+
+Notas:
+
+- la búsqueda se realiza en el servidor y examina toda la lista
+- los términos usan coincidencia por prefijo, por lo que `Proxi` encuentra `Proximity`
+- la búsqueda ordena primero por rango y no devuelve un total exacto en v1
+
+Para una respuesta específica, consulta [¿Puede Paperzilla MCP buscar en toda la lista de un proyecto?](/es/answers/can-paperzilla-mcp-search-across-an-entire-project-feed) y [¿Cómo busco en una lista mediante Paperzilla MCP?](/es/answers/how-do-i-search-a-project-feed-through-paperzilla-mcp).
+
+## Acerca de los prompts
+
+Puedes ignorar los prompts y usar solo llamadas directas a herramientas.
+
+Si el cliente admite prompts, `feed_title_filter` ayuda con una tarea:
+
+- Llamar a `feed_search`
+- Buscar una palabra clave del título en toda la lista desde el servidor
+- Devolver resultados y explicar que la búsqueda cubre toda la lista
+
+## Resultados de Markdown
+
+`paper_markdown` siempre devuelve un resultado estructurado.
+
+- `status: "ready"` significa que la respuesta incluye el contenido Markdown
+- `status: "queued"` significa que Paperzilla aceptó la solicitud y puso en cola la generación
+- `status: "unavailable"` significa que el artículo no tiene actualmente una fuente Markdown utilizable
+
+## CLI frente a MCP
+
+Usa [CLI](/es/guides/cli) para scripts del shell y resultados de comandos deterministas.
+
+Usa MCP cuando el asistente deba razonar entre herramientas y hacer preguntas de seguimiento.
+
+Usa [RSS/Atom](/es/guides/feeds) para sondeos pasivos de un lector de fuentes.
+
+## Seguridad de la clave
+
+- Trata la clave MCP como una contraseña
+- Rótala de inmediato si queda expuesta
+- Revócala desde **MCP API key** en el panel si dejas de usar MCP
+
+## Solución de problemas
+
+- `401 Unauthorized` en `/api/mcp`: MCP API key ausente, revocada o no válida
+- Resultados vacíos o inesperados: confirma que usas la clave de la cuenta correcta de Paperzilla
+- `404 Not Found` en llamadas a proyectos, listas o artículos: el recurso no es accesible desde tu cuenta
+- `isError: true` con un ID corto ambiguo: reintenta con el UUID completo en lugar del ID de 8 caracteres

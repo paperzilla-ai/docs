@@ -1,0 +1,588 @@
+---
+title: "CLI"
+description: "Usa la CLI de Paperzilla para leer artículos, buscar en listas, inspeccionar recomendaciones y gestionar proyectos desde la terminal"
+keywords: ["CLI", "terminal", "línea de comandos", "pz", "gestión de artículos", "recomendaciones", "búsqueda en listas"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/cli" />
+
+La CLI de Paperzilla (`pz`) permite leer artículos canónicos por su ID de Paperzilla, explorar o buscar en listas seleccionadas, inspeccionar recomendaciones específicas y dejar valoraciones desde la terminal. Funciona para personas y agentes de IA. Usa `--json` para obtener resultados estructurados. Las excepciones principales son `login` y `update`.
+
+Si acabas de instalar `pz` y quieres la vía más corta para configurarlo, empieza por [Primeros pasos con la CLI](/es/guides/cli-getting-started).
+
+## Instalar
+
+<Tabs>
+  <Tab title="macOS">
+    ```bash
+    brew install paperzilla-ai/tap/pz
+    ```
+
+    Homebrew 6.0 y posteriores exigen confianza explícita para taps no oficiales. Si informa `Refusing to load formula paperzilla-ai/tap/pz from untrusted tap paperzilla-ai/tap`, confía solo en la fórmula de Paperzilla y reintenta:
+
+    ```bash
+    brew trust --formula paperzilla-ai/tap/pz
+    brew install paperzilla-ai/tap/pz
+    ```
+
+    Consulta la [documentación de confianza en taps de Homebrew](https://docs.brew.sh/Tap-Trust). No la desactiva globalmente.
+  </Tab>
+  <Tab title="Windows">
+    Mediante [Scoop](https://scoop.sh):
+
+    ```bash
+    scoop bucket add paperzilla-ai https://github.com/paperzilla-ai/scoop-bucket
+    scoop install pz
+    ```
+  </Tab>
+  <Tab title="Linux">
+    Descarga desde [Versiones de GitHub](https://github.com/paperzilla-ai/pz/releases):
+
+    ```bash
+    curl -sL https://github.com/paperzilla-ai/pz/releases/latest/download/pz_linux_amd64.tar.gz | tar xz
+    sudo mv pz /usr/local/bin/
+    ```
+  </Tab>
+  <Tab title="Desde el código fuente">
+    Requiere Go 1.23 o posterior:
+
+    ```bash
+    git clone https://github.com/paperzilla-ai/pz.git
+    cd pz
+    go build -o pz .
+    mv pz /usr/local/bin/
+    ```
+  </Tab>
+</Tabs>
+
+## Actualizar
+
+Ejecuta:
+
+```bash
+pz update
+```
+
+`pz update` comprueba si la CLI tiene la versión más reciente y muestra instrucciones de actualización según el método de instalación.
+
+- Las instalaciones de Homebrew muestran `brew update` y `brew upgrade pz`
+- Las de Scoop muestran `scoop update pz`
+- Las versiones de GitHub indican qué artefacto descargar
+- Las compilaciones desde código indican usar `git pull` y volver a compilar
+
+En Homebrew 6.0 y posteriores, una instalación existente puede necesitar confianza explícita antes de actualizarse. Si `brew update` rechaza la fórmula de Paperzilla de un tap no fiable, ejecuta:
+
+```bash
+brew trust --formula paperzilla-ai/tap/pz
+brew update
+brew upgrade pz
+```
+
+Confiar solo en la fórmula sigue el alcance limitado recomendado por Homebrew. No desactiva la confianza globalmente.
+
+`pz update` detecta automáticamente métodos habituales mediante el ejecutable y los metadatos de compilación.
+
+Si la detección es ambigua, especifícala:
+
+```bash
+pz update --install-method homebrew
+pz update --install-method scoop
+pz update --install-method release
+pz update --install-method source
+```
+
+Los valores admitidos son `auto`, `homebrew`, `scoop`, `release` y `source`.
+
+Para comprobar la versión instalada:
+
+```bash
+pz --version
+```
+
+## Iniciar sesión
+
+Autentícate con tu cuenta de Paperzilla. Recibirás un código de un solo uso por correo.
+
+<Info>¿Aún no tienes una cuenta? Sigue el [inicio rápido](/es/quickstart) para registrarte.</Info>
+
+```bash
+pz login
+```
+
+```
+Email: you@example.com
+Sending magic link...
+Check your email, enter the code: 123456
+Logged in!
+```
+
+Debes iniciar sesión para comandos de proyecto como `project`, `feed`, `feed search`, `rec` y `feedback`, y para solicitar Markdown de recomendaciones.
+
+Si solo quieres abrir un artículo canónico mediante su ID interno de Paperzilla, `pz paper <paper-ref>` también funciona sin iniciar sesión.
+
+## Comandos
+
+### pz update
+
+Comprueba si la CLI está actualizada y muestra los pasos específicos de actualización.
+
+```bash
+pz update
+```
+
+Si usas una compilación desde código o se detectó mal el método, especifícalo:
+
+```bash
+pz update --install-method source
+```
+
+### pz project list
+
+Lista todos tus proyectos.
+
+```bash
+pz project list
+```
+
+```
+ID                                    NAME                       MODE        VISIBILITY  CREATED
+a1b2c3d4-e5f6-7890-abcd-ef1234567890  Machine Learning Papers    auto        private     2025-06-15 10:30
+b2c3d4e5-f6a7-8901-bcde-f12345678901  Genomics Research          auto        private     2025-07-20 14:15
+```
+
+Usa la columna `ID` para comandos del proyecto como `pz feed`, `pz feed search` y `pz paper --project`.
+
+Añade `--json` para obtener resultados estructurados destinados a scripts o agentes.
+
+`pz project list --json` devuelve una matriz resumida con los campos de identidad de la tabla: `id`, `name`, `mode` y `visibility`.
+
+### pz project \<id\>
+
+Muestra los detalles de un proyecto concreto.
+
+```bash
+pz project a1b2c3d4-e5f6-7890-abcd-ef1234567890
+```
+
+```
+Name:             Machine Learning Papers
+ID:               a1b2c3d4-e5f6-7890-abcd-ef1234567890
+Mode:             auto
+Visibility:       private
+Matching State:   active
+Email Frequency:  daily
+Email Time:       09:00
+Max Candidates:   100
+Max Papers/Digest:20
+Created:          2025-06-15 10:30
+Activated:        2025-06-16 00:00
+Last Digest:      2025-08-01 09:00
+
+Interest:
+  Recent advances in transformer architectures and efficiency
+```
+
+Añade `--json` para devolver el registro completo:
+
+```bash
+pz project a1b2c3d4-e5f6-7890-abcd-ef1234567890 --json
+```
+
+El registro JSON incluye metadatos de definición: `positive_keywords`, `negative_keywords`, `sources` y `categories` supervisados.
+
+### pz paper \<paper-ref\>
+
+Muestra los detalles de un artículo canónico de Paperzilla.
+
+`paper-ref` puede ser:
+
+- un UUID completo del artículo
+- un artículo `short_id`
+
+Este comando funciona sin iniciar sesión.
+
+Al añadir `--project <project-id>`, `pz paper` resuelve el artículo dentro de un proyecto y muestra el contexto de la recomendación. Este modo requiere iniciar sesión.
+
+```bash
+pz paper 33403e66-bfc3-43e7-a849-14b03341201e
+```
+
+```
+Title:           A Novel Approach to Transformer Efficiency
+ID:              33403e66-bfc3-43e7-a849-14b03341201e
+Short ID:        abc12345
+Slug:            a-novel-approach
+Source:          arxiv
+Published:       2025-07-20
+Authors:         Jane Smith, John Chen
+URL:             https://example.org/paper
+PDF URL:         https://example.org/paper.pdf
+DOI:             10.1234/example
+Source Paper ID: 2507.12345
+```
+
+#### Flags
+
+| Opción | Corta | Descripción |
+|------|-------|-------------|
+| `--json` | `-j` | Devuelve el artículo completo como JSON |
+| `--markdown` | | Imprime el Markdown sin procesar en stdout cuando está disponible |
+| `--project` | | Resuelve el artículo dentro de un proyecto y muestra el contexto de recomendación |
+
+#### Ejemplos
+
+```bash
+# Inspect a canonical paper by UUID or short ID
+pz paper <paper-id>
+
+# Show the same paper as it appears in one of your projects
+pz paper <paper-id> --project <project-id>
+
+# Print raw markdown when it is already prepared
+pz paper <paper-id> --markdown
+```
+
+Si el Markdown aún no está listo, la CLI muestra un mensaje. `pz paper --markdown` anónimo no pone en cola la generación.
+
+Para flujos limitados al proyecto, `pz rec <project-paper-id> --markdown` suele ser mejor tras `pz feed` o `pz feed search`, porque el contexto puede poner en cola la generación.
+
+Si este modelo es nuevo para ti, consulta [¿Cuál es la diferencia entre un artículo canónico y una recomendación?](/es/answers/what-is-the-difference-between-a-canonical-paper-and-a-recommendation).
+
+### pz rec \<project-paper-ref\>
+
+Muestra los detalles de una recomendación de uno de tus proyectos.
+
+`project-paper-ref` puede ser:
+
+- un UUID completo de `project_paper` devuelto por `pz feed --json`
+- un `project_paper` `short_id` devuelto por `pz feed --json`
+
+Este comando requiere iniciar sesión.
+
+```bash
+pz rec bb31f558
+```
+
+```
+Title:             A Novel Approach to Transformer Efficiency
+Recommendation ID: bb31f558-9613-4552-990a-30fb3ac48602
+Short ID:          bb31f558
+Relevance:         Must Read (92%)
+Feedback:          star
+Ready At:          2025-08-01 09:00
+
+Summary:
+  This paper is highly relevant because it introduces...
+
+Paper:
+  ID:              33403e66-bfc3-43e7-a849-14b03341201e
+  Short ID:        abc12345
+  Source:          arxiv
+  Published:       2025-07-20
+```
+
+#### Flags
+
+| Opción | Corta | Descripción |
+|------|-------|-------------|
+| `--json` | `-j` | Devuelve la recomendación como JSON |
+| `--markdown` | | Imprime el Markdown en stdout y pone en cola la generación si es necesario |
+
+#### Ejemplos
+
+```bash
+# Open a recommendation using the ID returned by the feed
+pz rec <project-paper-id>
+
+# Fetch the first recommendation from a project feed
+pz feed <project-id> --json | jq -r '.items[0].id' | xargs pz rec
+
+# Print markdown for the recommended paper
+pz rec <project-paper-id> --markdown
+```
+
+Si el Markdown aún se está preparando, la CLI muestra un mensaje y pide reintentar en aproximadamente un minuto.
+
+### pz feedback \<project-paper-ref\> \<upvote\|downvote\|star\>
+
+Deja una señal de valoración para un artículo dentro de un proyecto.
+
+Valores de valoración admitidos:
+
+- `upvote`
+- `downvote`
+- `star`
+
+#### Flags
+
+| Opción | Corta | Descripción |
+|------|-------|-------------|
+| `--json` | `-j` | Devuelve el objeto de valoración como JSON |
+| `--reason` | | Motivo opcional: `not_relevant` o `low_quality` |
+
+#### Ejemplos
+
+```bash
+# Positive signal
+pz feedback <project-paper-id> upvote
+
+# Positive signal as JSON
+pz feedback <project-paper-id> upvote --json
+
+# Strong positive signal
+pz feedback <project-paper-id> star
+
+# Negative signal with an explicit reason
+pz feedback <project-paper-id> downvote --reason not_relevant
+
+# Clear any existing feedback
+pz feedback clear <project-paper-id>
+
+# Clear feedback and get a confirmation envelope
+pz feedback clear <project-paper-id> --json
+```
+
+Las valoraciones son específicas del proyecto. Un mismo artículo canónico puede tener valoraciones distintas en varios proyectos.
+
+Para quitar por completo una valoración, usa `pz feedback clear <project-paper-ref>`.
+
+`clear` es un subcomando. Usa `pz feedback clear <project-paper-ref>`, no `pz feedback <project-paper-ref> clear`.
+
+Para una explicación breve, consulta [¿Cómo funcionan las señales de valoración en la CLI?](/es/answers/how-do-feedback-signals-work-in-the-cli).
+
+### pz feed \<project-id\>
+
+Explora la lista seleccionada de artículos de un proyecto.
+
+```bash
+pz feed a1b2c3d4-e5f6-7890-abcd-ef1234567890
+```
+
+```
+Machine Learning Papers — 12 papers (total: 142)
+
+★ Must Read  A Novel Approach to Transformer Efficiency
+  Smith et al. · arxiv · 2025-08-01 · relevance: 92%
+
+○ Related  On the Convergence Properties of Diffusion Models
+  Chen et al. · arxiv · 2025-07-30 · relevance: 74%
+```
+
+Cada artículo muestra una clase de relevancia (`★ Must Read` o `○ Related`), título, primer autor, fuente, fecha y puntuación.
+
+Usa los ID de recomendación de la lista con `pz rec` y los ID de artículos canónicos con `pz paper`.
+
+#### Flags
+
+| Opción | Corta | Descripción |
+|------|-------|-------------|
+| `--json` | `-j` | Devuelve JSON |
+| `--must-read` | `-m` | Muestra solo artículos Must Read |
+| `--since` | `-s` | Solo artículos posteriores a esta fecha (ISO 8601 o `YYYY-MM-DD`) |
+| `--limit` | `-n` | Limita el número de resultados |
+| `--atom` | | Imprime la URL de fuente Atom para lectores |
+
+#### Ejemplos
+
+```bash
+# Only must-read papers from the last week
+pz feed <project-id> --must-read --since 2025-07-25 --limit 5
+
+# Export as JSON for scripting
+pz feed <project-id> --json
+
+# Pipe to jq
+pz feed <project-id> --json | jq '.items[].paper.title'
+
+# Get Atom feed URL for your feed reader
+pz feed <project-id> --atom
+```
+
+### pz feed search
+
+Busca en toda la lista de un proyecto.
+
+Usa primero `pz project list` si necesitas localizar el ID del proyecto.
+
+```bash
+pz project list
+```
+
+```bash
+pz feed search --project-id a1b2c3d4-e5f6-7890-abcd-ef1234567890 --query "latent retrieval"
+```
+
+```
+Machine Learning Papers — 2 papers
+Query: latent retrieval
+Has more: true
+
+★ Must Read [★]  Latent Retrieval for Papers
+  Smith et al. · arXiv · 2026-04-01 · relevance: 95%
+
+○ Related  Prefix Matching in Search
+  Chen · ICLR · 2026-03-30 · relevance: 76%
+```
+
+Este comando busca en toda la lista, no solo en las páginas ya cargadas.
+
+La búsqueda ordena primero por rango. No devuelve un total exacto en v1.
+
+Los términos usan coincidencia por prefijo, por lo que `Proxi` encuentra `Proximity`.
+
+#### Flags
+
+| Opción | Corta | Descripción |
+|------|-------|-------------|
+| `--project-id` | | ID del proyecto donde buscar |
+| `--query` | `-q` | Consulta, de 3 a 200 caracteres tras recortar espacios |
+| `--feedback-filter` | | Filtra por `all`, `unrated`, `liked`, `disliked`, `starred`, `not-relevant` o `low-quality` |
+| `--must-read` | `-m` | Devuelve solo artículos Must Read |
+| `--limit` | `-n` | Limita los resultados por página, hasta 100 |
+| `--offset` | | Omite resultados para la paginación |
+| `--json` | `-j` | Devuelve el contenedor de búsqueda como JSON |
+
+#### Ejemplos
+
+```bash
+# Find your project ID first
+pz project list
+
+# Search one project feed
+pz feed search --project-id <project-id> --query "latent retrieval"
+
+# Use prefix search
+pz feed search --project-id <project-id> --query "Proxi"
+
+# Search only starred papers
+pz feed search --project-id <project-id> --query "retrieval" --feedback-filter starred
+
+# Search only Must Read papers
+pz feed search --project-id <project-id> --query "retrieval" --must-read
+
+# Get JSON for scripting
+pz feed search --project-id <project-id> --query "latent retrieval" --json
+
+# Fetch the next page only if the previous response had has_more = true
+pz feed search --project-id <project-id> --query "latent retrieval" --limit 20 --offset 20
+```
+
+La respuesta JSON incluye:
+
+- `items`
+- `limit`
+- `offset`
+- `has_more`
+- `query`
+
+Para una respuesta breve, consulta [¿Cómo busco en la lista desde la CLI?](/es/answers/how-do-i-search-a-project-feed-from-the-cli) y [¿Cómo encuentro el ID de mi proyecto para CLI?](/es/answers/how-do-i-find-my-project-id-for-cli-commands).
+
+### Fuentes Atom
+
+La opción `--atom` imprime una URL que puedes pegar en cualquier lector (Vienna RSS, NetNewsWire, Feedly, etc.):
+
+```bash
+pz feed <project-id> --atom
+```
+
+```
+https://paperzilla.ai/api/feed/atom/a1b2c3d4-...?token=pzft_...
+```
+
+La URL contiene un token personal para que el lector consulte sin iniciar sesión. El token es por usuario y las llamadas repetidas devuelven la misma URL. Consulta la [guía de fuentes](/es/guides/feeds) para saber más sobre RSS/Atom.
+
+## Resultados JSON
+
+Con `--json`, `pz feed` devuelve datos estructurados adecuados para scripts y agentes de IA:
+
+```json
+{
+  "items": [
+    {
+      "id": "bb31f558-9613-4552-990a-30fb3ac48602",
+      "short_id": "bb31f558",
+      "paper_title": "A Novel Approach to...",
+      "relevance_score": 0.92,
+      "relevance_class": 2,
+      "personalized_note": "Relevant because...",
+      "ready_at": "2025-08-01T09:00:00Z",
+      "feedback": {
+        "vote": "star",
+        "downvote_reason": null,
+        "updated_at": "2025-08-01T09:10:00Z"
+      },
+      "paper": {
+        "id": "33403e66-bfc3-43e7-a849-14b03341201e",
+        "short_id": "abc12345",
+        "title": "A Novel Approach to...",
+        "authors": [{"name": "Jane Smith"}],
+        "published_date": "2025-07-20",
+        "reference_label": "PMID 45678901",
+        "doi": "10.1000/example.2026.12345",
+        "pdf_url": null,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/45678901/",
+        "source_id": 5,
+        "source_paper_id": "45678901",
+        "source": {
+          "name": "pubmed"
+        }
+      }
+    }
+  ],
+  "total": 142,
+  "limit": 20,
+  "offset": 0
+}
+```
+
+**Clases de relevancia:** `2` = Must Read, `1` = Related
+
+**ID de recomendaciones:** usa `items[].id` o `items[].short_id` con `pz rec` y `pz feedback`
+
+**ID de artículos:** usa `items[].paper.id` o `items[].paper.short_id` con `pz paper`
+
+**ID de fuentes:** `1` = arXiv, `2` = medRxiv, `3` = bioRxiv, `4` = ChinaXiv, `5` = PubMed, `6` = ChemRxiv
+
+En registros de PubMed, `reference_label` usa el PMID aunque exista `doi`. `pdf_url` admite nulos en todas las fuentes. Usa `url` para la página de origen si no hay PDF.
+
+`pz project list --json` devuelve objetos resumidos con `id`, `name`, `mode` y `visibility`.
+
+`pz project <project-id> --json` devuelve el registro completo, incluidos `positive_keywords`, `negative_keywords`, `sources` y `categories` supervisados.
+
+`pz feedback <project-paper-id> ... --json` devuelve el objeto de valoración.
+
+`pz feedback clear <project-paper-id> --json` devuelve un contenedor de confirmación porque el endpoint devuelve `204 No Content`.
+
+`pz feed search --json` devuelve un contenedor con `items`, `limit`, `offset`, `has_more` y `query`.
+
+## Skill de OpenClaw
+
+La CLI de Paperzilla también está disponible como [skill de OpenClaw en ClawHub](https://clawhub.ai/pors/paperzilla). Permite que agentes como OpenClaw, Claude Code, Cursor y Windsurf usen directamente comandos de `pz`.
+
+Para ver la configuración completa, consulta [Usar la CLI de Paperzilla con OpenClaw](/es/guides/openclaw).
+
+Si ya usas OpenClaw, instala la skill con:
+
+```bash
+openclaw skills install paperzilla
+```
+
+Si ya usas la CLI independiente de ClawHub, también funciona:
+
+```bash
+clawhub install paperzilla
+```
+
+Una vez instalada, el agente puede listar proyectos, inspeccionar artículos, explorar o buscar en listas y filtrar sin invocar manualmente la CLI. La skill usa los mismos comandos de `pz`.
+
+<Tip>
+El binario `pz` debe seguir instalado y autenticado. La skill enseña al agente a usarlo; no sustituye la CLI.
+</Tip>
+
+## Configuración
+
+| Variable | Descripción | Valor predeterminado |
+|----------|-------------|---------|
+| `PZ_API_URL` | URL base de la API | `https://paperzilla.ai` |

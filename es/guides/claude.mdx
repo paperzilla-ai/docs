@@ -1,0 +1,133 @@
+---
+title: "Usar Paperzilla MCP con Claude"
+description: "Añade Paperzilla como conector personalizado en Claude y usa tus proyectos, búsqueda completa, detalles de artículos y Markdown en Claude."
+keywords: ["Claude", "MCP", "conector", "conector personalizado", "Cowork", "búsqueda en la lista"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/claude" />
+
+Usa esta guía si quieres que Claude lea tu cuenta de Paperzilla mediante Paperzilla MCP.
+
+Esta configuración se aplica a Claude, Claude Desktop y Cowork.
+
+Si configuras otro cliente MCP, empieza por [Usar Paperzilla con MCP](/es/guides/mcp). Esa página explica el endpoint genérico y los dos métodos de autenticación.
+
+## Antes de empezar
+
+- Una cuenta de Paperzilla con al menos un proyecto
+- Tu MCP API key de Paperzilla desde **MCP API key**, en la esquina superior derecha del [panel](https://paperzilla.ai/dashboard)
+- Un plan de Claude con acceso a conectores personalizados. Consulta [Crear conectores personalizados mediante servidores MCP remotos](https://support.claude.com/en/articles/11503834-building-custom-connectors-via-remote-mcp-servers) de Anthropic.
+
+<Warning>La URL del conector de Claude contiene tu clave MCP de Paperzilla. Trata la URL completa como un secreto.</Warning>
+
+## Paso 1: copiar la clave MCP de Paperzilla
+
+1. Abre tu [panel](https://paperzilla.ai/dashboard).
+2. Haz clic en **MCP API key**.
+3. Genera o copia la clave.
+4. Guárdala en un lugar privado mientras configuras Claude.
+
+Si aún no ves el botón, usa los detalles de gestión de claves del [apéndice del endpoint MCP](/es/api-reference/mcp).
+
+## Paso 2: crear la URL del conector de Claude
+
+Paperzilla acepta tanto `Authorization: Bearer <key>` como `?key=<key>`.
+
+En el flujo de conectores personalizados de Claude, usa este formato:
+
+```text
+https://paperzilla.ai/api/mcp/?key=pzmcp_...
+```
+
+Sustituye `pzmcp_...` por tu clave real.
+
+Este formato se adapta al flujo de conectores personalizados de Claude porque proporcionas la URL directamente en Claude.
+
+## Paso 3: añadir Paperzilla en Claude
+
+1. Abre Claude.
+2. Ve a **Settings** > **Connectors**.
+3. Haz clic en **Add custom connector**.
+4. Escribe `Paperzilla` como nombre.
+5. Pega la URL del conector.
+6. Guarda el conector.
+
+<Frame caption="Añadir Paperzilla como conector personalizado en Claude">
+  <img
+    src="/images/guides/claude/add-custom-connector.png"
+    alt="Cuadro Add custom connector de Claude con Paperzilla y una URL de Paperzilla MCP ocultada."
+  />
+</Frame>
+
+En Claude Desktop, añade servidores MCP remotos desde **Settings** > **Connectors**. Anthropic indica que Claude Desktop no usa servidores remotos añadidos directamente a `claude_desktop_config.json`.
+
+Después de guardar el conector, Claude debe mostrar las siete herramientas de Paperzilla. Claude pide aprobación de forma predeterminada. Recomendamos establecer el conector en **Always allow**, como se muestra aquí, para que Claude use las herramientas de Paperzilla sin solicitar permiso en cada llamada.
+
+<Frame caption="Herramientas del conector de Paperzilla en Claude">
+  <img
+    src="/images/guides/claude/tool-permissions.png"
+    alt="Configuración del conector de Claude con las herramientas de Paperzilla y tus controles de permisos."
+  />
+</Frame>
+
+## Paso 4: usar Paperzilla en Claude
+
+Activa el conector en la conversación o flujo donde quieras que Claude use los datos de Paperzilla. Después, Claude podrá llamar directamente a las herramientas de Paperzilla.
+
+Puedes pedir cosas como:
+
+- «¿Qué proyectos de Paperzilla tengo?»
+- «Muestra los artículos Must Read de esta semana de mi proyecto `Autonomous Agents`».
+- «Busca artículos sobre grafos de proximidad en mi proyecto `Autonomous Agents`».
+- «Compara los dos artículos Must Read más nuevos de mi proyecto de evaluación».
+- «Obtén el Markdown del artículo TRAJEVAL y explica su contribución principal».
+- «Redacta un resumen semanal de artículos Must Read nuevos de todos mis proyectos».
+
+## A qué puede acceder Claude
+
+| Herramienta | Qué devuelve |
+|---|---|
+| `projects_list` | Tus proyectos |
+| `projects_get` | Un proyecto |
+| `feed_get` | Artículos con filtros como `must_read`, `since`, `limit` y `offset` |
+| `feed_search` | Búsqueda en toda la lista por título, autor, resumen científico y texto de resumen |
+| `feed_atom_url` | La URL de fuente Atom de un proyecto |
+| `paper_get` | Metadatos y estado del artículo |
+| `paper_markdown` | Markdown del artículo o estado en cola/no disponible |
+
+Los clientes MCP compatibles con Claude deben usar estos nombres con guion bajo. Paperzilla sigue aceptando nombres heredados con puntos como `paper.get` para compatibilidad directa con `tools/call`.
+
+Usa `feed_search` cuando quieras que Claude busque en toda la lista, no solo que la explore página a página.
+
+Para ver el protocolo completo y las estructuras de entrada, consulta [Endpoint MCP (apéndice para desarrollo)](/es/api-reference/mcp).
+
+## Solución de problemas
+
+### Claude no encuentra el conector
+
+Comprueba que has añadido Paperzilla en **Settings** > **Connectors** de Claude, no en un archivo local de configuración.
+
+### Claude informa de un error de autenticación o Paperzilla devuelve `401 Unauthorized`
+
+La clave de la URL falta, no es válida, se revocó o se rotó. Genera una nueva en el panel y actualiza la URL en Claude.
+
+### Claude no devuelve artículos
+
+Prueba primero una solicitud más amplia. Por ejemplo, pide artículos de «este mes» en lugar de «hoy». Confirma también que el proyecto ya tiene artículos relevantes en Paperzilla.
+
+### Quieres usar un cliente MCP que no sea Claude
+
+Consulta [Usar Paperzilla con MCP](/es/guides/mcp). Paperzilla admite autenticación por encabezado y por parámetro de consulta; usa la que pueda enviar el cliente.
+
+## Seguridad
+
+- Trata la URL completa del conector como una contraseña.
+- Rota de inmediato la clave MCP si se expone la URL.
+- Quita el conector de Claude si ya no quieres que Claude acceda a Paperzilla.
+
+## Contenido relacionado
+
+- [Usar Claude en Slack para informes de investigación](/es/guides/claude-slack-briefs)
+- [Usar Paperzilla con MCP](/es/guides/mcp)

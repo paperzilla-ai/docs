@@ -1,0 +1,146 @@
+---
+title: "Usar Codex y Microsoft Teams para informes de investigación"
+description: "Ejecuta flujos de informes de Paperzilla en Codex y conviértelos en actualizaciones listas para Microsoft Teams."
+keywords: ["Codex", "Microsoft Teams", "Paperzilla MCP", "informe de investigación", "automatización", "aplicación Teams", "plugin Teams"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/codex-teams-briefs" />
+
+Usa esta guía para que Codex lea un proyecto de Paperzilla y prepare informes de investigación para Microsoft Teams.
+
+Este procedimiento usa Paperzilla MCP para acceder a los datos de Paperzilla, Codex para el análisis y la programación y la aplicación o plugin de Microsoft Teams para contexto opcional. El resultado predeterminado es un borrador listo para Teams.
+
+La documentación actual de OpenAI lo denomina aplicación. Codex puede mostrar la misma integración como plugin.
+
+Paperzilla documenta la parte de Paperzilla de este flujo. El comportamiento de búsqueda y escritura de Teams lo controlan OpenAI, Microsoft y la configuración de tu espacio.
+
+## Antes de empezar
+
+- Completa [Usar Paperzilla con Codex](/es/guides/codex).
+- Confirma que `/mcp paperzilla` muestra Paperzilla como activo en Codex.
+- Conecta la aplicación o plugin de Microsoft Teams en ChatGPT o Codex. Consulta [Aplicación Microsoft Teams para ChatGPT](https://help.openai.com/en/articles/12552368-microsoft-teams-connector-for-chatgpt).
+- Si usas un espacio Business o Enterprise/Edu, confirma que el administrador activó la aplicación y las acciones necesarias. Consulta [Aplicaciones en ChatGPT](https://help.openai.com/en/articles/11487775-connectors-in-chatgpt).
+- Elige un proyecto de Paperzilla para este flujo.
+- Prepara una frase breve sobre «nuestro trabajo» si Codex no debe deducirlo de Teams. Ejemplo: `Our work is evaluation infrastructure for coding agents.`
+
+<Warning>Empieza con un borrador listo para Teams. Pasa a la publicación directa solo tras confirmar que la aplicación ofrece las acciones de escritura adecuadas y Codex pide confirmación.</Warning>
+
+## Cómo funciona este conjunto
+
+- Codex lee el proyecto de Paperzilla mediante Paperzilla MCP.
+- Codex puede usar contexto reciente de Microsoft Teams cuando la aplicación está conectada y autorizada.
+- Codex puede preparar un informe listo para Teams con los artículos más recientes de un proyecto.
+- Las automatizaciones de Codex pueden ejecutarlo según una programación y colocar el resultado en Triage.
+- Si existen acciones de escritura en el espacio, Codex puede pedir confirmación antes de publicar en Teams.
+
+Usa contexto de Teams cuando el informe deba reflejar el debate activo del equipo. Usa solo contexto de Paperzilla para mantenerlo independiente del historial del chat.
+
+## Caso de uso 1: debate de artículos bajo demanda
+
+Empieza en Codex y menciona tanto el proyecto de Paperzilla como el contexto de Teams que quieres que Codex use.
+
+Primero pide el contexto reciente del equipo y los artículos más nuevos:
+
+```text
+Use my Paperzilla project `Agents evaluation`.
+Use recent Microsoft Teams context from the research discussion if available.
+Our work: we build evaluation infrastructure for coding agents.
+
+Pull the latest papers from this project and show the top 5.
+For each one, include the title, date, source, and whether it looks Must Read or Related.
+Then add one sentence explaining how it connects to recent team priorities.
+```
+
+Después pide los metadatos de un artículo:
+
+```text
+Open the second paper and show the metadata only.
+Include authors, publication date, source, URL, and the Paperzilla ID you used.
+```
+
+Después obtén el Markdown y relaciónalo con el contexto de Teams:
+
+```text
+Fetch the markdown for that paper.
+Summarize the contribution, method, results, and limits.
+Then explain why it matters for our work and for the recent Teams discussion.
+```
+
+Después pide a Codex que redacte una publicación para Teams:
+
+```text
+Draft a Microsoft Teams update for the research channel.
+Include:
+- project name
+- paper title
+- one short summary
+- why the team should read it
+- one suggested next step
+
+Do not post it yet. Show me the draft first.
+```
+
+Si Codex confirma que existe una acción de escritura en tu espacio, puedes pedirle que publique después de revisarlo:
+
+```text
+Post that draft to Microsoft Teams.
+Ask for confirmation before sending.
+```
+
+Las buenas respuestas para este flujo deben:
+
+- mantener visibles el nombre del proyecto y el contexto de «nuestro trabajo»
+- separar los metadatos de Paperzilla de la interpretación de Codex
+- citar o nombrar el contexto de Teams solo cuando Codex lo haya usado
+- producir un informe útil como mensaje de Teams, no una revisión larga
+
+## Caso de uso 2: informe entre semana para Teams
+
+Este patrón usa una automatización de Codex para preparar un informe los días laborables.
+
+Las automatizaciones de Codex informan de los hallazgos en Triage. Úsalo como punto de revisión predeterminado. Tras revisar el resultado, pide a Codex que publique el borrador aprobado solo si la aplicación admite publicaciones en tu espacio.
+
+Crea una automatización de Codex con un prompt como este:
+
+```text
+Use my Paperzilla project `Agents evaluation`.
+Use recent Microsoft Teams context from the research discussion if available.
+Our work: we build evaluation infrastructure for coding agents.
+
+Every weekday morning:
+1. Pull the newest papers from this project.
+2. Prefer Must Read papers, then strong Related papers.
+3. Keep the brief concise.
+4. For each selected paper, include the title, one short summary, and one sentence on why it is relevant to our work.
+5. Include the project name and today's date at the top.
+6. If there are no new papers, say that explicitly.
+7. Prepare a Microsoft Teams-ready draft and put it in Triage.
+8. Do not post to Teams automatically unless I explicitly approve the send action.
+```
+
+El formato esperado del informe es:
+
+- nombre del proyecto y fecha
+- número de artículos nuevos revisados
+- para cada artículo seleccionado, un resumen breve y una frase sobre su relevancia para el trabajo
+- una breve línea de «por qué importa ahora» cuando se haya usado contexto de Teams
+- una línea clara de «hoy no hay artículos nuevos» cuando ninguno cumpla los criterios
+
+Si los primeros informes resultan útiles, mantén la automatización. Si tienen demasiado ruido, limita el proyecto, añade un filtro temático o pide a Codex que use solo artículos Must Read.
+
+## Límites y solución de problemas
+
+- Si Codex no puede acceder a Paperzilla, corrige primero la configuración de Paperzilla MCP en [Usar Paperzilla con Codex](/es/guides/codex).
+- Si Codex no puede acceder a Teams, vuelve a conectar la aplicación de Microsoft Teams y comprueba los controles del espacio.
+- Si falla la publicación, sigue usando borradores. El espacio puede permitir búsquedas, pero no escritura.
+- Si una automatización no produce un elemento de Triage, confirma que la aplicación de Codex está activa y la automatización habilitada.
+- Si el agente no devuelve artículos, confirma que el proyecto está activo y ya tienes elementos en la lista.
+- Si `paper_markdown` está en cola o no disponible, reintenta más tarde en lugar de cambiar el flujo.
+
+## Contenido relacionado
+
+- [Usar Paperzilla con Codex](/es/guides/codex)
+- [Usar Paperzilla con MCP](/es/guides/mcp)
+- [Flujos de trabajo con agentes](/es/guides/agent-workflows)

@@ -1,0 +1,43 @@
+---
+title: "¿Cómo busco en la lista de un proyecto mediante Paperzilla MCP?"
+sidebarTitle: "Buscar mediante MCP"
+description: "Llame a feed_search con un ID de proyecto y una consulta para buscar en toda una lista mediante Paperzilla MCP."
+keywords: ["buscar en la lista del proyecto", "Paperzilla MCP", "feed_search", "project_id", "consulta"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/answers/how-do-i-search-a-project-feed-through-paperzilla-mcp" />
+
+Llame a `feed_search`.
+
+Como mínimo, proporciona:
+
+- `project_id`
+- `q`
+
+También puedes proporcionar:
+
+- `feedback_filter`
+- `must_read`
+- `limit`
+- `offset`
+
+La respuesta contiene:
+
+- `items`
+- `limit`
+- `offset`
+- `has_more`
+- `query`
+
+Usa `offset` y `limit` para obtener la página siguiente solo cuando `has_more` sea `true`.
+
+La búsqueda usa coincidencia por prefijo, por lo que `Proxi` encuentra `Proximity`.
+
+Si el cliente MCP todavía usa nombres heredados con puntos, `feed.search` sigue funcionando. Las integraciones nuevas deben preferir `feed_search`.
+
+Consulta:
+
+- [Usar Paperzilla con MCP](/es/guides/mcp)
+- [Endpoint MCP (apéndice para desarrollo)](/es/api-reference/mcp)

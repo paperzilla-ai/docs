@@ -1,0 +1,239 @@
+---
+title: "Endpoint MCP (apéndice para desarrollo)"
+description: "Detalles técnicos del endpoint MCP para integrar clientes de Paperzilla con proyectos, búsqueda en toda la lista, datos de artículos y Markdown."
+keywords: ["endpoint MCP", "desarrollo", "SSE", "token Bearer", "parámetro de consulta", "lista de herramientas", "búsqueda en la lista"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/api-reference/mcp" />
+
+Esta página es un apéndice técnico para desarrolladores.
+
+Si usas Paperzilla y quieres configurar MCP, empieza por [Usar Paperzilla con MCP](/es/guides/mcp).
+
+Paperzilla expone un endpoint MCP mediante Streamable HTTP:
+
+```text
+POST /api/mcp
+```
+
+Ejemplo de URL base:
+
+```text
+https://paperzilla.ai/api/mcp
+```
+
+Para consultar una explicación breve del descubrimiento, ve [¿Cómo descubren los clientes la URL y las herramientas de Paperzilla MCP?](/es/answers/how-do-clients-discover-paperzilla-mcp).
+
+## Autenticación
+
+Envía tu MCP API key de una de estas formas:
+
+```http
+Authorization: Bearer pzmcp_<prefix>_<secret>
+```
+
+```text
+https://paperzilla.ai/api/mcp/?key=pzmcp_<prefix>_<secret>
+```
+
+Usa el encabezado si el cliente admite encabezados personalizados. Usa el parámetro de consulta si el cliente solo acepta una URL, incluido el flujo de conectores personalizados de Claude.
+
+En la mayoría de los casos, crea o revoca esta clave desde **MCP API key**, en la esquina superior derecha del [panel](https://paperzilla.ai/dashboard).
+
+También puedes obtener o rotar la clave desde endpoints autenticados de la aplicación:
+
+- `GET /api/auth/mcp-key`
+- `POST /api/auth/mcp-key/rotate`
+- `DELETE /api/auth/mcp-key`
+
+Estos endpoints de gestión usan el JWT normal de la aplicación, no la clave MCP.
+
+## Endpoints de gestión de claves (para desarrollo)
+
+```text
+GET /api/auth/mcp-key
+POST /api/auth/mcp-key/rotate
+DELETE /api/auth/mcp-key
+```
+
+## Métodos MCP utilizados actualmente
+
+Paperzilla admite flujos MCP estándar, entre ellos:
+
+- `initialize`
+- `tools/list`
+- `tools/call`
+- `prompts/list`
+- `prompts/get`
+
+## Ejemplo de inicialización
+
+Los ejemplos siguientes usan autenticación mediante encabezado.
+
+```bash
+curl -s -X POST https://paperzilla.ai/api/mcp \
+  -H "Authorization: Bearer pzmcp_..." \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"initialize",
+    "params":{
+      "protocolVersion":"2025-11-05",
+      "capabilities":{},
+      "clientInfo":{"name":"probe","version":"1.0"}
+    }
+  }'
+```
+
+## Herramientas
+
+| Herramienta | Entrada |
+|---|---|
+| `projects_list` | `{}` |
+| `projects_get` | `{ "project_id": "uuid" }` |
+| `feed_get` | `{ "project_id": "uuid", "must_read"?: boolean, "since"?: string, "limit"?: 1..100, "offset"?: 0.. }` |
+| `feed_search` | `{ "project_id": "uuid", "q": "string (3..200 chars after trim)", "feedback_filter"?: "enum", "must_read"?: boolean, "limit"?: 1..100, "offset"?: 0.. }` |
+| `feed_atom_url` | `{ "project_id": "uuid" }` |
+| `paper_get` | `{ "paper_id": "uuid-or-short-id-or-feed-item-id" }` |
+| `paper_markdown` | `{ "paper_id": "uuid-or-short-id-or-feed-item-id" }` |
+
+Los nombres heredados con puntos, como `paper.get`, siguen aceptándose para la compatibilidad directa con `tools/call`, pero los clientes compatibles con Claude deben usar los nombres con guion bajo anteriores. El alias de búsqueda en la lista es `feed.search`.
+
+`paper_get` acepta los mismos tipos de identificadores que la API de artículos:
+
+- UUID del artículo
+- artículo `short_id`
+- `project_paper` UUID
+- `project_paper` `short_id`
+
+`projects_*` y `feed_*` producen resultados con la misma estructura que las respuestas correspondientes de la API.
+
+`feed_search` es la vía MCP para buscar texto en toda la lista. Busca en el título, autor, resumen científico y texto de resumen de toda la lista del proyecto.
+
+`feed_search.feedback_filter` acepta:
+
+- `all`
+- `unrated`
+- `liked`
+- `disliked`
+- `starred`
+- `not-relevant`
+- `low-quality`
+
+`feed_search` devuelve:
+
+- `items`
+- `limit`
+- `offset`
+- `has_more`
+- `query`
+
+Semántica de búsqueda:
+
+- los términos de consulta usan coincidencia por prefijo, por lo que `Proxi` encuentra `Proximity`
+- la búsqueda ordena primero por rango, no por orden de navegación
+- en v1 no se devuelve un `total` exacto
+
+`paper_get` devuelve los mismos campos de detalle que la API autenticada de artículos, incluido `markdown_ready`.
+
+Los detalles de artículos de PubMed usan `PMID <number>` como `reference_label`, conservan por separado el DOI cuando existe y enlazan con el registro de PubMed. `pdf_url` puede ser `null`; no supongas que un registro de PubMed dispone de texto completo público.
+
+`paper_markdown` siempre devuelve un objeto estructurado:
+
+- listo:
+  ```json
+  {
+    "status": "ready",
+    "paper_id": "uuid",
+    "markdown": "# Markdown...",
+    "mime_type": "text/markdown",
+    "markdown_ready": true
+  }
+  ```
+- queued:
+  ```json
+  {
+    "status": "queued",
+    "detail": "Markdown queued",
+    "code": "markdown_queued",
+    "job_id": "uuid",
+    "created": true
+  }
+  ```
+- unavailable:
+  ```json
+  {
+    "status": "unavailable",
+    "detail": "Markdown source unavailable",
+    "code": "markdown_source_unavailable"
+  }
+  ```
+
+## Ejemplos de llamadas a herramientas
+
+Listar proyectos:
+
+```bash
+curl -s -X POST https://paperzilla.ai/api/mcp \
+  -H "Authorization: Bearer pzmcp_..." \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc":"2.0",
+    "id":2,
+    "method":"tools/call",
+    "params":{
+      "name":"projects_list",
+      "arguments":{}
+    }
+  }'
+```
+
+Buscar en toda la lista de un proyecto:
+
+```bash
+curl -s -X POST https://paperzilla.ai/api/mcp \
+  -H "Authorization: Bearer pzmcp_..." \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc":"2.0",
+    "id":3,
+    "method":"tools/call",
+    "params":{
+      "name":"feed_search",
+      "arguments":{
+        "project_id":"20a9c4fd-779a-41c7-92e9-efabc5e9eea5",
+        "q":"latent retrieval",
+        "feedback_filter":"all",
+        "limit":20,
+        "offset":0
+      }
+    }
+  }'
+```
+
+## Prompt
+
+Nombre del prompt:
+
+- `feed_title_filter`
+
+Argumentos:
+
+- `project_id` (obligatorio)
+- `title_keyword` (obligatorio)
+- `must_read` (opcional)
+- `feedback_filter` (opcional)
+- `limit` (opcional)
+
+El prompt indica al modelo que llame a `feed_search` y explique que la búsqueda se realiza en el servidor sobre toda la lista.
+
+## Semántica de errores
+
+- Clave no válida o ausente: HTTP `401`
+- No se permite el origen `Origin`: HTTP `403`
+- Método MCP o estructura JSON-RPC no válidos: error de protocolo
+- Errores de negocio o dominio (propiedad, proyecto ausente, artículo ausente o ID corto ambiguo): resultado de herramienta con `isError: true`
+- `paper_markdown` en cola y los casos sin fuente disponible son resultados normales, no errores de herramienta
