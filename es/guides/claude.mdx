@@ -17,7 +17,7 @@ Si configuras otro cliente MCP, empieza por [Usar Paperzilla con MCP](/es/guides
 ## Antes de empezar
 
 - Una cuenta de Paperzilla con al menos un proyecto
-- Tu MCP API key de Paperzilla desde **MCP API key**, en la esquina superior derecha del [panel](https://paperzilla.ai/dashboard)
+- Tu clave de API de MCP de Paperzilla desde **Clave de API de MCP**, en la esquina superior derecha del [panel](https://paperzilla.ai/dashboard)
 - Un plan de Claude con acceso a conectores personalizados. Consulta [Crear conectores personalizados mediante servidores MCP remotos](https://support.claude.com/en/articles/11503834-building-custom-connectors-via-remote-mcp-servers) de Anthropic.
 
 <Warning>La URL del conector de Claude contiene tu clave MCP de Paperzilla. Trata la URL completa como un secreto.</Warning>
@@ -25,7 +25,7 @@ Si configuras otro cliente MCP, empieza por [Usar Paperzilla con MCP](/es/guides
 ## Paso 1: copiar la clave MCP de Paperzilla
 
 1. Abre tu [panel](https://paperzilla.ai/dashboard).
-2. Haz clic en **MCP API key**.
+2. Haz clic en **Clave de API de MCP**.
 3. Genera o copia la clave.
 4. Guárdala en un lugar privado mientras configuras Claude.
 
@@ -79,11 +79,11 @@ Activa el conector en la conversación o flujo donde quieras que Claude use los 
 Puedes pedir cosas como:
 
 - «¿Qué proyectos de Paperzilla tengo?»
-- «Muestra los artículos Must Read de esta semana de mi proyecto `Autonomous Agents`».
+- «Muestra los artículos de lectura imprescindible de esta semana de mi proyecto `Autonomous Agents`».
 - «Busca artículos sobre grafos de proximidad en mi proyecto `Autonomous Agents`».
-- «Compara los dos artículos Must Read más nuevos de mi proyecto de evaluación».
+- «Compara los dos artículos de lectura imprescindible más nuevos de mi proyecto de evaluación».
 - «Obtén el Markdown del artículo TRAJEVAL y explica su contribución principal».
-- «Redacta un resumen semanal de artículos Must Read nuevos de todos mis proyectos».
+- «Redacta un resumen semanal de artículos nuevos de lectura imprescindible de todos mis proyectos».
 
 ## A qué puede acceder Claude
 
@@ -92,7 +92,7 @@ Puedes pedir cosas como:
 | `projects_list` | Tus proyectos |
 | `projects_get` | Un proyecto |
 | `feed_get` | Artículos con filtros como `must_read`, `since`, `limit` y `offset` |
-| `feed_search` | Búsqueda en toda la lista por título, autor, resumen científico y texto de resumen |
+| `feed_search` | Búsqueda en toda la lista por título, autor, resumen del artículo y resumen con IA |
 | `feed_atom_url` | La URL de fuente Atom de un proyecto |
 | `paper_get` | Metadatos y estado del artículo |
 | `paper_markdown` | Markdown del artículo o estado en cola/no disponible |

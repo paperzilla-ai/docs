@@ -3,8 +3,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:answers/account-required",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "285445b305317c99a48af4d5e0a37f610639070ff04f4a4233eebaf353753ed5",
       "provider": "openai",
@@ -26,9 +26,9 @@
           "translationSha256": "4177e754e0d5f67977d848e27bfa165a7aafb297506d47e445b3d9a30f34f25f"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "frontmatter-description:f70584661a4e852bb4a2:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -36,7 +36,7 @@
           "reviewer": null,
           "sourceSha256": "f70584661a4e852bb4a24021d3b73410635fcfa9e7b8affc93a9fae89cc0c62f",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "fbde9b2c2a6cea79b9cec7f48420b40115400dcc5c10a4b4c0181b47b7d143de"
+          "translationSha256": "64789730199090c936f780a30636da81a6c73f91cfc9fecce24b747598e502f3"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -95,7 +95,7 @@
       "sourceSha256": "58e22bf4f37ac756dae26f8ea90ada0f860777c0d9064976949a70704f5788c6",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/account-required.mdx",
-      "translationSha256": "a822b502c79c312bd10d6c30dc4a41f71ac28feaf804087122c514aaab691772"
+      "translationSha256": "e78018ea47066f9eaf856773bcc98cc5fa6335c7d6875c1b9a6af51e03b855f0"
     },
     {
       "contentClass": "docs",
@@ -210,8 +210,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:answers/can-paperzilla-mcp-return-individual-paper-metadata-and-markdown",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "1de2ab8d675681582de1ff91cde068ffd80abfce69ce26c90e3c8a9437aba0bc",
       "provider": "openai",
@@ -402,9 +402,9 @@
           "translationSha256": "ec9954e3de67e25d043abe62217dd67651edfd982d9080a4d5852f1df095b929"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:81b2e4753ae659b4ec9b:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "5e1edbdeb491b1048538ce6021b5cdb37ac6afe90ec0d14e2016ef1a368971e6",
           "provider": "openai",
@@ -412,12 +412,12 @@
           "reviewer": null,
           "sourceSha256": "81b2e4753ae659b4ec9b46c42bb603106d09068e7e7eb2ea64b7003dd666443b",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "05dc5184008dc8c541122b06ba32ee97689b6c257de75958bf08130d383f7159"
+          "translationSha256": "2119bbc353f06d014dfe1207172cad72a9b0c871ce275483b9c3ae83de119917"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:4c77a48394aea8f8a040:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e86dd77a7ee765ea10ff34e3886eac5b21673b5809c242e96b376ed76c28e48c",
           "provider": "openai",
@@ -425,12 +425,12 @@
           "reviewer": null,
           "sourceSha256": "4c77a48394aea8f8a04045518b9fe95dc638555de90b7a8706b94aceb2cb2cf3",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "4ed4df2ae4ba3826defb50e9f91c55853a3cd0aef2a84369fc03798772fc56cf"
+          "translationSha256": "1de45892ca74db9d55adbb6cd30467ad9ca57f5d9983ce3c97a46adb3fd8987c"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:8e47fc7c22b4daee6e05:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e86dd77a7ee765ea10ff34e3886eac5b21673b5809c242e96b376ed76c28e48c",
           "provider": "openai",
@@ -438,7 +438,7 @@
           "reviewer": null,
           "sourceSha256": "8e47fc7c22b4daee6e05a32f61dc3230439bf1919453d4971ba985412dd1629c",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "4a82d3f7d71ae7d48cb08bb73629513465bc1c00fc715f7cb3c78207d1b4f3db"
+          "translationSha256": "ce28a00d73338107ff0c1a4534af9785f96630d9ce80e4422dea734cf8f9aa74"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -471,13 +471,13 @@
       "sourceSha256": "f180fe3708e8264e53de429f973e7becd06ba57358fb93cb7aab3bd6986cb964",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/can-paperzilla-mcp-return-individual-paper-metadata-and-markdown.mdx",
-      "translationSha256": "b7347fe828c7716732ac5fbddef13c03ae1615562d99578146c4619ee53953a0"
+      "translationSha256": "ec4dc6c469cc2483643f75e65663e2c08c71a7dcd6f06e57c87d7da4e10f00b3"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:answers/can-paperzilla-mcp-search-across-an-entire-project-feed",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "97e0cef4a2c0ed54dbda291a655e337936eecd6ba4a38d371558e9c39e28cd2e",
       "provider": "openai",
@@ -590,9 +590,9 @@
           "translationSha256": "59fc6e6cd33ab5cb4db5ef4a51c22712bd0afe9b33e682b0615bf4fce9da3148"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:95bd265821936608a98d:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "95e32cc208b98068952f919b51f88ff6d57f1ced8c5c4de940eb9ca08117f8f1",
           "provider": "openai",
@@ -600,7 +600,7 @@
           "reviewer": null,
           "sourceSha256": "95bd265821936608a98d00a45668f25a5647d72f2b00c77a634143babfab8e19",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "97c676ae331a10fac9ad038fadf7ce1d274084205776a64e4cf009194cdef25e"
+          "translationSha256": "016cb8877f4cee0722dcd8681246850d4877ff2e55e7b629a2057ba6c3261ebb"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -668,9 +668,9 @@
           "translationSha256": "3973e022e93220f9212c18d0d0c543ae7c309e46640da93a4a0314de999f5112"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:9a0534e8c749e5bd6c8b:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -678,7 +678,7 @@
           "reviewer": null,
           "sourceSha256": "9a0534e8c749e5bd6c8b5cc834cebb0505830356e6827faff83fe713947e5d9a",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "fd7c685f8add0632d2cd354c7d2f91dbf4d9155bff9b3f707146a5bcbed6701c"
+          "translationSha256": "668a96e1a069b5fefa3b2101cb638733cd722e5a2a46eb11b553c49b35807713"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -815,7 +815,7 @@
       "sourceSha256": "a19c8e8ddf0a9f4b4feb763504f464636ffb34a1d06c58d14f6152249c7eda4f",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/can-paperzilla-mcp-search-across-an-entire-project-feed.mdx",
-      "translationSha256": "eda11328710eea81629f836f15946620cfb1f35ea07a3ba22b0f0ec7936950af"
+      "translationSha256": "ff13db785472e6f32f69ae51aeca284163e44cdbc9c56f92ee1df0517b610069"
     },
     {
       "contentClass": "docs",
@@ -1014,8 +1014,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:answers/create-first-project",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "6fe32f99f9e4fb854314a27be91ee490f9a35311b6347c83cd87f494f6d6fa4b",
       "provider": "openai",
@@ -1037,9 +1037,9 @@
           "translationSha256": "e2621a5d9dd5cbdebeb7d06c514d6378cc5fcb9996035f63fecec1812fad75ba"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "frontmatter-description:7e13c40f0c1bbabc6529:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e45c9732d2b79c187c0e70f8d6a6cc778bd08b72da74900a971cab1678570c11",
           "provider": "openai",
@@ -1047,7 +1047,7 @@
           "reviewer": null,
           "sourceSha256": "7e13c40f0c1bbabc652942ae74e454d67d19093b5fb3df9fc0cac22715b23f66",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "3f4d81c6dde382a5ad5f40e36934597bb4fc7afe8f2c1afad77e55e305ebc95a"
+          "translationSha256": "6e24bc79e1bfdfb8a17d92af9982178ec8b2247f9ded7162bb0089c0307fc53e"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -1063,9 +1063,9 @@
           "translationSha256": "441ad55d4fb26a7310758d95e81da7d1e95e05dfebe09fc142c52a5b01ada668"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:02e579e7d1c863608d39:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "ee2fefe19ff73e4693f9e1096bb6f6f771f5ae1cea372bdfe2c63eb206f7e3d9",
           "provider": "openai",
@@ -1073,7 +1073,7 @@
           "reviewer": null,
           "sourceSha256": "02e579e7d1c863608d39d7583bf1cc951521e41bb824bd6e7160b4d643bd0a0a",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "8ec5ad842a2231f49d57544f51aca404fecebaa8404b4b9498d236aea3526683"
+          "translationSha256": "5daaef93d9b2af7579a22c58f2306c7ad748bece3a72a195cfce2b0cc2d06015"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -1093,13 +1093,13 @@
       "sourceSha256": "dbed4e91132f28c4efecd6882467e7bcadf241be3a4a9354b37d6099f94b566c",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/create-first-project.mdx",
-      "translationSha256": "a8cf8ce6a41e9acfdcae0f1fd47e9f237fb87890784f658f005c3f61a02fd57f"
+      "translationSha256": "e867083de695885a013d8e98f92ed50f594daeb1ba4b83576be808da684f353a"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:answers/daily-vs-weekly-digests",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "b2d2e529caf7e5f72bf7255dc476cba86410de214920d8097f9df46949f8db79",
       "provider": "openai",
@@ -1121,9 +1121,9 @@
           "translationSha256": "dbf61cec3c384f927c58cee1b2cdb6cc9da98eca4ee0aa828c147bc4dbaa3d99"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "frontmatter-description:a4185865a0b8477ac614:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -1131,7 +1131,7 @@
           "reviewer": null,
           "sourceSha256": "a4185865a0b8477ac6142c074bdaa33b509aa7ade02c9971ed1a3584c5b6f9a7",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "3fab8d5727a4da190cc6fc70e7572845ce26d805bb251348c8f4f48c58c79a42"
+          "translationSha256": "07ed1580383fa772df617e13c0224ebad22726c25601fdf03fdbef4abbbe3fe2"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -1199,9 +1199,9 @@
           "translationSha256": "268a063c81e16a9145d0e35227f4da674116e46f85179bab5213e723ba0e6b6f"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:6f9f1e7d7f2a499e6946:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "aee6fde15b97e4e99cced2ed524267b99fe52cef842a26043767c1576d387a00",
           "provider": "openai",
@@ -1209,7 +1209,7 @@
           "reviewer": null,
           "sourceSha256": "6f9f1e7d7f2a499e69460cd3169aacbdf587f395221c20ebe67637eb1972c164",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "82e5818348062fdd72642215257e6847a55bde7e523d5a002120942fb11a3aa1"
+          "translationSha256": "f0eec44fda4965498b538030d24907d88ed97f49b08b5e9532d4b3ddba30e980"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -1303,9 +1303,9 @@
           "translationSha256": "5b70800786d4dda06203bd2701ad3f96e353559d4c00bfeb3f45f6618c7004e8"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:5d68b6fc6a601cdbe78c:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "c474dfb3095aaae28f6c6c8a7e40df2c6dbc8bc0cf2586faea190b981d9ed21a",
           "provider": "openai",
@@ -1313,7 +1313,7 @@
           "reviewer": null,
           "sourceSha256": "5d68b6fc6a601cdbe78ce349422f4dc24dfb214b8c5992cd2fc8582c170cb0f0",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "cf44368c2f6d89428e04ac23124b885dbf1c3b0546daf8b7cb4c338c7e93c0df"
+          "translationSha256": "45059ad76212bba6e1d0bb1f5a29525200cf63e15f94b9395ff8fe1a00a68d58"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -1359,13 +1359,13 @@
       "sourceSha256": "c45daad0d82213182622f81f8ce94a33ddf555fdc6589d7398f38baeced8939e",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/daily-vs-weekly-digests.mdx",
-      "translationSha256": "288e7f07daa8cfeeff9739ecdee0472135ffb23bd5f2135d2c74cf30eeeee730"
+      "translationSha256": "1ee968860acc368d3ee196a5a1d89cba1136bc2588aa403212b149a190f6b815"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:answers/delete-project",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "4c4008a16a150c8530c525b30325950d974282d762f510b594dccec58ad73ded",
       "provider": "openai",
@@ -1387,9 +1387,9 @@
           "translationSha256": "855d08edb25865d150948a9d971583272bb61b30d77a1218c9b3ba63edb8f16d"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "frontmatter-description:538b6f9a3412705a0061:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e45c9732d2b79c187c0e70f8d6a6cc778bd08b72da74900a971cab1678570c11",
           "provider": "openai",
@@ -1397,7 +1397,7 @@
           "reviewer": null,
           "sourceSha256": "538b6f9a3412705a0061633a65f76e872ed9afb5f657309d79222756c4645edd",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "454cab1760e06832475184d9d9fd39533216e064d698fc8590fdbd99ed81e82c"
+          "translationSha256": "c4b839c05b6b2e835878f8e8f0bed2afc14e3c24c100e19597de38fac33b2d2f"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -1413,9 +1413,9 @@
           "translationSha256": "f2f90318cbc551ee944a705d2122e3a571c68c063cad10fcd0b7961584a3f7e4"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:25e9e98571bf1e46a93a:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "52c28035df4cab924c97dc2f0b29b3631f6c961294c29da690f1e45b99bb01c3",
           "provider": "openai",
@@ -1423,12 +1423,12 @@
           "reviewer": null,
           "sourceSha256": "25e9e98571bf1e46a93aa3082bf64e5540166bc0909ad3f70702920a77ac89e4",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "19ebffa41361bbf92bc9dd538b1712f44ae3940a1888ea694bbac0fb183a87c2"
+          "translationSha256": "62b53b025f19b2e0f2aab77781d9901e9095e78e25bf76d5fe8d8b937329174b"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:7fd6a9ce917310931765:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -1436,7 +1436,7 @@
           "reviewer": null,
           "sourceSha256": "7fd6a9ce917310931765249ff2539359c65abe5bd4c3e025fa08266b6b32f7cf",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "9ab211021bd9b5b3448269d73944a93afa560753bf0a275e03e909e69e71f3d1"
+          "translationSha256": "15c33a3dbf5e86802e10457a198a87a5a88f48de3aa041d28831abcb2a042679"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -1456,7 +1456,7 @@
       "sourceSha256": "dd623e6b2c560cfa9af7307038b89454d28af596cf411463b83eb6c2a4588eb3",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/delete-project.mdx",
-      "translationSha256": "cea51c3d6710e5e444d783f16c7ae069294b41c364371470002253e46113d7bf"
+      "translationSha256": "8bf7c531dcb5ac20c0c0fc9d5c7e437f95f9510847dab693593e5de7b11b44be"
     },
     {
       "contentClass": "docs",
@@ -1558,8 +1558,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:answers/does-paperzilla-support-mcp",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "a7f8c981370f171a8b360e9c9d9af464afa526bda0a129c7a7e5fa509d6c0f95",
       "provider": "openai",
@@ -1633,9 +1633,9 @@
           "translationSha256": "a45b792a292e9e21f63e4eda71eeebc44d353cb8f29ed9d0d071f70cf316c5f3"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:5480d8774277557cfa55:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "c8bcd0a049c360ae94a4bbfbf22958d845ca96ee7c1315b310959b98dcbe3857",
           "provider": "openai",
@@ -1643,7 +1643,7 @@
           "reviewer": null,
           "sourceSha256": "5480d8774277557cfa557d8a1942d0755699e949a3eadb436ee8375f92428b19",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "a14f1be676f4e4a96be025ee8fde69c3ed4ef5e35afc7c6b2c0e1664a4c86b85"
+          "translationSha256": "ef4cba4f5e8d95c62ec55a286ca3822b5cb437e470ead2e566abd41f5a2c4a7b"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -1672,9 +1672,9 @@
           "translationSha256": "3973e022e93220f9212c18d0d0c543ae7c309e46640da93a4a0314de999f5112"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:f2553dcf885cf687e01f:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "132444fb2527862602f6d0ce28cea44d025965b39a8455db83ea6fb1d25063fd",
           "provider": "openai",
@@ -1682,7 +1682,7 @@
           "reviewer": null,
           "sourceSha256": "f2553dcf885cf687e01f0a9891218d116f11497d335f39b75a717100e3c7ae40",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "70a05e688fee029ebcfc359cbfd0969bcb83a7cbf539e4e1cc2e40ac6743c811"
+          "translationSha256": "d54b173f47486c69cbf82dd7f6afc9a68b78b37be6808807eed2e9d3948aecd3"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -1828,9 +1828,9 @@
           "translationSha256": "cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:9bf9ff8dd554c1d5ff04:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -1838,7 +1838,7 @@
           "reviewer": null,
           "sourceSha256": "9bf9ff8dd554c1d5ff044fd178a87bd0a7957ade104136da29c4f0655793f0fb",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "25afa219933e7a4f7524722804e240ef63c2d52aac46de802760003713091341"
+          "translationSha256": "80bbc6084cb5ea6a419446904932db8a3f731b54962f5598a2c84d146fe4ea24"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -1858,7 +1858,7 @@
       "sourceSha256": "5c7fbc3630f34acfde01a856dfc4374decf3c72e017d21d7b924cf7dd6b978e1",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/does-paperzilla-support-mcp.mdx",
-      "translationSha256": "dc3f0f4f80ef4edb8bada2dd8964fc08eb24a610e4003c5ca698e7654aa1efae"
+      "translationSha256": "207a87d2fd59f7cc928150fa3e3c569b33d0d87d358df4d3ee6327d3c1499e34"
     },
     {
       "contentClass": "docs",
@@ -1973,8 +1973,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:answers/how-do-clients-discover-paperzilla-mcp",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "f68227b964134c8c13c6094e4394bb74b3909cfc43ab164e506e84d4a404f85c",
       "provider": "openai",
@@ -2100,9 +2100,9 @@
           "translationSha256": "c1973b5831d2f74025ff5362090bc1e282a6819cc5de2204acdb8f31cd907944"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:929950b984c856abb2f7:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "153934a242e62b61f6ec0b02e04864784cb2c38fa0f528053fdfe7a7fe5ba187",
           "provider": "openai",
@@ -2110,7 +2110,7 @@
           "reviewer": null,
           "sourceSha256": "929950b984c856abb2f78b2fe05116a24abbd406872f99ec672c16c2fa04eb3d",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "d1b9f087ea0e0ed54797eccbb0400c16273e852e6bbcf46b52541428b48212a1"
+          "translationSha256": "a8a44e551a679b725d0d440af8c8cbd20897be2d4f2c66f45bc0248ebb25da8e"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -2243,9 +2243,9 @@
           "translationSha256": "a523dc07607897b92104ab7204ef7e3b9845825a8d0ab9c178c4b1d218c4929b"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:a88cf493047148e01622:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "9ee60b97cbe944cb06e5f862ffd6b399aa1a1c6adeb2c23cadbc6c6504011c0a",
           "provider": "openai",
@@ -2253,7 +2253,7 @@
           "reviewer": null,
           "sourceSha256": "a88cf493047148e016225dbbdc85a5268a7de6273891de3bbe6b479c70d017db",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "d022871d2f9fba1044e793eab8ac954175031ca785e8e30dbde99662f92411d2"
+          "translationSha256": "b16ec74197cd8390b6b266da55c1ef72409f9edaa1ecfbbb15dce12898cd764f"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -2373,9 +2373,9 @@
           "translationSha256": "47f188c94352c398ea2cfc86ade7044671144a949e863ec663f8cd2a21ee8dc6"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:69797b9fb3a8a3401197:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "cdedddbeb49c26052d753a972ea717471cff5d2772b1f7b8c0b4729ca51ea865",
           "provider": "openai",
@@ -2383,7 +2383,7 @@
           "reviewer": null,
           "sourceSha256": "69797b9fb3a8a3401197df3bf2e9fe84f47ea56626c8a706535d5ee88840a0ad",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "22538e8193e68d900c4b2c91f0eb942e7b7c19618d953f317ec3c12d8f1be923"
+          "translationSha256": "327aa64c478543be5fa6e8dc1a3116e9736a64c8c174623607e5386d710e3784"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -2442,7 +2442,7 @@
       "sourceSha256": "aa751ed1a44d642d081466027e87bdd20fd32a6cd5dac445e3c3d04c718ac426",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/how-do-clients-discover-paperzilla-mcp.mdx",
-      "translationSha256": "7952a835a1e809b16a47bb8f39a37b48da830a353484b5e4fea168593e4bedb7"
+      "translationSha256": "b690bdc79d852b89a32e5215df9daaaf9ba328877d8d7c9259f4e1f99dff3862"
     },
     {
       "contentClass": "docs",
@@ -2940,8 +2940,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:answers/how-do-i-search-a-project-feed-from-the-cli",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "cc00c57722d09371069b9b6cc2345a8354c7e6fcec38248d9584e415b7dabe80",
       "provider": "openai",
@@ -3145,9 +3145,9 @@
           "translationSha256": "da1840f17a0ba6d02b853720941104b2a800ec7857e0b177b982b3049ae56176"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:177495a8c9aea90336c8:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "81e9cccc713edfb081a01cefeebb05cc9d13daded059e43d2872a6f5b3a46320",
           "provider": "openai",
@@ -3155,7 +3155,7 @@
           "reviewer": null,
           "sourceSha256": "177495a8c9aea90336c8c825a20f115cbc633c68a3057eb1aefa212e8b7bbb89",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "9b6c5f3b21fc1dbcd91e1c7a8dea6c7aa27622af7c73d221dbb7d2cf5c02f147"
+          "translationSha256": "9b9047f4783ee6198ec9d70ea76c0553ea28da0edcb564fafdef889cc384d169"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -3227,13 +3227,13 @@
       "sourceSha256": "6fa8da208a9262f56720bd017e53f6fc4ae0b8b0dafc358e64e892979c18c379",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/how-do-i-search-a-project-feed-from-the-cli.mdx",
-      "translationSha256": "8620228dfe7519be9ed96c58983cf5d1b1d669ec54773337af77b5f8491d9fcc"
+      "translationSha256": "6fd26538c7505e9637430950d9328617ed0f158a79ec82b78edc5a6822c3b622"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:answers/how-do-i-search-a-project-feed-through-paperzilla-mcp",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "319c9566372560ef1e0b5f9c8ecc122125c34c816edec7d3238ab602b5595a4c",
       "provider": "openai",
@@ -3268,9 +3268,9 @@
           "translationSha256": "8edeea2a71918ca9456288dd18e25868dad4829827bf3b615f9350af5e9afce8"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "frontmatter-description:b723f6f52fcdb193fb49:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "978a2571d323faa2a2e65692117beaca31cecd75057d33f2b25fe0ab1df71d51",
           "provider": "openai",
@@ -3278,7 +3278,7 @@
           "reviewer": null,
           "sourceSha256": "b723f6f52fcdb193fb491fc4a5a6f9119191f1e63728f2efa8e94149c3fc6534",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "0af5276e0e73a93f448f6bd0ab852616dc57a9a4cb3f17df4c3825dd097b0cc8"
+          "translationSha256": "10bcb623973bbd826baae3efc19fbe47f39d11eb95a9e6b7ad4eac2333b68f0a"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -3294,9 +3294,9 @@
           "translationSha256": "ce00b5cf172bf9269d8c6aa8960435e8bbac424edac99f1158635f3869a1d947"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:d6e645b7d2b2da646d44:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -3304,7 +3304,7 @@
           "reviewer": null,
           "sourceSha256": "d6e645b7d2b2da646d44130464143171935ffa47558b4e36c05df175de7197ba",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "3c87a3b95c90898a8513eb3332cb943d8f78793add36c8cc7998037c6c39215c"
+          "translationSha256": "6e8a39d799f26080192857ddf4dd7310bb45136a14dfd58e57a15fabb29d8ad7"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -3675,7 +3675,7 @@
       "sourceSha256": "448d85a5b7db5fa0f1449a3d801be6736641b3b0fb8a53849693fda586a9f1db",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/how-do-i-search-a-project-feed-through-paperzilla-mcp.mdx",
-      "translationSha256": "c866842b2f3106253f01d9881371c60b7984527355240bf1a159b95f7545eceb"
+      "translationSha256": "784b8fa2e65c4f1271886605552a6ca22e9ba020ca5ecbe550c71d828cc0ed1f"
     },
     {
       "contentClass": "docs",
@@ -3998,8 +3998,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:answers/how-do-i-use-paperzilla-cli-with-codex",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "a972226bd2e0cbcced2087ffa71b5a30944fa251439d27969e4e0a8412174319",
       "provider": "openai",
@@ -4281,9 +4281,9 @@
           "translationSha256": "dee5c663113d86ccaca6cd0cc8147379918ece456a861204a99ff23b2d403ab5"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:b16ee2520c547af3fd06:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "6c1c7bb7454e04e342903d1e8172fef8abf3ffe88c25dd1f2c1a59f01e64f0b4",
           "provider": "openai",
@@ -4291,7 +4291,7 @@
           "reviewer": null,
           "sourceSha256": "b16ee2520c547af3fd06fb2e70f430c0be0fb4cf2e4d6dd080e4a1d7d7835a98",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "4108a55b660aa090df02c76351c44181986ef747d8c81e69ef41e9c60eafe4e6"
+          "translationSha256": "5a6c3bc136f636d2581be312e371fef6ca567ef0e8356e2c4ef35cf06f40ece7"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -4324,13 +4324,13 @@
       "sourceSha256": "6c284a65efeec48ada30b2ae85a9a02f8f0ca838282a8f631a2a595a6bff40a9",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/how-do-i-use-paperzilla-cli-with-codex.mdx",
-      "translationSha256": "d4b5a86ade08b950fdef619db44b4aab7085e569fa10117c221d3af95e47ace1"
+      "translationSha256": "48f6a6fb480613cc5be338874e5b2afe5e358b9fccab1c9d4704c16ab6c323bb"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:answers/how-do-i-use-paperzilla-cli-with-openclaw",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "15618e7f6205ca9117fae593f374c246172d40183dc1cbbfb41c72f35b2b685e",
       "provider": "openai",
@@ -4573,9 +4573,9 @@
           "translationSha256": "3e8482368b5c8140cf3104c3d54057e465e244f6aaa1c3736c27fde516f161b8"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:e0a9d0f120d3161bfa41:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "2b74e91b80af7c12be266a206a61128c98a34cc09f24c97d1b9c0cb2174ee050",
           "provider": "openai",
@@ -4583,7 +4583,7 @@
           "reviewer": null,
           "sourceSha256": "e0a9d0f120d3161bfa417868eff6b97ec521941cd5e1b258686ccb7cd18d9974",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "1d41ae389cc845396c2878bd2358d4d21719dd47cd8951136da8f182cc49a3de"
+          "translationSha256": "d9e34ac55cb7c5c7f7af67ea6ef10bab5b3d7889e549adce7c44ef5361e5dc0e"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -4616,13 +4616,13 @@
       "sourceSha256": "78de05bd483f741ee555b8ec8d7c59bb82601dfdc115068d170ec5fe80606ca7",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/how-do-i-use-paperzilla-cli-with-openclaw.mdx",
-      "translationSha256": "cb0ce419d06cb0c12e80e01659b80e22662956bf7358057400a38874945785cb"
+      "translationSha256": "d7f5beebd3fc11275ad30ae317e45ec977ce929208905081482cfa2e9a9f6fdd"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:answers/how-do-i-use-paperzilla-mcp-with-claude",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "40ac20f677688fb2bbe38e5373bcf2423f0b1544ace87e9845979d87bc7e9310",
       "provider": "openai",
@@ -4709,9 +4709,9 @@
           "translationSha256": "722489cc2fc824f27bc8ac51da037eed9c8edda790d8c58ca90cf0003b134c4a"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:4e54e84b4359c3be7996:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "032304fcb0baac92eb859899a7dccc7d636619da7ad90ec792cbec3dddba6ba4",
           "provider": "openai",
@@ -4719,7 +4719,7 @@
           "reviewer": null,
           "sourceSha256": "4e54e84b4359c3be79964dca73571ee519212aadf38a509f733ab1af649471bb",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "1b417561554f3ec30288a453e5e336d33af3ce8d36a7d02b437dac3845b53218"
+          "translationSha256": "674b5e100bf6030ae83b013bacd3fffce5e42fb935abff04b6da877d42c7080b"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -4865,9 +4865,9 @@
           "translationSha256": "6792c3433e1b215d2cc43259f03d53fbae84e710d9d204d3c21b3b53ded42ffa"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:781ea446dd4c756fb515:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "0615570f9ea136946c5dc08a250010320707646f57f72cedab1dfb73d95eade6",
           "provider": "openai",
@@ -4875,12 +4875,12 @@
           "reviewer": null,
           "sourceSha256": "781ea446dd4c756fb5152961a2f9cc451cc5e2884c65bb95a9ff40b011607744",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "f237e0ec1ed0ac2551bdc34f278b0e18357bdfdf6bd4e4816fa95c363c240a52"
+          "translationSha256": "f10e412aaed0194d49cf596b4817cba6bc6eb03570e5ba2ab535a949e3e60478"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:980545572dc97a12f63b:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "41203dfa04a4b558aef619c771d33f31c2e4bf2ecf41c4ad42ffd2a0cff503bf",
           "provider": "openai",
@@ -4888,20 +4888,20 @@
           "reviewer": null,
           "sourceSha256": "980545572dc97a12f63bc43cbd0699e8282c0959c6287549a9a15756d07c6292",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "57642b28eeae8696ec77d0018872c1fb30a8a41390e8a8fc28cd489fa413a2e7"
+          "translationSha256": "66f70705e880563082f5a1e0a31ca78bf42511767eff8620b4b08ce711b4948f"
         }
       ],
       "sourcePath": "answers/how-do-i-use-paperzilla-mcp-with-claude.mdx",
       "sourceSha256": "d13bb77e8f020aa5f7904c354e66bd2cda246336f0562210e9b14a568d510909",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/how-do-i-use-paperzilla-mcp-with-claude.mdx",
-      "translationSha256": "14b2ff70c5f077dca97f4f9d84b2de6858106ac219992ac3690ca3f65dab656f"
+      "translationSha256": "f0003be11d51dd20f717e20fb60f9d9fbb816a4daaa42ae19a22e42568ef7cf4"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:answers/how-is-paperzilla-different-from-google-scholar-alerts",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "341f1dc51c2d83ec65dd37f5ec7c40a6c2430905e63c103019b64852465ecc1b",
       "provider": "openai",
@@ -4988,9 +4988,9 @@
           "translationSha256": "feeb3bf1ef25b1312bcfb79b52eb41130acbed39ab8011d17652b589dc0b8912"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:d4f54af4f7e4592d7251:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "5107389bf740e11c93057ecbaa58fe3781456c7e05fe7152f7bab091f04f5e56",
           "provider": "openai",
@@ -4998,7 +4998,7 @@
           "reviewer": null,
           "sourceSha256": "d4f54af4f7e4592d7251144c3cc5d02ebbb3c62024da88316694005a7894fe18",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "960c2e1003bc79533f8a2296ed09975d7c0efaef487ee78cf112f821dc10ee93"
+          "translationSha256": "8bfef8995f88873f7f5f770e37066cbbfab0fb1f2bcb7b75e8975a5de299d316"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -5018,13 +5018,13 @@
       "sourceSha256": "b7b1ac60b9b833e766ffb455e1787671a7474912e6f8c36b4c6a5816d7022ffe",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/how-is-paperzilla-different-from-google-scholar-alerts.mdx",
-      "translationSha256": "8bcc13b516645cc852faea6e810dd9c858013b0d29378ee1b3099d84c691fb9e"
+      "translationSha256": "7662fcbb8430e75fd66010cb1ec01854c24a0f7d7c649002c21159064419d2b2"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:answers/how-is-paperzilla-different-from-rss-alerts",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "46f627571b0aeaff28b685bb325a630d03f78042e57048fb041625ea785ae2c3",
       "provider": "openai",
@@ -5111,9 +5111,9 @@
           "translationSha256": "d403f8c89c98827afa4b47546dcce54ec4228dfd8b5ca269422209aaccba2416"
         },
         {
-          "generatedAt": "2026-09-01T15:04:39Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:fedc7a12c0ef5e89eecc:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "5107389bf740e11c93057ecbaa58fe3781456c7e05fe7152f7bab091f04f5e56",
           "provider": "openai",
@@ -5121,20 +5121,20 @@
           "reviewer": null,
           "sourceSha256": "fedc7a12c0ef5e89eecc42b20a82f05b6e9c9ab59487a747ec7e893edbfec1dc",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "b037772b7bb89e7390d6e2a84160efc1908751a870c4d96762b120b4840e9166"
+          "translationSha256": "b75c3cbc8bbf8973bceeb230ab4fcefca4abf20d8877c36ac691378c0333eb66"
         }
       ],
       "sourcePath": "answers/how-is-paperzilla-different-from-rss-alerts.mdx",
       "sourceSha256": "00be62d523ed1ce883137848a7c6fb314dedeba439852f479aa373396ab3d76c",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/how-is-paperzilla-different-from-rss-alerts.mdx",
-      "translationSha256": "5f9df4c6d2107772dfcb8aa3010a881d0fdd3fc09cd30b9e36a00a4a6eb41774"
+      "translationSha256": "2ac6b9d071adbad627038e1c206e061c00eef9c72bb2387fa15fb408c5603457"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:answers/how-summaries-work",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "a5098b2ebf7bd6f187af375c43dc711aca86d955c3440bc2291c11b09bb07bf1",
       "provider": "openai",
@@ -5221,9 +5221,9 @@
           "translationSha256": "a260489b086521ad422cc817432d6475474e3e33d23b55319bfe913c5bc00eb2"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:7d44220da442e3d9aa16:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "be35e6d58ca9711203d23c8cd9e03b9ad7517836515a80c8b004e76a0e5bafdc",
           "provider": "openai",
@@ -5231,7 +5231,7 @@
           "reviewer": null,
           "sourceSha256": "7d44220da442e3d9aa16a5d222218cb9079e8bf90ec2796bbcf4f63dbf81caaa",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "035f0325d0e348841788bbed3fd5ad9b25d3c330073f5446f78a42d3fc315acb"
+          "translationSha256": "8213043ab91de217705463dfb67dcc1975ba6156be619cbfc073b9fd5ffb39df"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -5251,13 +5251,13 @@
       "sourceSha256": "7143675b95ccb938df1b0b1e8140ed208b6f108162f1332db3e7423a2559f9fb",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/how-summaries-work.mdx",
-      "translationSha256": "6b7b77e5444e7b94d5f69b799c6c228520d1c4b5033efe30f3ef8e758bc4d6f2"
+      "translationSha256": "5c6ce49c544a93d360143546ff45f4cf2021138dee575e4005696e45d6eadf61"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:answers/index",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "a6c05ce50f02a908b58e41d7e340f1a3c47b36b164f44fb4a51675270b5d10bf",
       "provider": "openai",
@@ -5773,9 +5773,9 @@
           "translationSha256": "ca192ef4aec16747315295366895edd008d86ffa003d2c9c18125d883214ad05"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "jsx-title:8aa4d9819b5a13f3a719:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -5783,7 +5783,7 @@
           "reviewer": null,
           "sourceSha256": "8aa4d9819b5a13f3a7193d330ffd40b36b774048061ac0f216a61b432ba9d9f6",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "30d68baef5eaa7ebbc9305c0d13500028a6d23b1c015bc9d7c5d5836031d243d"
+          "translationSha256": "50f5adad9a57be037ad2732c187530f56e98b1ba740e9a6082c6f443525c5b8a"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -6245,7 +6245,7 @@
       "sourceSha256": "b7e5ab4dd1ae6d03bf505d2d289c8e693769d7e42d45fcdd059816b41d61a383",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/index.mdx",
-      "translationSha256": "e4dbc0eeb1ce8aa5c92b8d5573afd5fca23675fc8d2af1e0f168fad076c914f1"
+      "translationSha256": "074610c484eeb43d65022bebd67e7ac1f4f5adbd7585a3511abdab1327683b2f"
     },
     {
       "contentClass": "docs",
@@ -6509,8 +6509,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:answers/less-email",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "6e3042b8e3a962904597bd89a6adb997c7812de37142c376c87230ae275829df",
       "provider": "openai",
@@ -6896,9 +6896,9 @@
           "translationSha256": "e23840a9f123e86b68e4b195c39a12fa5de1c865db9e4662c908b4b04306e403"
         },
         {
-          "generatedAt": "2026-09-01T15:04:39Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:ca310c9b88dedaf3b7d3:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "60c0d46b4f3a7888274183f1eb4622614f1a96e30a0d1f46f3cd9870c7b15f91",
           "provider": "openai",
@@ -6906,7 +6906,7 @@
           "reviewer": null,
           "sourceSha256": "ca310c9b88dedaf3b7d3779a5a6aaacf39b46d4471f6e49886cd1f9090eb9c78",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "0dbb96d6d5ba3040b5e6a00bd6c51eafa81ac81a637aad5d4eb51c8f0977793d"
+          "translationSha256": "cf92bd98d247a174f420f0d34d55f97e32ec83993478149ebc950cd2f4ec64e6"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -6939,7 +6939,7 @@
       "sourceSha256": "2c5c547ea5c9b2664809a7d51face9866c8aef87bbd6a2b62f2da732d2da56e4",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/less-email.mdx",
-      "translationSha256": "376cb9b24d05535859b783fece20fc52b76090141637197592c10253b58b3a34"
+      "translationSha256": "5eca11a02cf61932320030b2a02e38150fc47db754ca08e4ce4c8bdd227793d3"
     },
     {
       "contentClass": "docs",
@@ -7054,8 +7054,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:answers/must-read-vs-related",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "bf5682f9bb090bec278326fc92e8b5c66a2b6954316467c1d6b7f117872b4a28",
       "provider": "openai",
@@ -7064,9 +7064,9 @@
       "reviewer": null,
       "segments": [
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "frontmatter-title:8aa4d9819b5a13f3a719:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -7074,12 +7074,12 @@
           "reviewer": null,
           "sourceSha256": "8aa4d9819b5a13f3a7193d330ffd40b36b774048061ac0f216a61b432ba9d9f6",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "30d68baef5eaa7ebbc9305c0d13500028a6d23b1c015bc9d7c5d5836031d243d"
+          "translationSha256": "50f5adad9a57be037ad2732c187530f56e98b1ba740e9a6082c6f443525c5b8a"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "frontmatter-description:d0487f4f19bc64377e56:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e45c9732d2b79c187c0e70f8d6a6cc778bd08b72da74900a971cab1678570c11",
           "provider": "openai",
@@ -7087,12 +7087,12 @@
           "reviewer": null,
           "sourceSha256": "d0487f4f19bc64377e56085417a77f66cf52d27f57130865c01414b9c65020b0",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "0f616060dbce38c118cb9af1626cc107221f1e38b4e4eb37b1b46790f01e0010"
+          "translationSha256": "58a6c4fd2c6ab2ab5f26427785c964e74c1a7608480ee6ff878718f03a87f5d1"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "frontmatter-keywords:99a101ee815984ba023f:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -7100,7 +7100,7 @@
           "reviewer": null,
           "sourceSha256": "99a101ee815984ba023f88bc308fd329529dd18bdfd84281b0e950cf8e2fa435",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "eb968d11b2a3166903d3e61ac61dc71b31b7077ece502b54166a2e00e8ff2446"
+          "translationSha256": "9d2ecaba6e79942250374cbc698587eccb8b8cc2c796c77a40cb03d529e1041a"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -7116,9 +7116,9 @@
           "translationSha256": "f5b12a91bf463c17ea74163789b4d15ffb97f507bf47335bfae3088db77daf2a"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:894f35e7fb1defd08015:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "6de44cc85fb1f3e44a1cf18dc31227c7846c79c49764854b9821d65eb0bafa46",
           "provider": "openai",
@@ -7126,12 +7126,12 @@
           "reviewer": null,
           "sourceSha256": "894f35e7fb1defd0801566c4c62b0462bfa99550deb95abee7d28f3ccba4d930",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "6c3222fa934330b4e66f87b17514f2b4e02b6d5b8fcb2cf7c559d0db053a916b"
+          "translationSha256": "6661312299efee4c46ef9e2417fc00ba99b7d3a83d1abb95f8c532ad80d1ccd7"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:903f129d77e32a636639:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "93cf69f87ae3ce87b757a82e5edcf1049b8cba1acea2c2e58c243080d6f25356",
           "provider": "openai",
@@ -7139,12 +7139,12 @@
           "reviewer": null,
           "sourceSha256": "903f129d77e32a63663902840737e09eb28368b6bf60180bdc1adcb24a98a67d",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "e2d4aeb8539cf44871e4710a847f9ed8c4372f9fc0c1056f428b4bb17a11aeca"
+          "translationSha256": "1abad53e9522b761d785b1f7b3b640fa2b8fe191a9f30d79fdbfd276a27ac108"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:f830e2eda958a724a6a1:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "93cf69f87ae3ce87b757a82e5edcf1049b8cba1acea2c2e58c243080d6f25356",
           "provider": "openai",
@@ -7152,20 +7152,20 @@
           "reviewer": null,
           "sourceSha256": "f830e2eda958a724a6a15ea9a44fef7fce05cd9f176311be4106f4e40c7ef704",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "6a30004968ce24457b8274764323236b13a89412aff296cc962917a2e8240b96"
+          "translationSha256": "ec96e87123c46417f5d66ebd9c6369f06d09dd330776aed19911035be94f796c"
         }
       ],
       "sourcePath": "answers/must-read-vs-related.mdx",
       "sourceSha256": "dc416aaa59d28bff8caa322c59445777db1b5e07580e690ab4ab0779a3e5c63b",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/must-read-vs-related.mdx",
-      "translationSha256": "0d1901442a1658b70812bfe81183dfa5bef7eeb540059f7649b327c5119934fd"
+      "translationSha256": "138ec27aa494a48f5e9331a83a939f696ef7154eeb0d21f2e63f1dc4ef4370e8"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:answers/openclaw-skill",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "0a2b48a2b6500a5c59c7fc10933eea980dfd3981342cbf730a485cb307c3197d",
       "provider": "openai",
@@ -7343,9 +7343,9 @@
           "translationSha256": "0a11aec93045f51f330ab42a205f38ea5d54ecab15f68226cc0f801960f540d2"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:3890989844dbd371cc6d:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e759793341ff3757eaa76e814db0170ec13b6b0a988a742d9a81240c505f48ec",
           "provider": "openai",
@@ -7353,7 +7353,7 @@
           "reviewer": null,
           "sourceSha256": "3890989844dbd371cc6dda78ba970f6f3c8e9402ec1b64042b0267502439e5ad",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "0edb0285e5dda89087436a8b78e1766a0ac6d2b24009f02ef69707f467439828"
+          "translationSha256": "95c9fff0ed73238a935747d41b80724c3117e268a039be56a3fbc33fe1fdf2b5"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -7425,13 +7425,13 @@
       "sourceSha256": "c326ea1c4c9de410285422f24e85b343a7284238f78807fab2fbd2f8efb8da40",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/openclaw-skill.mdx",
-      "translationSha256": "f8a212a1316242d2e48343b7333ef810cb66ce924b26c90f5dbfa9ecfdb31fb2"
+      "translationSha256": "9062281e17b10cc84ea9b861b224547a3cdfe1936d99c6a72e8c28e31e12f9a8"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:answers/pause-email-digests",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "335d89afa366e92ef6f24602b85583dd5fb2eb20c3778dce03f2125d61704f2a",
       "provider": "openai",
@@ -7453,9 +7453,9 @@
           "translationSha256": "1595095b3d5c6e2143c89e52189b87f7c3642543724ddd18bec90a9ab9a72fb4"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "frontmatter-description:0de0894cac0501a0a6f4:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -7463,7 +7463,7 @@
           "reviewer": null,
           "sourceSha256": "0de0894cac0501a0a6f408273567b9c34f9a47651f19c828754ec929475da6e7",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "5b31459c927936994f420f87f37e4242fdb28c3a7cf81e07599100d3afae2552"
+          "translationSha256": "44a1f568e386f14cbe65b0be3b6aaa0d1a7546833bfdaa669aee2d1132d21ceb"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -7479,9 +7479,9 @@
           "translationSha256": "8651365049b1db9e3d21c562a68d9235197a0433cb0f3ea45f6452a4a6c6e5a9"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:528ab4f02cddd4a10516:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "ea9c7ee5748525449913d97048340671c60b473f68ee8aeb6f0bb5b537489a93",
           "provider": "openai",
@@ -7489,7 +7489,7 @@
           "reviewer": null,
           "sourceSha256": "528ab4f02cddd4a105162dbd10034ef91f193ddac9cf0ceeb143e7bce0fdd10a",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "2de4963322837e25554547dc60c9f982b4a778e8d9e478057615adfbcbaf548d"
+          "translationSha256": "76fc6376fc7acd4a717ad43745156a9da67ba051488efbfe4cb253798ec08b6b"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -7561,13 +7561,13 @@
       "sourceSha256": "a0b07f8caae8b6c06693925f2a6c9829fd1460a00755dd0eaf2815a50505629a",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/pause-email-digests.mdx",
-      "translationSha256": "505f0d8275edf710677537bdd134b789bc3d203beedd0b000607db7b9df8b02b"
+      "translationSha256": "d94138a6b24b599309bc96b68e918ce26e7209a5cb7d250162fc86c03de2d299"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:answers/pause-project",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "cc737ff0386da326121950c1ca8986cbdf9fb8ce438ded4da779a03c32100443",
       "provider": "openai",
@@ -7654,9 +7654,9 @@
           "translationSha256": "2b4d1d0ba233ec860f22b615b3520c6c38a5f2c4c05144dde7afe6c38aef1f02"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:786fa07a7d9579cebe9d:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "4426c1ce61f3f2bea2b9b3d7fc73d11e4b968ad80f98468947fc5bd06f822efd",
           "provider": "openai",
@@ -7664,14 +7664,14 @@
           "reviewer": null,
           "sourceSha256": "786fa07a7d9579cebe9d1b9bec15a94cd78e53e45473455d0e2c0ca16e0a8551",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "7ba91264db4e528c5e623b2c887d2703f511c563758fabb3ccd068d87b2ad735"
+          "translationSha256": "54e54979bf34f699fca48d6df8329ad32ddc536b98cb418dd8a633d0f38ba42b"
         }
       ],
       "sourcePath": "answers/pause-project.mdx",
       "sourceSha256": "501735939a887d738205e5b87058a066a55225eb76210426f24a54dedb4bf21f",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/pause-project.mdx",
-      "translationSha256": "1c545f3f969649f6e3a2d9c3b4bef836b162a3115e4af303d607ee98dab5a1ff"
+      "translationSha256": "181fe96b224c118955f88b2a43c964a34911d9862bb90f52d67e44e7f7908dfc"
     },
     {
       "contentClass": "docs",
@@ -8181,8 +8181,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:answers/research-brief-claude-cowork-slack",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "b5104d4986fc438b804aa3b619edb5c930e43b97aaf0fcf195a68d14d2a5d8e7",
       "provider": "openai",
@@ -8282,9 +8282,9 @@
           "translationSha256": "d5944f8df7405e69ff2ff30919fa5a61a56a21757bb66b4129e3531d342d1f73"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:ee0251347bac6225fc29:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "aeb3f9f8d9c22e84faedf4cb6a1bb706325d12f05f1e3993ecb52df56f91e5fc",
           "provider": "openai",
@@ -8292,7 +8292,7 @@
           "reviewer": null,
           "sourceSha256": "ee0251347bac6225fc29ed3009b9d8b1bed901c6cded49272f4bf06f28b6da95",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "6f7b27d627f26e3acad6a200b8318c7eaf90da2bf7974f00a4c94e6d13af2dd6"
+          "translationSha256": "1aec15a853708012ce71aa42ee328bc0a9bbc53ab5296d035693b6fbeff7888b"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -8325,13 +8325,13 @@
       "sourceSha256": "c621ceb53af331da59df819a84a641fc58abdff7e871d293c1190b636ac1699c",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/research-brief-claude-cowork-slack.mdx",
-      "translationSha256": "207fc0d20b617f1e4f833e100a318dc1722841097059a22e13a4eb7a8a0694fe"
+      "translationSha256": "76237367ced72555e9dc3787b1ab763410bd2f570f1af1d1ac05bdc9132e6229"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:answers/research-brief-claude-cowork-teams",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "739de7d20bcccfd9b1709e161a234065a497935a82dd1e04b0f1b4ee95f576e1",
       "provider": "openai",
@@ -8392,9 +8392,9 @@
           "translationSha256": "2b91436250d364d1a599ed11d5c15a4fb330fb7cd73a7afd25374d7c18e75a26"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:8a3a0c0f70c7bc39e9d0:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -8402,7 +8402,7 @@
           "reviewer": null,
           "sourceSha256": "8a3a0c0f70c7bc39e9d0fc1ee08c22d6251d20c86171a29e9440495fbf85ad50",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "aa5c3be4b6b10666c913e078e6280b85767db7eaaaca6fa136d17474e532b354"
+          "translationSha256": "39ab33f7de267c2ef0d844183c69aad6fdfc3840dd86a9988cf9cbab8e32abe6"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -8474,7 +8474,7 @@
       "sourceSha256": "fd618cbdc6628ef07c2dcc9d458771e8df84ce99462522801ba9303ab1ab988c",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/research-brief-claude-cowork-teams.mdx",
-      "translationSha256": "f456b40942406640a8cf95357f575494bfa30723141e9c0fd196e5938b207cc0"
+      "translationSha256": "683678f8ba596ae12aacea6759fec702d6184edb5d04c4a6370e18823df7ab9e"
     },
     {
       "contentClass": "docs",
@@ -8816,8 +8816,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:answers/research-brief-codex-teams",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "b6574b2a3a89fb0fb8551c215337b3b277fe10529f5bf6de887b4329846c9799",
       "provider": "openai",
@@ -8917,9 +8917,9 @@
           "translationSha256": "8a8b1dc1a642b2bbce60765d7932024cc2863ea26bc259747b9a5e8b69b552ac"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:bd13b22ccf64e503782d:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "631ac577bb36f0e78095d234379b2ff7222c88f613daba5e982a5ff727a04c35",
           "provider": "openai",
@@ -8927,7 +8927,7 @@
           "reviewer": null,
           "sourceSha256": "bd13b22ccf64e503782dfd826c4c5293a6da78c59469b3ed04569b2294c7ca49",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "323de9e95a46056d7d91a34ec5eb0374fb3e1998f67839e92821662a380207b1"
+          "translationSha256": "bf865d9755e4ded67658444134a7ed40f4b59eb66472af2c8f584f85de69bd1b"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -8960,7 +8960,7 @@
       "sourceSha256": "78e5d3f756ef859cdeece1d8a00d30a2ab3ca26180156669eb2d2627ba554aa9",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/research-brief-codex-teams.mdx",
-      "translationSha256": "2deac786f3b3927c55cf7c2b557176e92d968285b45ee0d51718ee23704a68d6"
+      "translationSha256": "82f97131c7301e5e8e4e0330f605b72dc25e2d95d7cae35db71bd6d1025d0eae"
     },
     {
       "contentClass": "docs",
@@ -9451,8 +9451,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:answers/research-brief-openclaw-telegram",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "184562e7a36ccd11a8e861855535b97c23ed15d42099d5d579a486aea96eee2c",
       "provider": "openai",
@@ -9552,9 +9552,9 @@
           "translationSha256": "ab9220f01a95bff2073e063e44e17bad7e3faa68e7a17f59ba177af6dae1853b"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:e8477c6df6052c802305:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "eac75f3362b478dd4de7517c74df50ca9a9852b4bacb68b73bfe5da38999e6c7",
           "provider": "openai",
@@ -9562,7 +9562,7 @@
           "reviewer": null,
           "sourceSha256": "e8477c6df6052c802305926060685af77575610bfdbf47413818a352f87ee11b",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "0c0f02b04f4e384a84dccea7f76183b58edfca1f08adf2f4c1bbd94e766eaf0a"
+          "translationSha256": "c1cbe4fb676bafc120dfe7e3b052614370206db8396645cbbfe828c4aef40650"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -9595,7 +9595,7 @@
       "sourceSha256": "486be00638a98ff07cf25b52066e4fcba694f6bdb5bcf675e88f3ecf9e298b0c",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/research-brief-openclaw-telegram.mdx",
-      "translationSha256": "8cd651dc17a37fed96a8e8ea5f9e01f643ab4fff08ea161c2fab38f7df9a0151"
+      "translationSha256": "f8f3432e44dc271587cb242a9a17f415dda912d2811f899da5bcd2e82c2d8205"
     },
     {
       "contentClass": "docs",
@@ -9710,8 +9710,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:answers/search-project-feed",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "116f924316e18b2b7d8ea51a705d4cd6ca77cab30ce170114aeba210fc66ac86",
       "provider": "openai",
@@ -9733,9 +9733,9 @@
           "translationSha256": "e0a3d2d047dfabefbcada6d6fe435fec2848873a62330e9872c8705eec08af0b"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "frontmatter-description:aac7e700d2cfd811c03f:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -9743,7 +9743,7 @@
           "reviewer": null,
           "sourceSha256": "aac7e700d2cfd811c03fdfe7dec61724389e65fb477138a4fe9bb132f5d80b79",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "3d61541aa02c2152cafde556903d06cbceeaf1165d9d81f4fac1b80461977af4"
+          "translationSha256": "b9f924baf6fa5c16efebed61d75d163e33237b2fe86b4585058f0507dfeaafa2"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -9811,9 +9811,9 @@
           "translationSha256": "cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:2d9e44d8b2660fd87c53:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -9821,7 +9821,7 @@
           "reviewer": null,
           "sourceSha256": "2d9e44d8b2660fd87c530c6f064691f0a55ee8f39de0fd5eb1e7cfe2061bf951",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "0655f0806a837bcdcd53e47da3bccb6d67a414dac360ab7ec659bfcaf5674a9c"
+          "translationSha256": "8204184b23c4f0823904499db101813b86c613554219970a9f56c8033649f084"
         },
         {
           "generatedAt": "2026-09-01T15:04:39Z",
@@ -9837,9 +9837,9 @@
           "translationSha256": "02cfaa0e420701b55f8fb8de7a05b5c3a40d900037f01868ee87da4f99c0bf2f"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:9c995d91a182424b484c:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "ce94ccca8a30d6eb8fcf01dc60c9a332127d9cbe467be27ec24592e3e265fd45",
           "provider": "openai",
@@ -9847,7 +9847,7 @@
           "reviewer": null,
           "sourceSha256": "9c995d91a182424b484ca5584b1d36762aef15e2822ba69da3d0884efd40d4c3",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "91faf3e06b3900a1c1961d413c33ffb20f11d04db17320f2f7a2cd52e7d6fdc3"
+          "translationSha256": "357c2685c4211ad1206e26063196dd0659b9f03bf127a05a2da26c105e147668"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -9880,7 +9880,7 @@
       "sourceSha256": "d6fde76340c7f6e38a837262c35e4a81455e7228d1fd0eac07e99e9a09d05d0b",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/search-project-feed.mdx",
-      "translationSha256": "3866f3c81a8afe2d593e29e2ec7b58fee3854f4533225171ee4c2a25b24d8a4e"
+      "translationSha256": "ef2096d624bba466bbd1699f86a5945a9cb2aeac16b6695df6c15416f7cafe20"
     },
     {
       "contentClass": "docs",
@@ -9969,8 +9969,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:answers/share-project",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "f05d41bde63c3927c3d76ee5c59844bc950032dd452b8e1c1fdca7ae01ac7e03",
       "provider": "openai",
@@ -10018,9 +10018,9 @@
           "translationSha256": "15a79b20bd952ca8785e312a0d18a39e5c20cf568527ebb190a01ba6552a7b6f"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:7073151e183368508ce8:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "0ee6fb926041755cb2f95ba903898fa98fbc362a4a8cd0097554a216f4575bd0",
           "provider": "openai",
@@ -10028,7 +10028,7 @@
           "reviewer": null,
           "sourceSha256": "7073151e183368508ce8a7aaf40419f855e2bd7f796806c325620bcf78e2a84e",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "762f8ca61682433fa1dd2cc32533a1adfd891f71c06ba108dd0fb43e38a6c8d6"
+          "translationSha256": "698f330ee90083b43e4f2130b4e6354b4bc6263a1d44761c5c9b50d8bf527182"
         },
         {
           "generatedAt": "2026-09-01T15:04:39Z",
@@ -10048,7 +10048,7 @@
       "sourceSha256": "6e6cafcac4ef4cbe6d2af96eddddc4904431df3c228e6d5456b97e7ef214bcf3",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/share-project.mdx",
-      "translationSha256": "b6fdb608ee4b20546ceae1b4e1eed7670aebd7790c22db2d1c44cd45a261ed45"
+      "translationSha256": "f4f4369ba89027e40c2a08904c83b90d58998b2627f8699e389574c8e87b3dde"
     },
     {
       "contentClass": "docs",
@@ -11290,8 +11290,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:answers/what-problem-paperzilla-solves",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "050fa2269fcc2e3706548b89f54145c9a571052678f5437d8e73220add51aa86",
       "provider": "openai",
@@ -11365,9 +11365,9 @@
           "translationSha256": "3d7135f79707d57a86efa2c2a5652bdf22d15f93ee6a797d9a699956f7cb8b44"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:10538ece38c65bc707b1:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "a6f261ba78f2e75f97e6f31605f751cb8f1f87651d839f71c9f068d664b26c02",
           "provider": "openai",
@@ -11375,14 +11375,14 @@
           "reviewer": null,
           "sourceSha256": "10538ece38c65bc707b19cfb7a0770feddf760ac6931acb6cedb44aab0072c97",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "8a5958b214c71b373e42ee1bba1fa2e13ca3dbe9a138edf37779b072d1a78dd6"
+          "translationSha256": "3c49a5fd5ebcedf3a6b3ca2e47ad26df59b55badb0639d471675ada354445257"
         }
       ],
       "sourcePath": "answers/what-problem-paperzilla-solves.mdx",
       "sourceSha256": "ecc1d2770aa17b5f930859b0d3ff7900a18f6f01189e85cd4b19ace76362386b",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/answers/what-problem-paperzilla-solves.mdx",
-      "translationSha256": "4a37fc32cc78f1e68381355028ad51116a69f112ed5b541f6acf0bd75d4b2f84"
+      "translationSha256": "915e61cdf221b4ed8a0dca1d115c9f3d5e8520509c3fb90acc39646bc4394d2a"
     },
     {
       "contentClass": "docs",
@@ -12138,8 +12138,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:api-reference/mcp",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "8d55a16e740354a22346b1b1888855ee09c9a45ebdaf4068854186e37051c589",
       "provider": "openai",
@@ -12239,9 +12239,9 @@
           "translationSha256": "ab26bf8cc05c51a13fa4796463170fc2f64dc61c357dbb9c3b4901211d2e2c97"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:146a769011cf31a9a577:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "8bac4f6be2cb255a053b7825be6abbf109c2a3739af3fa0c3ab823777381a83d",
           "provider": "openai",
@@ -12249,7 +12249,7 @@
           "reviewer": null,
           "sourceSha256": "146a769011cf31a9a577b6934f81e5afbade0d618c9f72aad05827a3a7b71361",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "da2b3c6767a0854227ad067cf15d7289bb5c360e6d9a4210210c055869110e17"
+          "translationSha256": "ff45bc7f937b8d26edcf4b4bf24c5d50aa4bc30d805b1f3f494aefc4eea2e16e"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -12265,9 +12265,9 @@
           "translationSha256": "cf5edde830b4e6d91f5fddab2e8e5d413d07fe1e5ce53ff4aa212533b915c6bd"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:df71fb79ae255f5eac76:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "c8bcd0a049c360ae94a4bbfbf22958d845ca96ee7c1315b310959b98dcbe3857",
           "provider": "openai",
@@ -12275,7 +12275,7 @@
           "reviewer": null,
           "sourceSha256": "df71fb79ae255f5eac76fa9e6197fe8301fa836fadda6365410af9112abd5830",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "cce04b2e676cb3fdbb8cb1948fd72263b2e7bc1d539e9d8340fb7976c8bc191d"
+          "translationSha256": "f8fc5adccf643d0d66bc8ef3a99da9777b01a4c046557070d9a46bf034729d0f"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -12291,9 +12291,9 @@
           "translationSha256": "b8a94d4dadf8061898a3aba552907757a87bcdbf67c2bd5938ecf94e0f6c928e"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:3b5f36581d02d07b6623:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "132444fb2527862602f6d0ce28cea44d025965b39a8455db83ea6fb1d25063fd",
           "provider": "openai",
@@ -12301,7 +12301,7 @@
           "reviewer": null,
           "sourceSha256": "3b5f36581d02d07b6623e8373211fd3fd53aa8fc475287ed2d144b36d4230356",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "a46c42801866a2efacca2e50579187797847f08b8b7449fb2c2aa7b88b0b2d8a"
+          "translationSha256": "52313d9097ab4c6133936be3f1d5b8fd075b5abe681fc003b58f86a346b9cb7e"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -12772,9 +12772,9 @@
           "translationSha256": "571af017aceda5dc2aa3075fe379714f7ccceba00af4b33f64d9f33bda876892"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:81b2e4753ae659b4ec9b:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "5e1edbdeb491b1048538ce6021b5cdb37ac6afe90ec0d14e2016ef1a368971e6",
           "provider": "openai",
@@ -12782,7 +12782,7 @@
           "reviewer": null,
           "sourceSha256": "81b2e4753ae659b4ec9b46c42bb603106d09068e7e7eb2ea64b7003dd666443b",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "05dc5184008dc8c541122b06ba32ee97689b6c257de75958bf08130d383f7159"
+          "translationSha256": "10b9ec9b34c529d6ab6813d10afffbe7d42161b14108dd46cb100a9484d356b9"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -12798,9 +12798,9 @@
           "translationSha256": "3973e022e93220f9212c18d0d0c543ae7c309e46640da93a4a0314de999f5112"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:852075b9e4e67d3ac3a2:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -12808,7 +12808,7 @@
           "reviewer": null,
           "sourceSha256": "852075b9e4e67d3ac3a2b7902c558e0f306383b8aeee7e51c6360195fd878d5c",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "852075b9e4e67d3ac3a2b7902c558e0f306383b8aeee7e51c6360195fd878d5c"
+          "translationSha256": "d1662d15de22bd92bc07730d58c0575006234a37613111768f75a42830892faf"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -12837,9 +12837,9 @@
           "translationSha256": "83a2ab190ee575f9c686816a7e6c92dfd8a416b8513be3ace4ffb155c1283978"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:7395b29118f589e023df:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "53f13ae99ed53bd346eb8e1c8cefb7ef8260683b50401caf101360967ea052aa",
           "provider": "openai",
@@ -12847,7 +12847,7 @@
           "reviewer": null,
           "sourceSha256": "7395b29118f589e023df06e1d75233bdb076952887c85a67a27c6a630987da25",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "5460bb66e0b0999763e55a92a0d33bee1d51f8a3b41105595f7c79d4a879fa74"
+          "translationSha256": "802c178e25ac5587fe5c4aab991cb77c9ad525702d43eb8341c00eb6d8d7ee31"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -13071,9 +13071,9 @@
           "translationSha256": "3e0467828db63da2adc0b9fceaf10500aab540c4d7e12201a1ebadb2a9c98936"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:7dade2ccc7c4c301e349:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "5e1edbdeb491b1048538ce6021b5cdb37ac6afe90ec0d14e2016ef1a368971e6",
           "provider": "openai",
@@ -13081,7 +13081,7 @@
           "reviewer": null,
           "sourceSha256": "7dade2ccc7c4c301e34937a0d38b9c8269fee733f9a7b962eb4d39a764a13bf1",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "40a0f7e712e5306fbb4bf48d1ad4b78574f7790315e7ce3bc7641f1c714a5163"
+          "translationSha256": "d634abce49fb447580c40be84d4aadb03a81bc20778275560fa6f20b5bf980e5"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -13543,7 +13543,7 @@
       "sourceSha256": "2c6676017b99487279dc912dd268a19dd06165ff651370b4c47afd66883a96f3",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/api-reference/mcp.mdx",
-      "translationSha256": "a95fa068bffbc0965d7349951011e452004aa665098b33891fe0930dc78585f8"
+      "translationSha256": "c8cc796bd4a6ee6b65f47d385e5e0fd7e73b0cb52eadc35beb3286536dbfcd32"
     },
     {
       "contentClass": "docs",
@@ -13788,8 +13788,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:guides/account-and-sign-in",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "1b50fa36b710030075c437463783b40a66363e9d8b10c88c6b9077e117344f3b",
       "provider": "openai",
@@ -13876,9 +13876,9 @@
           "translationSha256": "08f741a8d7910ebfd5c1fe44da17f26020ecf6f5b01831665285432117223ed7"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:a0f807b5e6d356291c07:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e45c9732d2b79c187c0e70f8d6a6cc778bd08b72da74900a971cab1678570c11",
           "provider": "openai",
@@ -13886,7 +13886,7 @@
           "reviewer": null,
           "sourceSha256": "a0f807b5e6d356291c076f99e12637449d1cb27b8fc83b66677e14368e20b745",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "7da0160b1ca535799f1dce82125f2db0f562cadc14eab4119bc173187441dfd3"
+          "translationSha256": "7834009b8cc762cf482dafb0b11d6b4cd41a2a2553e46a6937c3caa19093e525"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -14023,13 +14023,13 @@
       "sourceSha256": "5db41ad337ae580067f0dc14aeb3dfa6fa499c075c0b74a5fe741243da293509",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/guides/account-and-sign-in.mdx",
-      "translationSha256": "563a18e0f51700867cd60d2570de3533500e8759e9f926d75b7849f0965c3405"
+      "translationSha256": "f0b90ff8083f78d1e0c4d0b46fcb92d686b495cc99fe5a616e4ca607bad4d6d4"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:guides/agent-workflows",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "0bb5b6de766457df16d0470c92a8f26797adb96c51601f01b1a732df629bf743",
       "provider": "openai",
@@ -14610,9 +14610,9 @@
           "translationSha256": "6792c3433e1b215d2cc43259f03d53fbae84e710d9d204d3c21b3b53ded42ffa"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:34763b16c0d283337049:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "53f13ae99ed53bd346eb8e1c8cefb7ef8260683b50401caf101360967ea052aa",
           "provider": "openai",
@@ -14620,7 +14620,7 @@
           "reviewer": null,
           "sourceSha256": "34763b16c0d283337049eab9702b205827d0f542ace25f00c2eed23a50f77d17",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "e83a8990ea97ce5e7b1bcf1c66d3a6bef580d32866c2ee788ce29b0480127af7"
+          "translationSha256": "d28ca2efae4d561633e2cda7841b17335bc636dcc7b2d73bf981353194456ce0"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -14692,13 +14692,13 @@
       "sourceSha256": "aec783fc157314de85237025af688dc2e1474ff37010e8405f7cf49d9819b55f",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/guides/agent-workflows.mdx",
-      "translationSha256": "f63212e1f7a8f606477e7d30ec6042fbb169858b0ade07b2a72f309889d3c4fa"
+      "translationSha256": "6870ff4e8876803007fab0f71464c5545b6a784ea15db8523258db06f48fda6f"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:guides/claude",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "1d8f14a40a86a3938123e8fcdadce91e3f32c4fa75ae1c8dd9915bc8fcbc799b",
       "provider": "openai",
@@ -14798,9 +14798,9 @@
           "translationSha256": "d73da979d7624967e0b6cc88995f0b28f7c730bbbc45adeb95e6e2d37d6bdba1"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:1282cca6816d6d533378:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "815087283afb25f4e4d6f1ea60d317162380b4545b2ebf79bb20b4de5a0ddaa7",
           "provider": "openai",
@@ -14808,7 +14808,7 @@
           "reviewer": null,
           "sourceSha256": "1282cca6816d6d533378201c66e5160387193d2936f7884f1a50f265efc8e852",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "933ebb5b6bd64342e8f7c0f24d4d719e6241b9151ed9d5d08fd005e033ec6fec"
+          "translationSha256": "cd399931c221e8e09cc746d38f69b207dd245db488818edbd7e9bb045bf31379"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -14837,9 +14837,9 @@
           "translationSha256": "018afe7365325154d425c220a4b5ebd68cef8204d55a9ee937a8fb8aae7e9be1"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:9fdb46dbea66a5fd3cbb:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "3e6ab36aea54f8e63837e09fcfc10395ab0dea5d8205abd75fa7b24f5764d120",
           "provider": "openai",
@@ -14847,7 +14847,7 @@
           "reviewer": null,
           "sourceSha256": "9fdb46dbea66a5fd3cbb66da4458931e87a4b824a429548d2d71e2b8555821d4",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "7f94e261091611281bf098a0408bacb6bad90f20cc8dad30332394ea18a24637"
+          "translationSha256": "c461161173a159122a3c64dace334e93c44f7688190eb3a5882c7695faa6489b"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -15136,9 +15136,9 @@
           "translationSha256": "b9694a84c5446cf2c0b8c26c18881526e661dfa88aa6b955e0cb5c0febe54800"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:a2d02e4b4b831128d4d9:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "56263d4a680843bce7894f8bf937f841936f80273349c2acb7a7f5381a186a6f",
           "provider": "openai",
@@ -15146,7 +15146,7 @@
           "reviewer": null,
           "sourceSha256": "a2d02e4b4b831128d4d9373c0bdc67df4fc81de8c1315cfc9dec832e6c55f2a3",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "f02ed09b120f738026a06ce83019eacea0a653c28741dd1805361ec2b6855ad8"
+          "translationSha256": "3552a10831bad5e5b48888a48c698da746ed2b43370347cc55cbb7764585f615"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -15162,9 +15162,9 @@
           "translationSha256": "dba97b12447187e318406222c60d6ebd5c23c08f92366cd9265af3bb65940ee4"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:0bfe344d513b9dfaed4d:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "aee6fde15b97e4e99cced2ed524267b99fe52cef842a26043767c1576d387a00",
           "provider": "openai",
@@ -15172,7 +15172,7 @@
           "reviewer": null,
           "sourceSha256": "0bfe344d513b9dfaed4dc953c992b149ae8eb2878cf9c33d1a6becd4ea539c82",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "0505c4d1ff7640219252da0265a824839bce844586957243b13860953065a887"
+          "translationSha256": "70316f1f790631da85c460e218a0b42cf1f1e09ce26cef769c15bff0206dc317"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -15292,9 +15292,9 @@
           "translationSha256": "9e74a47bbdce6ce1c4048eb3f571d69685efbd50fc2fdbf8cfc239d76e1ade25"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:ab3661832af6a398c635:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "ea4640f625900babedffe07f6c7d9fc9d66e07ff23bd1125d6a203d11ed5ae16",
           "provider": "openai",
@@ -15302,7 +15302,7 @@
           "reviewer": null,
           "sourceSha256": "ab3661832af6a398c63511806df31c10c76a9adea607e2f49dd589a5a570d5a4",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "78176cb3fd0c7c13accae14d5786be5f6c086f17548566e518cfaedb37fcc7c2"
+          "translationSha256": "38378657f14b7d3d1eb3982f16c8326a71bc9fe59cf2e8c31fa9dd2d7bb82e57"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -15595,13 +15595,13 @@
       "sourceSha256": "10188b8bbddd1074b49fc32546966e86f0f92116de5ea7c5f029a3c98a95db74",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/guides/claude.mdx",
-      "translationSha256": "b060e904ccc7d0e1e24af7da5a2e7dd92856061529653e238ca32ddd6f840669"
+      "translationSha256": "b7c3180eaac33eafe0dbed0605df596a7db52f54287e4cdc3f129e7e7e3b39b6"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:guides/claude-slack-briefs",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "ea7e2d57a481aa5edb1b242e2caf9433e7894eac3d023226ea97183cff523567",
       "provider": "openai",
@@ -16013,9 +16013,9 @@
           "translationSha256": "2e26f6243b6e40abb1811ae735ddd0d8a60df9167dba74570260d3a97c5f7c70"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:17621825507d0cff6327:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "057d1a116b1aac72dcc06a05426578786d6d4a815a9f0abba8a1f910164c9a3e",
           "provider": "openai",
@@ -16023,7 +16023,7 @@
           "reviewer": null,
           "sourceSha256": "17621825507d0cff632735df64dda276f589468be7dd44f37bf5f82ba8eca740",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "4c00513d40de15ba855b3b2a0112ed2ce22c761fcbb70003acb8975f5ed23801"
+          "translationSha256": "e3f542ac4ce0f726db8ffb57ca793fd33f3a1d7114047d4841027a1b22fa5598"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -16082,13 +16082,13 @@
       "sourceSha256": "06e1c66e3d6dc648233e1ab1ec28b376e868669d3222a90e4de95d0d3faf0e33",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/guides/claude-slack-briefs.mdx",
-      "translationSha256": "527a957a8d68717c3c2ac7bef9f6e255a93f740da8a15fc9168eda44dacb26ff"
+      "translationSha256": "28ebb40339fcdbd637f1c01de68f2af007eb0c7c58d5cd1c66c2cda70c714aa0"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:guides/cli",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "417685107cdbb741d3fb8cd65243b377d6ac795b4602445af4800b6974ad5291",
       "provider": "openai",
@@ -16305,9 +16305,9 @@
           "translationSha256": "f1fdc7b193d1d83d5dac6ee04726c11cc7ac7b4369598e0e344be223bf0f33cf"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:d70c512530eec1a750de:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "84b65b8635d79f47f1156891aace2d6cb4fc3fed6b2b3f8efc2fdfbd9456927d",
           "provider": "openai",
@@ -16315,7 +16315,7 @@
           "reviewer": null,
           "sourceSha256": "d70c512530eec1a750de58ca8914a032e1ecaec296b1818a24a83dd9f3f7a88b",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "97a421d25251f35190c9798eb45ef8957694ed35a633f12427085acda447f0fc"
+          "translationSha256": "e5a632ae5316608a03bcb08086e8ad3149055351ae42af85da0cb8a9af4edda3"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -16565,9 +16565,9 @@
           "translationSha256": "0810cc5a7ad10ba4dc5db0116d779b30886faa003b0d0b8977e1140cc25e755c"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:d16588cc94136d42f74b:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -16575,7 +16575,7 @@
           "reviewer": null,
           "sourceSha256": "d16588cc94136d42f74b5fb3c6c401f80bb8d80a9bf30fe90d723ebcee6b6d1d",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "b2ccda8c01a114b7337bae61c85aaf884baaf54cdff2393a6dedbd14cbe876e5"
+          "translationSha256": "5495f0a5ee179b2e1005a19bc277ef4e287d7a72a5318457f97e619d6e52e389"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -17228,9 +17228,9 @@
           "translationSha256": "92a005cd109c9c12fca68c6c68caa0b3689dd209103f64dd727a91dc63968d01"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:883e6804e247251aa7aa:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "5e1edbdeb491b1048538ce6021b5cdb37ac6afe90ec0d14e2016ef1a368971e6",
           "provider": "openai",
@@ -17238,7 +17238,7 @@
           "reviewer": null,
           "sourceSha256": "883e6804e247251aa7aae046119d8c73ceecc5ada1eef00d77e2884ea4825eab",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "1dd50a3e80de748e9b745dda807438528313c6930971d1e34113ca3a18e8b5ff"
+          "translationSha256": "5c4ed89c755f94674fdaa109284c6417d459c0ca52382fc272c87f8fff31d661"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -18294,9 +18294,9 @@
           "translationSha256": "e69df5487a953535c568fb126752b6bf739953c220f19684864637b4b7e5f403"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:2c71cb831cf2ac7f07d2:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -18304,7 +18304,7 @@
           "reviewer": null,
           "sourceSha256": "2c71cb831cf2ac7f07d2deccf5d7efa35c8998bc15412e74c3169347d5bf5138",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "837a64eaf0aa59827b6f73581c60be87f986694df7a4db7713eeb1f3f4db30bf"
+          "translationSha256": "a949fb969b13ee4e47acb1df66f739b8a3de6e5295af122f26d4784061fff870"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -19533,13 +19533,13 @@
       "sourceSha256": "cae94136ef5ca7acc70c3ae0a84a3413cfc2885375cdc89c68dbaefb8a6e1d5c",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/guides/cli.mdx",
-      "translationSha256": "02d9ae8497ed2d7b6608232857ff54580d29495c0c9375243293bf85574213b2"
+      "translationSha256": "f7a35efe592a55fa6c9078d2e4f4fc1ab3f1479b4cde1f2b0e4125f423c0dc44"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:guides/cli-getting-started",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "851c3a919a6a50d60a3acdef0405c7cc36610a44a19b7d55dd13432a18b376db",
       "provider": "openai",
@@ -19756,9 +19756,9 @@
           "translationSha256": "33b3cf93137c3d7304cc8fc57644ff71ea3a571eb5e1a4f592e3e3c6b019f881"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:1bbf4ddae6ae31ab8a90:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "cf49cd214869eb7e28b7844517b048b7b3bc65073de7dcc54b2edb366896e95c",
           "provider": "openai",
@@ -19766,7 +19766,7 @@
           "reviewer": null,
           "sourceSha256": "1bbf4ddae6ae31ab8a902b78eca38d18277eb6814e91d1ca4b0e1f9fe441d996",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "e9e23e288387e1699d87f382c460c02e55f09d03d6084910b420d5f393197e89"
+          "translationSha256": "c59c791dda2ffa1d9a0bb99fa8d2ca53c3c621f5e8f24949f863dc30d1596b5c"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -19925,9 +19925,9 @@
           "translationSha256": "722489cc2fc824f27bc8ac51da037eed9c8edda790d8c58ca90cf0003b134c4a"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:409ead65e0ff2b5abf14:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "26e2a4d806818909fe9d5f22a33238576241e0980a17453308f8bd12ae16734b",
           "provider": "openai",
@@ -19935,7 +19935,7 @@
           "reviewer": null,
           "sourceSha256": "409ead65e0ff2b5abf142e5de812fa42f465ea46901144ef8d31cd605cb253e1",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "2395686e6849e8f1186854f16282f2a7ac74904ad0248f69bcf6a3db405aa803"
+          "translationSha256": "78927bc3a39463e3e1b94085ebfc964521f3093ea62eccbec4c2a783233006bb"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -20345,13 +20345,13 @@
       "sourceSha256": "3b555dd09e356ffcb6f8aec58acf0c50f19c94a0693f5b2b9ced4f9f07c55a88",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/guides/cli-getting-started.mdx",
-      "translationSha256": "aec6637c3555188186cb28bb16b121b5f34c5d5d5db8e199ef758351ef2c2823"
+      "translationSha256": "db58774ade009679396d6682bfd7cc51f2a6ddfa2e3455cef7904db20ee47f6b"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:guides/codex",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "03e41034cbe86ecf68330f0caee3143059c5a5e442115d41517128be542a7f1b",
       "provider": "openai",
@@ -20646,9 +20646,9 @@
           "translationSha256": "d73da979d7624967e0b6cc88995f0b28f7c730bbbc45adeb95e6e2d37d6bdba1"
         },
         {
-          "generatedAt": "2026-09-01T15:04:39Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:5c14d3cad7dd3abde9e5:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "19e716429628d867ce61d94a2bca4a2804ba2bc652cd3d3ffe17448df65f488b",
           "provider": "openai",
@@ -20656,7 +20656,7 @@
           "reviewer": null,
           "sourceSha256": "5c14d3cad7dd3abde9e59b71ecaca303f496f93a69e7d976e0a3cd20c13c8c03",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "4be27441a34ccf3122096800ca1131c170d53e5104845f96393371b1be2b944b"
+          "translationSha256": "d173027d876499b10399d67891fdd76457c36a40ec575ba0c1729e1af5003a19"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -20724,9 +20724,9 @@
           "translationSha256": "277b9fad8f9d8d9a19a3228f33e78875a1a824711a30299afee400909f103f8d"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:e9c13612a6034dbba96b:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "9f634a04b64653ad699e1071c2f9dca1162a86691f10a6f9029765967b78f96f",
           "provider": "openai",
@@ -20734,7 +20734,7 @@
           "reviewer": null,
           "sourceSha256": "e9c13612a6034dbba96b1343767942c77750ed4b9606a9da3b376300a56bb4b4",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "9ed5b4c3327e1d13d8f0140b3d9e49eedfdcb03d6ba09181a2186db0435da480"
+          "translationSha256": "52b0e12b2ecdddc3c349285b6015ac6d65ed7fdf89f57d2f168334c058e3329c"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -21192,9 +21192,9 @@
           "translationSha256": "b7f13e809d70847bf53e77ed5c1e77190761da6e57e70230f0917b700087de4c"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:86de9aee1ba7ae195dd9:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "c61415e8881f18582574cee06592f9f1440ff6ca5212b37e0d4638f3f1e7e7fe",
           "provider": "openai",
@@ -21202,12 +21202,12 @@
           "reviewer": null,
           "sourceSha256": "86de9aee1ba7ae195dd996d57128669a0560790cc9c9eb55b95ed4981dc9a83a",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "3caddb356a68369a919e3e4f5ee7585529bc23bc938055ddd65ed886a48fe9fa"
+          "translationSha256": "4e76ec0afb5a5ad1f18f98e549ade18bf4e011b36104eba07b6de865f80b6e45"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:8027b70747b5760bc6dc:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "f5a7188cfcbedd09d1686aca95f7d2fa5672904e473d9f64e51fc22a5d4fe99c",
           "provider": "openai",
@@ -21215,7 +21215,7 @@
           "reviewer": null,
           "sourceSha256": "8027b70747b5760bc6dc67f7c1f6ed9d5bededeec528aa86aa7bb165b33a3c96",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "abeb34c8466ea4714643786fd19241a1f6b93875dc4964767dd302101f8fa12d"
+          "translationSha256": "8220db211b038092165bbc9d8fc5f00d638e1604f0f4a097eeb48446aa18662f"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -21270,9 +21270,9 @@
           "translationSha256": "8a1ac16624bf7da95f832dfb970889179188abef40a76a52e9223a5612084540"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:60b0805ccbbab881379b:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -21280,7 +21280,7 @@
           "reviewer": null,
           "sourceSha256": "60b0805ccbbab881379bedd2e0d79511d0bf1016f113ddbd1c09c5668447c28a",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "ee16e20055e76db608f5087ddc622a2cfd5b2daf52461f527608e9773df9e4ec"
+          "translationSha256": "3be4e2b6678bcab36f0b4b4790b5cd719df6b2806ce700bb0f6fddeaf067ae4d"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -21296,9 +21296,9 @@
           "translationSha256": "eff5067da62319ae371dc514134c54375b54f72966229bd21840ef02e2000d4c"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:1d36f8183ac17ab9f356:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "provider": "openai",
@@ -21306,7 +21306,7 @@
           "reviewer": null,
           "sourceSha256": "1d36f8183ac17ab9f356d9e931d7f0fcc50ce521ae5f00e943bdcc898146e034",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "cdf9c3a52306987e51311f3ac08fa3f8af2574efb1b2e3b42d1a69c6398716ad"
+          "translationSha256": "62447085d88a3058c36eabcea662910110fc303742c2006b8ea8ff3d4c39e240"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -22882,9 +22882,9 @@
           "translationSha256": "752f1a1491455b15a1e9681c561433ab6b00ff083d586709f4d26fe486d020bb"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:177cea51785aa7b2842a:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "4a608de70f8ba3d9efa0bb234fd09d29ac187b1ca8a479d3a4debd57e9edf9fc",
           "provider": "openai",
@@ -22892,7 +22892,7 @@
           "reviewer": null,
           "sourceSha256": "177cea51785aa7b2842a61918e8f1b2480b5233184a2aa6efd1b8a974a11e7e3",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "9880245ae4d3cafe01d6a68422c56cfa18187f7e9aa19dba4c6d6a1dc17a3e25"
+          "translationSha256": "eed89233244f9f743a83efc4f472a28c68a748e41c57d97bbeaca2b94c9873f9"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -22938,13 +22938,13 @@
       "sourceSha256": "5255588e02386100f8fc9739a8138d7676fb30d3b229fe33c0ae981eb31f2740",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/guides/codex.mdx",
-      "translationSha256": "862bc56c2e1547e027d548e3e0fa10c9a21eb02546854f88d3b7f3bb5d32cbde"
+      "translationSha256": "33ec2932d25ced43f759089d27b06a954d48a414ea6f4e0c96f2ebea90aeb3da"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:guides/codex-teams-briefs",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "7171f0c7acbca65d4a84f524c8989fdef57e167f68bc795ca0cd7f173c5777f3",
       "provider": "openai",
@@ -23356,9 +23356,9 @@
           "translationSha256": "2e26f6243b6e40abb1811ae735ddd0d8a60df9167dba74570260d3a97c5f7c70"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:61d5d98681aa7ac50210:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "1ffd58200d05a12f96600610650db95d60b4bec61dfd6f310ea9572abc7711eb",
           "provider": "openai",
@@ -23366,7 +23366,7 @@
           "reviewer": null,
           "sourceSha256": "61d5d98681aa7ac5021034eb770df2d3426c7799a201651ce8d06353aa9a6678",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "a969fd69304ee6bdde519e3dbd406b3e467cbd861ecdf05bf3cb0c74eec09e4a"
+          "translationSha256": "77182bc5e9df69e789c159a6f6d6b8579d336c6677499e8bbf5f6e9ff29d41c5"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -23412,13 +23412,13 @@
       "sourceSha256": "9e59d2cc013e338aca228c0fedfe67c95ce2bc67e7366bdb1958d6f1c79a0aa7",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/guides/codex-teams-briefs.mdx",
-      "translationSha256": "0e323e69386345ede34d88d69053a92daea197a6bb716a620b8bae9b9857e408"
+      "translationSha256": "f469967a368af1083d7c85a802be45b6a3d401b042b4b695f57bc2c68852440c"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:guides/email-digests",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "39f09c9e120c76aee4eb8c6d61c45d6c93d413d2c2cb35d7ad843c53977bd628",
       "provider": "openai",
@@ -23622,9 +23622,9 @@
           "translationSha256": "a1d749483d6b97575ef2ab934e7d7a39b74cd203df48b90be999df90d2ac2e0d"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:7ae091cb676948b877e7:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "4fb9e4f0a80df243fdc6796244532e58ee6bb5b48a504c3b0fb44476f8732ee9",
           "provider": "openai",
@@ -23632,12 +23632,12 @@
           "reviewer": null,
           "sourceSha256": "7ae091cb676948b877e7f4adf6a687ac4e15fb6a8d1cbed0408665f36740f1a0",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "66a375133a97b13492f6f1dd8c9abfe316c93167ae77f14f6dc6d2dd6c5c2f94"
+          "translationSha256": "7171b08a05fd7140bd77065f2fb9118766e80c49699c1d2b39b14dfccf7f6759"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:a4aa1d4ec74319118746:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "93cf69f87ae3ce87b757a82e5edcf1049b8cba1acea2c2e58c243080d6f25356",
           "provider": "openai",
@@ -23645,7 +23645,7 @@
           "reviewer": null,
           "sourceSha256": "a4aa1d4ec74319118746b8919d86ba8d1273ea2cf90fb135fecb4236dc4767d4",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "6a172463d1badb50a23cda9ff90b9d02c58243757071052da1bfa79f28249f10"
+          "translationSha256": "3d9991e0a6691685d085b0ce95967037e2291f2decb8fb741a8760a4df2cad5f"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -23765,9 +23765,9 @@
           "translationSha256": "3440729a95aa8092625ef6889b97bd89c6055a1d931b9d2ed87c80998e103916"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:0061d16844c0ee7525aa:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "acb1586d687f7cbc81a99df55845f38e52b6c185c10ee5610f0511e6ccf9b9ab",
           "provider": "openai",
@@ -23775,7 +23775,7 @@
           "reviewer": null,
           "sourceSha256": "0061d16844c0ee7525aa081520dc426329a1273644a413382ddf65aee205841f",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "59144187007636147bee27fe20934600106c4b73253a591a46d3862c93e37e1b"
+          "translationSha256": "179bddb75d73ec7ee45dde2c67eae16a6900c0ffd71920e9a8fdf14554136d25"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -23856,9 +23856,9 @@
           "translationSha256": "a940370955b51f75cb55de586a4b0bcd7d21fbd7589e571dd328e4c2d03fc95a"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:3995847d04ecaba9687e:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "93cf69f87ae3ce87b757a82e5edcf1049b8cba1acea2c2e58c243080d6f25356",
           "provider": "openai",
@@ -23866,7 +23866,7 @@
           "reviewer": null,
           "sourceSha256": "3995847d04ecaba9687ea381149238a8d443ef18f99fb0d11bba8256fd67a164",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "54a803b455d812150c43675676d0edd7fb2a942a43ba7b5ce7fad232d35be442"
+          "translationSha256": "f009921b4dce28d1c48fcb98006a22d089978711a21d9f83a7235f74259df332"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -23925,13 +23925,13 @@
       "sourceSha256": "04f77ea18b59cf4d8db954fe1541e2cb7f748f970622de2662362a217c6a73ca",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/guides/email-digests.mdx",
-      "translationSha256": "57ebf30ff3a7ca306c54ea1d78b50728e6c6ed24b1dd078bcb21d473d5ed305d"
+      "translationSha256": "446cd136604a0d565130a95847f02b7e314cc8cedba12a20c80a94e1b401853f"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:guides/feed-in-app",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "debec3e81e9fdd5eca78b436cb659345c78d7ad49dd9c136b665e285f1a490ed",
       "provider": "openai",
@@ -24148,9 +24148,9 @@
           "translationSha256": "43eacd13a1499a3a63176aec982b23ec02f869a0213b99874f40226e0066c8b6"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:8c85a45201d0e56bcc83:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "ce94ccca8a30d6eb8fcf01dc60c9a332127d9cbe467be27ec24592e3e265fd45",
           "provider": "openai",
@@ -24158,7 +24158,7 @@
           "reviewer": null,
           "sourceSha256": "8c85a45201d0e56bcc83103d1c37da0d05dd9d7b83c83506d46ff1e31ba0ca55",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "367229af6513b8b379f446e23f64d5ba401e1696709260bd9eed88a3c6d7a484"
+          "translationSha256": "335bc9b217b3246f8df1f55f00502797c0b6d004ee94e641747a3db161708c56"
         },
         {
           "generatedAt": "2026-09-01T15:04:39Z",
@@ -24200,9 +24200,9 @@
           "translationSha256": "c01ea7e5754d5b12d4dd83abe134a3f670c635ef5778ef3dc011cd347592ef2e"
         },
         {
-          "generatedAt": "2026-09-01T15:04:39Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:3bbeafa70d1dcd97c002:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "71dcbcc3ca5b4b5e868b3bd76fef7322faaeb930f0b212a395fb51f5e181d3d4",
           "provider": "openai",
@@ -24210,7 +24210,7 @@
           "reviewer": null,
           "sourceSha256": "3bbeafa70d1dcd97c0021c912bc0f307d95123ed55081c70f2e5ead106aba806",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "98d235f3df096ecd5a4e632768f1cb90eff03b54f364252cf9bae03d07193658"
+          "translationSha256": "b03a341939ee09de64b8f4af83df801bb5c099f2c584a4df0b0d1eacf444ec7a"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -24252,9 +24252,9 @@
           "translationSha256": "93363f799f387caf81a482973ea2c901ce655514897878e2a060faed6e042cf5"
         },
         {
-          "generatedAt": "2026-09-01T15:04:39Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:f8f95626ceaac1681781:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "74bebdbc50721209f45d8dd09871bc755ce5122ea79a650a8c8a3073256db54a",
           "provider": "openai",
@@ -24262,12 +24262,12 @@
           "reviewer": null,
           "sourceSha256": "f8f95626ceaac16817811a35efe721c5c911a8716b3e32817c0f637a059cd19a",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "20178d209fb8d5c7944b1d115bf12ceffb385495545d9be6a17a4daa2ea78ed5"
+          "translationSha256": "c17ef1f35c865456d320e7d8dee50e068d95c46aace40637370e96bed01c4446"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:9eee936c914f71f77c0d:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "7ff936d18102f4bf69078764c0daf35b2391e57521a932456ccd1ba4002ca8f8",
           "provider": "openai",
@@ -24275,7 +24275,7 @@
           "reviewer": null,
           "sourceSha256": "9eee936c914f71f77c0df7887e451ab7534ef0677ff6254de1e2e8c8575451d0",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "6717a875f4f1175b6c1778e1dea42d276ab147aa8d3f4dd973e054da1a101741"
+          "translationSha256": "089e6fac63104f3c15ba1739bc2910442d2928891512ec256c72137d22c9148d"
         },
         {
           "generatedAt": "2026-09-01T15:04:39Z",
@@ -24382,9 +24382,9 @@
           "translationSha256": "9ae60dc0f9aa5c496e1dfee8ad491b9161b99367d758609cb329d0c882c356a9"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:d32bb11ea17b4035bb3b:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "012ee1cdfad1b4b03c917a85cc945d74ac359293f200e3a897bc70d08d483739",
           "provider": "openai",
@@ -24392,7 +24392,7 @@
           "reviewer": null,
           "sourceSha256": "d32bb11ea17b4035bb3ba58e6ed64c6002a3e75da532cdcf83916fe717ed181d",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "7ea89e4645d08fef3cb28bbe303de983b89f20b2464beed49047c5b0ca42b8ed"
+          "translationSha256": "7c41fc4fe3e71bf5bbc44e26880534e5cb528a93632015b4345ec9e49d819490"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -24408,9 +24408,9 @@
           "translationSha256": "1e07bffdcc0f3d8c0901756a9b33e71984dfb08d1a1e10c15eab3412402d8f82"
         },
         {
-          "generatedAt": "2026-09-01T15:04:39Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:8752212f871f3d891f34:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "8f41f47dad1c18ed4eba8a61d43d036537940d4000b5a6a9be0545bf37dd07e1",
           "provider": "openai",
@@ -24418,7 +24418,7 @@
           "reviewer": null,
           "sourceSha256": "8752212f871f3d891f340e1128894905787a0682b22972bcafd092efd7ef829c",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "91c65d078e545d02c98f6b6e417a6cb6744287cd9ae00b2e480668a54dc9a146"
+          "translationSha256": "3800c9ae40a1a03898cd1246028d513cd6a829deda5f1f24a02fed9abb582753"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -24477,7 +24477,7 @@
       "sourceSha256": "f3ddd5d953b43c57faa28852fa5bfe3e70f27172d4c4cc025064f4bc840b5856",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/guides/feed-in-app.mdx",
-      "translationSha256": "c69e5c513d0edfd9bd2e3ce532a4f401e350df552e02f797234733d4f01fa52b"
+      "translationSha256": "675fe7a3cf268942db4a6a223da9ae4de55cb6e7cc694d102b54c1c136330f3b"
     },
     {
       "contentClass": "docs",
@@ -24722,8 +24722,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:guides/mcp",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "1ca945b7f6ae6934e152331768565f9f8285389cc938d84585aa384d946594fa",
       "provider": "openai",
@@ -24823,9 +24823,9 @@
           "translationSha256": "f7f2495aa50ee719bb350d3c7ba58261cad116c9602f62b9a358f2045d06f76e"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:b03d480c3451e6c1cb24:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "ddf36f6a8e7150412553eacb212b632f009189e0b504540a8f253c382df34b84",
           "provider": "openai",
@@ -24833,7 +24833,7 @@
           "reviewer": null,
           "sourceSha256": "b03d480c3451e6c1cb24e1b49bd39c278f006fc1f8b32818e94d359b22b82168",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "c1c81946cf63d0433ff1fb75d884507cd25e50b09a135bf1b1afa7fe346ea1d4"
+          "translationSha256": "8dbe32681ea89f93aaf56efd4627f868499cf6a19197798dae7773164d5e0dc3"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -24849,9 +24849,9 @@
           "translationSha256": "4a7437ec61bc4dea2639f2ebebdfdd59baa1d1c110f903757c164b33748006b0"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:4551ae0298d0a501defd:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "1164394a562e4c7ef4a9aae680167c5ee3ba78577d1fb06cc055057f6e34e565",
           "provider": "openai",
@@ -24859,7 +24859,7 @@
           "reviewer": null,
           "sourceSha256": "4551ae0298d0a501defdd66a5672cff42156d66f06e88ef5d228f99b22e85877",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "26e61372558cc2bf57fc361a4e48a5aa28a8e3abc7820b2b6982caa812e6638d"
+          "translationSha256": "c6c4f2f8480ff7322353670447b1e54a58f2b7197b394995399e73f621de7a9b"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -24875,9 +24875,9 @@
           "translationSha256": "8b7950bb427097b8061bbd93f2723c6738f11cf348bf6a15a3f912cbdbd2382d"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:ccd547bbd701106135cf:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "9c0c2af325db4fd13758d20814933b481a53083bd08337734f51eff9f7fc7063",
           "provider": "openai",
@@ -24885,7 +24885,7 @@
           "reviewer": null,
           "sourceSha256": "ccd547bbd701106135cf0f3ada3e8eb30a45be5036a93261f58987953737620d",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "2753686c9c20d67a8620412e6a285851dcfe2dcf64bbf1158b2f28362bbf8e88"
+          "translationSha256": "595a9284c700dd325039ac3e46a6061aa00088bf5581474990699f060f04ca44"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -24901,9 +24901,9 @@
           "translationSha256": "c810ff8c9c084d3a6a3ad0e60384da2db4e0bd52099d7a864a66da584b386b3c"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:ea05132502a1229f4db2:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "647c9903beca2d2d4c8b4262f8f0cbb94a9be2fae6e95f75ac6135810643d2d4",
           "provider": "openai",
@@ -24911,12 +24911,12 @@
           "reviewer": null,
           "sourceSha256": "ea05132502a1229f4db2124b1120892d436e11b7b13ab183b5f415ab37e962c4",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "0be6396bb502ea37e37be13e2e6e42e9787fd303ea8342d1d27f4edd7a96f1dc"
+          "translationSha256": "189890e708790d51a11a82e2d5cb8e488bffeea917eecbe04e9251f4148bb775"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:13d7e10eedb2bf2c8b50:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "a687d316ad30a68cd63b6ea610de1241c3293eebf02d62caa9a838c84d7c0bb3",
           "provider": "openai",
@@ -24924,7 +24924,7 @@
           "reviewer": null,
           "sourceSha256": "13d7e10eedb2bf2c8b50b6ee502918f3315dfa0669c633b4e05720ae0dbb0b8f",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "8fdfd6c36984252dbc33e1c18c89791ba754534f07a6fab55d51ab82321bef7b"
+          "translationSha256": "d8b145ee1304da1425c8172842c28b66dc8465fec26d8d0a813f3c4ba33edf3c"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -25070,9 +25070,9 @@
           "translationSha256": "2153a04cbae7b196ce1e09eb0e6c28557c282afb7e07cae8712c7a54a6035b6a"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:761a60fabc0d0bbbf804:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "56263d4a680843bce7894f8bf937f841936f80273349c2acb7a7f5381a186a6f",
           "provider": "openai",
@@ -25080,7 +25080,7 @@
           "reviewer": null,
           "sourceSha256": "761a60fabc0d0bbbf8048dd26b94c590e1a39de5314c96741957870b20140cdb",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "c6525bb50edeb96418463b9d9afb8717cf6e16f6f3c5a43012ec3a9f88e91d4a"
+          "translationSha256": "97ddeca7f954c60d701190d5957406b36f2b3e726ab60fb7b6b3d66615fdffc3"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -25733,9 +25733,9 @@
           "translationSha256": "3e0467828db63da2adc0b9fceaf10500aab540c4d7e12201a1ebadb2a9c98936"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:500bdf7d11d5718c3b1f:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "e86dd77a7ee765ea10ff34e3886eac5b21673b5809c242e96b376ed76c28e48c",
           "provider": "openai",
@@ -25743,7 +25743,7 @@
           "reviewer": null,
           "sourceSha256": "500bdf7d11d5718c3b1fcb15c5351093f3888517455cb8f419093214adddf7eb",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "dbc848c5d3938a798415dac02c7be2d415dccfb890a44b09ffca00397a6aa739"
+          "translationSha256": "012a1e55a285290614cb006d0bc10da7435197b89ca50e7e0721c95ed52ddbed"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -25980,9 +25980,9 @@
           "translationSha256": "d856cd3d07c50b98dcf23ea6b2ccb50d3f9f70ff404d5784aed77e533be80662"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:89729e530b9e994762c8:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "749095376d72aca7fee2f95950a5888c51504bb66108778b3cac6a9539d03a99",
           "provider": "openai",
@@ -25990,7 +25990,7 @@
           "reviewer": null,
           "sourceSha256": "89729e530b9e994762c805a83a9b1faf59a7b6b2525383dee511f9574bbe55d9",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "cb43829f0bf6a7d09911d82709ceb35192dd1d65d9c731447db6d33d3b53c318"
+          "translationSha256": "2c676959c4eaf69e4cdb24ab25e55e5ca50c774def1fe0e3ad30c5fff3e9bb8b"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -26032,9 +26032,9 @@
           "translationSha256": "dbd3a49d0d906b4ed9216b73330d2fb080ef2f758c12f3885068222e5e17151c"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:cc6028698bcc91e5faeb:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "70ac19fe3b7d58cc5729ee29343f8faa99c327e46ec4a5a3e58f5b697f2aeaaa",
           "provider": "openai",
@@ -26042,7 +26042,7 @@
           "reviewer": null,
           "sourceSha256": "cc6028698bcc91e5faebf913d763bb74178f3917ae62a09dc229e6f24c13b28c",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "e2ad215bed34cc522d5f3b55b36b59350ef2d56f74d5473251789b7d3784204e"
+          "translationSha256": "96330dda790b6808910e1e430927d4fa7f82f733e4323fc658a00a0b2b0451c6"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -26075,7 +26075,7 @@
       "sourceSha256": "0d95a2809e001c5b1fa9e322952a29fb6d7b38ada245dc659b41bc04853b9721",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/guides/mcp.mdx",
-      "translationSha256": "76ec89e5f63718d26038e649b32ffd2ff7b2a0b62a7b94c35876543d6195cafb"
+      "translationSha256": "89eee09ff202f94f03871ce0f97df54fef560883e3efab4e842d529f29908663"
     },
     {
       "contentClass": "docs",
@@ -27126,8 +27126,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:guides/openclaw-telegram-briefs",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "d3f4cc804da5a61f080cfd9908842b3631d85deaa3c497747a7d6cf1dbeda8cc",
       "provider": "openai",
@@ -27539,9 +27539,9 @@
           "translationSha256": "13a79a61f6ff7ff5fd01d3ca212ba01627123421f6ded2fa10f974dda634d110"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:40456e3126593b3c9f42:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "2876f815f049f7cc1ef3ee802ed6aaebd35efd08a415294228ee58b362d2d0ec",
           "provider": "openai",
@@ -27549,7 +27549,7 @@
           "reviewer": null,
           "sourceSha256": "40456e3126593b3c9f42dd3120fd35ccdf71f17e9e4fc37ba4e6b32187058066",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "3aa8d3262a269dd1ed7c59a45e5124c06f700eee0212f4f84cfea79a15f773ab"
+          "translationSha256": "f7d1901da96f979ff09e6452f84c56647fa6549695ca636b2ece3f8b55450793"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -27617,9 +27617,9 @@
           "translationSha256": "3e3b25f13f756edcd4c5d3575d7accc6618e347d8bf78e4ac14e6d9558434019"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:ea4393b414689a27e1bc:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "6e82fb441dfdaf84ac9037ada35e9b7226ee5f64064dd881d9344ed53788615c",
           "provider": "openai",
@@ -27627,7 +27627,7 @@
           "reviewer": null,
           "sourceSha256": "ea4393b414689a27e1bc370e2770d7fdfa9adb3a821f5e233ffbe8dd3c724510",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "9b4534939efab5c5b95b4fb3f5d4564c84ebd0873aebae759bc4881ec293f0bc"
+          "translationSha256": "30925df906ed2eb8e674b68f490e80a4f540d35d80e9a707eec3f27f3878e990"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -27673,13 +27673,13 @@
       "sourceSha256": "6b782ce28650847a5defe358ef8571dbafe7fd5a164086af2cde2ab37c7a836d",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/guides/openclaw-telegram-briefs.mdx",
-      "translationSha256": "39542805dd8e614a59ec7047b6cd655637afbd566506c325494affdd8a4e57b6"
+      "translationSha256": "bebdef431c7c9ccc1936bfe8be63f56b91be2b814a5242b1d6b8af6b46d5d74e"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:guides/projects",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "8b1bf5676e1da692b64a40cc10e94945fd03a2d7b1ecc46e3a01bed5387872a2",
       "provider": "openai",
@@ -27883,9 +27883,9 @@
           "translationSha256": "33fe80458e027a60534be924d87c16bf7077f50c17648a98a7f4f4ca31bcfaea"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:1e3187988ece893797ea:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "c612038d27567a147b17c8a2b819165f854064767259e493ac588433b864567e",
           "provider": "openai",
@@ -27893,7 +27893,7 @@
           "reviewer": null,
           "sourceSha256": "1e3187988ece893797ea33f83298d5cd29345cdb15ad2106cb61926daa7b4042",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "c3178225574c44711f1dfbd26bbffb92ac1a706f17db797dcf1380b81ce98012"
+          "translationSha256": "82399146555a495767bc33dbea45d055f812081f39d778e39c8ed5e8c41709d4"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -27935,9 +27935,9 @@
           "translationSha256": "61ccd27cc5ba23ac769c4ebf7df6b7654b47ca48b67e8b2d0113f53c963be928"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:8714cd27e05190d8e246:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "9177eb0e68704b40d96911b6fc8741c259a523483166dc022dfac3a5def40c45",
           "provider": "openai",
@@ -27945,7 +27945,7 @@
           "reviewer": null,
           "sourceSha256": "8714cd27e05190d8e24618b12e250dbcc81472890cd4c40e4488d3b4f06aac7f",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "0c2c15d56fe7ff64c741915d3d58ee96e63ce51d0fb018661dd4597bac2b1bbe"
+          "translationSha256": "9445fa6b655d48b6ee216419709d756a47b339a3a81b40659897623a4f8617e6"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -27961,9 +27961,9 @@
           "translationSha256": "eccacd1803086961806f2587dcc3eacbecc779a3127af972d86ae82b44452ea8"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:7e165e5c2e9d0bdca1d4:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "9dfd0c99a370f1bce7471cc68c9dbf53cc05a7b0cfc02bf3fb8655363b58c6d0",
           "provider": "openai",
@@ -27971,7 +27971,7 @@
           "reviewer": null,
           "sourceSha256": "7e165e5c2e9d0bdca1d452d9427b75e471495289eb6a4273da755f826047334e",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "d502283681a2caff7759b4650b6bec1cf41e35bbdd2b09e6e8db4560c236d826"
+          "translationSha256": "4f3a0ab996617f5644a8136429754f60a99b546bcc6649cc684c26e325de04cb"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -28056,7 +28056,7 @@
       "sourceSha256": "3bd69150731c6658f0fccdb99758bf63ce0d636ca4a5ba33f66630aefab90926",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/guides/projects.mdx",
-      "translationSha256": "b9840580d5c47c832bdfa80e92b30793d175c4af4dfaf6b9ab7830ca755845a3"
+      "translationSha256": "662ef4f5b57b4202b713f3f44b21e2736e42f9a895112f3792c66b3ef1fbc15f"
     },
     {
       "contentClass": "docs",
@@ -28275,8 +28275,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:guides/sharing-and-visibility",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "129dc8cd671159110bd7bf49e347d3c48aa43077a7bd2cec3644f999fc3a84f6",
       "provider": "openai",
@@ -28389,9 +28389,9 @@
           "translationSha256": "9b9932fa04f7dcb792ce7f38d57be9dfc2e4ea4dea4548a3c1542690c55de27d"
         },
         {
-          "generatedAt": "2026-09-01T15:04:39Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:c8279499d057774bd4a2:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "0ee6fb926041755cb2f95ba903898fa98fbc362a4a8cd0097554a216f4575bd0",
           "provider": "openai",
@@ -28399,7 +28399,7 @@
           "reviewer": null,
           "sourceSha256": "c8279499d057774bd4a260f2142f8b5ed5b1c2f152c379e89085056b8bb96a8b",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "e699cb0b9e8c0087b25286400bd490504b721bc492b474ff5231a2e933f58558"
+          "translationSha256": "bb17cacfb0fa9419b745dabb11b6a7b32353ba93637c585d59710b7dfbbd5704"
         },
         {
           "generatedAt": "2026-09-01T15:04:39Z",
@@ -28536,13 +28536,13 @@
       "sourceSha256": "e46ee5f9ca116addad5e3fdd601699115f1ddb03ae7f9de27157ea67b6e6e926",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/guides/sharing-and-visibility.mdx",
-      "translationSha256": "2d30fed5db5d9320220b92d661189450112d62b2e9b7153b43ed5e6bf9f19c45"
+      "translationSha256": "75ddedd4f21808401f98f4f731ca93dd5b484c56127c480b80b582b42b84defc"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:guides/summaries",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "56771b74dc849591312b3f462b416f6b2e91a9c7bc48cb0acbc75a641e51a10b",
       "provider": "openai",
@@ -28616,9 +28616,9 @@
           "translationSha256": "fb6ff812b10a83a4209ccc291909bad3b6c095d3b1373e4a680fe3426408a56e"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:0bdb8215bffce4017b29:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "881824a46b1b66670ae6be15cca3786ceafc4b312b0eacdd558c7c32bf885012",
           "provider": "openai",
@@ -28626,7 +28626,7 @@
           "reviewer": null,
           "sourceSha256": "0bdb8215bffce4017b2971ea6bb154e4d37ff03dd975964926a91c8238e54c1d",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "06cb263f358f337b727a3010630193189700952aa43d371e3d1b13e41ed30f48"
+          "translationSha256": "c258a6305540bb165ab141d17a989dfcd453705dee4c3f9934159c6710fbd60b"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -28746,9 +28746,9 @@
           "translationSha256": "9a73e7a17459a8c1976c1b5a7fdf226ef6baff903764ad05260c985a7b9be79b"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:7d44220da442e3d9aa16:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "be35e6d58ca9711203d23c8cd9e03b9ad7517836515a80c8b004e76a0e5bafdc",
           "provider": "openai",
@@ -28756,7 +28756,7 @@
           "reviewer": null,
           "sourceSha256": "7d44220da442e3d9aa16a5d222218cb9079e8bf90ec2796bbcf4f63dbf81caaa",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "035f0325d0e348841788bbed3fd5ad9b25d3c330073f5446f78a42d3fc315acb"
+          "translationSha256": "8213043ab91de217705463dfb67dcc1975ba6156be619cbfc073b9fd5ffb39df"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -28815,7 +28815,7 @@
       "sourceSha256": "01893a3ae1432a24a0bb824c04073bb297462102f632db81b20a5a83b4169f06",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/guides/summaries.mdx",
-      "translationSha256": "f45c96f779491cf43d24a39663dad519106ead07b97ff6145c59bbe440a894dc"
+      "translationSha256": "a2d48cd06f359bc37cfbbc683484935d1c05550e025248c498962f790db40186"
     },
     {
       "contentClass": "docs",
@@ -29099,8 +29099,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:index",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "c710fe71286949aa2e927c6707a2408c97a429d1c5b758e2a78d46574f966ae9",
       "provider": "openai",
@@ -29473,9 +29473,9 @@
           "translationSha256": "b4876b0996e2c379d0ff80fceac3e4721c2b768a5d4042188254600fc57fb0d0"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:131410db5ac1fcc63ebf:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "8d8ff2afbd7cc74c3d96572ed3f46b7d6290b77e4b6b32f12c118d9cb665850e",
           "provider": "openai",
@@ -29483,7 +29483,7 @@
           "reviewer": null,
           "sourceSha256": "131410db5ac1fcc63ebf0fba2bb0b25ccae0a9aee519deab179c631e058746b8",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "7932846596291ed673542bf7a0f8e42caeab2f67ff8cf809a9a3e5aed709e9b9"
+          "translationSha256": "95a8c5553a18cc59add555110618810dde40a9a30536ec76bdbd24016f4afb69"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -29516,7 +29516,7 @@
       "sourceSha256": "ffe8f0bf60ed1f7e2a2b938028d9573cd97a6fe6ce1f7cb46fbb511236eb9e9a",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/index.mdx",
-      "translationSha256": "9c3e0fcf1b2aacc3cbecb4bedcde0be12a6392b17003bf2ecc41c5f08ff80c20"
+      "translationSha256": "076b052dc451f12858b6d18278f590bcb76c847d7c5120c9a2ae8b5bdba6145c"
     },
     {
       "contentClass": "docs",
@@ -29839,8 +29839,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:quickstart",
-      "generatedAt": "2026-09-01T14:54:42Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "c600325707f846450de3a33505bc4b0936f64991776d6a7c5eb686197eb90393",
       "provider": "openai",
@@ -29953,9 +29953,9 @@
           "translationSha256": "0426d10f38454487b2a86869446a1c316687d824ac2cc647e16ca0ffcb234d2d"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:96675645c508f803ac00:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "4dfec89ce55d6120ad7dd6d8899faa80ba3b0d8127567b017144a38ad0f14be0",
           "provider": "openai",
@@ -29963,12 +29963,12 @@
           "reviewer": null,
           "sourceSha256": "96675645c508f803ac00bab9115bc17e7b2f2167b17564974c56f50694b0676c",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "696edc88ce7ca587c73a5bc830eadf41a16c8d439c504b36bdb8ea6770e35efb"
+          "translationSha256": "9c1ea7a0c422da5dc35765f236c1253df2a816e8c414aa4175ee537d30d343aa"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:3a2da8f4117c24766e86:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "5752c2a7439e214bda83d629902fbdb35183481f22ab9150daa3a1ad703a5ba1",
           "provider": "openai",
@@ -29976,7 +29976,7 @@
           "reviewer": null,
           "sourceSha256": "3a2da8f4117c24766e86919bed42e80db35f22a715c0217ec7551050ccceaec9",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "e67b53f52760b39567fad3965ad09fb2e2da73187defc4def66bca127c692723"
+          "translationSha256": "0a8e8997d06d7b066fabd6eeb307cd4c64e74e3062616a1e8370ce1abfe35d0d"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -30178,7 +30178,7 @@
       "sourceSha256": "c28f41eb90dda8853fd289aaa4c7db61e3d2cb8bd1a30eda2109cbd679f79df5",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/quickstart.mdx",
-      "translationSha256": "ecf0349f0ea757a52591c461708010a8f0ad4aa3fbeb85efcca9ba0f4cc5c939"
+      "translationSha256": "14ad03789ce39a555a54f71471c4101ac154f1e80ae139edb769bea87b6ea4d3"
     },
     {
       "contentClass": "docs",
@@ -30351,8 +30351,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:what-is-paperzilla/how-it-works",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "6381c1f5ed856b27028cdc108c8700c24f4fd1cc403067d990636c3a067ff040",
       "provider": "openai",
@@ -30491,9 +30491,9 @@
           "translationSha256": "a37ff4a68672a21927b1ad91ddc42fd4e3ca16c5343138e789f1110f35873894"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:93f89e50d044236d9326:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "6de44cc85fb1f3e44a1cf18dc31227c7846c79c49764854b9821d65eb0bafa46",
           "provider": "openai",
@@ -30501,7 +30501,7 @@
           "reviewer": null,
           "sourceSha256": "93f89e50d044236d9326e30739d0029c75e8e34da3f413a03021eda2e0eb23d9",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "93f89e50d044236d9326e30739d0029c75e8e34da3f413a03021eda2e0eb23d9"
+          "translationSha256": "1fa907be5faeebd4628b67484181c56f5b6e15d575c7100c844d163940da1aed"
         },
         {
           "generatedAt": "2026-09-01T15:04:39Z",
@@ -30638,13 +30638,13 @@
       "sourceSha256": "0b6b900c1699ae9c65863363aaf9def8ae0dd93bb00a17f0b5a9066061f7ce3a",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/what-is-paperzilla/how-it-works.mdx",
-      "translationSha256": "8a1573c19864fda904ba41783ebec4b12572caae7e791b9220c8c633f9eb4eaf"
+      "translationSha256": "136798595f0b7bae3b3d816d087e4dce51071ca5fcf4323383b1af8a152e8f3e"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:what-is-paperzilla/index",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "6409d2ea876cf866cc65e47fd522ac6a8da226d344b33adf5d609aa18f06fe83",
       "provider": "openai",
@@ -30783,9 +30783,9 @@
           "translationSha256": "f21f90928969f6a1cfa9a0f55b653460f48234a7def5400326b7dfdf732a3773"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:0455397de5b3e86f03d4:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "93cf69f87ae3ce87b757a82e5edcf1049b8cba1acea2c2e58c243080d6f25356",
           "provider": "openai",
@@ -30793,7 +30793,7 @@
           "reviewer": null,
           "sourceSha256": "0455397de5b3e86f03d42d38a449b15e1918f8d5b267c5d9771d6ee3dce35f4a",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "ae24b1e984fa5822e71d572e75d2881e59eeedade025220dc1edfcc851d28d8b"
+          "translationSha256": "99bd851997ee730f07d9fab6f18245f2aaca64b3d9505507e545906b00c55a02"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -30917,13 +30917,13 @@
       "sourceSha256": "51910dd43ef2d57eeb831d46f0b25684daf35d99cf48717d9ac08e775815355a",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/what-is-paperzilla/index.mdx",
-      "translationSha256": "66c501982676c00c670beea6301af720471f37be108ee60106f6e2e90ad5a9e5"
+      "translationSha256": "ea2eed2e47b1648a684dedb70b3d6dce485b6948eab96c6899096f545378c8bf"
     },
     {
       "contentClass": "docs",
       "contentId": "docs:what-is-paperzilla/use-cases",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "5bfb718e1a3abfbe696362bcc51e3bc1dd4e21e96ee5f9e29884fa7a4a135983",
       "provider": "openai",
@@ -30984,9 +30984,9 @@
           "translationSha256": "f3f52c687d024af3d26252a85d7bf715b8c15d0a7b55ba0d9791e25dc593e64a"
         },
         {
-          "generatedAt": "2026-09-01T14:54:42Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:5c93626e73a6b1ae8608:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "8bc1c1294396ab0710a9c43295103f843f858d54e9a7ee7b55d0dfae0479932b",
           "provider": "openai",
@@ -30994,7 +30994,7 @@
           "reviewer": null,
           "sourceSha256": "5c93626e73a6b1ae8608e03c60a67238b2fc729ef40432c5266fbe4b9346675b",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "f59e627afea313e77bde23a80f63527b1f73d8eb3954994d4b63d4085c640f2d"
+          "translationSha256": "f4301096102972837ad65a7ec2c0f80188134d995481f896f0bbda8ecb16a017"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -31157,7 +31157,7 @@
       "sourceSha256": "6690f1b5d6ffc67ab8fdc63a34a7277816ac881e16936b9aaaee7c60cfeceb97",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/what-is-paperzilla/use-cases.mdx",
-      "translationSha256": "615686ca2798c687668e1c99bf92c377ed0061d7de69ad67b592fec96c6b8941"
+      "translationSha256": "10492fb8857ad5ce2ba76e29a9a7876a09360acf86caaca5e510d65d5852ce6a"
     },
     {
       "contentClass": "docs",
@@ -31376,8 +31376,8 @@
     {
       "contentClass": "docs",
       "contentId": "docs:what-is-paperzilla/why-paperzilla",
-      "generatedAt": "2026-09-01T15:04:39Z",
-      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-09-06T10:25:19Z",
+      "model": "Codex (exact model identifier unavailable)",
       "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
       "protectedStructureSha256": "65da531708f065c64982482e9509e58d7199c46df7155f731d43a3add22f2282",
       "provider": "openai",
@@ -31490,9 +31490,9 @@
           "translationSha256": "0223e2d414e90ad7213c4088d9b6d03cf6ce3fd3fa6ba95fbc2423204053ae1b"
         },
         {
-          "generatedAt": "2026-09-01T15:04:39Z",
+          "generatedAt": "2026-09-06T10:25:19Z",
           "id": "body:d862d66754ec2c8b963a:1",
-          "model": "gpt-5.6-sol",
+          "model": "Codex (exact model identifier unavailable)",
           "promptSha256": "45792bfa7f0c1d7cf857c1a5d7100d882ef7cb8bf256ea4272116df1ea6f4745",
           "protectedStructureSha256": "ec8fe30da2fa8233cb8619a84aa9a73a93d5aa2d464462111e1d884c887c80df",
           "provider": "openai",
@@ -31500,7 +31500,7 @@
           "reviewer": null,
           "sourceSha256": "d862d66754ec2c8b963aa313d6379c37a4e038a979cd88c7773c35ff75debcad",
           "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
-          "translationSha256": "0c6b0da15b1b3a2c9cb3f0ecb9f2810ab22ff2822b36bb22796efa16402aab7d"
+          "translationSha256": "8f9832e83c34a8d6d6c8d0f395b8b0dc1f2020ef0d7cc456d9556f1a2e782acc"
         },
         {
           "generatedAt": "2026-09-01T14:54:42Z",
@@ -31559,7 +31559,7 @@
       "sourceSha256": "490790b3423ab511d21e3953ded5adc724bed2e0c5a7c70367471dd966b669b4",
       "styleGuideSha256": "46ca07aebed3d83ea051bfc1d16d5f096b54efc01876f5179a13c72e21ee2076",
       "translatedPath": "es/what-is-paperzilla/why-paperzilla.mdx",
-      "translationSha256": "5ce0a369227d0484091c4b48613da94abdd7437bb43b83a17bc25b4e54fea8f3"
+      "translationSha256": "27b990eac8b3e39cfea3c84969b74b1daaa42c31994ba9057be88cc39e07782c"
     }
   ],
   "locale": "es",

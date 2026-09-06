@@ -19,7 +19,7 @@ Esta URL **no** procede de OpenAPI.
 
 ## Qué ocurre cuando el cliente conoce la URL
 
-Cuando el cliente apunta al endpoint MCP y tienes una MCP API key válida, puedes descubrir la superficie invocable desde el propio MCP.
+Cuando el cliente apunta al endpoint MCP y tiene una clave de API de MCP válida, puede descubrir las herramientas disponibles desde el propio MCP.
 
 En la práctica, el cliente primero inicializa la conexión MCP y luego llama a:
 
@@ -37,7 +37,7 @@ Esto incluye herramientas para explorar y buscar en listas, como:
 
 Por tanto, MCP se describe a sí mismo después de la conexión.
 
-## ¿Tienes MCP endpoints propios?
+## ¿Tiene MCP sus propios endpoints?
 
 Externamente, no hacen falta endpoints por herramienta.
 
@@ -57,7 +57,7 @@ El descubrimiento de herramientas MCP funciona de otro modo:
 Por tanto, para crear un cliente MCP para Paperzilla normalmente necesitas:
 
 - La URL del servidor MCP
-- Una MCP API key
+- Una clave de API de MCP
 - Llamadas MCP estándar como `initialize` y `tools/list`
 
 Usa OpenAPI solo para los endpoints REST normales de Paperzilla, no para descubrir herramientas MCP.

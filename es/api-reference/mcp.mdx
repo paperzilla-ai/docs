@@ -24,11 +24,11 @@ Ejemplo de URL base:
 https://paperzilla.ai/api/mcp
 ```
 
-Para consultar una explicación breve del descubrimiento, ve [¿Cómo descubren los clientes la URL y las herramientas de Paperzilla MCP?](/es/answers/how-do-clients-discover-paperzilla-mcp).
+Para conocer una explicación breve del descubrimiento, consulta [¿Cómo descubren los clientes la URL y las herramientas de Paperzilla MCP?](/es/answers/how-do-clients-discover-paperzilla-mcp).
 
 ## Autenticación
 
-Envía tu MCP API key de una de estas formas:
+Envía tu clave de API de MCP de una de estas formas:
 
 ```http
 Authorization: Bearer pzmcp_<prefix>_<secret>
@@ -40,7 +40,7 @@ https://paperzilla.ai/api/mcp/?key=pzmcp_<prefix>_<secret>
 
 Usa el encabezado si el cliente admite encabezados personalizados. Usa el parámetro de consulta si el cliente solo acepta una URL, incluido el flujo de conectores personalizados de Claude.
 
-En la mayoría de los casos, crea o revoca esta clave desde **MCP API key**, en la esquina superior derecha del [panel](https://paperzilla.ai/dashboard).
+En la mayoría de los casos, crea o revoca esta clave desde **Clave de API de MCP**, en la esquina superior derecha del [panel](https://paperzilla.ai/dashboard).
 
 También puedes obtener o rotar la clave desde endpoints autenticados de la aplicación:
 
@@ -105,13 +105,13 @@ Los nombres heredados con puntos, como `paper.get`, siguen aceptándose para la 
 `paper_get` acepta los mismos tipos de identificadores que la API de artículos:
 
 - UUID del artículo
-- artículo `short_id`
-- `project_paper` UUID
+- identificador del artículo `short_id`
+- `project_paper` identificado por UUID
 - `project_paper` `short_id`
 
 `projects_*` y `feed_*` producen resultados con la misma estructura que las respuestas correspondientes de la API.
 
-`feed_search` es la vía MCP para buscar texto en toda la lista. Busca en el título, autor, resumen científico y texto de resumen de toda la lista del proyecto.
+`feed_search` es la vía MCP para buscar texto en toda la lista. Busca en el título, autor, resumen del artículo y resumen con IA de toda la lista del proyecto.
 
 `feed_search.feedback_filter` acepta:
 
@@ -134,7 +134,7 @@ Los nombres heredados con puntos, como `paper.get`, siguen aceptándose para la 
 Semántica de búsqueda:
 
 - los términos de consulta usan coincidencia por prefijo, por lo que `Proxi` encuentra `Proximity`
-- la búsqueda ordena primero por rango, no por orden de navegación
+- la búsqueda ordena primero por relevancia, no por orden de navegación
 - en v1 no se devuelve un `total` exacto
 
 `paper_get` devuelve los mismos campos de detalle que la API autenticada de artículos, incluido `markdown_ready`.

@@ -18,30 +18,30 @@ Endpoint:
 
 `https://paperzilla.ai/api/mcp`
 
-Para consultar una explicación breve de cómo los clientes MCP descubren la URL y las herramientas, ve [¿Cómo descubren los clientes la URL y las herramientas de Paperzilla MCP?](/es/answers/how-do-clients-discover-paperzilla-mcp).
+Para conocer una explicación breve de cómo los clientes MCP descubren la URL y las herramientas, consulta [¿Cómo descubren los clientes la URL y las herramientas de Paperzilla MCP?](/es/answers/how-do-clients-discover-paperzilla-mcp).
 
 ## Qué puedes hacer
 
 - Listar tus proyectos
 - Abrir un proyecto
-- Obtener artículos con filtros como Must Read, fecha inicial y límite
-- Buscar en toda la lista por título, autor, resumen científico o texto de resumen
+- Obtener artículos con filtros como Lectura imprescindible, fecha inicial y límite
+- Buscar en toda la lista por título, autor, resumen del artículo o resumen con IA
 - Abrir un artículo canónico por ID o una recomendación del proyecto por su ID
 - Obtener el Markdown de un artículo o recomendación y poner en cola su generación cuando el contexto lo permite
 - Obtener la URL Atom del proyecto
 
 ## Inicio rápido
 
-### 1. Crear tu MCP API key
+### 1. Crear tu clave de API de MCP
 
 Crea una clave MCP personal en el panel de Paperzilla:
 
 1. Abre tu [panel](https://paperzilla.ai/dashboard).
-2. Haz clic en **MCP API key** (arriba a la derecha, icono de llave).
+2. Haz clic en **Clave de API de MCP** (arriba a la derecha, icono de llave).
 3. Haz clic en **Generar clave**.
 4. Copia la clave y guárdala de forma segura.
 
-También puedes revocar la clave desde el mismo panel **MCP API key**.
+También puedes revocar la clave desde el mismo panel **Clave de API de MCP**.
 
 Si la cuenta aún no muestra el botón, usa los endpoints de claves de API del [apéndice para desarrollo](/es/api-reference/mcp).
 
@@ -83,7 +83,7 @@ https://paperzilla.ai/api/mcp/?key=pzmcp_...
 Prueba solicitudes como:
 
 - «Lista mis proyectos de Paperzilla».
-- «Muestra los artículos Must Read del proyecto `<project-id>` desde `2026-02-01`, con límite 20».
+- «Muestra los artículos de lectura imprescindible del proyecto `<project-id>` desde `2026-02-01`, con límite 20».
 - «Busca artículos sobre grafos de proximidad en el proyecto `<project-id>`».
 - «Abre el artículo `<paper-id>`».
 - «Abre la recomendación `<project-paper-id>`».
@@ -130,7 +130,7 @@ Notas:
 
 - la búsqueda se realiza en el servidor y examina toda la lista
 - los términos usan coincidencia por prefijo, por lo que `Proxi` encuentra `Proximity`
-- la búsqueda ordena primero por rango y no devuelve un total exacto en v1
+- la búsqueda ordena primero por relevancia y no devuelve un total exacto en v1
 
 Para una respuesta específica, consulta [¿Puede Paperzilla MCP buscar en toda la lista de un proyecto?](/es/answers/can-paperzilla-mcp-search-across-an-entire-project-feed) y [¿Cómo busco en una lista mediante Paperzilla MCP?](/es/answers/how-do-i-search-a-project-feed-through-paperzilla-mcp).
 
@@ -164,11 +164,11 @@ Usa [RSS/Atom](/es/guides/feeds) para sondeos pasivos de un lector de fuentes.
 
 - Trata la clave MCP como una contraseña
 - Rótala de inmediato si queda expuesta
-- Revócala desde **MCP API key** en el panel si dejas de usar MCP
+- Revócala desde **Clave de API de MCP** en el panel si dejas de usar MCP
 
 ## Solución de problemas
 
-- `401 Unauthorized` en `/api/mcp`: MCP API key ausente, revocada o no válida
+- `401 Unauthorized` en `/api/mcp`: clave de API de MCP ausente, revocada o no válida
 - Resultados vacíos o inesperados: confirma que usas la clave de la cuenta correcta de Paperzilla
 - `404 Not Found` en llamadas a proyectos, listas o artículos: el recurso no es accesible desde tu cuenta
 - `isError: true` con un ID corto ambiguo: reintenta con el UUID completo en lugar del ID de 8 caracteres

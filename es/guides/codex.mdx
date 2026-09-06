@@ -45,7 +45,7 @@ No uses un plugin de Codex solo para conectar Paperzilla MCP. Las instalaciones 
 
 - Una cuenta de Paperzilla con al menos un proyecto
 - Acceso a Codex en el cliente que usas
-- Tu MCP API key de Paperzilla desde **MCP API key** en el [panel](https://paperzilla.ai/dashboard) para la vía MCP
+- Tu clave de API de MCP de Paperzilla desde **Clave de API de MCP** en el [panel](https://paperzilla.ai/dashboard) para la vía MCP
 - `pz` instalado y autenticado con `pz login` para la vía CLI
 
 ## Opción 1: añadir Paperzilla MCP en la configuración de Codex
@@ -55,7 +55,7 @@ Codex admite servidores MCP mediante Streamable HTTP. En la aplicación Codex, a
 ### Paso 1: copiar la clave MCP de Paperzilla
 
 1. Abre tu [panel](https://paperzilla.ai/dashboard).
-2. Haz clic en **MCP API key**.
+2. Haz clic en **Clave de API de MCP**.
 3. Genera o copia la clave.
 4. Mantenla en privado.
 
@@ -120,20 +120,20 @@ Si no ves de inmediato la configuración actualizada, vuelve a abrir Codex y com
 Después, pide a Codex cosas como:
 
 - «Lista mis proyectos de Paperzilla».
-- «Muestra los artículos Must Read de esta semana de mi proyecto de agentes».
+- «Muestra los artículos de lectura imprescindible de esta semana de mi proyecto de agentes».
 - «Busca artículos sobre grafos de proximidad en mi proyecto de evaluación».
-- «Obtén el Markdown del artículo Must Read más reciente de mi proyecto de recuperación».
+- «Obtén el Markdown del artículo de lectura imprescindible más reciente de mi proyecto de recuperación».
 
-Para consultar el contrato MCP genérico y todas las herramientas, ve [Usar Paperzilla con MCP](/es/guides/mcp).
+Para conocer el contrato MCP genérico y todas las herramientas, consulta [Usar Paperzilla con MCP](/es/guides/mcp).
 
 ### Cómo usa Codex Paperzilla MCP
 
 En la práctica, Codex suele seguir un flujo como este:
 
 - `projects_list` para encontrar el proyecto
-- `projects_get` cuando necesitas tu configuración o detalles
+- `projects_get` cuando necesitas la configuración o los detalles del proyecto
 - `feed_get` para explorar la lista
-- `feed_search` para buscar por título, autor, resumen científico o texto de resumen en toda la lista
+- `feed_search` para buscar por título, autor, resumen del artículo o resumen con IA en toda la lista
 - `paper_get` cuando necesitas metadatos independientes
 - `paper_markdown` cuando tienes el ID del artículo canónico
 
@@ -378,7 +378,7 @@ Comprueba `/mcp paperzilla` primero. Si falta Paperzilla, añade Paperzilla desd
 
 Si Paperzilla aparece con `Auth unsupported` y `Enabled`, puede ser normal con una clave estática. Prueba una solicitud real de Paperzilla. Si falla, comprueba que la URL MCP personalizada para la clave de API incluye `?key=...` o que `~/.codex/config.toml` contiene `http_headers` para la autenticación.
 
-Si Paperzilla aparece pero falla la autenticación, regenera la **MCP API key** en el panel de Paperzilla y actualiza el mismo bloque.
+Si Paperzilla aparece pero falla la autenticación, regenera la **Clave de API de MCP** en el panel de Paperzilla y actualiza el mismo bloque.
 
 No lo resuelvas reinstalando la skill. Esta indica a Codex cómo usar Paperzilla cuando el servidor MCP está disponible; no autentica el servidor MCP por sí sola.
 
