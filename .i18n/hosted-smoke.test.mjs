@@ -16,7 +16,7 @@ function page(lang, canonical, body = '') {
 </head><body>${body}</body></html>`;
 }
 
-function fakeFetch({ spanishLang = 'es' } = {}) {
+function fakeFetch({ spanishLang = 'es', languageFilter = false, emptyLlms = false, missingAlternates = false } = {}) {
     let mcpSession = false;
     return async (input, options = {}) => {
         const url = new URL(input);
@@ -36,9 +36,13 @@ function fakeFetch({ spanishLang = 'es' } = {}) {
                 return new Response(JSON.stringify({
                     jsonrpc: '2.0',
                     id: request.id,
-                    result: { tools: [{ name: 'search', inputSchema: { properties: { query: { type: 'string' } } } }] },
+                    result: { tools: [{ name: 'search', inputSchema: { properties: {
+                        query: { type: 'string' },
+                        ...(languageFilter ? { language: { type: 'string' } } : {}),
+                    } } }] },
                 }), { status: 200, headers });
             }
+            assert.equal(request.params.arguments.language, languageFilter ? 'es' : undefined);
             return new Response(JSON.stringify({
                 jsonrpc: '2.0',
                 id: request.id,
@@ -52,7 +56,7 @@ function fakeFetch({ spanishLang = 'es' } = {}) {
             return new Response(`<urlset><url><loc>${englishUrl}</loc></url><url><loc>${spanishUrl}</loc></url></urlset>`);
         }
         if (['/llms.txt', '/llms-full.txt'].includes(url.pathname)) {
-            return new Response(`# Docs\n[English](${englishUrl})\n[${spanishToken}](${spanishUrl})\n`);
+            return new Response(emptyLlms ? '' : `# Docs\n[English](${englishUrl})\n`);
         }
         if (url.pathname === '/skill.md') {
             return new Response('# Paperzilla docs skill\n');
@@ -64,7 +68,9 @@ function fakeFetch({ spanishLang = 'es' } = {}) {
             return new Response(page(spanishLang, spanishUrl, spanishToken), { headers: { 'content-type': 'text/html' } });
         }
         if (url.pathname === '/') {
-            return new Response(page('en', englishUrl, 'Paperzilla docs portal'), { headers: { 'content-type': 'text/html' } });
+            let html = page('en', englishUrl, 'Paperzilla docs portal');
+            if (missingAlternates) html = html.replace(/<link[^>]*hreflang[^>]*>/g, '');
+            return new Response(html, { headers: { 'content-type': 'text/html' } });
         }
         return new Response('not found', { status: 404 });
     };
@@ -92,8 +98,26 @@ test('manual hosted audit covers human, search, sitemap, llms, AI, and MCP surfa
     const result = await auditHostedDocs({ baseUrl, spanishToken, fetchImpl: fakeFetch() });
     assert.equal(result.spanishUrl, spanishUrl);
     assert.deepEqual(result.checks, [
-        'canonical', 'hreflang', 'html-lang', 'sitemap', 'search', 'llms', 'ai-markdown', 'mcp',
+        'canonical', 'hreflang', 'html-lang', 'sitemap', 'search', 'llms-default-language', 'ai-markdown', 'mcp',
     ]);
+});
+
+test('multilingual MCP search explicitly requests Spanish when the server advertises it', async () => {
+    await auditHostedDocs({ baseUrl, spanishToken, fetchImpl: fakeFetch({ languageFilter: true }) });
+});
+
+test('documented default-language LLM files must still be present and nonempty', async () => {
+    await assert.rejects(
+        auditHostedDocs({ baseUrl, spanishToken, fetchImpl: fakeFetch({ emptyLlms: true }) }),
+        /default-language documentation/,
+    );
+});
+
+test('the provider hreflang limitation remains a strict audit failure', async () => {
+    await assert.rejects(
+        auditHostedDocs({ baseUrl, spanishToken, fetchImpl: fakeFetch({ missingAlternates: true }) }),
+        /hreflang en/,
+    );
 });
 
 test('manual hosted audit fails closed on wrong Spanish html language', async () => {

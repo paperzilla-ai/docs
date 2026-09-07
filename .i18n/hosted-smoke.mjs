@@ -167,7 +167,10 @@ async function auditMcpSearch(fetchImpl, mcpUrl, query, expectedPath, expectedTo
     }
     const result = await request('tools/call', {
         name: search.name,
-        arguments: { [queryKey]: query },
+        // Mintlify defaults multilingual MCP search to English. Use its
+        // advertised language filter, without sending unknown parameters to
+        // older/single-language servers.
+        arguments: { [queryKey]: query, ...(properties.language ? { language: 'es' } : {}) },
     });
     const serialized = JSON.stringify(result?.result ?? {});
     if (!serialized.includes(expectedPath) || !serialized.includes(expectedToken)) {
@@ -234,8 +237,11 @@ export async function auditHostedDocs({
 
     for (const route of ['/llms.txt', '/llms-full.txt']) {
         const surface = await fetchText(fetchImpl, absoluteUrl(canonicalBase, route), route, { timeoutMs });
-        if (!surface.text.includes(spanishUrl) || !surface.text.includes(spanishToken)) {
-            throw new Error(`${route} is missing the reviewed Spanish page or token.`);
+        // Mintlify documents these generated files as default-language only:
+        // https://www.mintlify.com/docs/ai/llmstxt
+        // Spanish discovery is checked through sitemap, Markdown and MCP.
+        if (!surface.text.includes(englishUrl) || !/(?:^|\n)#\s+\S/.test(surface.text)) {
+            throw new Error(`${route} is missing its default-language documentation index/content.`);
         }
     }
     const skill = await fetchText(fetchImpl, absoluteUrl(canonicalBase, '/skill.md'), 'skill.md', { timeoutMs });
@@ -272,7 +278,7 @@ export async function auditHostedDocs({
         baseUrl: canonicalBase,
         englishUrl,
         spanishUrl,
-        checks: ['canonical', 'hreflang', 'html-lang', 'sitemap', 'search', 'llms', 'ai-markdown', 'mcp'],
+        checks: ['canonical', 'hreflang', 'html-lang', 'sitemap', 'search', 'llms-default-language', 'ai-markdown', 'mcp'],
     };
 }
 
