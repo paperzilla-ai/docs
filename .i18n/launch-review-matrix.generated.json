@@ -1150,6 +1150,51 @@
       "exceptions": [
         "Mark explicitly approved the tested crawler content-root fix at 11a4179 and the coordinated beta metadata refresh in this task. Beta stays non-indexable; production routing and Spanish wording are unchanged."
       ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "788d86ea179dd94f1cc7558070e9eb0639fcfad9d1ac80e00d90dfb15a6be1c6",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T20:10:24Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved renewing product/technical, Auth/email and SEO review records for the seven beta-QA fixes at frontend 6bd0dd094467b11b7eea58e74e53028e66519c1e and requested merge/push. Reviewed wording and source categories are unchanged; server-built beta retesting remains required. No live or native approval is granted."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "788d86ea179dd94f1cc7558070e9eb0639fcfad9d1ac80e00d90dfb15a6be1c6",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T20:10:24Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved renewing product/technical, Auth/email and SEO review records for the seven beta-QA fixes at frontend 6bd0dd094467b11b7eea58e74e53028e66519c1e and requested merge/push. Reviewed wording and source categories are unchanged; server-built beta retesting remains required. No live or native approval is granted."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "788d86ea179dd94f1cc7558070e9eb0639fcfad9d1ac80e00d90dfb15a6be1c6",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T20:10:24Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved renewing product/technical, Auth/email and SEO review records for the seven beta-QA fixes at frontend 6bd0dd094467b11b7eea58e74e53028e66519c1e and requested merge/push. Reviewed wording and source categories are unchanged; server-built beta retesting remains required. No live or native approval is granted."
+      ]
     }
   ],
   "promotionApprovals": [
@@ -1185,6 +1230,18 @@
       "reviewSetSha256": "87a194ac2939c87fd976c614c4dd531981c053062eb63b76194a312879e74da4",
       "exceptions": [
         "Carry forward the previously recorded trusted Spanish reviewer approval of unchanged language and preview coverage. Mark explicitly approved renewing this binding for the crawler-only technical/SEO correction at 11a4179. No new linguistic review, reviewer contact, live approval, or native approval is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "trusted-spanish-reviewer",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-07T20:10:24Z",
+      "decision": "approved",
+      "reviewSetSha256": "34f88e84b2fc9cfa322914153fdebbc3c42bf6b7e88d2830185a35f88d8e33a9",
+      "exceptions": [
+        "Carry forward the previously recorded trusted Spanish reviewer approval of unchanged wording. Mark explicitly approved the seven beta-QA technical fixes at frontend 6bd0dd094467b11b7eea58e74e53028e66519c1e and this metadata refresh. No new linguistic review, reviewer contact, deployed beta acceptance, live approval or native approval is claimed."
       ]
     }
   ]
