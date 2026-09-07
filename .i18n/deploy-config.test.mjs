@@ -4,6 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
+import { loadDocsPublication } from './publication.mjs';
 import {
     assertPathOutsideRoot,
     buildDeployConfig,
@@ -80,7 +81,7 @@ test('live generation rejects missing localized navigation', () => {
     assert.throws(() => buildDeployConfig(sourceConfig(), registry('live'), {}), /incomplete/);
 });
 
-test('committed planned docs config is the exact stage-derived artifact', async () => {
+test('committed docs config matches the independently approved docs publication', async () => {
     const [rawConfig, rawRegistry, rawSpanish] = await Promise.all([
         readFile(new URL('../docs.json', import.meta.url), 'utf8'),
         readFile(new URL('./locales.generated.json', import.meta.url), 'utf8'),
@@ -88,11 +89,11 @@ test('committed planned docs config is the exact stage-derived artifact', async 
     ]);
     const expected = buildDeployConfig(
         JSON.parse(rawConfig),
-        JSON.parse(rawRegistry),
+        await loadDocsPublication(repositoryRoot, JSON.parse(rawRegistry)),
         { es: JSON.parse(rawSpanish) },
     );
     assert.equal(rawConfig, canonicalJson(expected));
-    assert.equal(expected.navigation.languages, undefined);
+    assert.deepEqual(expected.navigation.languages.map((entry) => entry.language), ['en', 'es']);
 });
 
 test('outside-repository enforcement resolves symlinked ancestors', async () => {

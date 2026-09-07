@@ -4,6 +4,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { validateAuthoredContent } from './content.mjs';
 import { buildDeployConfig } from './deploy-config.mjs';
 import { loadAndValidateLaunchReview } from './launch-review.mjs';
+import { loadDocsPublication } from './publication.mjs';
 
 const internalDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.dirname(internalDirectory);
@@ -356,10 +357,18 @@ async function main() {
         errors.push(`Cannot read valid docs.json: ${error.message}`);
     }
 
-    const liveNonSourceLocales = (registry?.locales ?? []).filter((locale) => (
+    let publicRegistry = registry;
+    if (registry) {
+        try {
+            publicRegistry = await loadDocsPublication(repositoryRoot, registry);
+        } catch (error) {
+            errors.push(error.message);
+        }
+    }
+    const liveNonSourceLocales = (publicRegistry?.locales ?? []).filter((locale) => (
         locale?.tag !== registry?.sourceLocale && locale?.stage === 'live'
     ));
-    const hiddenNonSourceLocales = (registry?.locales ?? []).filter((locale) => (
+    const hiddenNonSourceLocales = (publicRegistry?.locales ?? []).filter((locale) => (
         locale?.tag !== registry?.sourceLocale && locale?.stage !== 'live'
     ));
     const trackedNonSourceLocales = (registry?.locales ?? []).filter((locale) => (
@@ -400,7 +409,7 @@ async function main() {
             try {
                 const expectedConfig = canonicalJson(buildDeployConfig(
                     docsConfig,
-                    registry,
+                    publicRegistry,
                     localizedNavigation,
                 ));
                 report(
@@ -425,12 +434,12 @@ async function main() {
     );
 
     if (registry) {
-        errors.push(...findTextExposure(rawDocsConfig, 'docs.json', registry));
+        errors.push(...findTextExposure(rawDocsConfig, 'docs.json', publicRegistry));
         const hiddenPrefixes = hiddenNonSourceLocales.map((locale) => locale.pathPrefix);
         for (const filePath of await findPublicMdxFiles(repositoryRoot, new Set(hiddenPrefixes))) {
             const relativePath = path.relative(repositoryRoot, filePath);
             const content = await readFile(filePath, 'utf8');
-            errors.push(...findTextExposure(content, relativePath, registry));
+            errors.push(...findTextExposure(content, relativePath, publicRegistry));
         }
     }
 

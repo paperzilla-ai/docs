@@ -22,256 +22,527 @@
   },
   "favicon": "/favicon.png",
   "navigation": {
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Contact",
-          "icon": "life-buoy",
-          "href": "mailto:hello@paperzilla.ai"
-        }
-      ]
-    },
-    "tabs": [
+    "languages": [
       {
-        "tab": "Guides",
-        "groups": [
+        "language": "en",
+        "default": true,
+        "global": {
+          "anchors": [
+            {
+              "anchor": "Contact",
+              "icon": "life-buoy",
+              "href": "mailto:hello@paperzilla.ai"
+            }
+          ]
+        },
+        "tabs": [
           {
-            "group": "What is Paperzilla",
-            "icon": "compass",
-            "pages": [
-              "what-is-paperzilla/index",
-              "what-is-paperzilla/who-its-for",
-              "what-is-paperzilla/use-cases",
-              "what-is-paperzilla/how-it-works",
-              "what-is-paperzilla/why-paperzilla"
-            ]
-          },
-          {
-            "group": "Getting started",
-            "icon": "play",
-            "pages": [
-              "index",
-              "quickstart",
-              "guides/cli-getting-started"
-            ]
-          },
-          {
-            "group": "Core guides",
-            "icon": "book-open",
-            "pages": [
+            "tab": "Guides",
+            "groups": [
               {
-                "group": "Agent workflows",
-                "icon": "bot",
-                "expanded": true,
+                "group": "What is Paperzilla",
+                "icon": "compass",
                 "pages": [
-                  "guides/agent-workflows",
-                  "guides/cli",
-                  "guides/openclaw",
-                  "guides/openclaw-telegram-briefs",
-                  "guides/mcp",
-                  "guides/codex",
-                  "guides/codex-teams-briefs",
-                  "guides/claude",
-                  "guides/claude-slack-briefs"
+                  "what-is-paperzilla/index",
+                  "what-is-paperzilla/who-its-for",
+                  "what-is-paperzilla/use-cases",
+                  "what-is-paperzilla/how-it-works",
+                  "what-is-paperzilla/why-paperzilla"
                 ]
               },
               {
-                "group": "Projects and sharing",
-                "icon": "folder-open",
-                "expanded": false,
+                "group": "Getting started",
+                "icon": "play",
                 "pages": [
-                  "guides/projects",
-                  "guides/sharing-and-visibility",
-                  "guides/public-projects"
+                  "index",
+                  "quickstart",
+                  "guides/cli-getting-started"
                 ]
               },
               {
-                "group": "Feed and delivery",
-                "icon": "rss",
-                "expanded": false,
+                "group": "Core guides",
+                "icon": "book-open",
                 "pages": [
-                  "guides/feed-in-app",
-                  "guides/email-digests",
-                  "guides/feeds"
+                  {
+                    "group": "Agent workflows",
+                    "icon": "bot",
+                    "expanded": true,
+                    "pages": [
+                      "guides/agent-workflows",
+                      "guides/cli",
+                      "guides/openclaw",
+                      "guides/openclaw-telegram-briefs",
+                      "guides/mcp",
+                      "guides/codex",
+                      "guides/codex-teams-briefs",
+                      "guides/claude",
+                      "guides/claude-slack-briefs"
+                    ]
+                  },
+                  {
+                    "group": "Projects and sharing",
+                    "icon": "folder-open",
+                    "expanded": false,
+                    "pages": [
+                      "guides/projects",
+                      "guides/sharing-and-visibility",
+                      "guides/public-projects"
+                    ]
+                  },
+                  {
+                    "group": "Feed and delivery",
+                    "icon": "rss",
+                    "expanded": false,
+                    "pages": [
+                      "guides/feed-in-app",
+                      "guides/email-digests",
+                      "guides/feeds"
+                    ]
+                  },
+                  {
+                    "group": "Summaries and account",
+                    "icon": "file-text",
+                    "expanded": false,
+                    "pages": [
+                      "guides/summaries",
+                      "guides/account-and-sign-in",
+                      "guides/troubleshooting"
+                    ]
+                  }
                 ]
               },
               {
-                "group": "Summaries and account",
-                "icon": "file-text",
-                "expanded": false,
+                "group": "Q&A",
+                "icon": "circle-question-mark",
                 "pages": [
-                  "guides/summaries",
-                  "guides/account-and-sign-in",
-                  "guides/troubleshooting"
+                  "answers/index",
+                  {
+                    "group": "About Paperzilla",
+                    "icon": "compass",
+                    "expanded": false,
+                    "pages": [
+                      "answers/what-problem-paperzilla-solves",
+                      "answers/what-does-paperzilla-do",
+                      "answers/who-should-use-paperzilla",
+                      "answers/is-paperzilla-for-ai-agents",
+                      "answers/do-i-need-to-code",
+                      "answers/how-is-paperzilla-different-from-rss-alerts",
+                      "answers/how-is-paperzilla-different-from-google-scholar-alerts",
+                      "answers/when-should-i-create-multiple-projects",
+                      "answers/can-paperzilla-fit-team-workflows",
+                      "answers/what-are-paperzilla-output-formats",
+                      "answers/why-use-feed-and-email-both",
+                      "answers/is-paperzilla-only-for-ml-or-biomed"
+                    ]
+                  },
+                  {
+                    "group": "MCP",
+                    "icon": "plug",
+                    "expanded": false,
+                    "pages": [
+                      "answers/does-paperzilla-support-mcp",
+                      "answers/can-paperzilla-mcp-search-across-an-entire-project-feed",
+                      "answers/how-do-i-search-a-project-feed-through-paperzilla-mcp",
+                      "answers/can-paperzilla-mcp-return-individual-paper-metadata-and-markdown",
+                      "answers/how-do-i-use-paperzilla-mcp-with-claude",
+                      "answers/how-do-clients-discover-paperzilla-mcp"
+                    ]
+                  },
+                  {
+                    "group": "Research briefs",
+                    "icon": "send",
+                    "expanded": false,
+                    "pages": [
+                      "answers/research-brief-codex-telegram",
+                      "answers/research-brief-codex-slack",
+                      "answers/research-brief-codex-teams",
+                      "answers/research-brief-claude-cowork-telegram",
+                      "answers/research-brief-claude-cowork-slack",
+                      "answers/research-brief-claude-cowork-teams",
+                      "answers/research-brief-openclaw-telegram",
+                      "answers/research-brief-openclaw-slack",
+                      "answers/research-brief-openclaw-teams"
+                    ]
+                  },
+                  {
+                    "group": "Projects and setup",
+                    "icon": "folder-open",
+                    "expanded": false,
+                    "pages": [
+                      "answers/what-is-a-project",
+                      "answers/create-first-project",
+                      "answers/tune-keywords",
+                      "answers/must-read-vs-related",
+                      "answers/project-no-papers"
+                    ]
+                  },
+                  {
+                    "group": "Feed and delivery",
+                    "icon": "rss",
+                    "expanded": false,
+                    "pages": [
+                      "answers/read-without-email",
+                      "answers/daily-vs-weekly-digests",
+                      "answers/less-email",
+                      "answers/change-max-papers",
+                      "answers/pause-project",
+                      "answers/pause-email-digests",
+                      "answers/search-project-feed",
+                      "answers/what-do-useful-very-useful-and-not-for-me-mean",
+                      "answers/why-rate-papers-in-feed"
+                    ]
+                  },
+                  {
+                    "group": "RSS/Atom and CLI",
+                    "icon": "square-terminal",
+                    "expanded": false,
+                    "pages": [
+                      "answers/copy-rss-atom",
+                      "answers/which-feed-readers",
+                      "answers/rss-url-security",
+                      "answers/how-do-i-find-my-project-id-for-cli-commands",
+                      "answers/how-do-i-search-a-project-feed-from-the-cli",
+                      "answers/how-do-i-use-paperzilla-cli-with-codex",
+                      "answers/how-do-i-use-paperzilla-cli-with-claude",
+                      "answers/how-do-i-use-paperzilla-cli-with-openclaw",
+                      "answers/how-do-feedback-signals-work-in-the-cli",
+                      "answers/openclaw-skill",
+                      "answers/what-is-the-difference-between-a-canonical-paper-and-a-recommendation"
+                    ]
+                  },
+                  {
+                    "group": "Sharing and public",
+                    "icon": "share",
+                    "expanded": false,
+                    "pages": [
+                      "answers/share-project",
+                      "answers/share-paper",
+                      "answers/private-link-not-working",
+                      "answers/public-projects-work",
+                      "answers/subscribe-public-project"
+                    ]
+                  },
+                  {
+                    "group": "Summaries",
+                    "icon": "file-text",
+                    "expanded": false,
+                    "pages": [
+                      "answers/how-summaries-work",
+                      "answers/summary-stuck"
+                    ]
+                  },
+                  {
+                    "group": "Account and access",
+                    "icon": "circle-user",
+                    "expanded": false,
+                    "pages": [
+                      "answers/account-required",
+                      "answers/magic-link-login",
+                      "answers/existing-account-handoff"
+                    ]
+                  },
+                  {
+                    "group": "Data and coverage",
+                    "icon": "database",
+                    "expanded": false,
+                    "pages": [
+                      "answers/sources-covered",
+                      "answers/delete-project"
+                    ]
+                  }
                 ]
               }
             ]
           },
           {
-            "group": "Q&A",
-            "icon": "circle-question-mark",
-            "pages": [
-              "answers/index",
+            "tab": "API reference",
+            "groups": [
               {
-                "group": "About Paperzilla",
-                "icon": "compass",
-                "expanded": false,
+                "group": "API documentation",
+                "icon": "terminal",
                 "pages": [
-                  "answers/what-problem-paperzilla-solves",
-                  "answers/what-does-paperzilla-do",
-                  "answers/who-should-use-paperzilla",
-                  "answers/is-paperzilla-for-ai-agents",
-                  "answers/do-i-need-to-code",
-                  "answers/how-is-paperzilla-different-from-rss-alerts",
-                  "answers/how-is-paperzilla-different-from-google-scholar-alerts",
-                  "answers/when-should-i-create-multiple-projects",
-                  "answers/can-paperzilla-fit-team-workflows",
-                  "answers/what-are-paperzilla-output-formats",
-                  "answers/why-use-feed-and-email-both",
-                  "answers/is-paperzilla-only-for-ml-or-biomed"
-                ]
-              },
-              {
-                "group": "MCP",
-                "icon": "plug",
-                "expanded": false,
-                "pages": [
-                  "answers/does-paperzilla-support-mcp",
-                  "answers/can-paperzilla-mcp-search-across-an-entire-project-feed",
-                  "answers/how-do-i-search-a-project-feed-through-paperzilla-mcp",
-                  "answers/can-paperzilla-mcp-return-individual-paper-metadata-and-markdown",
-                  "answers/how-do-i-use-paperzilla-mcp-with-claude",
-                  "answers/how-do-clients-discover-paperzilla-mcp"
-                ]
-              },
-              {
-                "group": "Research briefs",
-                "icon": "send",
-                "expanded": false,
-                "pages": [
-                  "answers/research-brief-codex-telegram",
-                  "answers/research-brief-codex-slack",
-                  "answers/research-brief-codex-teams",
-                  "answers/research-brief-claude-cowork-telegram",
-                  "answers/research-brief-claude-cowork-slack",
-                  "answers/research-brief-claude-cowork-teams",
-                  "answers/research-brief-openclaw-telegram",
-                  "answers/research-brief-openclaw-slack",
-                  "answers/research-brief-openclaw-teams"
-                ]
-              },
-              {
-                "group": "Projects and setup",
-                "icon": "folder-open",
-                "expanded": false,
-                "pages": [
-                  "answers/what-is-a-project",
-                  "answers/create-first-project",
-                  "answers/tune-keywords",
-                  "answers/must-read-vs-related",
-                  "answers/project-no-papers"
-                ]
-              },
-              {
-                "group": "Feed and delivery",
-                "icon": "rss",
-                "expanded": false,
-                "pages": [
-                  "answers/read-without-email",
-                  "answers/daily-vs-weekly-digests",
-                  "answers/less-email",
-                  "answers/change-max-papers",
-                  "answers/pause-project",
-                  "answers/pause-email-digests",
-                  "answers/search-project-feed",
-                  "answers/what-do-useful-very-useful-and-not-for-me-mean",
-                  "answers/why-rate-papers-in-feed"
-                ]
-              },
-              {
-                "group": "RSS/Atom and CLI",
-                "icon": "square-terminal",
-                "expanded": false,
-                "pages": [
-                  "answers/copy-rss-atom",
-                  "answers/which-feed-readers",
-                  "answers/rss-url-security",
-                  "answers/how-do-i-find-my-project-id-for-cli-commands",
-                  "answers/how-do-i-search-a-project-feed-from-the-cli",
-                  "answers/how-do-i-use-paperzilla-cli-with-codex",
-                  "answers/how-do-i-use-paperzilla-cli-with-claude",
-                  "answers/how-do-i-use-paperzilla-cli-with-openclaw",
-                  "answers/how-do-feedback-signals-work-in-the-cli",
-                  "answers/openclaw-skill",
-                  "answers/what-is-the-difference-between-a-canonical-paper-and-a-recommendation"
-                ]
-              },
-              {
-                "group": "Sharing and public",
-                "icon": "share",
-                "expanded": false,
-                "pages": [
-                  "answers/share-project",
-                  "answers/share-paper",
-                  "answers/private-link-not-working",
-                  "answers/public-projects-work",
-                  "answers/subscribe-public-project"
-                ]
-              },
-              {
-                "group": "Summaries",
-                "icon": "file-text",
-                "expanded": false,
-                "pages": [
-                  "answers/how-summaries-work",
-                  "answers/summary-stuck"
-                ]
-              },
-              {
-                "group": "Account and access",
-                "icon": "circle-user",
-                "expanded": false,
-                "pages": [
-                  "answers/account-required",
-                  "answers/magic-link-login",
-                  "answers/existing-account-handoff"
-                ]
-              },
-              {
-                "group": "Data and coverage",
-                "icon": "database",
-                "expanded": false,
-                "pages": [
-                  "answers/sources-covered",
-                  "answers/delete-project"
+                  "api-reference/introduction",
+                  "api-reference/mcp",
+                  "api-reference/rss-atom-feed"
                 ]
               }
             ]
           }
-        ]
+        ],
+        "navbar": {
+          "primary": {
+            "type": "button",
+            "label": "Dashboard",
+            "href": "https://paperzilla.ai/dashboard"
+          }
+        },
+        "footer": {
+          "socials": {
+            "x": "https://x.com/paperzilla_ai",
+            "github": "https://github.com/paperzilla-ai"
+          }
+        }
       },
       {
-        "tab": "API reference",
-        "groups": [
+        "language": "es",
+        "global": {
+          "anchors": [
+            {
+              "anchor": "Contacto",
+              "icon": "life-buoy",
+              "href": "mailto:hello@paperzilla.ai"
+            }
+          ]
+        },
+        "tabs": [
           {
-            "group": "API documentation",
-            "icon": "terminal",
-            "pages": [
-              "api-reference/introduction",
-              "api-reference/mcp",
-              "api-reference/rss-atom-feed"
+            "tab": "Guías",
+            "groups": [
+              {
+                "group": "Qué es Paperzilla",
+                "icon": "compass",
+                "pages": [
+                  "es/what-is-paperzilla/index",
+                  "es/what-is-paperzilla/who-its-for",
+                  "es/what-is-paperzilla/use-cases",
+                  "es/what-is-paperzilla/how-it-works",
+                  "es/what-is-paperzilla/why-paperzilla"
+                ]
+              },
+              {
+                "group": "Primeros pasos",
+                "icon": "play",
+                "pages": [
+                  "es/index",
+                  "es/quickstart",
+                  "es/guides/cli-getting-started"
+                ]
+              },
+              {
+                "group": "Guías principales",
+                "icon": "book-open",
+                "pages": [
+                  {
+                    "group": "Flujos de trabajo con agentes",
+                    "icon": "bot",
+                    "expanded": true,
+                    "pages": [
+                      "es/guides/agent-workflows",
+                      "es/guides/cli",
+                      "es/guides/openclaw",
+                      "es/guides/openclaw-telegram-briefs",
+                      "es/guides/mcp",
+                      "es/guides/codex",
+                      "es/guides/codex-teams-briefs",
+                      "es/guides/claude",
+                      "es/guides/claude-slack-briefs"
+                    ]
+                  },
+                  {
+                    "group": "Proyectos y uso compartido",
+                    "icon": "folder-open",
+                    "expanded": false,
+                    "pages": [
+                      "es/guides/projects",
+                      "es/guides/sharing-and-visibility",
+                      "es/guides/public-projects"
+                    ]
+                  },
+                  {
+                    "group": "Lista de artículos y entrega",
+                    "icon": "rss",
+                    "expanded": false,
+                    "pages": [
+                      "es/guides/feed-in-app",
+                      "es/guides/email-digests",
+                      "es/guides/feeds"
+                    ]
+                  },
+                  {
+                    "group": "Resúmenes y cuenta",
+                    "icon": "file-text",
+                    "expanded": false,
+                    "pages": [
+                      "es/guides/summaries",
+                      "es/guides/account-and-sign-in",
+                      "es/guides/troubleshooting"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Preguntas y respuestas",
+                "icon": "circle-question-mark",
+                "pages": [
+                  "es/answers/index",
+                  {
+                    "group": "Acerca de Paperzilla",
+                    "icon": "compass",
+                    "expanded": false,
+                    "pages": [
+                      "es/answers/what-problem-paperzilla-solves",
+                      "es/answers/what-does-paperzilla-do",
+                      "es/answers/who-should-use-paperzilla",
+                      "es/answers/is-paperzilla-for-ai-agents",
+                      "es/answers/do-i-need-to-code",
+                      "es/answers/how-is-paperzilla-different-from-rss-alerts",
+                      "es/answers/how-is-paperzilla-different-from-google-scholar-alerts",
+                      "es/answers/when-should-i-create-multiple-projects",
+                      "es/answers/can-paperzilla-fit-team-workflows",
+                      "es/answers/what-are-paperzilla-output-formats",
+                      "es/answers/why-use-feed-and-email-both",
+                      "es/answers/is-paperzilla-only-for-ml-or-biomed"
+                    ]
+                  },
+                  {
+                    "group": "MCP",
+                    "icon": "plug",
+                    "expanded": false,
+                    "pages": [
+                      "es/answers/does-paperzilla-support-mcp",
+                      "es/answers/can-paperzilla-mcp-search-across-an-entire-project-feed",
+                      "es/answers/how-do-i-search-a-project-feed-through-paperzilla-mcp",
+                      "es/answers/can-paperzilla-mcp-return-individual-paper-metadata-and-markdown",
+                      "es/answers/how-do-i-use-paperzilla-mcp-with-claude",
+                      "es/answers/how-do-clients-discover-paperzilla-mcp"
+                    ]
+                  },
+                  {
+                    "group": "Informes de investigación",
+                    "icon": "send",
+                    "expanded": false,
+                    "pages": [
+                      "es/answers/research-brief-codex-telegram",
+                      "es/answers/research-brief-codex-slack",
+                      "es/answers/research-brief-codex-teams",
+                      "es/answers/research-brief-claude-cowork-telegram",
+                      "es/answers/research-brief-claude-cowork-slack",
+                      "es/answers/research-brief-claude-cowork-teams",
+                      "es/answers/research-brief-openclaw-telegram",
+                      "es/answers/research-brief-openclaw-slack",
+                      "es/answers/research-brief-openclaw-teams"
+                    ]
+                  },
+                  {
+                    "group": "Proyectos y configuración",
+                    "icon": "folder-open",
+                    "expanded": false,
+                    "pages": [
+                      "es/answers/what-is-a-project",
+                      "es/answers/create-first-project",
+                      "es/answers/tune-keywords",
+                      "es/answers/must-read-vs-related",
+                      "es/answers/project-no-papers"
+                    ]
+                  },
+                  {
+                    "group": "Lista de artículos y entrega",
+                    "icon": "rss",
+                    "expanded": false,
+                    "pages": [
+                      "es/answers/read-without-email",
+                      "es/answers/daily-vs-weekly-digests",
+                      "es/answers/less-email",
+                      "es/answers/change-max-papers",
+                      "es/answers/pause-project",
+                      "es/answers/pause-email-digests",
+                      "es/answers/search-project-feed",
+                      "es/answers/what-do-useful-very-useful-and-not-for-me-mean",
+                      "es/answers/why-rate-papers-in-feed"
+                    ]
+                  },
+                  {
+                    "group": "RSS/Atom y CLI",
+                    "icon": "square-terminal",
+                    "expanded": false,
+                    "pages": [
+                      "es/answers/copy-rss-atom",
+                      "es/answers/which-feed-readers",
+                      "es/answers/rss-url-security",
+                      "es/answers/how-do-i-find-my-project-id-for-cli-commands",
+                      "es/answers/how-do-i-search-a-project-feed-from-the-cli",
+                      "es/answers/how-do-i-use-paperzilla-cli-with-codex",
+                      "es/answers/how-do-i-use-paperzilla-cli-with-claude",
+                      "es/answers/how-do-i-use-paperzilla-cli-with-openclaw",
+                      "es/answers/how-do-feedback-signals-work-in-the-cli",
+                      "es/answers/openclaw-skill",
+                      "es/answers/what-is-the-difference-between-a-canonical-paper-and-a-recommendation"
+                    ]
+                  },
+                  {
+                    "group": "Uso compartido y acceso público",
+                    "icon": "share",
+                    "expanded": false,
+                    "pages": [
+                      "es/answers/share-project",
+                      "es/answers/share-paper",
+                      "es/answers/private-link-not-working",
+                      "es/answers/public-projects-work",
+                      "es/answers/subscribe-public-project"
+                    ]
+                  },
+                  {
+                    "group": "Resúmenes",
+                    "icon": "file-text",
+                    "expanded": false,
+                    "pages": [
+                      "es/answers/how-summaries-work",
+                      "es/answers/summary-stuck"
+                    ]
+                  },
+                  {
+                    "group": "Cuenta y acceso",
+                    "icon": "circle-user",
+                    "expanded": false,
+                    "pages": [
+                      "es/answers/account-required",
+                      "es/answers/magic-link-login",
+                      "es/answers/existing-account-handoff"
+                    ]
+                  },
+                  {
+                    "group": "Datos y cobertura",
+                    "icon": "database",
+                    "expanded": false,
+                    "pages": [
+                      "es/answers/sources-covered",
+                      "es/answers/delete-project"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Referencia de API",
+            "groups": [
+              {
+                "group": "Documentación de API",
+                "icon": "terminal",
+                "pages": [
+                  "es/api-reference/introduction",
+                  "es/api-reference/mcp",
+                  "es/api-reference/rss-atom-feed"
+                ]
+              }
             ]
           }
-        ]
+        ],
+        "navbar": {
+          "primary": {
+            "type": "button",
+            "label": "Panel",
+            "href": "https://paperzilla.ai/dashboard"
+          }
+        },
+        "footer": {
+          "socials": {
+            "x": "https://x.com/paperzilla_ai",
+            "github": "https://github.com/paperzilla-ai"
+          }
+        }
       }
     ]
-  },
-  "navbar": {
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://paperzilla.ai/dashboard"
-    }
   },
   "contextual": {
     "options": [
@@ -284,11 +555,5 @@
       "cursor",
       "vscode"
     ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/paperzilla_ai",
-      "github": "https://github.com/paperzilla-ai"
-    }
   }
 }

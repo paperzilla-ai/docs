@@ -12,6 +12,15 @@
   stages. Use the isolated `.i18n/preview.mjs` projection for review; never add
   a public language selector, localized navigation, or Spanish discovery before
   the coordinated `live` promotion passes the launch matrix.
+- **7 September 2026 docs-only exception:** Mark approved publishing Spanish
+  docs on Starter and evaluating/fixing the hosted result on production. The
+  hash-bound `.i18n/publication.json` is the docs publication authority while
+  the shared registry stays planned. It permits Spanish docs navigation,
+  indexing and discovery only; never promote app/email/Auth locales with it.
+  Its backend decision record is `docs/multilingual/spanish-docs-live-2026-09-07.md`.
+  Preserve truthful machine provenance; a publishing approval is not a native
+  per-segment review. Content/source/provenance guards remain mandatory, and
+  changed manifest/registry hashes require a reviewed approval renewal.
 - Use ordinary Git branches for multilingual work; do not create or use Git worktrees.
 - Pages are MDX files with YAML frontmatter
 - Configuration lives in `docs.json`
@@ -34,8 +43,9 @@
 - Deployment tooling must run `node .i18n/artifact-guard.mjs assert-deployable
   --root PATH`. The review projection carries a deterministic marker that makes
   this guard fail closed.
-- Run `.i18n/hosted-smoke.mjs` manually only after Spanish is live; it refuses
-  planned/preview registries and must not add hosted network checks to planned CI.
+- Run `.i18n/hosted-smoke.mjs` manually only after Spanish docs are published;
+  either the normal live registry or the hash-bound docs-only approval is
+  required. Never add hosted network checks to deterministic CI.
 
 ## Terminology
 

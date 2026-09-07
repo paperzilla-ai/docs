@@ -58,7 +58,7 @@ jobs:
       - name: Build isolated Spanish review projection
         run: node .i18n/preview.mjs --output /tmp/paperzilla-docs-es-run7-review --replace
 
-      - name: Validate hidden production docs
+      - name: Validate approved production docs
         run: |
           node .i18n/artifact-guard.mjs assert-deployable --root .
           npm run mint:validate

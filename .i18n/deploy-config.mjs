@@ -3,6 +3,7 @@
 import { mkdir, readFile, realpath, rename, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { loadDocsPublication } from './publication.mjs';
 
 const internalDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.dirname(internalDirectory);
@@ -203,6 +204,7 @@ function parseArguments(argv) {
 async function main() {
     const options = parseArguments(process.argv.slice(2));
     const inputs = await loadInputs();
+    inputs.registry = await loadDocsPublication(repositoryRoot, inputs.registry);
     if (options.command === 'check') {
         if (options.output || options.futureLive) {
             throw new Error('check does not accept generation options.');

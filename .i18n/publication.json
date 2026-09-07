@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "surface": "documentation",
+  "locale": "es",
+  "stage": "live",
+  "approvedBy": "Mark Pors",
+  "approvedAt": "2026-09-07T13:24:11Z",
+  "verification": "live-after-deploy",
+  "provenance": "preserve-machine-status",
+  "contentManifestSha256": "b787abf34d27a9ba28a1c34d271a5db51f2c979177da7fc3a82582c0e2e628a6",
+  "registrySha256": "7999cc6e7f31f7d16191ea702d490d2258f8797e411a01bf7e3dfec620344a4f",
+  "decisionRecord": "docs/multilingual/spanish-docs-live-2026-09-07.md"
+}
