@@ -34,7 +34,7 @@
       "direction": "ltr",
       "fallback": "en",
       "pathPrefix": "es",
-      "stage": "planned",
+      "stage": "preview",
       "indexable": false
     }
   ],

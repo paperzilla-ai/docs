@@ -281,7 +281,7 @@ export function contentReviewSummary(manifest) {
 
 export async function validateAuthoredContent(
     root = repositoryRoot,
-    { requireHumanReview = false, sourceMode = 'current' } = {},
+    { requireHumanReview = false, sourceMode = 'current', manifestText = null } = {},
 ) {
     const errors = [];
     let manifest;
@@ -290,7 +290,7 @@ export async function validateAuthoredContent(
     let navigation;
     let rawNavigation = '';
     try {
-        rawManifest = await readFile(path.join(root, '.i18n/content.manifest.json'), 'utf8');
+        rawManifest = manifestText ?? await readFile(path.join(root, '.i18n/content.manifest.json'), 'utf8');
         manifest = JSON.parse(rawManifest);
     } catch (error) {
         return [`Cannot read valid .i18n/content.manifest.json: ${error.message}`];

@@ -23,7 +23,7 @@ export function registryForDocsPublication(registry, approval, hashes) {
         || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(approval.approvedAt)
         || Number.isNaN(Date.parse(approval.approvedAt))
         || approval.verification !== 'live-after-deploy'
-        || approval.provenance !== 'preserve-machine-status'
+        || !['preserve-machine-status', 'preserve-recorded-status'].includes(approval.provenance)
         || approval.decisionRecord !== 'docs/multilingual/spanish-docs-live-2026-09-07.md') {
         throw new Error('Invalid docs-only publication approval.');
     }

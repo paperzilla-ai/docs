@@ -16,7 +16,7 @@ test('docs-only approval publishes Spanish without mutating product/email stages
     const before = structuredClone(registry);
     const projected = await loadDocsPublication(root, registry);
     assert.deepEqual(registry, before);
-    assert.equal(registry.locales.find((locale) => locale.tag === 'es').stage, 'planned');
+    assert.equal(registry.locales.find((locale) => locale.tag === 'es').stage, 'preview');
     assert.equal(projected.locales.find((locale) => locale.tag === 'es').stage, 'live');
     assert.equal(projected.locales.find((locale) => locale.tag === 'es').indexable, true);
     assert.deepEqual(projected.locales[0], registry.locales[0]);
@@ -55,4 +55,12 @@ test('publication approval cannot reactivate retired Spanish', () => {
     const retired = structuredClone(registry);
     retired.locales[1].stage = 'retired';
     assert.throws(() => registryForDocsPublication(retired, approval, hashes), /retired/);
+});
+
+test('publication preserves recorded review; the legacy machine-only decision remains readable', () => {
+    for (const provenance of ['preserve-machine-status', 'preserve-recorded-status']) {
+        assert.equal(registryForDocsPublication(registry, {
+            ...approval, provenance,
+        }, hashes).locales[1].stage, 'live');
+    }
 });

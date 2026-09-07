@@ -15,11 +15,11 @@
 - **7 September 2026 docs-only exception:** Mark approved publishing Spanish
   docs on Starter and evaluating/fixing the hosted result on production. The
   hash-bound `.i18n/publication.json` is the docs publication authority while
-  the shared registry stays planned. It permits Spanish docs navigation,
+  the shared registry is planned or preview. It permits Spanish docs navigation,
   indexing and discovery only; never promote app/email/Auth locales with it.
   Its backend decision record is `docs/multilingual/spanish-docs-live-2026-09-07.md`.
-  Preserve truthful machine provenance; a publishing approval is not a native
-  per-segment review. Content/source/provenance guards remain mandatory, and
+  Preserve truthful generation and review provenance; a publishing approval
+  alone is not a per-segment linguistic review. Content/source/provenance guards remain mandatory, and
   changed manifest/registry hashes require a reviewed approval renewal.
 - Use ordinary Git branches for multilingual work; do not create or use Git worktrees.
 - Pages are MDX files with YAML frontmatter

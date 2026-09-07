@@ -37,6 +37,9 @@ function stageInputs(inputs, stage) {
     spanish.indexable = stage === 'live';
     const rawRegistry = canonicalJson(registry);
     const matrix = structuredClone(inputs.matrix);
+    // Synthetic stage tests own their evidence; committed reviews may grow.
+    matrix.reviews = [];
+    matrix.promotionApprovals = [];
     matrix.localeRegistrySha256 = sha256(rawRegistry);
     return { matrix, registry, rawRegistry };
 }
@@ -92,7 +95,7 @@ function refreshPromotionApprovalHashes(matrix) {
     }
 }
 
-test('committed generated launch-review mirror is canonical and valid while Spanish is planned', async () => {
+test('committed generated launch-review mirror is canonical and valid for its current stage', async () => {
     const inputs = await committedInputs();
     assert.deepEqual(await validateLaunchReviewMatrix(inputs), []);
 });
@@ -107,6 +110,19 @@ test('aggregate hash framing matches the backend portable contract vector', asyn
             await aggregateSha256(root, ['**/*.txt', 'a.txt']),
             '0a4c24209a257ba3bce55e150c993e49c7aa853740f68f3cbad2531a1731e58c',
         );
+    } finally {
+        await rm(root, { recursive: true, force: true });
+    }
+});
+
+test('review path ordering matches Python for punctuation, case and Unicode', async () => {
+    const root = await mkdtemp(path.join(os.tmpdir(), 'paperzilla-docs-review-sort-'));
+    try {
+        for (const name of ['😀.txt', 'á.txt', 'a.txt', '_.txt', 'Z.txt']) {
+            await writeFile(path.join(root, name), 'review\n');
+        }
+        assert.equal(await aggregateSha256(root, ['*.txt']),
+            '3a6773edf39170fc9d016ac845bff137e954ba75b59189db2492d869c32b367c');
     } finally {
         await rm(root, { recursive: true, force: true });
     }
@@ -148,8 +164,8 @@ test('documentation state derives current hashes and pending specialist roles', 
     const state = await documentationReviewState(matrix);
     assert.match(state.sourceSha256, /^[a-f0-9]{64}$/);
     assert.match(state.artifactSha256, /^[a-f0-9]{64}$/);
-    assert.deepEqual(state.currentApprovedRoles, []);
-    assert.deepEqual(state.pendingRoles, ['linguistic', 'editorial', 'product-technical', 'seo']);
+    assert.deepEqual(state.currentApprovedRoles, ['linguistic', 'editorial', 'product-technical', 'seo']);
+    assert.deepEqual(state.pendingRoles, []);
 });
 
 test('generated mirror pins both docs artifact contracts', async () => {

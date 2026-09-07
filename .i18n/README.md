@@ -1,6 +1,13 @@
 # Run 7 Spanish docs review and launch gates
 
-Spanish remains a planned, non-public locale. The complete authored tree is
+The shared product registry marks Spanish preview (beta only). Documentation is
+live under Mark's hash-bound docs-only `.i18n/publication.json` decision; see
+backend `docs/multilingual/spanish-docs-live-2026-09-07.md`. This exception never
+activates Spanish product UI, Auth, or email. Confirmed full linguistic review
+is recorded separately in segment provenance and the launch matrix.
+
+Without that explicit docs-only exception, the normal planned-stage rule is:
+the complete authored tree is
 tracked under `es/`, but production `docs.json` stays English-only and the exact
 `es/` rule in `.mintignore` prevents Mintlify from publishing, indexing, or
 feeding that tree to AI/search surfaces. The same hidden contract applies while
@@ -101,6 +108,15 @@ marker is publicly reachable. This is a manual post-deployment gate and is not
 part of planned-stage CI.
 
 ## Manifest updates
+
+Zero-correction review decisions use the backend `i18n_content.py import-review`
+command with `--collection docs`. It validates exact CSV coverage/freshness,
+stages only the manifest, and runs this repository's complete MDX/content
+validator against the staged metadata before replacing anything. It preserves
+every MDX/navigation byte and the original translation provider/model. Review
+metadata changes invalidate the docs-only publication hash; renew it only after
+verifying the accepted content is unchanged. Corrections remain a separate
+content edit/import and validation step, never implicit in an approval.
 
 `.i18n/content.manifest.json` contains one source-derived record per English MDX
 file plus the `docs:navigation` pseudo-document. Each record and visible segment

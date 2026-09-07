@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "localeRegistrySha256": "7999cc6e7f31f7d16191ea702d490d2258f8797e411a01bf7e3dfec620344a4f",
+  "localeRegistrySha256": "027cb3bb79ce065884af94151efabda7987b64df8528248f99d71c97a0cb4537",
   "artifacts": [
     {
       "id": "frontend-product-catalog",
@@ -485,6 +485,665 @@
       ]
     }
   ],
-  "reviews": [],
-  "promotionApprovals": []
+  "reviews": [
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "linguistic",
+      "reviewerAuthority": "trusted-spanish-reviewer",
+      "sourceSha256": "2095b3794f5014362aae68f5b356fdbb6338059ad2e1016eade7829896b1be78",
+      "artifactSha256": "aaa9c77f8b6fa04b50db1ccd5eaec3c9c51f65409dd072e23b84f6d1fbc806b0",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-07T14:53:15Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "linguistic",
+      "reviewerAuthority": "trusted-spanish-reviewer",
+      "sourceSha256": "2e7d909e99b20f058a8e0dd93eda43b0c5d982f55f43c857fddbb33f40c45bb2",
+      "artifactSha256": "6187c3f68646796a7f3f56af26dd8ad79fdbb0f73728fbfd305c2660a736e7be",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-07T14:53:15Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "taxonomy-overlay",
+      "surface": "taxonomy",
+      "role": "linguistic",
+      "reviewerAuthority": "trusted-spanish-reviewer",
+      "sourceSha256": "58560f0602c7d219c37b53a69e41fc0580337ce99acb8d0839055ea0edd8c7f6",
+      "artifactSha256": "72306783b38387b02ff59d840f08c0ee7b4bb3562ba69666d2268f508679f59e",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-07T14:53:15Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "legal-content",
+      "surface": "legal",
+      "role": "linguistic",
+      "reviewerAuthority": "trusted-spanish-reviewer",
+      "sourceSha256": "b2c584a9c6db056c05faffb63b9b440649d8bd74e51a04442461dac1ef64d3fe",
+      "artifactSha256": "118ae8f369da0732a48a24416b990a9a425cdb2dfcf5b0d219cd59450beacf21",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-07T14:53:15Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "legal-content",
+      "surface": "legal",
+      "role": "editorial",
+      "reviewerAuthority": "trusted-spanish-reviewer",
+      "sourceSha256": "b2c584a9c6db056c05faffb63b9b440649d8bd74e51a04442461dac1ef64d3fe",
+      "artifactSha256": "118ae8f369da0732a48a24416b990a9a425cdb2dfcf5b0d219cd59450beacf21",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-07T14:53:15Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "news-content",
+      "surface": "news",
+      "role": "linguistic",
+      "reviewerAuthority": "trusted-spanish-reviewer",
+      "sourceSha256": "77b89b67f0607b2ef3e3bf70abf3382805bf858a3730c1ba314c058ad5e19211",
+      "artifactSha256": "3811b9b1144bb0800a44b76db0666f2d5d4d93ce3ef6e2b26e9b5f9395f3034a",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-07T14:53:15Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "news-content",
+      "surface": "news",
+      "role": "editorial",
+      "reviewerAuthority": "trusted-spanish-reviewer",
+      "sourceSha256": "77b89b67f0607b2ef3e3bf70abf3382805bf858a3730c1ba314c058ad5e19211",
+      "artifactSha256": "3811b9b1144bb0800a44b76db0666f2d5d4d93ce3ef6e2b26e9b5f9395f3034a",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-07T14:53:15Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "newsletter-content",
+      "surface": "newsletter",
+      "role": "linguistic",
+      "reviewerAuthority": "trusted-spanish-reviewer",
+      "sourceSha256": "353fce9da2b89fd482f813f725da86c30d54775f6828106c5d85262922720627",
+      "artifactSha256": "ad953af99cbd6526ec1511a37602e0c3946b269414aff16652e2947a82af86ab",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-07T14:53:15Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "newsletter-content",
+      "surface": "newsletter",
+      "role": "editorial",
+      "reviewerAuthority": "trusted-spanish-reviewer",
+      "sourceSha256": "353fce9da2b89fd482f813f725da86c30d54775f6828106c5d85262922720627",
+      "artifactSha256": "ad953af99cbd6526ec1511a37602e0c3946b269414aff16652e2947a82af86ab",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-07T14:53:15Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "documentation",
+      "surface": "documentation",
+      "role": "linguistic",
+      "reviewerAuthority": "trusted-spanish-reviewer",
+      "sourceSha256": "75a6bc6eeae2af12d45c8cd7fb8644cc64f2472ec3ac926b781ee1d3d1d8eb5a",
+      "artifactSha256": "f33eecae57e4f15a160af9ec9aae1ef7c708093302c5f3b6358ff22e31efc229",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-07T14:53:15Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "documentation",
+      "surface": "documentation",
+      "role": "editorial",
+      "reviewerAuthority": "trusted-spanish-reviewer",
+      "sourceSha256": "75a6bc6eeae2af12d45c8cd7fb8644cc64f2472ec3ac926b781ee1d3d1d8eb5a",
+      "artifactSha256": "f33eecae57e4f15a160af9ec9aae1ef7c708093302c5f3b6358ff22e31efc229",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-07T14:53:15Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "auth-templates",
+      "surface": "supabase-auth",
+      "role": "linguistic",
+      "reviewerAuthority": "trusted-spanish-reviewer",
+      "sourceSha256": "184320ba28e898ab6219a2b04257d090aaedeb52bc6b5e601f17af48f677dab4",
+      "artifactSha256": "272e7d330ad6e1518fbbaffa01443e61436d79e084d7f9cf64519f1bf9684378",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-07T14:53:15Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "2095b3794f5014362aae68f5b356fdbb6338059ad2e1016eade7829896b1be78",
+      "artifactSha256": "aaa9c77f8b6fa04b50db1ccd5eaec3c9c51f65409dd072e23b84f6d1fbc806b0",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "commercial",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "2095b3794f5014362aae68f5b356fdbb6338059ad2e1016eade7829896b1be78",
+      "artifactSha256": "aaa9c77f8b6fa04b50db1ccd5eaec3c9c51f65409dd072e23b84f6d1fbc806b0",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "2095b3794f5014362aae68f5b356fdbb6338059ad2e1016eade7829896b1be78",
+      "artifactSha256": "aaa9c77f8b6fa04b50db1ccd5eaec3c9c51f65409dd072e23b84f6d1fbc806b0",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "2c1047fe61e9ce6ca2aef0279eabf95a0653b257d42eb2617dfd06c940e52e61",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "2c1047fe61e9ce6ca2aef0279eabf95a0653b257d42eb2617dfd06c940e52e61",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "2c1047fe61e9ce6ca2aef0279eabf95a0653b257d42eb2617dfd06c940e52e61",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "2e7d909e99b20f058a8e0dd93eda43b0c5d982f55f43c857fddbb33f40c45bb2",
+      "artifactSha256": "6187c3f68646796a7f3f56af26dd8ad79fdbb0f73728fbfd305c2660a736e7be",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "commercial",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "2e7d909e99b20f058a8e0dd93eda43b0c5d982f55f43c857fddbb33f40c45bb2",
+      "artifactSha256": "6187c3f68646796a7f3f56af26dd8ad79fdbb0f73728fbfd305c2660a736e7be",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "2e7d909e99b20f058a8e0dd93eda43b0c5d982f55f43c857fddbb33f40c45bb2",
+      "artifactSha256": "6187c3f68646796a7f3f56af26dd8ad79fdbb0f73728fbfd305c2660a736e7be",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "2e7d909e99b20f058a8e0dd93eda43b0c5d982f55f43c857fddbb33f40c45bb2",
+      "artifactSha256": "6187c3f68646796a7f3f56af26dd8ad79fdbb0f73728fbfd305c2660a736e7be",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "taxonomy-overlay",
+      "surface": "taxonomy",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "58560f0602c7d219c37b53a69e41fc0580337ce99acb8d0839055ea0edd8c7f6",
+      "artifactSha256": "72306783b38387b02ff59d840f08c0ee7b4bb3562ba69666d2268f508679f59e",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "taxonomy-overlay",
+      "surface": "taxonomy",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "58560f0602c7d219c37b53a69e41fc0580337ce99acb8d0839055ea0edd8c7f6",
+      "artifactSha256": "72306783b38387b02ff59d840f08c0ee7b4bb3562ba69666d2268f508679f59e",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "legal-content",
+      "surface": "legal",
+      "role": "legal-risk",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "b2c584a9c6db056c05faffb63b9b440649d8bd74e51a04442461dac1ef64d3fe",
+      "artifactSha256": "118ae8f369da0732a48a24416b990a9a425cdb2dfcf5b0d219cd59450beacf21",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "news-content",
+      "surface": "news",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "77b89b67f0607b2ef3e3bf70abf3382805bf858a3730c1ba314c058ad5e19211",
+      "artifactSha256": "3811b9b1144bb0800a44b76db0666f2d5d4d93ce3ef6e2b26e9b5f9395f3034a",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "newsletter-content",
+      "surface": "newsletter",
+      "role": "commercial",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "353fce9da2b89fd482f813f725da86c30d54775f6828106c5d85262922720627",
+      "artifactSha256": "ad953af99cbd6526ec1511a37602e0c3946b269414aff16652e2947a82af86ab",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "newsletter-content",
+      "surface": "newsletter",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "353fce9da2b89fd482f813f725da86c30d54775f6828106c5d85262922720627",
+      "artifactSha256": "ad953af99cbd6526ec1511a37602e0c3946b269414aff16652e2947a82af86ab",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "documentation",
+      "surface": "documentation",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "75a6bc6eeae2af12d45c8cd7fb8644cc64f2472ec3ac926b781ee1d3d1d8eb5a",
+      "artifactSha256": "f33eecae57e4f15a160af9ec9aae1ef7c708093302c5f3b6358ff22e31efc229",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "documentation",
+      "surface": "documentation",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "75a6bc6eeae2af12d45c8cd7fb8644cc64f2472ec3ac926b781ee1d3d1d8eb5a",
+      "artifactSha256": "f33eecae57e4f15a160af9ec9aae1ef7c708093302c5f3b6358ff22e31efc229",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark accepts Mintlify hosted docs missing reciprocal en/es/x-default hreflang. Strict hosted SEO smoke still reports this provider limitation; no checker bypass or full metadata-parity claim."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "documentation-runtime-and-deployment",
+      "surface": "documentation-runtime-and-deployment",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "2da0cff4fde99e708993368a155cb72b6d148464e0d9b43ff5c56779ddf8c790",
+      "artifactSha256": "c4ad41b8e13196730c6205e1bff67fce958faa789cdbcae1fcb8ad016cca6427",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "documentation-runtime-and-deployment",
+      "surface": "documentation-runtime-and-deployment",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "2da0cff4fde99e708993368a155cb72b6d148464e0d9b43ff5c56779ddf8c790",
+      "artifactSha256": "c4ad41b8e13196730c6205e1bff67fce958faa789cdbcae1fcb8ad016cca6427",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark accepts Mintlify hosted docs missing reciprocal en/es/x-default hreflang. Strict hosted SEO smoke still reports this provider limitation; no checker bypass or full metadata-parity claim."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "auth-templates",
+      "surface": "supabase-auth",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "184320ba28e898ab6219a2b04257d090aaedeb52bc6b5e601f17af48f677dab4",
+      "artifactSha256": "272e7d330ad6e1518fbbaffa01443e61436d79e084d7f9cf64519f1bf9684378",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "99781643fa0022c0eafc6312827cd8c92760f7cc9f4cfe5b0619a27aec5da365",
+      "artifactSha256": "79aa5c6acaa0e8bbd761ea5c424b40c2bbe6242d947235aae225e7e6a7b288fd",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "99781643fa0022c0eafc6312827cd8c92760f7cc9f4cfe5b0619a27aec5da365",
+      "artifactSha256": "79aa5c6acaa0e8bbd761ea5c424b40c2bbe6242d947235aae225e7e6a7b288fd",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark accepts Mintlify hosted docs missing reciprocal en/es/x-default hreflang. Strict hosted SEO smoke still reports this provider limitation; no checker bypass or full metadata-parity claim."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "newsletter-delivery",
+      "surface": "newsletter-delivery",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "1a79a226f4dfa6d8644d4aa74b4d345d51777688499c6c6c4ee0a8825b9db7d3",
+      "artifactSha256": "a3099015009eaf51bc058d4d4be1fc43998ba0fdd28b08536472a3b7080dd269",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "newsletter-delivery",
+      "surface": "newsletter-delivery",
+      "role": "commercial",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "1a79a226f4dfa6d8644d4aa74b4d345d51777688499c6c6c4ee0a8825b9db7d3",
+      "artifactSha256": "a3099015009eaf51bc058d4d4be1fc43998ba0fdd28b08536472a3b7080dd269",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "newsletter-delivery",
+      "surface": "newsletter-delivery",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "1a79a226f4dfa6d8644d4aa74b4d345d51777688499c6c6c4ee0a8825b9db7d3",
+      "artifactSha256": "a3099015009eaf51bc058d4d4be1fc43998ba0fdd28b08536472a3b7080dd269",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "launch-control-plane",
+      "surface": "launch-control-plane",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "8a47243d70c2b7603f0efe74ccf792a0a37b20af5a67dd975dae2cef56c4a020",
+      "artifactSha256": "a7707ce11f0f19ebab886e3f587a4e1d7a23da905ab383e72fc030462b969e4c",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "09a250850bc89fcd055a65fa0d3654c4e81764c7371589158b9dfb342b4c4c3e",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:42:23Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved the validation-only UTF-8 review-path ordering repair and preview-stage test updates. Spanish text and production behavior are unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "09a250850bc89fcd055a65fa0d3654c4e81764c7371589158b9dfb342b4c4c3e",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:42:23Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved the validation-only UTF-8 review-path ordering repair and preview-stage test updates. Spanish text and production behavior are unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "09a250850bc89fcd055a65fa0d3654c4e81764c7371589158b9dfb342b4c4c3e",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:42:23Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved the validation-only UTF-8 review-path ordering repair and preview-stage test updates. Spanish text and production behavior are unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "documentation-runtime-and-deployment",
+      "surface": "documentation-runtime-and-deployment",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "2da0cff4fde99e708993368a155cb72b6d148464e0d9b43ff5c56779ddf8c790",
+      "artifactSha256": "60a43617dd863183c40a60f5ca8bf4d1826d8049f7edf291c74e3265c5e0e75e",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:42:23Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved the validation-only UTF-8 review-path ordering repair and preview-stage test updates. Spanish text and production behavior are unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "documentation-runtime-and-deployment",
+      "surface": "documentation-runtime-and-deployment",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "2da0cff4fde99e708993368a155cb72b6d148464e0d9b43ff5c56779ddf8c790",
+      "artifactSha256": "60a43617dd863183c40a60f5ca8bf4d1826d8049f7edf291c74e3265c5e0e75e",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:42:23Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark accepts Mintlify hosted docs missing reciprocal en/es/x-default hreflang. Strict hosted SEO smoke still reports this provider limitation; no checker bypass or full metadata-parity claim.",
+        "Mark explicitly approved the validation-only UTF-8 review-path ordering repair and preview-stage test updates. Spanish text and production behavior are unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "99781643fa0022c0eafc6312827cd8c92760f7cc9f4cfe5b0619a27aec5da365",
+      "artifactSha256": "643a62c7d03f42857e8c728c0acd09dbfe91177672e7e20a6f56a749e2fc790b",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:42:23Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved the validation-only UTF-8 review-path ordering repair and preview-stage test updates. Spanish text and production behavior are unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "99781643fa0022c0eafc6312827cd8c92760f7cc9f4cfe5b0619a27aec5da365",
+      "artifactSha256": "643a62c7d03f42857e8c728c0acd09dbfe91177672e7e20a6f56a749e2fc790b",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:42:23Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark accepts Mintlify hosted docs missing reciprocal en/es/x-default hreflang. Strict hosted SEO smoke still reports this provider limitation; no checker bypass or full metadata-parity claim.",
+        "Mark explicitly approved the validation-only UTF-8 review-path ordering repair and preview-stage test updates. Spanish text and production behavior are unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "launch-control-plane",
+      "surface": "launch-control-plane",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "c00c5684ac4620712b2af20ba1aa28e0c0a41063eb68fb32c9f826da56207ee9",
+      "artifactSha256": "2dedd7a1066f337366dae152ace7f61eaa830c1e050edef1722e20d9dd55e481",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T15:42:23Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved the validation-only UTF-8 review-path ordering repair and preview-stage test updates. Spanish text and production behavior are unchanged."
+      ]
+    }
+  ],
+  "promotionApprovals": [
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "trusted-spanish-reviewer",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-07T15:22:02Z",
+      "decision": "approved",
+      "reviewSetSha256": "29a4b8eb26eeae094eea523b3441c4b34b0a6aebfb00ca30c5e34c794be36993",
+      "exceptions": []
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "trusted-spanish-reviewer",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-07T15:42:23Z",
+      "decision": "approved",
+      "reviewSetSha256": "0337ddb46d0464af46b8fb4b5327559eb0001e3c7eed98c000105c7faabdbb93",
+      "exceptions": [
+        "Existing reviewer preview approval renewed after Mark explicitly accepted validation-only tooling repairs. No translation changed; no additional linguistic or native-device review is claimed."
+      ]
+    }
+  ]
 }

@@ -177,7 +177,7 @@ async function expandPaths(root, patterns) {
         }
     }
     return [...matches.entries()]
-        .sort(([left], [right]) => left.localeCompare(right))
+        .sort(([left], [right]) => Buffer.compare(Buffer.from(left, 'utf8'), Buffer.from(right, 'utf8')))
         .map(([relativePath, absolutePath]) => ({ relativePath, absolutePath }));
 }
 

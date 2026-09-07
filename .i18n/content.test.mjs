@@ -255,6 +255,30 @@ test('human provenance requires model null, human review, and a reviewer', async
     }
 });
 
+test('staged review metadata uses the complete owning validator without writes', async () => {
+    const { root, manifest } = await createFixtureRepository();
+    try {
+        const manifestFile = path.join(root, '.i18n/content.manifest.json');
+        const before = await readFile(manifestFile, 'utf8');
+        for (const record of manifest.documents) {
+            for (const item of [record, ...record.segments]) {
+                item.reviewStatus = 'human-reviewed';
+                item.reviewer = 'trusted-spanish-reviewer-1';
+            }
+        }
+        assert.deepEqual(await validateAuthoredContent(root, {
+            manifestText: canonicalJson(manifest), requireHumanReview: true,
+        }), []);
+        manifest.documents[0].segments[0].translationSha256 = '0'.repeat(64);
+        assert((await validateAuthoredContent(root, {
+            manifestText: canonicalJson(manifest), requireHumanReview: true,
+        })).some((error) => error.includes('translationSha256')));
+        assert.equal(await readFile(manifestFile, 'utf8'), before);
+    } finally {
+        await rm(root, { recursive: true, force: true });
+    }
+});
+
 test('tone guard catches formal and vosotros prose without touching code, URLs, or paths', () => {
     assert.deepEqual(new Set(findFormalVoice('Continúe y revisad la guía.')), new Set(['Continúe', 'revisad']));
     const source = 'Use este texto, `Use command`, https://example.com/use y href="/use".';
@@ -363,12 +387,9 @@ test('preview rejects repo-local output and atomically replaces stale temporary 
         const parsedEvidence = JSON.parse(evidence);
         assert.equal(parsedEvidence.sourceDocumentCount, 96);
         assert.equal(parsedEvidence.translatedDocumentCount, 96);
-        assert.equal(parsedEvidence.contentReviewEligible, false);
-        assert.deepEqual(parsedEvidence.approvedSpecialistRoles, []);
-        assert.deepEqual(
-            parsedEvidence.pendingSpecialistRoles,
-            ['linguistic', 'editorial', 'product-technical', 'seo'],
-        );
+        assert.equal(parsedEvidence.contentReviewEligible, true);
+        assert.deepEqual(parsedEvidence.approvedSpecialistRoles, ['linguistic', 'editorial', 'product-technical', 'seo']);
+        assert.deepEqual(parsedEvidence.pendingSpecialistRoles, []);
         await buildPreviewProjection({ output, replace: true });
         assert.equal(await readFile(path.join(output, 'review-evidence.json'), 'utf8'), evidence);
     } finally {
