@@ -1120,6 +1120,36 @@
       "exceptions": [
         "Mark explicitly approved the validation-only UTF-8 review-path ordering repair and preview-stage test updates. Spanish text and production behavior are unchanged."
       ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "066603e5aa5a62fcb200e369ade347430773a415934ce4d9b218c23675c7166d",
+      "artifactSha256": "3211e56ac5955d115aa1cbae5d60e74425cd245c72dc94c88fb74b44e28b4736",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T17:56:11Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved the tested crawler content-root fix at 11a4179 and the coordinated beta metadata refresh in this task. Production content roots and Spanish wording are unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "066603e5aa5a62fcb200e369ade347430773a415934ce4d9b218c23675c7166d",
+      "artifactSha256": "3211e56ac5955d115aa1cbae5d60e74425cd245c72dc94c88fb74b44e28b4736",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-07T17:56:11Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved the tested crawler content-root fix at 11a4179 and the coordinated beta metadata refresh in this task. Beta stays non-indexable; production routing and Spanish wording are unchanged."
+      ]
     }
   ],
   "promotionApprovals": [
@@ -1143,6 +1173,18 @@
       "reviewSetSha256": "0337ddb46d0464af46b8fb4b5327559eb0001e3c7eed98c000105c7faabdbb93",
       "exceptions": [
         "Existing reviewer preview approval renewed after Mark explicitly accepted validation-only tooling repairs. No translation changed; no additional linguistic or native-device review is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "trusted-spanish-reviewer",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-07T17:56:11Z",
+      "decision": "approved",
+      "reviewSetSha256": "87a194ac2939c87fd976c614c4dd531981c053062eb63b76194a312879e74da4",
+      "exceptions": [
+        "Carry forward the previously recorded trusted Spanish reviewer approval of unchanged language and preview coverage. Mark explicitly approved renewing this binding for the crawler-only technical/SEO correction at 11a4179. No new linguistic review, reviewer contact, live approval, or native approval is claimed."
       ]
     }
   ]
