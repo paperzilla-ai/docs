@@ -40,6 +40,7 @@
         "app.config.js",
         "components/Header.tsx",
         "components/NavigationMenu.tsx",
+        "components/CookieConsentBanner.tsx",
         "components/account/SettingsScreen.tsx",
         "components/i18n/LanguageSelector.tsx",
         "lib/SessionContext.tsx",
@@ -52,6 +53,7 @@
         "lib/i18n/publicWeb.ts",
         "lib/i18n/staticTranslation.ts",
         "scripts/build-static.js",
+        "scripts/i18n/public-shell-templates.cjs",
         "scripts/i18n/build-target-contract.cjs",
         "scripts/i18n/generate-catalog-wiring.mjs",
         "scripts/i18n/static-smoke.mjs",
@@ -339,12 +341,15 @@
         "api/i18n/authored_content.py",
         "api/i18n/taxonomy.py",
         "api/i18n/public_web.py",
-        "api/routers/meta.py"
+        "api/routers/meta.py",
+        "api/routers/localized_shell.py",
+        "api/main.py"
       ],
       "artifactPaths": [
         "config/i18n/public-web-surfaces.json",
         "config/i18n/taxonomy/es.json",
         "scripts/i18n_public_web_nginx.py",
+        "tests/test_localized_shell.py",
         "api/templates/paper_jinja.html",
         "api/templates/digest_jinja.html",
         "api/templates/digest_paper_jinja.html",
@@ -1195,6 +1200,96 @@
       "exceptions": [
         "Mark explicitly approved renewing product/technical, Auth/email and SEO review records for the seven beta-QA fixes at frontend 6bd0dd094467b11b7eea58e74e53028e66519c1e and requested merge/push. Reviewed wording and source categories are unchanged; server-built beta retesting remains required. No live or native approval is granted."
       ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "d0780d39d8d5f3a6616083ab2ad5a26e965bcd1d2f5630c85231f37c970065ea",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T12:56:37Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark approved the Spanish deep-link, drawer docs and cookie technical correction batch and requested commit/merge/push on 8 September 2026. This renews technical evidence only; deployed acceptance, Spanish live activation and native release remain pending."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "d0780d39d8d5f3a6616083ab2ad5a26e965bcd1d2f5630c85231f37c970065ea",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T12:56:37Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark approved the Spanish deep-link, drawer docs and cookie technical correction batch and requested commit/merge/push on 8 September 2026. This renews technical evidence only; deployed acceptance, Spanish live activation and native release remain pending."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "d0780d39d8d5f3a6616083ab2ad5a26e965bcd1d2f5630c85231f37c970065ea",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T12:56:37Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark approved the Spanish deep-link, drawer docs and cookie technical correction batch and requested commit/merge/push on 8 September 2026. This renews technical evidence only; deployed acceptance, Spanish live activation and native release remain pending."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "61c8edefe6a3a9827a733196e5f62d3e00743997a6413b6dc5465ab1f6063066",
+      "artifactSha256": "2b58ba69e15d89f069b93b54069329ef19a524ece2bf63d6d8e8efe824d63ca2",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T12:56:37Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark approved the Spanish deep-link, drawer docs and cookie technical correction batch and requested commit/merge/push on 8 September 2026. This renews technical evidence only; deployed acceptance, Spanish live activation and native release remain pending."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "61c8edefe6a3a9827a733196e5f62d3e00743997a6413b6dc5465ab1f6063066",
+      "artifactSha256": "2b58ba69e15d89f069b93b54069329ef19a524ece2bf63d6d8e8efe824d63ca2",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T12:56:37Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark approved the Spanish deep-link, drawer docs and cookie technical correction batch and requested commit/merge/push on 8 September 2026. This renews technical evidence only; deployed acceptance, Spanish live activation and native release remain pending."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "launch-control-plane",
+      "surface": "launch-control-plane",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "babc7b99fb07081f1340220db8fd0906517f6817805e68fc2e690dd6e452d17b",
+      "artifactSha256": "0d2045bcab6356dc1e8d9f1d187d46e5d7337dc18ba340043696deddb05545af",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T12:56:37Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark approved the Spanish deep-link, drawer docs and cookie technical correction batch and requested commit/merge/push on 8 September 2026. This renews technical evidence only; deployed acceptance, Spanish live activation and native release remain pending."
+      ]
     }
   ],
   "promotionApprovals": [
@@ -1242,6 +1337,18 @@
       "reviewSetSha256": "34f88e84b2fc9cfa322914153fdebbc3c42bf6b7e88d2830185a35f88d8e33a9",
       "exceptions": [
         "Carry forward the previously recorded trusted Spanish reviewer approval of unchanged wording. Mark explicitly approved the seven beta-QA technical fixes at frontend 6bd0dd094467b11b7eea58e74e53028e66519c1e and this metadata refresh. No new linguistic review, reviewer contact, deployed beta acceptance, live approval or native approval is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "trusted-spanish-reviewer",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-08T12:56:37Z",
+      "decision": "approved",
+      "reviewSetSha256": "7fdfc6b38ddb46fe3fd892b36023aad4849c1ac3e7da090771f4717dc55062c0",
+      "exceptions": [
+        "Carry forward the recorded trusted Spanish reviewer approval of unchanged wording, with Mark's approved technical corrections and metadata renewal. No new linguistic review or reviewer contact is claimed. Spanish remains preview; this is not deployed QA acceptance, live approval or native approval."
       ]
     }
   ]
