@@ -43,6 +43,7 @@
         "components/CookieConsentBanner.tsx",
         "components/account/SettingsScreen.tsx",
         "components/i18n/LanguageSelector.tsx",
+        "components/i18n/LanguageDropdown.tsx",
         "lib/SessionContext.tsx",
         "lib/i18n/AppI18nProvider.tsx",
         "lib/i18n/catalogs.generated.ts",
@@ -363,7 +364,16 @@
         "tests/test_i18n_public_web_nginx.py",
         "tests/test_i18n_taxonomy_runtime.py",
         "tests/test_i18n_content_runtime.py",
-        "tests/test_meta_social_images.py"
+        "tests/test_meta_social_images.py",
+        "scripts/post_deploy_smoke.py",
+        "scripts/post_deploy_seo.py",
+        "scripts/seo_smoke_http.py",
+        "scripts/seo_smoke_checks.py",
+        "scripts/check_public_web_i18n_scope.py",
+        "tests/test_post_deploy_seo.py",
+        "tests/test_crawler_editorial_i18n.py",
+        "tests/fixtures/editorial-crawler-english.json",
+        "config/i18n/crawler-ui-review-transfer.json"
       ],
       "requiredRoles": [
         "product-technical",
@@ -1290,6 +1300,293 @@
       "exceptions": [
         "Mark approved the Spanish deep-link, drawer docs and cookie technical correction batch and requested commit/merge/push on 8 September 2026. This renews technical evidence only; deployed acceptance, Spanish live activation and native release remain pending."
       ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "a8be6002f723e9030aa03f491cb5baeb3b063097958bfa0b441f1aa471e6ae00",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T15:30:16Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "a8be6002f723e9030aa03f491cb5baeb3b063097958bfa0b441f1aa471e6ae00",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T15:30:16Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "a8be6002f723e9030aa03f491cb5baeb3b063097958bfa0b441f1aa471e6ae00",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T15:30:16Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "linguistic",
+      "reviewerAuthority": "trusted-spanish-reviewer",
+      "sourceSha256": "880975cc3b16ba635a172d31bd9c8fbd4216f58cb9b5b6b89b6266ec9d8741aa",
+      "artifactSha256": "b9027a0cc0ddf958bd0589ed7c31ffe9dc1219eccb62bccf5a03e97ff2009517",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-08T16:13:56Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed.",
+        "Linguistic approval is carried forward, not a new reviewer session: prior text is unchanged; the 17 crawler descriptors reuse reviewed frontend wording with exact adaptations and original provenance in config/i18n/crawler-ui-review-transfer.json. Generated Auth wording is unchanged. The original aggregate approval remains in this append-only history; this timestamp records Mark's authorized carry-forward."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "880975cc3b16ba635a172d31bd9c8fbd4216f58cb9b5b6b89b6266ec9d8741aa",
+      "artifactSha256": "b9027a0cc0ddf958bd0589ed7c31ffe9dc1219eccb62bccf5a03e97ff2009517",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-08T16:13:56Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "commercial",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "880975cc3b16ba635a172d31bd9c8fbd4216f58cb9b5b6b89b6266ec9d8741aa",
+      "artifactSha256": "b9027a0cc0ddf958bd0589ed7c31ffe9dc1219eccb62bccf5a03e97ff2009517",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-08T16:13:56Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "880975cc3b16ba635a172d31bd9c8fbd4216f58cb9b5b6b89b6266ec9d8741aa",
+      "artifactSha256": "b9027a0cc0ddf958bd0589ed7c31ffe9dc1219eccb62bccf5a03e97ff2009517",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-08T16:13:56Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "880975cc3b16ba635a172d31bd9c8fbd4216f58cb9b5b6b89b6266ec9d8741aa",
+      "artifactSha256": "b9027a0cc0ddf958bd0589ed7c31ffe9dc1219eccb62bccf5a03e97ff2009517",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-08T16:13:56Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "auth-templates",
+      "surface": "supabase-auth",
+      "role": "linguistic",
+      "reviewerAuthority": "trusted-spanish-reviewer",
+      "sourceSha256": "8cd75a42410eaabc7739b6e282a11a9cc2a869cb3fe4799c30d7938911012230",
+      "artifactSha256": "68c9c0f3831b4595d40d431ec68813116930142b3f1940e8655c245e3315ce84",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-08T16:13:56Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed.",
+        "Linguistic approval is carried forward, not a new reviewer session: prior text is unchanged; the 17 crawler descriptors reuse reviewed frontend wording with exact adaptations and original provenance in config/i18n/crawler-ui-review-transfer.json. Generated Auth wording is unchanged. The original aggregate approval remains in this append-only history; this timestamp records Mark's authorized carry-forward."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "auth-templates",
+      "surface": "supabase-auth",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "8cd75a42410eaabc7739b6e282a11a9cc2a869cb3fe4799c30d7938911012230",
+      "artifactSha256": "68c9c0f3831b4595d40d431ec68813116930142b3f1940e8655c245e3315ce84",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-08T16:13:56Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "61c8edefe6a3a9827a733196e5f62d3e00743997a6413b6dc5465ab1f6063066",
+      "artifactSha256": "76913fdd048d3ffc82dac5f0d25bb50cbea112d2b086f65bfb76485314f87cc2",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T16:13:56Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "61c8edefe6a3a9827a733196e5f62d3e00743997a6413b6dc5465ab1f6063066",
+      "artifactSha256": "76913fdd048d3ffc82dac5f0d25bb50cbea112d2b086f65bfb76485314f87cc2",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T16:13:56Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "launch-control-plane",
+      "surface": "launch-control-plane",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "e402d328e3ccc156d39d31bd42f4b9519f3a1fa741bdcdd503cacf02dad93423",
+      "artifactSha256": "77dd114049a85f9802db5c1f13144c40daf7054b376cc7d87122f88865c45e7d",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T16:13:56Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "fc20adf44aa406ba32f99f5ca23932b7376422e26e41c8f437e4b82ea2e22766",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T16:17:31Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "fc20adf44aa406ba32f99f5ca23932b7376422e26e41c8f437e4b82ea2e22766",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T16:17:31Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "fc20adf44aa406ba32f99f5ca23932b7376422e26e41c8f437e4b82ea2e22766",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T16:17:31Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "8b7fdb742e875df9453d6d4133919a942399b0e722b38b632d02ec46d8ee4d34",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T16:19:29Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "8b7fdb742e875df9453d6d4133919a942399b0e722b38b632d02ec46d8ee4d34",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T16:19:29Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "45474a31fe5cc4002ed7d35da8ecd63a5ab993dcbef065ac86de0ee0cd98a185",
+      "artifactSha256": "8b7fdb742e875df9453d6d4133919a942399b0e722b38b632d02ec46d8ee4d34",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T16:19:29Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
+      ]
     }
   ],
   "promotionApprovals": [
@@ -1349,6 +1646,42 @@
       "reviewSetSha256": "7fdfc6b38ddb46fe3fd892b36023aad4849c1ac3e7da090771f4717dc55062c0",
       "exceptions": [
         "Carry forward the recorded trusted Spanish reviewer approval of unchanged wording, with Mark's approved technical corrections and metadata renewal. No new linguistic review or reviewer contact is claimed. Spanish remains preview; this is not deployed QA acceptance, live approval or native approval."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "trusted-spanish-reviewer",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-08T16:13:56Z",
+      "decision": "approved",
+      "reviewSetSha256": "c8a0f53447186648bf0641d70e8192b30e8ce0d538d0a384f1fce000b733f4ae",
+      "exceptions": [
+        "Mark authorized refreshing the existing preview binding for the crawler correction and compact language dropdown. This carries forward the recorded trusted reviewer approval; no new linguistic review, reviewer contact, deployment acceptance, live approval or native approval is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "trusted-spanish-reviewer",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-08T16:17:31Z",
+      "decision": "approved",
+      "reviewSetSha256": "6116274271879fbd21cf199789739c43c7a66489168381b7cc0a906164e6692c",
+      "exceptions": [
+        "Mark authorized refreshing the existing preview binding for the crawler correction and compact language dropdown. This carries forward the recorded trusted reviewer approval; no new linguistic review, reviewer contact, deployment acceptance, live approval or native approval is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "trusted-spanish-reviewer",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-08T16:19:29Z",
+      "decision": "approved",
+      "reviewSetSha256": "60ef506c07a750d8218f1d655c393b9c22ee924a519ffdb2ea3437d9063dbfa1",
+      "exceptions": [
+        "Mark authorized refreshing the existing preview binding for the crawler correction and compact language dropdown. This carries forward the recorded trusted reviewer approval; no new linguistic review, reviewer contact, deployment acceptance, live approval or native approval is claimed."
       ]
     }
   ]
