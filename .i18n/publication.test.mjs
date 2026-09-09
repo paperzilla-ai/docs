@@ -12,15 +12,26 @@ const hashes = {
     registrySha256: approval.registrySha256,
 };
 
-test('docs-only approval publishes Spanish without mutating product/email stages', async () => {
+test('publication preserves the approved live product/email registry', async () => {
     const before = structuredClone(registry);
     const projected = await loadDocsPublication(root, registry);
     assert.deepEqual(registry, before);
-    assert.equal(registry.locales.find((locale) => locale.tag === 'es').stage, 'preview');
+    assert.equal(registry.locales.find((locale) => locale.tag === 'es').stage, 'live');
     assert.equal(projected.locales.find((locale) => locale.tag === 'es').stage, 'live');
     assert.equal(projected.locales.find((locale) => locale.tag === 'es').indexable, true);
     assert.deepEqual(projected.locales[0], registry.locales[0]);
     assert.deepEqual(projected.testLocales, registry.testLocales);
+});
+
+test('docs-only approval can publish preview Spanish without mutating product/email stages', () => {
+    const preview = structuredClone(registry);
+    preview.locales[1].stage = 'preview';
+    preview.locales[1].indexable = false;
+    const projected = registryForDocsPublication(preview, approval, hashes);
+    assert.equal(preview.locales[1].stage, 'preview');
+    assert.equal(preview.locales[1].indexable, false);
+    assert.equal(projected.locales[1].stage, 'live');
+    assert.equal(projected.locales[1].indexable, true);
 });
 
 test('without explicit approval planned/preview/retired exposure remains unchanged', () => {

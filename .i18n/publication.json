@@ -8,6 +8,6 @@
   "verification": "live-after-deploy",
   "provenance": "preserve-recorded-status",
   "contentManifestSha256": "28ba57edc5de51cf1940cc89058c1534e8f4bd6533f79d84a6c96cc361c11062",
-  "registrySha256": "027cb3bb79ce065884af94151efabda7987b64df8528248f99d71c97a0cb4537",
+  "registrySha256": "5abf7e7a1e837395c3b96293c315e53678dae8a87eb1bb781545a9d9fe3ac253",
   "decisionRecord": "docs/multilingual/spanish-docs-live-2026-09-07.md"
 }

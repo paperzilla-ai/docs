@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "localeRegistrySha256": "027cb3bb79ce065884af94151efabda7987b64df8528248f99d71c97a0cb4537",
+  "localeRegistrySha256": "5abf7e7a1e837395c3b96293c315e53678dae8a87eb1bb781545a9d9fe3ac253",
   "artifacts": [
     {
       "id": "frontend-product-catalog",
@@ -467,7 +467,6 @@
         "product-technical"
       ],
       "requiredFor": [
-        "live",
         "run7-complete"
       ]
     },
@@ -1587,6 +1586,279 @@
       "exceptions": [
         "Mark explicitly authorized renewing these records and merging/pushing on September eighth. This renewal covers the catalog-backed editorial crawler correction, offline SEO smoke checks, compact active-flag language dropdown, and expanded artifact coverage. Spanish remains preview; no deployment, live activation, Auth sync, email send or native acceptance is claimed."
       ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "217fcff10d94530960d9dcbc931ea407c09e58f655b4fe6d3489c879e239071c",
+      "artifactSha256": "f55c7a1e7342966fdf592170746a4bc7bf55e567385c3a7de86aaa05b69b797c",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T17:59:04Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "217fcff10d94530960d9dcbc931ea407c09e58f655b4fe6d3489c879e239071c",
+      "artifactSha256": "f55c7a1e7342966fdf592170746a4bc7bf55e567385c3a7de86aaa05b69b797c",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T17:59:04Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "217fcff10d94530960d9dcbc931ea407c09e58f655b4fe6d3489c879e239071c",
+      "artifactSha256": "f55c7a1e7342966fdf592170746a4bc7bf55e567385c3a7de86aaa05b69b797c",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T17:59:04Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "documentation-runtime-and-deployment",
+      "surface": "documentation-runtime-and-deployment",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "7ad0cd981850e33801d45518fa0e1e359dfc21e1b0c3b5d24e3f90bb83ebc1db",
+      "artifactSha256": "60a43617dd863183c40a60f5ca8bf4d1826d8049f7edf291c74e3265c5e0e75e",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-08T17:59:04Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "documentation-runtime-and-deployment",
+      "surface": "documentation-runtime-and-deployment",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "7ad0cd981850e33801d45518fa0e1e359dfc21e1b0c3b5d24e3f90bb83ebc1db",
+      "artifactSha256": "60a43617dd863183c40a60f5ca8bf4d1826d8049f7edf291c74e3265c5e0e75e",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-08T17:59:04Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "auth-templates",
+      "surface": "supabase-auth",
+      "role": "linguistic",
+      "reviewerAuthority": "trusted-spanish-reviewer",
+      "sourceSha256": "8cd75a42410eaabc7739b6e282a11a9cc2a869cb3fe4799c30d7938911012230",
+      "artifactSha256": "93896fd91afb3dc1071529b10953977d3764586b117ffadb97a15c6e25613fc4",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-08T17:59:04Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates.",
+        "Carry forward the existing full linguistic/editorial review of unchanged Spanish text. Stage and generated layout branches changed, not translated wording. This timestamp records the authorized binding renewal, not a new reviewer session or reviewer contact. Original per-message generation/review provenance is preserved."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "auth-templates",
+      "surface": "supabase-auth",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "8cd75a42410eaabc7739b6e282a11a9cc2a869cb3fe4799c30d7938911012230",
+      "artifactSha256": "93896fd91afb3dc1071529b10953977d3764586b117ffadb97a15c6e25613fc4",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-08T17:59:04Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "482907f82db1877baa567f39744fbb204ef34c0120606e93e6b057786f36bbfe",
+      "artifactSha256": "1bbed1717ddc5139944fd5e0273bfc996eb1b2429e5e301fc0f1f88ca514f10d",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T17:59:04Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "482907f82db1877baa567f39744fbb204ef34c0120606e93e6b057786f36bbfe",
+      "artifactSha256": "1bbed1717ddc5139944fd5e0273bfc996eb1b2429e5e301fc0f1f88ca514f10d",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T17:59:04Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "launch-control-plane",
+      "surface": "launch-control-plane",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "5f704b3157fc62c5996ff85e381fbd09a7ae25f321bffc40b816dd948aa0441e",
+      "artifactSha256": "3d19753a7e8414bdf9d8922b34deb1e8c757e397f8810f7f1cb330eb90dceb0f",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T17:59:04Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "auth-templates",
+      "surface": "supabase-auth",
+      "role": "linguistic",
+      "reviewerAuthority": "trusted-spanish-reviewer",
+      "sourceSha256": "8cd75a42410eaabc7739b6e282a11a9cc2a869cb3fe4799c30d7938911012230",
+      "artifactSha256": "9a0fc4ad47b58c78226f9576d202ecd3ea6a7f2ef20904047f1cc3dcb70adbb8",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-08T18:00:48Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates.",
+        "Carry forward the existing full linguistic/editorial review of unchanged Spanish text. Stage and generated layout branches changed, not translated wording. This timestamp records the authorized binding renewal, not a new reviewer session or reviewer contact. Original per-message generation/review provenance is preserved."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "auth-templates",
+      "surface": "supabase-auth",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "8cd75a42410eaabc7739b6e282a11a9cc2a869cb3fe4799c30d7938911012230",
+      "artifactSha256": "9a0fc4ad47b58c78226f9576d202ecd3ea6a7f2ef20904047f1cc3dcb70adbb8",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-08T18:00:48Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "auth-templates",
+      "surface": "supabase-auth",
+      "role": "linguistic",
+      "reviewerAuthority": "trusted-spanish-reviewer",
+      "sourceSha256": "8cd75a42410eaabc7739b6e282a11a9cc2a869cb3fe4799c30d7938911012230",
+      "artifactSha256": "4dedfa689f2b22ab911a02b62cfeacf7f18f6cd6aac3cfafc858aeaab1177b44",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-08T18:06:13Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates.",
+        "Carry forward the existing full linguistic/editorial review of unchanged Spanish text. Stage and generated layout branches changed, not translated wording. This timestamp records the authorized binding renewal, not a new reviewer session or reviewer contact. Original per-message generation/review provenance is preserved."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "auth-templates",
+      "surface": "supabase-auth",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "8cd75a42410eaabc7739b6e282a11a9cc2a869cb3fe4799c30d7938911012230",
+      "artifactSha256": "4dedfa689f2b22ab911a02b62cfeacf7f18f6cd6aac3cfafc858aeaab1177b44",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-08T18:06:13Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "482907f82db1877baa567f39744fbb204ef34c0120606e93e6b057786f36bbfe",
+      "artifactSha256": "7d5d0b661f8eeb3e0aa591f4bc2c69ce38792c964fc7f9a4de5d4d57402ea3b1",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T18:10:32Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "482907f82db1877baa567f39744fbb204ef34c0120606e93e6b057786f36bbfe",
+      "artifactSha256": "7d5d0b661f8eeb3e0aa591f4bc2c69ce38792c964fc7f9a4de5d4d57402ea3b1",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T18:10:32Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "482907f82db1877baa567f39744fbb204ef34c0120606e93e6b057786f36bbfe",
+      "artifactSha256": "cfbf4280edc0743b18c1ba9eb3372e8d678121d2481fa4ce527f4d5458348964",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T18:13:13Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "482907f82db1877baa567f39744fbb204ef34c0120606e93e6b057786f36bbfe",
+      "artifactSha256": "cfbf4280edc0743b18c1ba9eb3372e8d678121d2481fa4ce527f4d5458348964",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-08T18:13:13Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates."
+      ]
     }
   ],
   "promotionApprovals": [
@@ -1682,6 +1954,114 @@
       "reviewSetSha256": "60ef506c07a750d8218f1d655c393b9c22ee924a519ffdb2ea3437d9063dbfa1",
       "exceptions": [
         "Mark authorized refreshing the existing preview binding for the crawler correction and compact language dropdown. This carries forward the recorded trusted reviewer approval; no new linguistic review, reviewer contact, deployment acceptance, live approval or native approval is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "live",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-08T17:59:04Z",
+      "decision": "approved",
+      "reviewSetSha256": "d5dbd0232a14443ca1f78afc97c5cb4a9e4b0dc6555f5cd9b921c18f8672d8f2",
+      "exceptions": [
+        "Mark explicitly requested production activation after reporting all forty normal and twenty beta SEO checks passing. Native is deferred. This is release authorization, not evidence that pending migration/Auth/server/canary operations have been executed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "trusted-spanish-reviewer",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-08T18:00:48Z",
+      "decision": "approved",
+      "reviewSetSha256": "06f12afe9d4d0f6947a55767e8648eb55282faa6548e30e749c86a1ba7a0a278",
+      "exceptions": [
+        "Carry forward the completed full Spanish review and successful beta checkpoint to the current stage-only bindings. Mark authorized production activation. No new linguistic review or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "live",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-08T18:00:48Z",
+      "decision": "approved",
+      "reviewSetSha256": "06f12afe9d4d0f6947a55767e8648eb55282faa6548e30e749c86a1ba7a0a278",
+      "exceptions": [
+        "Mark explicitly requested production activation after reporting all forty normal and twenty beta SEO checks passing. Native is deferred. This is release authorization, not evidence that pending migration/Auth/server/canary operations have been executed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "trusted-spanish-reviewer",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-08T18:06:13Z",
+      "decision": "approved",
+      "reviewSetSha256": "60ba6de7eaca926634a30865d122d238ee6fad776a97e3f8416f44d44cce9218",
+      "exceptions": [
+        "Carry forward the completed full Spanish review and successful beta checkpoint to the current stage-only bindings. Mark authorized production activation. No new linguistic review or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "live",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-08T18:06:13Z",
+      "decision": "approved",
+      "reviewSetSha256": "60ba6de7eaca926634a30865d122d238ee6fad776a97e3f8416f44d44cce9218",
+      "exceptions": [
+        "Mark explicitly requested production activation after reporting all forty normal and twenty beta SEO checks passing. Native is deferred. This is release authorization, not evidence that pending migration/Auth/server/canary operations have been executed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "trusted-spanish-reviewer",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-08T18:10:32Z",
+      "decision": "approved",
+      "reviewSetSha256": "452b808b0a27bacaed4db03e2d7b02dd8cc1b3eca74269707c0fcf99c6114319",
+      "exceptions": [
+        "Carry forward the completed full Spanish review and successful beta checkpoint to the current stage-only bindings. Mark authorized production activation. No new linguistic review or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "live",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-08T18:10:32Z",
+      "decision": "approved",
+      "reviewSetSha256": "452b808b0a27bacaed4db03e2d7b02dd8cc1b3eca74269707c0fcf99c6114319",
+      "exceptions": [
+        "Mark explicitly requested production activation after reporting all forty normal and twenty beta SEO checks passing. Native is deferred. This is release authorization, not evidence that pending migration/Auth/server/canary operations have been executed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "trusted-spanish-reviewer",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-08T18:13:13Z",
+      "decision": "approved",
+      "reviewSetSha256": "ab1f20ee48d2486fa1e1f7c5e5063ee3531f65d1425fac3f7061aab9e54881ae",
+      "exceptions": [
+        "Carry forward the completed full Spanish review and successful beta checkpoint to the current stage-only bindings. Mark authorized production activation. No new linguistic review or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "live",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-09-08T18:13:13Z",
+      "decision": "approved",
+      "reviewSetSha256": "ab1f20ee48d2486fa1e1f7c5e5063ee3531f65d1425fac3f7061aab9e54881ae",
+      "exceptions": [
+        "Mark explicitly requested production activation after reporting all forty normal and twenty beta SEO checks passing. Native is deferred. This is release authorization, not evidence that pending migration/Auth/server/canary operations have been executed."
       ]
     }
   ]

@@ -34,8 +34,8 @@
       "direction": "ltr",
       "fallback": "en",
       "pathPrefix": "es",
-      "stage": "preview",
-      "indexable": false
+      "stage": "live",
+      "indexable": true
     }
   ],
   "testLocales": [
