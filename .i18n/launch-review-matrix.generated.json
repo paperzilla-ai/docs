@@ -1949,6 +1949,51 @@
       "exceptions": [
         "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates."
       ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "217fcff10d94530960d9dcbc931ea407c09e58f655b4fe6d3489c879e239071c",
+      "artifactSha256": "9a99649f68b332730f88d33ff7fedd753754d4d7bb6c57cdc302bccf9cad2bef",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-09T18:32:59Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark approved technical review renewal and publication of the dropdown-focus and HTML-cache fixes. Existing approval is rebound without new linguistic review, deployment or Auth-template change. Deployed click/cache verification and double-confirm email-change remain pending."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "217fcff10d94530960d9dcbc931ea407c09e58f655b4fe6d3489c879e239071c",
+      "artifactSha256": "9a99649f68b332730f88d33ff7fedd753754d4d7bb6c57cdc302bccf9cad2bef",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-09T18:32:59Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark approved technical review renewal and publication of the dropdown-focus and HTML-cache fixes. Existing approval is rebound without new linguistic review, deployment or Auth-template change. Deployed click/cache verification and double-confirm email-change remain pending."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "217fcff10d94530960d9dcbc931ea407c09e58f655b4fe6d3489c879e239071c",
+      "artifactSha256": "9a99649f68b332730f88d33ff7fedd753754d4d7bb6c57cdc302bccf9cad2bef",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-09T18:32:59Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark approved technical review renewal and publication of the dropdown-focus and HTML-cache fixes. Existing approval is rebound without new linguistic review, deployment or Auth-template change. Deployed click/cache verification and double-confirm email-change remain pending."
+      ]
     }
   ],
   "promotionApprovals": [
@@ -2200,6 +2245,42 @@
       "reviewSetSha256": "890680df269b9c6c8e4b9b0801b7e1f6479d951123ba337aa6eb5442afe8599f",
       "exceptions": [
         "Mark explicitly requested production activation after reporting all forty normal and twenty beta SEO checks passing. Native is deferred. This is release authorization, not evidence that pending migration/Auth/server/canary operations have been executed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "live",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-09T18:32:59Z",
+      "decision": "approved",
+      "reviewSetSha256": "8e0d08ed16975a6f96575db24ea3bd4bf01ccca907c3952bc291006d5c53beed",
+      "exceptions": [
+        "Mark approved technical review renewal and publication of the dropdown-focus and HTML-cache fixes. Existing approval is rebound without new linguistic review, deployment or Auth-template change. Deployed click/cache verification and double-confirm email-change remain pending."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "trusted-spanish-reviewer",
+      "reviewerLabel": "trusted-spanish-reviewer-1",
+      "timestamp": "2026-09-09T18:38:38.831534+00:00",
+      "decision": "approved",
+      "reviewSetSha256": "5cb003ecbdfb675042b124652c4a0df858f5179dc855c0ccec1d9c689f282ebe",
+      "exceptions": [
+        "Carry forward the recorded full Spanish review of unchanged wording. Mark explicitly approved rebinding existing preview and live promotion approvals for the dropdown-focus and HTML-cache fixes. No new linguistic review, reviewer contact, deployed QA acceptance or native acceptance is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "live",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark",
+      "timestamp": "2026-09-09T18:38:38.831534+00:00",
+      "decision": "approved",
+      "reviewSetSha256": "5cb003ecbdfb675042b124652c4a0df858f5179dc855c0ccec1d9c689f282ebe",
+      "exceptions": [
+        "Mark explicitly approved rebinding existing preview and live promotion approvals and requested deployment of the dropdown-focus and HTML-cache fixes. Deployed click/cache verification and double-confirm email-change remain pending. No completed deployment is claimed."
       ]
     }
   ]
