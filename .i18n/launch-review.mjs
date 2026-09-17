@@ -319,9 +319,14 @@ function structuralErrors(matrix, rawMatrix, registry, rawRegistry) {
             report(errors, review.locale === artifact.locale && review.surface === artifact.surface, `${label} does not match its artifact.`);
             report(errors, artifact.requiredRoles.includes(review.role), `${label}.role is not required.`);
         }
+        const ownerTranslationApproval = review?.role === 'linguistic'
+            && review?.reviewerAuthority === 'mark'
+            && review?.reviewerLabel === 'Mark Pors - AI translation approval'
+            && Array.isArray(review?.exceptions)
+            && review.exceptions.includes('owner-approved-ai-translation');
         report(
             errors,
-            review?.reviewerAuthority === reviewAuthorities[review?.role],
+            review?.reviewerAuthority === reviewAuthorities[review?.role] || ownerTranslationApproval,
             `${label}.reviewerAuthority does not own ${review?.role ?? 'this role'}.`,
         );
         report(errors, sha256Pattern.test(review?.sourceSha256 ?? '') && sha256Pattern.test(review?.artifactSha256 ?? ''), `${label} hashes are invalid.`);
@@ -347,7 +352,12 @@ function structuralErrors(matrix, rawMatrix, registry, rawRegistry) {
             `${label} duplicates a promotion-approval identity and timestamp; event ordering would be ambiguous.`,
         );
         approvalEvents.add(eventIdentity);
-        report(errors, promotionRoles[approval?.targetStage] === approval?.approverRole, `${label}.approverRole is invalid.`);
+        const ownerPreviewApproval = approval?.targetStage === 'preview'
+            && approval?.approverRole === 'mark'
+            && approval?.reviewerLabel === 'Mark Pors - AI translation approval'
+            && Array.isArray(approval?.exceptions)
+            && approval.exceptions.includes('owner-approved-ai-translation');
+        report(errors, promotionRoles[approval?.targetStage] === approval?.approverRole || ownerPreviewApproval, `${label}.approverRole is invalid.`);
         report(errors, localeTags.has(approval?.locale), `${label}.locale is not registered.`);
         report(errors, reviewerLabelIsSafe(approval?.reviewerLabel), `${label}.reviewerLabel must be a stable non-contact label.`);
         report(errors, timestampIsOffsetDate(approval?.timestamp), `${label}.timestamp is invalid.`);

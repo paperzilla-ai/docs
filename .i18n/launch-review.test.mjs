@@ -306,6 +306,17 @@ test('review roles require their assigned reviewer authority', async () => {
     assert(errors.some((error) => error.includes('reviewerAuthority does not own editorial')));
 });
 
+test('owner linguistic approval is explicit and never impersonates a language reviewer', async () => {
+    const inputs = await committedInputs();
+    const review = inputs.matrix.reviews.find(row => row.role === 'linguistic');
+    Object.assign(review, { reviewerAuthority: 'mark', reviewerLabel: 'Mark Pors - AI translation approval',
+        exceptions: ['owner-approved-ai-translation'] });
+    const check = () => validateLaunchReviewMatrix({ ...inputs, rawMatrix: canonicalJson(inputs.matrix) });
+    assert(!(await check()).some(error => error.includes('reviewerAuthority does not own linguistic')));
+    review.exceptions = [];
+    assert((await check()).some(error => error.includes('reviewerAuthority does not own linguistic')));
+});
+
 test('duplicate review and promotion identities at one timestamp are rejected', async () => {
     const committed = await committedInputs();
     const inputs = previewInputs(committed);
@@ -325,6 +336,17 @@ test('duplicate review and promotion identities at one timestamp are rejected', 
     const errors = await validateLaunchReviewMatrix({ ...inputs, rawMatrix });
     assert(errors.some((error) => error.includes('duplicates a review identity and timestamp')));
     assert(errors.some((error) => error.includes('duplicates a promotion-approval identity and timestamp')));
+});
+
+test('owner preview approval requires the explicit translation exception', async () => {
+    const inputs = await committedInputs();
+    const approval = inputs.matrix.promotionApprovals.find(row => row.targetStage === 'preview');
+    Object.assign(approval, { approverRole: 'mark', reviewerLabel: 'Mark Pors - AI translation approval',
+        exceptions: ['owner-approved-ai-translation'] });
+    const check = () => validateLaunchReviewMatrix({ ...inputs, rawMatrix: canonicalJson(inputs.matrix) });
+    assert(!(await check()).some(error => error.includes('approverRole is invalid')));
+    approval.exceptions = [];
+    assert((await check()).some(error => error.includes('approverRole is invalid')));
 });
 
 test('retired gate freezes reviewed Spanish artifacts but ignores moving source hashes', async () => {

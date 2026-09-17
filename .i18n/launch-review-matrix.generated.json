@@ -1994,6 +1994,368 @@
       "exceptions": [
         "Mark approved technical review renewal and publication of the dropdown-focus and HTML-cache fixes. Existing approval is rebound without new linguistic review, deployment or Auth-template change. Deployed click/cache verification and double-confirm email-change remain pending."
       ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "linguistic",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "db9234a0f7d96408d85b2b14ddac7ad225ac0e0839a9ae9bb44d621e3ebf074d",
+      "artifactSha256": "efbaf04755d1a54a822c76eff695fb613b380fcf3353bb6873054ee16f9f48f8",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-09-17T09:23:45Z",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "db9234a0f7d96408d85b2b14ddac7ad225ac0e0839a9ae9bb44d621e3ebf074d",
+      "artifactSha256": "efbaf04755d1a54a822c76eff695fb613b380fcf3353bb6873054ee16f9f48f8",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:23:45Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "commercial",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "db9234a0f7d96408d85b2b14ddac7ad225ac0e0839a9ae9bb44d621e3ebf074d",
+      "artifactSha256": "efbaf04755d1a54a822c76eff695fb613b380fcf3353bb6873054ee16f9f48f8",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:23:45Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "db9234a0f7d96408d85b2b14ddac7ad225ac0e0839a9ae9bb44d621e3ebf074d",
+      "artifactSha256": "efbaf04755d1a54a822c76eff695fb613b380fcf3353bb6873054ee16f9f48f8",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:23:45Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "cae678b56f5bf33f91d076278bc898a5b44cee47ec56c73037f04f9cee5889b6",
+      "artifactSha256": "486eeac0d3b10d78d3f4970736efa0dffa87107ecf026ae17e1a03313977c226",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:23:45Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "cae678b56f5bf33f91d076278bc898a5b44cee47ec56c73037f04f9cee5889b6",
+      "artifactSha256": "486eeac0d3b10d78d3f4970736efa0dffa87107ecf026ae17e1a03313977c226",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:23:45Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "cae678b56f5bf33f91d076278bc898a5b44cee47ec56c73037f04f9cee5889b6",
+      "artifactSha256": "486eeac0d3b10d78d3f4970736efa0dffa87107ecf026ae17e1a03313977c226",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:23:45Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "linguistic",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "be6062b6aa28345935ccbb55459331576042ba4e9a4a54bdf853717eaec769d6",
+      "artifactSha256": "c6bbe35937bb3f90d5463777900b261e2934aecd1c8467f405f5c3db11f8f1f7",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-09-17T09:23:45Z",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "be6062b6aa28345935ccbb55459331576042ba4e9a4a54bdf853717eaec769d6",
+      "artifactSha256": "c6bbe35937bb3f90d5463777900b261e2934aecd1c8467f405f5c3db11f8f1f7",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:23:45Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "commercial",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "be6062b6aa28345935ccbb55459331576042ba4e9a4a54bdf853717eaec769d6",
+      "artifactSha256": "c6bbe35937bb3f90d5463777900b261e2934aecd1c8467f405f5c3db11f8f1f7",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:23:45Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "be6062b6aa28345935ccbb55459331576042ba4e9a4a54bdf853717eaec769d6",
+      "artifactSha256": "c6bbe35937bb3f90d5463777900b261e2934aecd1c8467f405f5c3db11f8f1f7",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:23:45Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "be6062b6aa28345935ccbb55459331576042ba4e9a4a54bdf853717eaec769d6",
+      "artifactSha256": "c6bbe35937bb3f90d5463777900b261e2934aecd1c8467f405f5c3db11f8f1f7",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:23:45Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "documentation-runtime-and-deployment",
+      "surface": "documentation-runtime-and-deployment",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "7ad0cd981850e33801d45518fa0e1e359dfc21e1b0c3b5d24e3f90bb83ebc1db",
+      "artifactSha256": "b2949887ac0027f8870de12a3dbf5b9d07c07a5543e649f8ba0757d143f653b5",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:23:45Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "documentation-runtime-and-deployment",
+      "surface": "documentation-runtime-and-deployment",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "7ad0cd981850e33801d45518fa0e1e359dfc21e1b0c3b5d24e3f90bb83ebc1db",
+      "artifactSha256": "b2949887ac0027f8870de12a3dbf5b9d07c07a5543e649f8ba0757d143f653b5",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:23:45Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "auth-templates",
+      "surface": "supabase-auth",
+      "role": "linguistic",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "a435e40c9f0b1ecef860fcf74c710839eaff248a2c5af4ae0f9d6acfb98e0a95",
+      "artifactSha256": "fe211518792d1320b71e06be0799771c199a189eb7c76f8d71ac865a749a1f53",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-09-17T09:23:45Z",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "auth-templates",
+      "surface": "supabase-auth",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "a435e40c9f0b1ecef860fcf74c710839eaff248a2c5af4ae0f9d6acfb98e0a95",
+      "artifactSha256": "fe211518792d1320b71e06be0799771c199a189eb7c76f8d71ac865a749a1f53",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:23:45Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "launch-control-plane",
+      "surface": "launch-control-plane",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "5f704b3157fc62c5996ff85e381fbd09a7ae25f321bffc40b816dd948aa0441e",
+      "artifactSha256": "f1a82249b3d7abbb440b8990569b8bc782eef8139e5686f481ccab5c6d0704e3",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:23:45Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "cae678b56f5bf33f91d076278bc898a5b44cee47ec56c73037f04f9cee5889b6",
+      "artifactSha256": "cc63eca3a73f05dbc1688d6596b9cee1ddde9d8e9829d79d94f56e988c54ef96",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:29:29Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "cae678b56f5bf33f91d076278bc898a5b44cee47ec56c73037f04f9cee5889b6",
+      "artifactSha256": "cc63eca3a73f05dbc1688d6596b9cee1ddde9d8e9829d79d94f56e988c54ef96",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:29:29Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "cae678b56f5bf33f91d076278bc898a5b44cee47ec56c73037f04f9cee5889b6",
+      "artifactSha256": "cc63eca3a73f05dbc1688d6596b9cee1ddde9d8e9829d79d94f56e988c54ef96",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:29:29Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "documentation-runtime-and-deployment",
+      "surface": "documentation-runtime-and-deployment",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "7ad0cd981850e33801d45518fa0e1e359dfc21e1b0c3b5d24e3f90bb83ebc1db",
+      "artifactSha256": "53da08bc5fd670dbd349eb974c655dd8b5efc5d80a90d1847e216a814d692403",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:29:29Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "documentation-runtime-and-deployment",
+      "surface": "documentation-runtime-and-deployment",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "7ad0cd981850e33801d45518fa0e1e359dfc21e1b0c3b5d24e3f90bb83ebc1db",
+      "artifactSha256": "53da08bc5fd670dbd349eb974c655dd8b5efc5d80a90d1847e216a814d692403",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:29:29Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "launch-control-plane",
+      "surface": "launch-control-plane",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "5f704b3157fc62c5996ff85e381fbd09a7ae25f321bffc40b816dd948aa0441e",
+      "artifactSha256": "7077a0ab8442befbe22b8ff1e902f7c3a5459de35f263cb31ae5466d46feda21",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-17T09:29:29Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending."
+      ]
     }
   ],
   "promotionApprovals": [
@@ -2281,6 +2643,32 @@
       "reviewSetSha256": "5cb003ecbdfb675042b124652c4a0df858f5179dc855c0ccec1d9c689f282ebe",
       "exceptions": [
         "Mark explicitly approved rebinding existing preview and live promotion approvals and requested deployment of the dropdown-focus and HTML-cache fixes. Deployed click/cache verification and double-confirm email-change remain pending. No completed deployment is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-09-17T09:29:29Z",
+      "decision": "approved",
+      "reviewSetSha256": "9a2565eebaee77c43935072c792f3a032909b422d76990176c230af24f2a7203",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "Existing Spanish production release only; owner accepts AI translation updates, browser acceptance remains pending."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "live",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-09-17T09:29:29Z",
+      "decision": "approved",
+      "reviewSetSha256": "9a2565eebaee77c43935072c792f3a032909b422d76990176c230af24f2a7203",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "Existing Spanish production release only; owner accepts AI translation updates, browser acceptance remains pending."
       ]
     }
   ]
