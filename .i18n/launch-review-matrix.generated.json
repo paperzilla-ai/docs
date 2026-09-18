@@ -2356,6 +2356,154 @@
       "exceptions": [
         "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending."
       ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "linguistic",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "e0ae206c53d740e3d8db646479515d618bbe555d4397c7c399dfa6777390cfef",
+      "artifactSha256": "7da5733aaecc3943f7f05f3199bd0f09104fa097dfe13d705c8dac2358d52705",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-09-18T13:07:44Z",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged.",
+        "18 September 2026: Mark explicitly authorized refreshing the Spanish release-review hashes without a separate review. This binds frontend CTA copy a38a4e2 and the already committed backend crawler-link fix 799f9ad. No new human linguistic or browser review is claimed; this metadata update does not deploy or activate a locale."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "e0ae206c53d740e3d8db646479515d618bbe555d4397c7c399dfa6777390cfef",
+      "artifactSha256": "7da5733aaecc3943f7f05f3199bd0f09104fa097dfe13d705c8dac2358d52705",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-18T13:07:44Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged.",
+        "18 September 2026: Mark explicitly authorized refreshing the Spanish release-review hashes without a separate review. This binds frontend CTA copy a38a4e2 and the already committed backend crawler-link fix 799f9ad. No new human linguistic or browser review is claimed; this metadata update does not deploy or activate a locale."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "commercial",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "e0ae206c53d740e3d8db646479515d618bbe555d4397c7c399dfa6777390cfef",
+      "artifactSha256": "7da5733aaecc3943f7f05f3199bd0f09104fa097dfe13d705c8dac2358d52705",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-18T13:07:44Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged.",
+        "18 September 2026: Mark explicitly authorized refreshing the Spanish release-review hashes without a separate review. This binds frontend CTA copy a38a4e2 and the already committed backend crawler-link fix 799f9ad. No new human linguistic or browser review is claimed; this metadata update does not deploy or activate a locale."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "e0ae206c53d740e3d8db646479515d618bbe555d4397c7c399dfa6777390cfef",
+      "artifactSha256": "7da5733aaecc3943f7f05f3199bd0f09104fa097dfe13d705c8dac2358d52705",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-18T13:07:44Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "17 September owner approval; AI language output accepted without a separate human linguistic review. Hosted Auth content and docs text unchanged.",
+        "18 September 2026: Mark explicitly authorized refreshing the Spanish release-review hashes without a separate review. This binds frontend CTA copy a38a4e2 and the already committed backend crawler-link fix 799f9ad. No new human linguistic or browser review is claimed; this metadata update does not deploy or activate a locale."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "758c3f712b95df362c00260078d0ef07a6671208aa2144e7ce6d82a66b7b0d51",
+      "artifactSha256": "cc63eca3a73f05dbc1688d6596b9cee1ddde9d8e9829d79d94f56e988c54ef96",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-18T13:07:44Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "18 September 2026: Mark explicitly authorized refreshing the Spanish release-review hashes without a separate review. This binds frontend CTA copy a38a4e2 and the already committed backend crawler-link fix 799f9ad. No new human linguistic or browser review is claimed; this metadata update does not deploy or activate a locale."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "758c3f712b95df362c00260078d0ef07a6671208aa2144e7ce6d82a66b7b0d51",
+      "artifactSha256": "cc63eca3a73f05dbc1688d6596b9cee1ddde9d8e9829d79d94f56e988c54ef96",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-18T13:07:44Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "18 September 2026: Mark explicitly authorized refreshing the Spanish release-review hashes without a separate review. This binds frontend CTA copy a38a4e2 and the already committed backend crawler-link fix 799f9ad. No new human linguistic or browser review is claimed; this metadata update does not deploy or activate a locale."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "758c3f712b95df362c00260078d0ef07a6671208aa2144e7ce6d82a66b7b0d51",
+      "artifactSha256": "cc63eca3a73f05dbc1688d6596b9cee1ddde9d8e9829d79d94f56e988c54ef96",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-18T13:07:44Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "18 September 2026: Mark explicitly authorized refreshing the Spanish release-review hashes without a separate review. This binds frontend CTA copy a38a4e2 and the already committed backend crawler-link fix 799f9ad. No new human linguistic or browser review is claimed; this metadata update does not deploy or activate a locale."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "93716f76270167e78b471bc3dba5ce03fb961a7c26c21caf5efdb18ebae29127",
+      "artifactSha256": "f3b1d970bc1f2a077375a489eb69967e836ed1561e0cf2c1451cc8cf006754d4",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-18T13:07:44Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates.",
+        "18 September 2026: Mark explicitly authorized refreshing the Spanish release-review hashes without a separate review. This binds frontend CTA copy a38a4e2 and the already committed backend crawler-link fix 799f9ad. No new human linguistic or browser review is claimed; this metadata update does not deploy or activate a locale."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "public-routing-and-seo",
+      "surface": "public-routing-and-seo",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "93716f76270167e78b471bc3dba5ce03fb961a7c26c21caf5efdb18ebae29127",
+      "artifactSha256": "f3b1d970bc1f2a077375a489eb69967e836ed1561e0cf2c1451cc8cf006754d4",
+      "reviewerLabel": "Mark Pors - release approval",
+      "timestamp": "2026-09-18T13:07:44Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark explicitly approved Spanish production activation after passing beta smoke. This records approval of live stage wiring, generated Auth/SEO artifacts and the append-only locale migration. Native remains deferred; hosted Auth apply, migration execution, real sends, deployment and live smoke are still separate operational gates.",
+        "18 September 2026: Mark explicitly authorized refreshing the Spanish release-review hashes without a separate review. This binds frontend CTA copy a38a4e2 and the already committed backend crawler-link fix 799f9ad. No new human linguistic or browser review is claimed; this metadata update does not deploy or activate a locale."
+      ]
     }
   ],
   "promotionApprovals": [
@@ -2669,6 +2817,34 @@
       "exceptions": [
         "owner-approved-ai-translation",
         "Existing Spanish production release only; owner accepts AI translation updates, browser acceptance remains pending."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-09-18T13:07:44Z",
+      "decision": "approved",
+      "reviewSetSha256": "d800e11d071f62e44b245b469d0a3df62f36a9ee5111b0fbdb49f3e098855629",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "Existing Spanish production release only; owner accepts AI translation updates, browser acceptance remains pending.",
+        "18 September 2026: Mark explicitly authorized refreshing the Spanish release-review hashes without a separate review. This binds frontend CTA copy a38a4e2 and the already committed backend crawler-link fix 799f9ad. No new human linguistic or browser review is claimed; this metadata update does not deploy or activate a locale."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "live",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-09-18T13:07:44Z",
+      "decision": "approved",
+      "reviewSetSha256": "d800e11d071f62e44b245b469d0a3df62f36a9ee5111b0fbdb49f3e098855629",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "Existing Spanish production release only; owner accepts AI translation updates, browser acceptance remains pending.",
+        "18 September 2026: Mark explicitly authorized refreshing the Spanish release-review hashes without a separate review. This binds frontend CTA copy a38a4e2 and the already committed backend crawler-link fix 799f9ad. No new human linguistic or browser review is claimed; this metadata update does not deploy or activate a locale."
       ]
     }
   ]
