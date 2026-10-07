@@ -319,7 +319,7 @@ function structuralErrors(matrix, rawMatrix, registry, rawRegistry) {
             report(errors, review.locale === artifact.locale && review.surface === artifact.surface, `${label} does not match its artifact.`);
             report(errors, artifact.requiredRoles.includes(review.role), `${label}.role is not required.`);
         }
-        const ownerTranslationApproval = review?.role === 'linguistic'
+        const ownerTranslationApproval = ['linguistic', 'editorial'].includes(review?.role)
             && review?.reviewerAuthority === 'mark'
             && review?.reviewerLabel === 'Mark Pors - AI translation approval'
             && Array.isArray(review?.exceptions)

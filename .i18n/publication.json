@@ -7,7 +7,7 @@
   "approvedAt": "2026-09-07T13:24:11Z",
   "verification": "live-after-deploy",
   "provenance": "preserve-recorded-status",
-  "contentManifestSha256": "28ba57edc5de51cf1940cc89058c1534e8f4bd6533f79d84a6c96cc361c11062",
+  "contentManifestSha256": "4cf24c1fb13f29d277ec32c11e5c4e74cf7bd3a1428caa97e504f7c778c415c5",
   "registrySha256": "5abf7e7a1e837395c3b96293c315e53678dae8a87eb1bb781545a9d9fe3ac253",
   "decisionRecord": "docs/multilingual/spanish-docs-live-2026-09-07.md"
 }

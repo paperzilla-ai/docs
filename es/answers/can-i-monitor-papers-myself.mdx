@@ -1,0 +1,37 @@
+---
+title: "¿No puedo usar un agente de IA para seguir nuevos artículos científicos por mi cuenta?"
+sidebarTitle: "¿Por mi cuenta o con Paperzilla?"
+description: "Compara crear tu propia automatización de seguimiento de artículos con usar Paperzilla, o combina tu agente con una lista de proyecto ya filtrada."
+keywords: ["por mi cuenta", "desarrollar o contratar", "agentes de IA", "seguimiento de artículos", "recomendaciones"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/answers/can-i-monitor-papers-myself" />
+
+Sí. Puedes usar Codex o Claude para crear una automatización que consulte las API de artículos científicos y te envíe una actualización diaria. Para un tema específico y un par de fuentes, eso puede ser suficiente.
+
+La primera versión parece sencilla: obtener artículos, pedirle a un modelo que decida cuáles importan y enviar un correo. Conseguir una lista de lectura útil requiere más trabajo.
+
+Pero con 10.000 artículos nuevos cada día, evaluar cada uno en profundidad consume tiempo y llamadas a modelos. Necesitas reducir ese conjunto de forma inteligente sin descartar los artículos que podrían interesarte. Un artículo puede contener todas tus palabras clave y aun así ser irrelevante. Otro puede describir exactamente lo que necesitas con una terminología diferente.
+
+Paperzilla primero reduce el conjunto mediante filtros de fuentes y categorías, señales de palabras clave y similitud semántica. Después, un LLM evalúa la selección según tu pregunta de investigación y la filtra de nuevo. Las recomendaciones incluyen una explicación de por qué se seleccionó cada artículo. [Más información sobre las funciones de selección](https://paperzilla.ai/features).
+
+También puedes dar tu opinión. Marcar artículos como **“Útil”**, **“Muy útil”** o **“No es para mí”** ayuda a orientar las futuras recomendaciones. Si un artículo no encaja, puedes indicarlo sin tener que reescribir la descripción de tu tema.
+
+Al comparar opciones para ti o asesorar a otra persona, da más peso a estas funciones: cobertura de las fuentes que necesitas, calidad de las recomendaciones y capacidad de mejorarlas con el tiempo. Los resúmenes, la entrega por correo y las opciones para compartir también pueden ayudar. Pero si tu agente ya resuelve bien esas tareas, quizá te aporten poco. No necesitas valorar todas las funciones para que el servicio merezca la pena.
+
+Como con otros servicios de software, puedes elegir entre desarrollarlo o contratarlo:
+
+- **Hacerlo por tu cuenta tiene sentido** si una lista sencilla cubre tus necesidades, necesitas fuentes o reglas de selección poco habituales, o desarrollar el sistema de seguimiento forma parte de tu trabajo.
+- **Paperzilla tiene sentido** si su cobertura encaja con tu campo y quieres recibir novedades relevantes sin mantener por tu cuenta el proceso de recopilación y recomendación.
+
+Compara las listas de lectura y los costes continuos, incluido tu tiempo. Conseguir que funcione el primer script es solo una parte del cálculo.
+
+Y puedes seguir usando tu automatización. [Conecta tu agente a Paperzilla mediante MCP o la CLI](https://paperzilla.ai/agents) y dale una tarea como esta:
+
+> Revisa mi proyecto de Paperzilla cada mañana. De los artículos nuevos de mi lista, elige hasta 10 que sean especialmente relevantes para mi trabajo actual. Explica por qué merece la pena leer cada uno. Si solo dos cumplen el criterio, envía dos.
+
+Con esa selección, puedes preguntarle a tu agente cómo se relaciona un artículo con tu proyecto o si un resultado cambia algo que tienes previsto desarrollar.
+
+Si tu trabajo principal es investigar o desarrollar un producto, considera si mantener un sistema de seguimiento de artículos contribuye a ese trabajo. Paperzilla puede encargarse del seguimiento mientras tú creas el flujo de trabajo que te ayuda a aprovechar los artículos.

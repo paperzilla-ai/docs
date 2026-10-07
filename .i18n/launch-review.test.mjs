@@ -306,15 +306,32 @@ test('review roles require their assigned reviewer authority', async () => {
     assert(errors.some((error) => error.includes('reviewerAuthority does not own editorial')));
 });
 
-test('owner linguistic approval is explicit and never impersonates a language reviewer', async () => {
-    const inputs = await committedInputs();
-    const review = inputs.matrix.reviews.find(row => row.role === 'linguistic');
-    Object.assign(review, { reviewerAuthority: 'mark', reviewerLabel: 'Mark Pors - AI translation approval',
-        exceptions: ['owner-approved-ai-translation'] });
-    const check = () => validateLaunchReviewMatrix({ ...inputs, rawMatrix: canonicalJson(inputs.matrix) });
-    assert(!(await check()).some(error => error.includes('reviewerAuthority does not own linguistic')));
-    review.exceptions = [];
-    assert((await check()).some(error => error.includes('reviewerAuthority does not own linguistic')));
+test('owner translation and editorial approvals require the exact label and exception', async () => {
+    for (const role of ['linguistic', 'editorial']) {
+        const inputs = previewInputs(await committedInputs());
+        await addCurrentDocsReviews(inputs);
+        const review = inputs.matrix.reviews.find(row => row.artifactId === 'documentation' && row.role === role);
+        Object.assign(review, {
+            reviewerAuthority: 'mark',
+            reviewerLabel: 'Mark Pors - AI translation approval',
+            exceptions: ['owner-approved-ai-translation'],
+        });
+        addPromotionApproval(inputs, 'preview');
+        const check = () => validateLaunchReviewMatrix({ ...inputs, rawMatrix: canonicalJson(inputs.matrix) });
+        assert.deepEqual(await check(), []);
+        for (const invalid of [
+            { exceptions: [] },
+            { exceptions: 'owner-approved-ai-translation' },
+            { reviewerLabel: 'Mark Pors' },
+            { reviewerAuthority: 'codex' },
+        ]) {
+            const original = structuredClone(review);
+            Object.assign(review, invalid);
+            const errors = await check();
+            assert(errors.some(error => error.includes(`reviewerAuthority does not own ${role}`)));
+            Object.assign(review, original);
+        }
+    }
 });
 
 test('duplicate review and promotion identities at one timestamp are rejected', async () => {

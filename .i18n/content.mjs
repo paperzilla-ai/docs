@@ -267,15 +267,27 @@ export function contentReviewSummary(manifest) {
         segment?.reviewStatus === 'human-reviewed'
         && reviewerLabelIsSafe(segment?.reviewer)
     ));
+    // Mark's 17 September policy accepts AI translations without claiming linguistic review.
+    const isAccepted = (item) => (
+        (item?.reviewStatus === 'human-reviewed' && reviewerLabelIsSafe(item?.reviewer))
+        || (item?.reviewStatus === 'technical-approved'
+            && item?.reviewer === 'Mark Pors - AI translation approval'
+            && ['openai', 'google'].includes(item?.provider)
+            && typeof item?.model === 'string' && item.model.length > 0)
+    );
+    const acceptedDocuments = documents.filter(isAccepted);
+    const acceptedSegments = segments.filter(isAccepted);
     return {
         documentCount: documents.length,
         reviewedDocumentCount: reviewedDocuments.length,
+        acceptedDocumentCount: acceptedDocuments.length,
         segmentCount: segments.length,
         reviewedSegmentCount: reviewedSegments.length,
+        acceptedSegmentCount: acceptedSegments.length,
         promotionEligible: documents.length > 0
-            && reviewedDocuments.length === documents.length
+            && acceptedDocuments.length === documents.length
             && segments.length > 0
-            && reviewedSegments.length === segments.length,
+            && acceptedSegments.length === segments.length,
     };
 }
 
@@ -328,7 +340,7 @@ export async function validateAuthoredContent(
         report(
             errors,
             review.promotionEligible,
-            `Spanish docs require named human review before preview/live: ${review.reviewedDocumentCount}/${review.documentCount} documents and ${review.reviewedSegmentCount}/${review.segmentCount} segments are reviewed.`,
+            `Spanish docs require named human review or owner-approved AI translations before preview/live: ${review.acceptedDocumentCount}/${review.documentCount} documents and ${review.acceptedSegmentCount}/${review.segmentCount} segments are accepted.`,
         );
     }
     if (sourceMode === 'frozen') {

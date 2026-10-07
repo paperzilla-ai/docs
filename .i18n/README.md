@@ -1,10 +1,11 @@
 # Run 7 Spanish docs review and launch gates
 
-The shared product registry marks Spanish preview (beta only). Documentation is
-live under Mark's hash-bound docs-only `.i18n/publication.json` decision; see
-backend `docs/multilingual/spanish-docs-live-2026-09-07.md`. This exception never
-activates Spanish product UI, Auth, or email. Confirmed full linguistic review
-is recorded separately in segment provenance and the launch matrix.
+The shared product registry marks Spanish live. Documentation also retains
+Mark's hash-bound docs-only `.i18n/publication.json` decision; see backend
+`docs/multilingual/spanish-docs-live-2026-09-07.md`. That decision does not
+activate product UI, Auth, or email. Actual human linguistic review and owner
+approval of AI translations are recorded separately in content provenance and
+the launch matrix.
 
 Without that explicit docs-only exception, the normal planned-stage rule is:
 the complete authored tree is
@@ -54,9 +55,9 @@ node .i18n/artifact-guard.mjs assert-deployable --root PATH
 ```
 
 CI separately proves the review projection is marked with
-`assert-non-promotable`. `review-evidence.json` records deterministic
-content/config hashes and current human-review coverage so reviewers know
-whether promotion is still blocked.
+`assert-non-promotable`. `review-evidence.json` records deterministic content/config hashes, accepted
+document and segment counts, and actual human-reviewed counts. Owner-approved
+AI output contributes to acceptance without increasing human-review counts.
 
 ## Stage-derived deploy config
 
@@ -82,12 +83,21 @@ node .i18n/deploy-config.mjs generate \
   --output /tmp/paperzilla-docs-live.json
 ```
 
-Promotion to `preview` or `live` additionally requires every one of the 96
-Spanish pages, the navigation pseudo-document, and all 2,286 tracked segments
-to retain current protected hashes and named human-review provenance. The
-generated launch-review matrix mirror adds the required linguistic, editorial,
-technical, SEO, and promotion approvals. Reviewer fields accept stable labels
-only; email addresses, URLs, and phone-like contact strings are rejected.
+Promotion to `preview` or `live` additionally requires every Spanish page, the
+navigation pseudo-document, and every tracked segment to retain current
+protected hashes and accepted review provenance. A record is accepted with
+named `human-reviewed` provenance or owner-approved AI output marked
+`technical-approved` with the exact reviewer label
+`Mark Pors - AI translation approval`. AI records retain their provider, model,
+and generation timestamp; owner approval never implies a human linguistic review.
+
+The generated launch-review matrix mirror separately requires linguistic,
+editorial, technical, SEO, and promotion approvals. For linguistic or editorial
+review, owner approval requires authority `mark`, that same exact reviewer
+label, and the explicit `owner-approved-ai-translation` exception. Source and
+artifact hashes, all other role requirements, and explicit promotion approvals
+remain mandatory. Reviewer fields accept stable labels only; email addresses,
+URLs, and phone-like contact strings are rejected.
 
 ## Manual hosted live gate
 

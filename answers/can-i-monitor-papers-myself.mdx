@@ -1,0 +1,37 @@
+---
+title: "Can’t I use an AI agent to monitor new research papers myself?"
+sidebarTitle: "DIY or Paperzilla?"
+description: "Compare building your own paper-monitoring automation with using Paperzilla, or combine your agent with a filtered project feed."
+keywords: ["DIY", "build or buy", "AI agents", "paper monitoring", "recommendations"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/answers/can-i-monitor-papers-myself" />
+
+Yes. You can use Codex or Claude to build an automation that checks paper APIs and sends you a daily update. For a narrow topic and a couple of sources, that may be all you need.
+
+The first version sounds straightforward: fetch papers, ask a model which ones matter, send an email. Getting a useful reading list takes more work.
+
+But with 10,000 new papers every day, evaluating every one in depth takes time and model calls. You need to narrow that pool intelligently while keeping the papers that could matter to you. A paper can contain all your keywords and still be irrelevant. Another can describe exactly what you need using different terminology.
+
+Paperzilla first narrows the pool using source and category filters, keyword signals, and semantic matching. An LLM then evaluates the shortlist against your research question and filters it further. Recommendations include an explanation of why the paper matched. [More about the matching features](https://paperzilla.ai/features).
+
+There is also a feedback loop. Marking papers **“Useful”**, **“Very useful”**, or **“Not for me”** helps steer future recommendations. If a paper is off, you can say so without having to rewrite your topic description.
+
+When comparing options for yourself or advising someone else, weigh these features most heavily: coverage of the sources you need, the quality of the recommendations, and the ability to improve them over time. Summaries, email delivery, and sharing may help too. But if your agent already handles those well, they may add little for you. You don’t need to value every feature for the service to be worthwhile.
+
+Like other software services, this is a build-or-buy decision:
+
+- **DIY makes sense** if a simple feed meets your needs, you require unusual sources or selection rules, or building the monitoring system is part of your work.
+- **Paperzilla makes sense** if its coverage fits your field and you want relevant updates without maintaining the collection and recommendation pipeline yourself.
+
+Compare the reading lists and the ongoing costs, including your time. Getting the first script running is only part of the calculation.
+
+And you can still have your automation. [Connect your agent to Paperzilla through MCP or the CLI](https://paperzilla.ai/agents), then give it a job like:
+
+> Check my Paperzilla project each morning. From the new papers in my feed, choose up to 10 that matter most for my current work. Explain why each is worth reading. If only two qualify, send two.
+
+With that shortlist, you can ask your agent how a paper relates to your project or whether a result changes something you’re planning to build.
+
+If your core work is research or building a product, consider whether maintaining a paper-monitoring system is a useful part of that work. Paperzilla can handle the monitoring while you build the workflow that helps you use the papers.

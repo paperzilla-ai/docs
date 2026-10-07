@@ -6,6 +6,7 @@ import test from 'node:test';
 import { buildManifest } from './manifest.mjs';
 import { assertNonPromotableArtifact, nonPromotableMarkerName } from './artifact-guard.mjs';
 import {
+    contentReviewSummary,
     expectedRecord,
     validateAuthoredContent,
 } from './content.mjs';
@@ -124,7 +125,7 @@ test('real navigation projection matches the backend-frozen pseudo-document', as
     const source = JSON.parse(await readFile(new URL('../docs.json', import.meta.url), 'utf8'));
     const translated = await readFile(new URL('./navigation.es.json', import.meta.url), 'utf8');
     const record = expectedNavigationRecord(source, translated, metadata);
-    assert.equal(record.sourceSha256, 'eb6f65625d84e44a5cd158e2037e3b9bc959988385c02eab60b5e1cff4fbbbe3');
+    assert.equal(record.sourceSha256, '02470d90c7dbb58589e33fffd5d70ff0ff9c9da03406b2e7b28d496184beee75');
     assert.equal(record.protectedStructureSha256, 'e931cb58c7f36bbe2adcd008ed09a044b527caca4597ae8eaf58c951c35d9ef8');
     assert.equal(record.segments.length, 23);
     assert.equal(record.segments[0].id, 'navigation-anchor:2b5c3d26721ae9c350cf:1');
@@ -285,11 +286,11 @@ test('tone guard catches formal and vosotros prose without touching code, URLs, 
     assert.equal(normalizeDirectVoice(source), 'Usa este texto, `Use command`, https://example.com/use y href="/use".');
 });
 
-test('tracked Run 7 corpus keeps all 96 pages, navigation, and 2,286 segments in parity', async () => {
+test('tracked docs corpus keeps all pages, navigation, and segments in parity', async () => {
     assert.deepEqual(await validateAuthoredContent(), []);
     const manifest = JSON.parse(await readFile(new URL('./content.manifest.json', import.meta.url), 'utf8'));
-    assert.equal(manifest.documents.filter((record) => record.contentId !== 'docs:navigation').length, 96);
-    assert.equal(manifest.documents.flatMap((record) => record.segments).length, 2286);
+    assert.equal(manifest.documents.filter((record) => record.contentId !== 'docs:navigation').length, 97);
+    assert.equal(manifest.documents.flatMap((record) => record.segments).length, 2304);
     const source = await readFile(new URL('../index.mdx', import.meta.url), 'utf8');
     const translated = await readFile(new URL('../es/index.mdx', import.meta.url), 'utf8');
     assert.equal(expectedRecord('index.mdx', source, translated, metadata).protectedStructureSha256,
@@ -319,6 +320,42 @@ test('preview and live review gate requires every document and segment to have a
         }
         await writeFile(path.join(root, '.i18n/content.manifest.json'), canonicalJson(manifest));
         assert.deepEqual(await validateAuthoredContent(root, { requireHumanReview: true }), []);
+    } finally {
+        await rm(root, { recursive: true, force: true });
+    }
+});
+
+test('owner-approved AI translations pass the gate without counting as human reviews', async () => {
+    const { root, manifest } = await createFixtureRepository();
+    try {
+        for (const record of manifest.documents) {
+            for (const item of [record, ...record.segments]) {
+                item.provider = 'openai';
+                item.model = 'gpt-6';
+                item.reviewStatus = 'technical-approved';
+                item.reviewer = 'Mark Pors - AI translation approval';
+            }
+        }
+        await writeFile(path.join(root, '.i18n/content.manifest.json'), canonicalJson(manifest));
+        assert.deepEqual(await validateAuthoredContent(root, { requireHumanReview: true }), []);
+        const summary = contentReviewSummary(manifest);
+        assert.equal(summary.reviewedDocumentCount, 0);
+        assert.equal(summary.reviewedSegmentCount, 0);
+        assert.equal(summary.acceptedDocumentCount, summary.documentCount);
+        assert.equal(summary.acceptedSegmentCount, summary.segmentCount);
+        for (const item of [manifest.documents[0], manifest.documents[0].segments[0]]) {
+            for (const reviewer of [null, 'Codex', 'Mark Pors']) {
+                item.reviewer = reviewer;
+                await writeFile(path.join(root, '.i18n/content.manifest.json'), canonicalJson(manifest));
+                const errors = await validateAuthoredContent(root, { requireHumanReview: true });
+                assert(errors.some((error) => error.includes('owner-approved AI translations')));
+            }
+            item.reviewer = 'Mark Pors - AI translation approval';
+        }
+        manifest.documents[0].segments[0].reviewStatus = 'machine';
+        await writeFile(path.join(root, '.i18n/content.manifest.json'), canonicalJson(manifest));
+        assert((await validateAuthoredContent(root, { requireHumanReview: true }))
+            .some((error) => error.includes('owner-approved AI translations')));
     } finally {
         await rm(root, { recursive: true, force: true });
     }
@@ -385,8 +422,8 @@ test('preview rejects repo-local output and atomically replaces stale temporary 
         assert(previewConfig.navigation.languages[1].tabs.some((tab) => JSON.stringify(tab).includes('es/index')));
         const evidence = await readFile(path.join(output, 'review-evidence.json'), 'utf8');
         const parsedEvidence = JSON.parse(evidence);
-        assert.equal(parsedEvidence.sourceDocumentCount, 96);
-        assert.equal(parsedEvidence.translatedDocumentCount, 96);
+        assert.equal(parsedEvidence.sourceDocumentCount, 97);
+        assert.equal(parsedEvidence.translatedDocumentCount, 97);
         assert.equal(parsedEvidence.contentReviewEligible, true);
         assert.deepEqual(parsedEvidence.approvedSpecialistRoles, ['linguistic', 'editorial', 'product-technical', 'seo']);
         assert.deepEqual(parsedEvidence.pendingSpecialistRoles, []);
