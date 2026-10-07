@@ -3277,6 +3277,240 @@
         "7 October 2026: Mark explicitly approved the translation-check fixes and publication-record renewal without extra external approval. This binds the DIY-or-Paperzilla news/Q&A and current shared inputs, preserving existing checkout changes and AI provenance. No separate human language/browser review, deployment, migration, hosted check, or completion of pending legacy-upload retirement operations is claimed.",
         "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed."
       ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "758c3f712b95df362c00260078d0ef07a6671208aa2144e7ce6d82a66b7b0d51",
+      "artifactSha256": "69cef57f2ff391cfcae58c428e44c639a4cf974c91ee50e89c9835e90c32eaba",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-07T18:51:00Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "18 September 2026: Mark explicitly authorized refreshing the Spanish release-review hashes without a separate review. This binds frontend CTA copy a38a4e2 and the already committed backend crawler-link fix 799f9ad. No new human linguistic or browser review is claimed; this metadata update does not deploy or activate a locale.",
+        "7 October 2026: Mark explicitly approved the translation-check fixes and publication-record renewal without extra external approval. This binds the DIY-or-Paperzilla news/Q&A and current shared inputs, preserving existing checkout changes and AI provenance. No separate human language/browser review, deployment, migration, hosted check, or completion of pending legacy-upload retirement operations is claimed.",
+        "7 October 2026: Mark requested commit and push for the approved DIY news/Q&A release. This renewal binds exactly the selected release files over current main; unrelated local legacy-upload edits are excluded from the commits. Owner AI translation approval and prior operational caveats are retained. No new human language/browser review, deployment, or migration is claimed.",
+        "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed.",
+        "7 October 2026: Mark authorized preparation of the DIY article campaign for newsletter opt-ins without active projects, English email for everyone, and owner-approved AI Spanish content without a human language-review gate. Reviewed implementation passed targeted tests, offline authored-content checks, email rendering, and a read-only production dry run. This binds technical release evidence; no actual email send or deployment is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "758c3f712b95df362c00260078d0ef07a6671208aa2144e7ce6d82a66b7b0d51",
+      "artifactSha256": "69cef57f2ff391cfcae58c428e44c639a4cf974c91ee50e89c9835e90c32eaba",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-07T18:51:00Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "18 September 2026: Mark explicitly authorized refreshing the Spanish release-review hashes without a separate review. This binds frontend CTA copy a38a4e2 and the already committed backend crawler-link fix 799f9ad. No new human linguistic or browser review is claimed; this metadata update does not deploy or activate a locale.",
+        "7 October 2026: Mark explicitly approved the translation-check fixes and publication-record renewal without extra external approval. This binds the DIY-or-Paperzilla news/Q&A and current shared inputs, preserving existing checkout changes and AI provenance. No separate human language/browser review, deployment, migration, hosted check, or completion of pending legacy-upload retirement operations is claimed.",
+        "7 October 2026: Mark requested commit and push for the approved DIY news/Q&A release. This renewal binds exactly the selected release files over current main; unrelated local legacy-upload edits are excluded from the commits. Owner AI translation approval and prior operational caveats are retained. No new human language/browser review, deployment, or migration is claimed.",
+        "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed.",
+        "7 October 2026: Mark authorized preparation of the DIY article campaign for newsletter opt-ins without active projects, English email for everyone, and owner-approved AI Spanish content without a human language-review gate. Reviewed implementation passed targeted tests, offline authored-content checks, email rendering, and a read-only production dry run. This binds technical release evidence; no actual email send or deployment is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "758c3f712b95df362c00260078d0ef07a6671208aa2144e7ce6d82a66b7b0d51",
+      "artifactSha256": "69cef57f2ff391cfcae58c428e44c639a4cf974c91ee50e89c9835e90c32eaba",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-07T18:51:00Z",
+      "decision": "approved",
+      "exceptions": [
+        "Owner approved onboarding fix release; automated checks retained; browser acceptance remains pending.",
+        "18 September 2026: Mark explicitly authorized refreshing the Spanish release-review hashes without a separate review. This binds frontend CTA copy a38a4e2 and the already committed backend crawler-link fix 799f9ad. No new human linguistic or browser review is claimed; this metadata update does not deploy or activate a locale.",
+        "7 October 2026: Mark explicitly approved the translation-check fixes and publication-record renewal without extra external approval. This binds the DIY-or-Paperzilla news/Q&A and current shared inputs, preserving existing checkout changes and AI provenance. No separate human language/browser review, deployment, migration, hosted check, or completion of pending legacy-upload retirement operations is claimed.",
+        "7 October 2026: Mark requested commit and push for the approved DIY news/Q&A release. This renewal binds exactly the selected release files over current main; unrelated local legacy-upload edits are excluded from the commits. Owner AI translation approval and prior operational caveats are retained. No new human language/browser review, deployment, or migration is claimed.",
+        "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed.",
+        "7 October 2026: Mark authorized preparation of the DIY article campaign for newsletter opt-ins without active projects, English email for everyone, and owner-approved AI Spanish content without a human language-review gate. Reviewed implementation passed targeted tests, offline authored-content checks, email rendering, and a read-only production dry run. This binds technical release evidence; no actual email send or deployment is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "news-content",
+      "surface": "news",
+      "role": "linguistic",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "70be34a9dc2f328c30d539eeb77c612640dd96711fcaa59828650e04d097af59",
+      "artifactSha256": "e9b034245a5cff57dfaebffd9820b976eab8fa5e0e23c0ef0ba76bd6aa89f23f",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-10-07T18:51:00Z",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "7 October 2026: Mark explicitly approved the translation-check fixes and publication-record renewal without extra external approval. This binds the DIY-or-Paperzilla news/Q&A and current shared inputs, preserving existing checkout changes and AI provenance. No separate human language/browser review, deployment, migration, hosted check, or completion of pending legacy-upload retirement operations is claimed.",
+        "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed.",
+        "7 October 2026: Mark authorized preparation of the DIY article campaign for newsletter opt-ins without active projects, English email for everyone, and owner-approved AI Spanish content without a human language-review gate. Reviewed implementation passed targeted tests, offline authored-content checks, email rendering, and a read-only production dry run. This binds technical release evidence; no actual email send or deployment is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "news-content",
+      "surface": "news",
+      "role": "editorial",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "70be34a9dc2f328c30d539eeb77c612640dd96711fcaa59828650e04d097af59",
+      "artifactSha256": "e9b034245a5cff57dfaebffd9820b976eab8fa5e0e23c0ef0ba76bd6aa89f23f",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-10-07T18:51:00Z",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "7 October 2026: Mark explicitly approved the translation-check fixes and publication-record renewal without extra external approval. This binds the DIY-or-Paperzilla news/Q&A and current shared inputs, preserving existing checkout changes and AI provenance. No separate human language/browser review, deployment, migration, hosted check, or completion of pending legacy-upload retirement operations is claimed.",
+        "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed.",
+        "7 October 2026: Mark authorized preparation of the DIY article campaign for newsletter opt-ins without active projects, English email for everyone, and owner-approved AI Spanish content without a human language-review gate. Reviewed implementation passed targeted tests, offline authored-content checks, email rendering, and a read-only production dry run. This binds technical release evidence; no actual email send or deployment is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "news-content",
+      "surface": "news",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "70be34a9dc2f328c30d539eeb77c612640dd96711fcaa59828650e04d097af59",
+      "artifactSha256": "e9b034245a5cff57dfaebffd9820b976eab8fa5e0e23c0ef0ba76bd6aa89f23f",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-07T18:51:00Z",
+      "decision": "approved",
+      "exceptions": [
+        "7 October 2026: Mark explicitly approved the translation-check fixes and publication-record renewal without extra external approval. This binds the DIY-or-Paperzilla news/Q&A and current shared inputs, preserving existing checkout changes and AI provenance. No separate human language/browser review, deployment, migration, hosted check, or completion of pending legacy-upload retirement operations is claimed.",
+        "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed.",
+        "7 October 2026: Mark authorized preparation of the DIY article campaign for newsletter opt-ins without active projects, English email for everyone, and owner-approved AI Spanish content without a human language-review gate. Reviewed implementation passed targeted tests, offline authored-content checks, email rendering, and a read-only production dry run. This binds technical release evidence; no actual email send or deployment is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "newsletter-content",
+      "surface": "newsletter",
+      "role": "linguistic",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "2b4abf42c36ef36b1940d9caf96b695fd6f0f275f14d7a7744552703460a37f6",
+      "artifactSha256": "136ecbb1881438bf0fc060363553e703a8320910751c95274e6420754db50e01",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-10-07T18:51:00Z",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "7 October 2026: Mark explicitly approved the translation-check fixes and publication-record renewal without extra external approval. This binds the DIY-or-Paperzilla news/Q&A and current shared inputs, preserving existing checkout changes and AI provenance. No separate human language/browser review, deployment, migration, hosted check, or completion of pending legacy-upload retirement operations is claimed.",
+        "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed.",
+        "7 October 2026: Mark authorized preparation of the DIY article campaign for newsletter opt-ins without active projects, English email for everyone, and owner-approved AI Spanish content without a human language-review gate. Reviewed implementation passed targeted tests, offline authored-content checks, email rendering, and a read-only production dry run. This binds technical release evidence; no actual email send or deployment is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "newsletter-content",
+      "surface": "newsletter",
+      "role": "editorial",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "2b4abf42c36ef36b1940d9caf96b695fd6f0f275f14d7a7744552703460a37f6",
+      "artifactSha256": "136ecbb1881438bf0fc060363553e703a8320910751c95274e6420754db50e01",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-10-07T18:51:00Z",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "7 October 2026: Mark explicitly approved the translation-check fixes and publication-record renewal without extra external approval. This binds the DIY-or-Paperzilla news/Q&A and current shared inputs, preserving existing checkout changes and AI provenance. No separate human language/browser review, deployment, migration, hosted check, or completion of pending legacy-upload retirement operations is claimed.",
+        "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed.",
+        "7 October 2026: Mark authorized preparation of the DIY article campaign for newsletter opt-ins without active projects, English email for everyone, and owner-approved AI Spanish content without a human language-review gate. Reviewed implementation passed targeted tests, offline authored-content checks, email rendering, and a read-only production dry run. This binds technical release evidence; no actual email send or deployment is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "newsletter-content",
+      "surface": "newsletter",
+      "role": "commercial",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "2b4abf42c36ef36b1940d9caf96b695fd6f0f275f14d7a7744552703460a37f6",
+      "artifactSha256": "136ecbb1881438bf0fc060363553e703a8320910751c95274e6420754db50e01",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-07T18:51:00Z",
+      "decision": "approved",
+      "exceptions": [
+        "7 October 2026: Mark explicitly approved the translation-check fixes and publication-record renewal without extra external approval. This binds the DIY-or-Paperzilla news/Q&A and current shared inputs, preserving existing checkout changes and AI provenance. No separate human language/browser review, deployment, migration, hosted check, or completion of pending legacy-upload retirement operations is claimed.",
+        "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed.",
+        "7 October 2026: Mark authorized preparation of the DIY article campaign for newsletter opt-ins without active projects, English email for everyone, and owner-approved AI Spanish content without a human language-review gate. Reviewed implementation passed targeted tests, offline authored-content checks, email rendering, and a read-only production dry run. This binds technical release evidence; no actual email send or deployment is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "newsletter-content",
+      "surface": "newsletter",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "2b4abf42c36ef36b1940d9caf96b695fd6f0f275f14d7a7744552703460a37f6",
+      "artifactSha256": "136ecbb1881438bf0fc060363553e703a8320910751c95274e6420754db50e01",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-07T18:51:00Z",
+      "decision": "approved",
+      "exceptions": [
+        "7 October 2026: Mark explicitly approved the translation-check fixes and publication-record renewal without extra external approval. This binds the DIY-or-Paperzilla news/Q&A and current shared inputs, preserving existing checkout changes and AI provenance. No separate human language/browser review, deployment, migration, hosted check, or completion of pending legacy-upload retirement operations is claimed.",
+        "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed.",
+        "7 October 2026: Mark authorized preparation of the DIY article campaign for newsletter opt-ins without active projects, English email for everyone, and owner-approved AI Spanish content without a human language-review gate. Reviewed implementation passed targeted tests, offline authored-content checks, email rendering, and a read-only production dry run. This binds technical release evidence; no actual email send or deployment is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "newsletter-delivery",
+      "surface": "newsletter-delivery",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "632b091f68a53b02c2aa9b5fc5be3cb3cf3d92842e4017bfe741ebffed43f0ee",
+      "artifactSha256": "e704ca0d3dc801e7685da8ab68da8299547428c27e2fc1997e561ad0074ef052",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-07T18:51:00Z",
+      "decision": "approved",
+      "exceptions": [
+        "7 October 2026: Mark explicitly approved the translation-check fixes and publication-record renewal without extra external approval. This binds the DIY-or-Paperzilla news/Q&A and current shared inputs, preserving existing checkout changes and AI provenance. No separate human language/browser review, deployment, migration, hosted check, or completion of pending legacy-upload retirement operations is claimed.",
+        "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed.",
+        "7 October 2026: Mark authorized preparation of the DIY article campaign for newsletter opt-ins without active projects, English email for everyone, and owner-approved AI Spanish content without a human language-review gate. Reviewed implementation passed targeted tests, offline authored-content checks, email rendering, and a read-only production dry run. This binds technical release evidence; no actual email send or deployment is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "newsletter-delivery",
+      "surface": "newsletter-delivery",
+      "role": "commercial",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "632b091f68a53b02c2aa9b5fc5be3cb3cf3d92842e4017bfe741ebffed43f0ee",
+      "artifactSha256": "e704ca0d3dc801e7685da8ab68da8299547428c27e2fc1997e561ad0074ef052",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-07T18:51:00Z",
+      "decision": "approved",
+      "exceptions": [
+        "7 October 2026: Mark explicitly approved the translation-check fixes and publication-record renewal without extra external approval. This binds the DIY-or-Paperzilla news/Q&A and current shared inputs, preserving existing checkout changes and AI provenance. No separate human language/browser review, deployment, migration, hosted check, or completion of pending legacy-upload retirement operations is claimed.",
+        "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed.",
+        "7 October 2026: Mark authorized preparation of the DIY article campaign for newsletter opt-ins without active projects, English email for everyone, and owner-approved AI Spanish content without a human language-review gate. Reviewed implementation passed targeted tests, offline authored-content checks, email rendering, and a read-only production dry run. This binds technical release evidence; no actual email send or deployment is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "newsletter-delivery",
+      "surface": "newsletter-delivery",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "632b091f68a53b02c2aa9b5fc5be3cb3cf3d92842e4017bfe741ebffed43f0ee",
+      "artifactSha256": "e704ca0d3dc801e7685da8ab68da8299547428c27e2fc1997e561ad0074ef052",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-07T18:51:00Z",
+      "decision": "approved",
+      "exceptions": [
+        "7 October 2026: Mark explicitly approved the translation-check fixes and publication-record renewal without extra external approval. This binds the DIY-or-Paperzilla news/Q&A and current shared inputs, preserving existing checkout changes and AI provenance. No separate human language/browser review, deployment, migration, hosted check, or completion of pending legacy-upload retirement operations is claimed.",
+        "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed.",
+        "7 October 2026: Mark authorized preparation of the DIY article campaign for newsletter opt-ins without active projects, English email for everyone, and owner-approved AI Spanish content without a human language-review gate. Reviewed implementation passed targeted tests, offline authored-content checks, email rendering, and a read-only production dry run. This binds technical release evidence; no actual email send or deployment is claimed."
+      ]
     }
   ],
   "promotionApprovals": [
@@ -3714,6 +3948,42 @@
         "7 October 2026: Mark explicitly approved the translation-check fixes and publication-record renewal without extra external approval. This binds the DIY-or-Paperzilla news/Q&A and current shared inputs, preserving existing checkout changes and AI provenance. No separate human language/browser review, deployment, migration, hosted check, or completion of pending legacy-upload retirement operations is claimed.",
         "7 October 2026: Mark requested commit and push for the approved DIY news/Q&A release. This renewal binds exactly the selected release files over current main; unrelated local legacy-upload edits are excluded from the commits. Owner AI translation approval and prior operational caveats are retained. No new human language/browser review, deployment, or migration is claimed.",
         "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-10-07T18:51:00Z",
+      "decision": "approved",
+      "reviewSetSha256": "98f6895b68d49ee7bd155c8d6671678b62f5e5b09e2a3399085645033e93747a",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "Existing Spanish production release only; owner accepts AI translation updates, browser acceptance remains pending.",
+        "18 September 2026: Mark explicitly authorized refreshing the Spanish release-review hashes without a separate review. This binds frontend CTA copy a38a4e2 and the already committed backend crawler-link fix 799f9ad. No new human linguistic or browser review is claimed; this metadata update does not deploy or activate a locale.",
+        "7 October 2026: Mark explicitly approved the translation-check fixes and publication-record renewal without extra external approval. This binds the DIY-or-Paperzilla news/Q&A and current shared inputs, preserving existing checkout changes and AI provenance. No separate human language/browser review, deployment, migration, hosted check, or completion of pending legacy-upload retirement operations is claimed.",
+        "7 October 2026: Mark requested commit and push for the approved DIY news/Q&A release. This renewal binds exactly the selected release files over current main; unrelated local legacy-upload edits are excluded from the commits. Owner AI translation approval and prior operational caveats are retained. No new human language/browser review, deployment, or migration is claimed.",
+        "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed.",
+        "7 October 2026: Mark authorized preparation of the DIY article campaign for newsletter opt-ins without active projects, English email for everyone, and owner-approved AI Spanish content without a human language-review gate. Reviewed implementation passed targeted tests, offline authored-content checks, email rendering, and a read-only production dry run. This binds technical release evidence; no actual email send or deployment is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "live",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-07T18:51:00Z",
+      "decision": "approved",
+      "reviewSetSha256": "98f6895b68d49ee7bd155c8d6671678b62f5e5b09e2a3399085645033e93747a",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "Existing Spanish production release only; owner accepts AI translation updates, browser acceptance remains pending.",
+        "18 September 2026: Mark explicitly authorized refreshing the Spanish release-review hashes without a separate review. This binds frontend CTA copy a38a4e2 and the already committed backend crawler-link fix 799f9ad. No new human linguistic or browser review is claimed; this metadata update does not deploy or activate a locale.",
+        "7 October 2026: Mark explicitly approved the translation-check fixes and publication-record renewal without extra external approval. This binds the DIY-or-Paperzilla news/Q&A and current shared inputs, preserving existing checkout changes and AI provenance. No separate human language/browser review, deployment, migration, hosted check, or completion of pending legacy-upload retirement operations is claimed.",
+        "7 October 2026: Mark requested commit and push for the approved DIY news/Q&A release. This renewal binds exactly the selected release files over current main; unrelated local legacy-upload edits are excluded from the commits. Owner AI translation approval and prior operational caveats are retained. No new human language/browser review, deployment, or migration is claimed.",
+        "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed.",
+        "7 October 2026: Mark authorized preparation of the DIY article campaign for newsletter opt-ins without active projects, English email for everyone, and owner-approved AI Spanish content without a human language-review gate. Reviewed implementation passed targeted tests, offline authored-content checks, email rendering, and a read-only production dry run. This binds technical release evidence; no actual email send or deployment is claimed."
       ]
     }
   ]
