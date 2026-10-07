@@ -4,7 +4,7 @@
 
 - This is the user-facing documentation site for Paperzilla, built on [Mintlify](https://mintlify.com)
 - The canonical multilingual rollout plan is in the backend repository at `docs/multilingual/00-rollout-index.md`; this repository contains only its generated locale-registry mirror and user-facing localized content.
-- Adding or promoting a locale must follow the backend playbook at `docs/multilingual/HOWTO_ADD_A_LANGUAGE.md`.
+- Adding a language follows backend `docs/multilingual/ADD_A_LANGUAGE.md`: translate, register/wire, and prepare a non-promotable beta review. Do not repeat the historical Spanish launch checklist. Keep new-language docs in an isolated review projection until production publication is requested.
 - Run 7 reviews and gates the complete Spanish mirror under `es/`. The exact
   `es/` entry in `.mintignore` keeps that tree unprocessed, unpublished,
   unindexed, and absent from Mintlify AI, search, and MCP surfaces while Spanish
@@ -21,7 +21,7 @@
   Preserve truthful generation and review provenance; a publishing approval
   alone is not a per-segment linguistic review. Content/source/provenance guards remain mandatory, and
   changed manifest/registry hashes require a reviewed approval renewal.
-- Use ordinary Git branches for multilingual work; do not create or use Git worktrees.
+- Work on the ordinary `main` checkout by default, as requested by Mark on 11 September 2026. Create a separate branch only when Mark asks; do not create or use Git worktrees. Preserve unrelated uncommitted work.
 - Pages are MDX files with YAML frontmatter
 - Configuration lives in `docs.json`
 - Main content areas:
