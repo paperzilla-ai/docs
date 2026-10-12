@@ -3511,6 +3511,384 @@
         "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed.",
         "7 October 2026: Mark authorized preparation of the DIY article campaign for newsletter opt-ins without active projects, English email for everyone, and owner-approved AI Spanish content without a human language-review gate. Reviewed implementation passed targeted tests, offline authored-content checks, email rendering, and a read-only production dry run. This binds technical release evidence; no actual email send or deployment is claimed."
       ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "linguistic",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "f7fce191151a216a8f6df0d141efe0451b6be3dbc30e37f0b3b9c08a36b52b04",
+      "artifactSha256": "791642055c21d5093df7b6ac673e6e394afb59c1e3bb00c57401b94a8af2e7d8",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-10-08T08:36:54Z",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "Mark requested the Spanish homepage FAQ without human language review. The new copy has owner-approved AI provenance and passed catalog checks."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "f7fce191151a216a8f6df0d141efe0451b6be3dbc30e37f0b3b9c08a36b52b04",
+      "artifactSha256": "791642055c21d5093df7b6ac673e6e394afb59c1e3bb00c57401b94a8af2e7d8",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-08T08:36:54Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark approved the homepage DIY FAQ in English and Spanish. Catalog and focused UI checks passed; no separate human language review is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "commercial",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "f7fce191151a216a8f6df0d141efe0451b6be3dbc30e37f0b3b9c08a36b52b04",
+      "artifactSha256": "791642055c21d5093df7b6ac673e6e394afb59c1e3bb00c57401b94a8af2e7d8",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-08T08:36:54Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark approved the homepage DIY FAQ in English and Spanish. Catalog and focused UI checks passed; no separate human language review is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "f7fce191151a216a8f6df0d141efe0451b6be3dbc30e37f0b3b9c08a36b52b04",
+      "artifactSha256": "791642055c21d5093df7b6ac673e6e394afb59c1e3bb00c57401b94a8af2e7d8",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-08T08:36:54Z",
+      "decision": "approved",
+      "exceptions": [
+        "Mark approved the homepage DIY FAQ in English and Spanish. Catalog and focused UI checks passed; no separate human language review is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "9e51250de3745ebfa54634ce25f0eb98df1154d1e85737b91dca8d27b5bf682b",
+      "artifactSha256": "69cef57f2ff391cfcae58c428e44c639a4cf974c91ee50e89c9835e90c32eaba",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-08T08:36:54Z",
+      "decision": "approved",
+      "exceptions": [
+        "The runtime artifact is unchanged; this record binds the updated homepage FAQ source catalog. No Auth or email behavior changed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "9e51250de3745ebfa54634ce25f0eb98df1154d1e85737b91dca8d27b5bf682b",
+      "artifactSha256": "69cef57f2ff391cfcae58c428e44c639a4cf974c91ee50e89c9835e90c32eaba",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-08T08:36:54Z",
+      "decision": "approved",
+      "exceptions": [
+        "The runtime artifact is unchanged; this record binds the updated homepage FAQ source catalog. No Auth or email behavior changed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "9e51250de3745ebfa54634ce25f0eb98df1154d1e85737b91dca8d27b5bf682b",
+      "artifactSha256": "69cef57f2ff391cfcae58c428e44c639a4cf974c91ee50e89c9835e90c32eaba",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-08T08:36:54Z",
+      "decision": "approved",
+      "exceptions": [
+        "The runtime artifact is unchanged; this record binds the updated homepage FAQ source catalog. No Auth or email behavior changed."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "linguistic",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "283dd4d7f49983fd83e83194a0dd6be6b2cf268c94fcfbc21dd384c3a3b92237",
+      "artifactSha256": "c49166030f6f8870a18ec097d1b13cf7d9a15dd397a912249b127b09e1fbcbf1",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-10-12T14:55:21.527958+00:00",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "283dd4d7f49983fd83e83194a0dd6be6b2cf268c94fcfbc21dd384c3a3b92237",
+      "artifactSha256": "c49166030f6f8870a18ec097d1b13cf7d9a15dd397a912249b127b09e1fbcbf1",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T14:55:21.527958+00:00",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "commercial",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "283dd4d7f49983fd83e83194a0dd6be6b2cf268c94fcfbc21dd384c3a3b92237",
+      "artifactSha256": "c49166030f6f8870a18ec097d1b13cf7d9a15dd397a912249b127b09e1fbcbf1",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T14:55:21.527958+00:00",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "283dd4d7f49983fd83e83194a0dd6be6b2cf268c94fcfbc21dd384c3a3b92237",
+      "artifactSha256": "c49166030f6f8870a18ec097d1b13cf7d9a15dd397a912249b127b09e1fbcbf1",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T14:55:21.527958+00:00",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "998fe016bea39d3befe2f73911ff8929d7e4def5af6524466c5bee2bb0edff39",
+      "artifactSha256": "4c84bd4b837b2e336ccd297e41c17ee5b58fe212156edf4c0bcb1858e325c39d",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T14:55:21.527958+00:00",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "998fe016bea39d3befe2f73911ff8929d7e4def5af6524466c5bee2bb0edff39",
+      "artifactSha256": "4c84bd4b837b2e336ccd297e41c17ee5b58fe212156edf4c0bcb1858e325c39d",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T14:55:21.527958+00:00",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "998fe016bea39d3befe2f73911ff8929d7e4def5af6524466c5bee2bb0edff39",
+      "artifactSha256": "4c84bd4b837b2e336ccd297e41c17ee5b58fe212156edf4c0bcb1858e325c39d",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T14:55:21.527958+00:00",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "linguistic",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "5c5c0157c2c1f6d8028c39a327271ecd534d98dd849489b0967bf9126caf8ed4",
+      "artifactSha256": "791dcea43349a7e1a26a12edcd8361427e385d01ea913914a6e28b9757a99b5f",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-10-12T14:55:21.527958+00:00",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "5c5c0157c2c1f6d8028c39a327271ecd534d98dd849489b0967bf9126caf8ed4",
+      "artifactSha256": "791dcea43349a7e1a26a12edcd8361427e385d01ea913914a6e28b9757a99b5f",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T14:55:21.527958+00:00",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "commercial",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "5c5c0157c2c1f6d8028c39a327271ecd534d98dd849489b0967bf9126caf8ed4",
+      "artifactSha256": "791dcea43349a7e1a26a12edcd8361427e385d01ea913914a6e28b9757a99b5f",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T14:55:21.527958+00:00",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "5c5c0157c2c1f6d8028c39a327271ecd534d98dd849489b0967bf9126caf8ed4",
+      "artifactSha256": "791dcea43349a7e1a26a12edcd8361427e385d01ea913914a6e28b9757a99b5f",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T14:55:21.527958+00:00",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "backend-email-and-crawler-catalog",
+      "surface": "email-and-public-crawler-copy",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "5c5c0157c2c1f6d8028c39a327271ecd534d98dd849489b0967bf9126caf8ed4",
+      "artifactSha256": "791dcea43349a7e1a26a12edcd8361427e385d01ea913914a6e28b9757a99b5f",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T14:55:21.527958+00:00",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "auth-templates",
+      "surface": "supabase-auth",
+      "role": "linguistic",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "ee6a17c2866d1f4da2828ec547bbc3c6cf1baf3cdafa1599832e3e24f8c412e5",
+      "artifactSha256": "3fae28c1710e8d04a6f6b6a1f70f78e3521e968cb884dc82df05657a4e9e6f96",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-10-12T14:55:21.527958+00:00",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "auth-templates",
+      "surface": "supabase-auth",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "ee6a17c2866d1f4da2828ec547bbc3c6cf1baf3cdafa1599832e3e24f8c412e5",
+      "artifactSha256": "3fae28c1710e8d04a6f6b6a1f70f78e3521e968cb884dc82df05657a4e9e6f96",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T14:55:21.527958+00:00",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "newsletter-delivery",
+      "surface": "newsletter-delivery",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "93a543554d27d2d12c5255517967e3b5f4387b67044a7e2ee8d914cc573772e8",
+      "artifactSha256": "e48fcc0ce63f9d5288db961a902ed7b133e038c702a708bc723095317049df33",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T14:59:15.400034+00:00",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "newsletter-delivery",
+      "surface": "newsletter-delivery",
+      "role": "commercial",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "93a543554d27d2d12c5255517967e3b5f4387b67044a7e2ee8d914cc573772e8",
+      "artifactSha256": "e48fcc0ce63f9d5288db961a902ed7b133e038c702a708bc723095317049df33",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T14:59:15.400034+00:00",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "newsletter-delivery",
+      "surface": "newsletter-delivery",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "93a543554d27d2d12c5255517967e3b5f4387b67044a7e2ee8d914cc573772e8",
+      "artifactSha256": "e48fcc0ce63f9d5288db961a902ed7b133e038c702a708bc723095317049df33",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T14:59:15.400034+00:00",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
     }
   ],
   "promotionApprovals": [
@@ -3984,6 +4362,88 @@
         "7 October 2026: Mark requested commit and push for the approved DIY news/Q&A release. This renewal binds exactly the selected release files over current main; unrelated local legacy-upload edits are excluded from the commits. Owner AI translation approval and prior operational caveats are retained. No new human language/browser review, deployment, or migration is claimed.",
         "7 October 2026: Mark requested the supplied DIY news banner on all renderings. This renewal binds its EN/ES metadata, visible frontend/backend news images, and static rendering verification. Approved article text and translation provenance are unchanged. Unrelated local edits are excluded from the release. Prior owner approval and operational caveats remain; no deployment or new human language review is claimed.",
         "7 October 2026: Mark authorized preparation of the DIY article campaign for newsletter opt-ins without active projects, English email for everyone, and owner-approved AI Spanish content without a human language-review gate. Reviewed implementation passed targeted tests, offline authored-content checks, email rendering, and a read-only production dry run. This binds technical release evidence; no actual email send or deployment is claimed."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-10-08T08:36:54Z",
+      "decision": "approved",
+      "reviewSetSha256": "0f4151dd0c61ad5e47038e17d1bb6f5c2e8a5163bd74d08f70ad68a7cf33c0c4",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "Mark requested this English/Spanish homepage FAQ and waived separate human language review. This record binds the new FAQ and docs links; it does not claim deployment or browser acceptance."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "live",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-08T08:36:54Z",
+      "decision": "approved",
+      "reviewSetSha256": "0f4151dd0c61ad5e47038e17d1bb6f5c2e8a5163bd74d08f70ad68a7cf33c0c4",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "Mark requested this English/Spanish homepage FAQ and waived separate human language review. This record binds the new FAQ and docs links; it does not claim deployment or browser acceptance."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-10-12T14:55:54.900421+00:00",
+      "decision": "approved",
+      "reviewSetSha256": "ced1b344667a781f7213e38b190fabf62f447328e1a920376fc52b02b4a86e8e",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "Mark requested this English/Spanish homepage FAQ and waived separate human language review. This record binds the new FAQ and docs links; it does not claim deployment or browser acceptance.",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "live",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T14:55:54.900421+00:00",
+      "decision": "approved",
+      "reviewSetSha256": "ced1b344667a781f7213e38b190fabf62f447328e1a920376fc52b02b4a86e8e",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "Mark requested this English/Spanish homepage FAQ and waived separate human language review. This record binds the new FAQ and docs links; it does not claim deployment or browser acceptance.",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-10-12T14:59:15.400034+00:00",
+      "decision": "approved",
+      "reviewSetSha256": "ae49ebe938d4aed885e46b3b143f1af1f26707049b49e2ff64bd7578428f95f2",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "Mark requested this English/Spanish homepage FAQ and waived separate human language review. This record binds the new FAQ and docs links; it does not claim deployment or browser acceptance.",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "live",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T14:59:15.400034+00:00",
+      "decision": "approved",
+      "reviewSetSha256": "ae49ebe938d4aed885e46b3b143f1af1f26707049b49e2ff64bd7578428f95f2",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "Mark requested this English/Spanish homepage FAQ and waived separate human language review. This record binds the new FAQ and docs links; it does not claim deployment or browser acceptance.",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
       ]
     }
   ]
