@@ -3889,6 +3889,118 @@
         "owner-approved-ai-translation",
         "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
       ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "linguistic",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "93704c6f894d24f79c3b2e43bc8bf401ca2f67deb6d212bd28d5e202e215f6c8",
+      "artifactSha256": "339da8edc8aaa13a1097c70db0c84852d771c4c3743f5577d7970aa3717d5db8",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-10-12T18:44:30Z",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal and push for the preview-project creation fix (backend ecc203b, frontend 3e2b1c9). Renew only changed EN/ES catalog hashes and their shared runtime source binding. AI provenance retained; no new human linguistic review. 59 backend and 31 frontend tests passed. Existing Spanish stages and runtime artifact bytes are unchanged; this is not a deployment or production migration."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "93704c6f894d24f79c3b2e43bc8bf401ca2f67deb6d212bd28d5e202e215f6c8",
+      "artifactSha256": "339da8edc8aaa13a1097c70db0c84852d771c4c3743f5577d7970aa3717d5db8",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T18:44:30Z",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal and push for the preview-project creation fix (backend ecc203b, frontend 3e2b1c9). Renew only changed EN/ES catalog hashes and their shared runtime source binding. AI provenance retained; no new human linguistic review. 59 backend and 31 frontend tests passed. Existing Spanish stages and runtime artifact bytes are unchanged; this is not a deployment or production migration."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "commercial",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "93704c6f894d24f79c3b2e43bc8bf401ca2f67deb6d212bd28d5e202e215f6c8",
+      "artifactSha256": "339da8edc8aaa13a1097c70db0c84852d771c4c3743f5577d7970aa3717d5db8",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T18:44:30Z",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal and push for the preview-project creation fix (backend ecc203b, frontend 3e2b1c9). Renew only changed EN/ES catalog hashes and their shared runtime source binding. AI provenance retained; no new human linguistic review. 59 backend and 31 frontend tests passed. Existing Spanish stages and runtime artifact bytes are unchanged; this is not a deployment or production migration."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-product-catalog",
+      "surface": "product-and-marketing-ui",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "93704c6f894d24f79c3b2e43bc8bf401ca2f67deb6d212bd28d5e202e215f6c8",
+      "artifactSha256": "339da8edc8aaa13a1097c70db0c84852d771c4c3743f5577d7970aa3717d5db8",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T18:44:30Z",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal and push for the preview-project creation fix (backend ecc203b, frontend 3e2b1c9). Renew only changed EN/ES catalog hashes and their shared runtime source binding. AI provenance retained; no new human linguistic review. 59 backend and 31 frontend tests passed. Existing Spanish stages and runtime artifact bytes are unchanged; this is not a deployment or production migration."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "product-technical",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "e3a61f83057a11c18a3a1126133be05c4f2696b53fc0b3efca1cc96fcf005f61",
+      "artifactSha256": "4c84bd4b837b2e336ccd297e41c17ee5b58fe212156edf4c0bcb1858e325c39d",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T18:44:30Z",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal and push for the preview-project creation fix (backend ecc203b, frontend 3e2b1c9). Renew only changed EN/ES catalog hashes and their shared runtime source binding. AI provenance retained; no new human linguistic review. 59 backend and 31 frontend tests passed. Existing Spanish stages and runtime artifact bytes are unchanged; this is not a deployment or production migration."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "auth-email",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "e3a61f83057a11c18a3a1126133be05c4f2696b53fc0b3efca1cc96fcf005f61",
+      "artifactSha256": "4c84bd4b837b2e336ccd297e41c17ee5b58fe212156edf4c0bcb1858e325c39d",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T18:44:30Z",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal and push for the preview-project creation fix (backend ecc203b, frontend 3e2b1c9). Renew only changed EN/ES catalog hashes and their shared runtime source binding. AI provenance retained; no new human linguistic review. 59 backend and 31 frontend tests passed. Existing Spanish stages and runtime artifact bytes are unchanged; this is not a deployment or production migration."
+      ]
+    },
+    {
+      "locale": "es",
+      "artifactId": "frontend-runtime-and-public-web",
+      "surface": "product-language-runtime-and-public-web",
+      "role": "seo",
+      "reviewerAuthority": "mark",
+      "sourceSha256": "e3a61f83057a11c18a3a1126133be05c4f2696b53fc0b3efca1cc96fcf005f61",
+      "artifactSha256": "4c84bd4b837b2e336ccd297e41c17ee5b58fe212156edf4c0bcb1858e325c39d",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T18:44:30Z",
+      "decision": "approved",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "12 October 2026: Mark explicitly approved renewal and push for the preview-project creation fix (backend ecc203b, frontend 3e2b1c9). Renew only changed EN/ES catalog hashes and their shared runtime source binding. AI provenance retained; no new human linguistic review. 59 backend and 31 frontend tests passed. Existing Spanish stages and runtime artifact bytes are unchanged; this is not a deployment or production migration."
+      ]
     }
   ],
   "promotionApprovals": [
@@ -4444,6 +4556,36 @@
         "owner-approved-ai-translation",
         "Mark requested this English/Spanish homepage FAQ and waived separate human language review. This record binds the new FAQ and docs links; it does not claim deployment or browser acceptance.",
         "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "preview",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors - AI translation approval",
+      "timestamp": "2026-10-12T18:44:30Z",
+      "decision": "approved",
+      "reviewSetSha256": "f4001a09b1184788fad9fd0e16b8adcca9e1db0e2e8ea8fe55655198e6d4d067",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "Mark requested this English/Spanish homepage FAQ and waived separate human language review. This record binds the new FAQ and docs links; it does not claim deployment or browser acceptance.",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md.",
+        "12 October 2026: Mark explicitly approved renewal and push for the preview-project creation fix (backend ecc203b, frontend 3e2b1c9). Renew only changed EN/ES catalog hashes and their shared runtime source binding. AI provenance retained; no new human linguistic review. 59 backend and 31 frontend tests passed. Existing Spanish stages and runtime artifact bytes are unchanged; this is not a deployment or production migration."
+      ]
+    },
+    {
+      "locale": "es",
+      "targetStage": "live",
+      "approverRole": "mark",
+      "reviewerLabel": "Mark Pors",
+      "timestamp": "2026-10-12T18:44:30Z",
+      "decision": "approved",
+      "reviewSetSha256": "f4001a09b1184788fad9fd0e16b8adcca9e1db0e2e8ea8fe55655198e6d4d067",
+      "exceptions": [
+        "owner-approved-ai-translation",
+        "Mark requested this English/Spanish homepage FAQ and waived separate human language review. This record binds the new FAQ and docs links; it does not claim deployment or browser acceptance.",
+        "12 October 2026: Mark explicitly approved renewal for upload retirement and existing backend email/Auth dependencies. AI provenance retained; no human language review. 60 retirement, 31 email/Auth and 9 frontend tests passed. Existing paid-conversion email shipped in 42eb53c; Auth template bytes unchanged. Production SQL is Mark-only; deployment pending. Evidence: docs/LEGACY_UPLOAD_RETIREMENT.md.",
+        "12 October 2026: Mark explicitly approved renewal and push for the preview-project creation fix (backend ecc203b, frontend 3e2b1c9). Renew only changed EN/ES catalog hashes and their shared runtime source binding. AI provenance retained; no new human linguistic review. 59 backend and 31 frontend tests passed. Existing Spanish stages and runtime artifact bytes are unchanged; this is not a deployment or production migration."
       ]
     }
   ]
