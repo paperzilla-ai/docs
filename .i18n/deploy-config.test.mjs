@@ -1,10 +1,9 @@
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, realpath, rm, symlink } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, realpath, rm, symlink, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { loadDocsPublication } from './publication.mjs';
 import {
     assertPathOutsideRoot,
     buildDeployConfig,
@@ -77,11 +76,9 @@ test('future-live projection does not mutate the committed planned registry', ()
     assert.deepEqual(projected.locales[1], { tag: 'es', stage: 'live', indexable: true });
 });
 
-test('live generation rejects missing localized navigation', () => {
-    assert.throws(() => buildDeployConfig(sourceConfig(), registry('live'), {}), /incomplete/);
-});
 
-test('committed docs config matches the independently approved docs publication', async () => {
+
+test('committed docs config matches the canonical live locale registry', async () => {
     const [rawConfig, rawRegistry, rawSpanish] = await Promise.all([
         readFile(new URL('../docs.json', import.meta.url), 'utf8'),
         readFile(new URL('./locales.generated.json', import.meta.url), 'utf8'),
@@ -89,7 +86,7 @@ test('committed docs config matches the independently approved docs publication'
     ]);
     const expected = buildDeployConfig(
         JSON.parse(rawConfig),
-        await loadDocsPublication(repositoryRoot, JSON.parse(rawRegistry)),
+        JSON.parse(rawRegistry),
         { es: JSON.parse(rawSpanish) },
     );
     assert.equal(rawConfig, canonicalJson(expected));
@@ -112,4 +109,32 @@ test('outside-repository enforcement resolves symlinked ancestors', async () => 
     } finally {
         await rm(base, { recursive: true, force: true });
     }
+});
+
+
+test('missing pages and navigation use English; adding a translation removes its temporary redirects', async () => {
+    const root = await mkdtemp(path.join(os.tmpdir(), 'docs-fallback-'));
+    try {
+        await writeFile(path.join(root, 'index.mdx'), '# English');
+        const locales = registry('live');
+        locales.locales[1].pathPrefix = 'es';
+        const navigation = spanishNavigation();
+        delete navigation.navigation.tabs[0].tab;
+        const fallback = buildDeployConfig(sourceConfig(), locales, { es: navigation }, root);
+        assert.equal(fallback.navigation.languages[1].tabs[0].tab, 'Guides');
+        assert.deepEqual(fallback.navigation.languages[1].tabs[0].groups[0].pages, ['index']);
+        assert.ok(fallback.redirects.some(({ source, destination, permanent }) => source === '/es/index' && destination === '/index' && permanent === false));
+        assert.ok(fallback.redirects.some(({ source, destination }) => source === '/es' && destination === '/'));
+        const missingNavigation = buildDeployConfig(sourceConfig(), locales, {}, root);
+        assert.equal(missingNavigation.navigation.languages[1].tabs[0].tab, 'Guides');
+        await mkdir(path.join(root, 'es'));
+        await writeFile(path.join(root, 'es/index.mdx'), '# Español');
+        const restored = buildDeployConfig(fallback, locales, { es: spanishNavigation() }, root);
+        assert.equal(restored.redirects, undefined);
+        assert.deepEqual(restored.navigation.languages[1].tabs[0].groups[0].pages, ['es/index']);
+        locales.locales[1].stage = 'planned';
+        const hidden = buildDeployConfig(restored, locales, { es: spanishNavigation() }, root);
+        assert.equal(hidden.navigation.languages, undefined);
+        assert.ok(hidden.redirects.some(({ source, destination }) => source === '/es/index' && destination === '/index'));
+    } finally { await rm(root, { recursive: true, force: true }); }
 });

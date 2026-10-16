@@ -6,8 +6,7 @@
 drafts/
 *.draft.mdx
 
-# Spanish docs are published under the docs-only approval in .i18n/publication.json.
-# Product UI and email locale stages remain unchanged.
+# Published locales follow the canonical generated locale registry.
 
 # Internal multilingual implementation and agent instructions; never publish.
 .i18n/

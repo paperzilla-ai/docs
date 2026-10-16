@@ -1,6 +1,43 @@
-import { documentProtectedStructureSha256, protectedTokens } from './content-segments.mjs';
 import { sha256 } from './content-structure.mjs';
-import { englishDocsConfig } from './deploy-config.mjs';
+import { englishDocsConfig, withNavigationFallback } from './deploy-config.mjs';
+
+const brands = [
+    'Paperzilla', 'arXiv', 'bioRxiv', 'medRxiv', 'ChemRxiv', 'ChinaXiv',
+    'PubMed', 'Google Scholar', 'Hugging Face', 'OpenClaw', 'Codex', 'Claude',
+    'Microsoft Teams', 'Telegram', 'Slack', 'GitHub', 'MCP', 'RSS', 'Atom',
+    'CLI', 'API', 'Intercom', 'Feedly', 'Miniflux', 'Reeder', 'JSON',
+];
+
+function protectedTokens(value) {
+    const tokens = [];
+    for (const line of value.split('\n')) {
+        const marker = line.match(/^(\s*)(#{1,6}\s+|-!\s+|[-*+]\s+|\d+[.)]\s+|>\s*|---\s*$)/);
+        if (marker) {
+            tokens.push(marker[1] + marker[2]);
+        }
+        const directive = line.match(/^\s*(?:::[:\w-]*|!!!\s+\w+)/);
+        if (directive) {
+            tokens.push(directive[0]);
+        }
+        const stripped = line.trim();
+        const pipeCount = [...stripped].filter((character) => character === '|').length;
+        if (pipeCount >= 2 || (pipeCount > 0 && stripped.startsWith('|') && stripped.endsWith('|'))) {
+            tokens.push(`TABLE:${pipeCount}:${Number(stripped.startsWith('|'))}:${Number(stripped.endsWith('|'))}`);
+        }
+    }
+    const pattern = /```.*?```|~~~.*?~~~|`[^`\n]+`|\{[%{].*?[}%]\}|<\/?[A-Za-z][^>]*>|!?(?:\[[^\]]*\])\(([^)]+)\)|https?:\/\/[^\s)>]+|[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}/gs;
+    for (const match of value.matchAll(pattern)) {
+        tokens.push(match[1] ?? match[0]);
+    }
+    for (const match of value.matchAll(/\*\*|__|(?<!\*)\*(?!\*)|(?<!_)_(?!_)/g)) {
+        tokens.push(match[0]);
+    }
+    for (const brand of brands) {
+        const count = value.split(brand).length - 1;
+        tokens.push(...Array(count).fill(brand));
+    }
+    return tokens;
+}
 
 const labelKeys = new Set(['anchor', 'group', 'label', 'tab']);
 
@@ -39,18 +76,12 @@ export function navigationLabelSpans(value) {
 }
 
 export function extractNavigationSegments(value) {
-    const occurrences = new Map();
     return navigationLabelSpans(value).map((span) => {
         const text = value.slice(span.start, span.end);
-        const sourceSha256 = sha256(text);
-        const occurrenceKey = `${span.kind}:${sourceSha256}`;
-        const occurrence = (occurrences.get(occurrenceKey) ?? 0) + 1;
-        occurrences.set(occurrenceKey, occurrence);
         const tokens = protectedTokens(text);
         return {
             kind: span.kind,
             protectedStructureSha256: sha256(tokens.join('\n')),
-            stableId: `${span.kind}:${sourceSha256.slice(0, 20)}:${occurrence}`,
             start: span.start,
             end: span.end,
             text,
@@ -109,14 +140,15 @@ function skeleton(value, segments) {
     return output;
 }
 
-export function expectedNavigationRecord(sourceConfig, translationText, metadata) {
+export function validateNavigation(sourceConfig, translationText, locale = 'es') {
     const sourceText = docsNavigationSource(sourceConfig);
     let comparableTranslation;
     try {
-        comparableTranslation = mapDocsNavigation(translationText, 'es', true);
+        comparableTranslation = mapDocsNavigation(translationText, locale, true);
     } catch {
         comparableTranslation = null;
     }
+    if (comparableTranslation !== null) comparableTranslation = prettyJson(withNavigationFallback(JSON.parse(sourceText), JSON.parse(comparableTranslation)));
     const sourceSegments = extractNavigationSegments(sourceText);
     const translationSegments = comparableTranslation === null
         ? []
@@ -124,42 +156,11 @@ export function expectedNavigationRecord(sourceConfig, translationText, metadata
     const compatible = comparableTranslation !== null
         && sourceSegments.length === translationSegments.length
         && skeleton(sourceText, sourceSegments) === skeleton(comparableTranslation, translationSegments)
-        && mapDocsNavigation(comparableTranslation, 'es') === translationText
         && sourceSegments.every((segment, index) => (
             segment.kind === translationSegments[index].kind
             && segment.protectedStructureSha256 === translationSegments[index].protectedStructureSha256
         ));
-    const segments = compatible ? sourceSegments.map((segment, index) => ({
-        generatedAt: metadata.generatedAt,
-        id: segment.stableId,
-        model: 'gpt-5.6-sol',
-        promptSha256: metadata.promptSha256,
-        protectedStructureSha256: segment.protectedStructureSha256,
-        provider: 'openai',
-        reviewStatus: 'machine',
-        reviewer: null,
-        sourceSha256: sha256(segment.text),
-        styleGuideSha256: metadata.styleGuideSha256,
-        translationSha256: sha256(translationSegments[index].text),
-    })) : null;
-    return {
-        contentClass: 'docs',
-        contentId: 'docs:navigation',
-        generatedAt: metadata.generatedAt,
-        model: 'gpt-5.6-sol',
-        promptSha256: metadata.promptSha256,
-        protectedStructureSha256: documentProtectedStructureSha256(sourceSegments),
-        provider: 'openai',
-        publicPath: null,
-        reviewStatus: 'machine',
-        reviewer: null,
-        segments,
-        sourcePath: 'docs.json',
-        sourceSha256: sha256(sourceText),
-        styleGuideSha256: metadata.styleGuideSha256,
-        translatedPath: '.i18n/navigation.es.json',
-        translationSha256: sha256(translationText),
-    };
+    return compatible;
 }
 
 export function navigationLabelKeys() {

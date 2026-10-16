@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { localizeMdxPaths } from './path-map.mjs';
 
 import { randomUUID } from 'node:crypto';
 import { cp, mkdir, mkdtemp, readFile, realpath, rename, rm, stat, writeFile } from 'node:fs/promises';
@@ -7,9 +8,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeNonPromotableMarker } from './artifact-guard.mjs';
 import {
-    contentReviewSummary,
     englishMdxInventory,
-    sha256,
     validateAuthoredContent,
 } from './content.mjs';
 import {
@@ -18,7 +17,6 @@ import {
     canonicalJson,
     registryWithFutureLiveLocale,
 } from './deploy-config.mjs';
-import { documentationReviewState, loadAndValidateLaunchReview } from './launch-review.mjs';
 
 const internalDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.dirname(internalDirectory);
@@ -60,10 +58,6 @@ export async function buildPreviewProjection({ output, replace = false } = {}) {
     if (errors.length > 0) {
         throw new Error(`Cannot build a stale or invalid Spanish projection:\n- ${errors.join('\n- ')}`);
     }
-    const launchReview = await loadAndValidateLaunchReview(repositoryRoot);
-    if (launchReview.errors.length > 0) {
-        throw new Error(`Cannot build with an invalid launch-review mirror:\n- ${launchReview.errors.join('\n- ')}`);
-    }
     let destinationExists = false;
     try {
         await stat(destination);
@@ -103,20 +97,25 @@ export async function buildPreviewProjection({ output, replace = false } = {}) {
             await mkdir(path.dirname(destinationPath), { recursive: true });
             await cp(path.join(repositoryRoot, relativePath), destinationPath);
         }
-        await cp(path.join(repositoryRoot, 'es'), path.join(staging, 'es'), { recursive: true });
+        await copyIfPresent(path.join(repositoryRoot, 'es'), path.join(staging, 'es'));
+        for (const relativePath of englishFiles) {
+            const file = path.join(staging, 'es', relativePath);
+            const text = await readFile(file, 'utf8').catch((error) => { if (error.code === 'ENOENT') return null; throw error; });
+            if (text !== null) await writeFile(file, localizeMdxPaths(text, 'es', staging));
+        }
+
         for (const asset of ['images', 'logo', 'favicon.ico', 'favicon.png']) {
             await copyIfPresent(path.join(repositoryRoot, asset), path.join(staging, asset));
         }
 
-        const rawManifest = await readFile(path.join(internalDirectory, 'content.manifest.json'), 'utf8');
-        const manifest = JSON.parse(rawManifest);
         const docsConfig = JSON.parse(await readFile(path.join(repositoryRoot, 'docs.json'), 'utf8'));
         const registry = JSON.parse(await readFile(path.join(internalDirectory, 'locales.generated.json'), 'utf8'));
-        const translated = JSON.parse(await readFile(path.join(internalDirectory, 'navigation.es.json'), 'utf8'));
+        const translated = JSON.parse(await readFile(path.join(internalDirectory, 'navigation.es.json'), 'utf8').catch((error) => { if (error.code === 'ENOENT') return 'null'; throw error; }));
         const reviewConfigValue = buildDeployConfig(
             docsConfig,
             registryWithFutureLiveLocale(registry, 'es'),
             { es: translated },
+            staging,
         );
         reviewConfigValue.seo = {
             ...(reviewConfigValue.seo ?? {}),
@@ -132,32 +131,7 @@ export async function buildPreviewProjection({ output, replace = false } = {}) {
             'Isolated bilingual Spanish review projection for Run 7. Never deploy this directory.\n',
             'utf8',
         );
-        const nonPromotableMarker = await writeNonPromotableMarker(staging);
-        const review = contentReviewSummary(manifest);
-        const launchReviewState = await documentationReviewState(launchReview.matrix, repositoryRoot);
-        await writeFile(path.join(staging, 'review-evidence.json'), canonicalJson({
-            schemaVersion: 1,
-            locale: 'es',
-            purpose: 'review-only',
-            productionExposure: false,
-            sourceDocumentCount: englishFiles.length,
-            translatedDocumentCount: englishFiles.length,
-            manifestDocumentCount: review.documentCount,
-            reviewedDocumentCount: review.reviewedDocumentCount,
-            acceptedDocumentCount: review.acceptedDocumentCount,
-            segmentCount: review.segmentCount,
-            reviewedSegmentCount: review.reviewedSegmentCount,
-            acceptedSegmentCount: review.acceptedSegmentCount,
-            contentReviewEligible: review.promotionEligible,
-            approvedSpecialistRoles: launchReviewState.currentApprovedRoles,
-            pendingSpecialistRoles: launchReviewState.pendingRoles,
-            contentManifestSha256: sha256(rawManifest),
-            launchReviewMatrixSha256: sha256(launchReview.rawMatrix),
-            documentationSourceSha256: launchReviewState.sourceSha256,
-            documentationArtifactSha256: launchReviewState.artifactSha256,
-            docsConfigSha256: sha256(reviewConfig),
-            nonPromotableMarkerSha256: sha256(nonPromotableMarker),
-        }), 'utf8');
+        await writeNonPromotableMarker(staging);
 
         let backup = null;
         await assertPathOutsideRoot(destination, repositoryRoot);

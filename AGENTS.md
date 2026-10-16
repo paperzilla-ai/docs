@@ -4,24 +4,17 @@
 
 - This is the user-facing documentation site for Paperzilla, built on [Mintlify](https://mintlify.com)
 - The canonical multilingual rollout plan is in the backend repository at `docs/multilingual/00-rollout-index.md`; this repository contains only its generated locale-registry mirror and user-facing localized content.
-- Spanish content changes do not need human language review unless Mark explicitly asks for it; preserve AI translation provenance and normal technical/publication checks.
-- Adding a language follows backend `docs/multilingual/ADD_A_LANGUAGE.md`: translate, register/wire, and prepare a non-promotable beta review. Do not repeat the historical Spanish launch checklist. Keep new-language docs in an isolated review projection until production publication is requested.
-- Run 7 reviews and gates the complete Spanish mirror under `es/`. The exact
-  `es/` entry in `.mintignore` keeps that tree unprocessed, unpublished,
-  unindexed, and absent from Mintlify AI, search, and MCP surfaces while Spanish
-  is `planned` or `preview`. Production `docs.json` stays English-only in both
-  stages. Use the isolated `.i18n/preview.mjs` projection for review; never add
-  a public language selector, localized navigation, or Spanish discovery before
-  the coordinated `live` promotion passes the launch matrix.
-- **7 September 2026 docs-only exception:** Mark approved publishing Spanish
-  docs on Starter and evaluating/fixing the hosted result on production. The
-  hash-bound `.i18n/publication.json` is the docs publication authority while
-  the shared registry is planned or preview. It permits Spanish docs navigation,
-  indexing and discovery only; never promote app/email/Auth locales with it.
-  Its backend decision record is `docs/multilingual/spanish-docs-live-2026-09-07.md`.
-  Preserve truthful generation and review provenance; a publishing approval
-  alone is not a per-segment linguistic review. Content/source/provenance guards remain mandatory, and
-  changed manifest/registry hashes require a reviewed approval renewal.
+- Trust coding-agent translations directly. No human reviewer, approval record,
+  launch matrix, publication exception or provenance sidecar is required.
+  Current policy: backend `docs/multilingual/MAINTAINING_TRANSLATIONS.md`.
+- Adding a language follows backend `docs/multilingual/ADD_A_LANGUAGE.md`.
+  Keep planned/preview locales hidden by `.mintignore` and out of production
+  navigation. Use isolated non-promotable projections until activation is requested.
+- The canonical locale registry determines publication. Missing translated pages
+  and navigation labels use English; generate `docs.json` with
+  `node .i18n/deploy-config.mjs generate --output docs.json` after adding/removing
+  pages so direct URLs receive temporary English redirects. Validate present
+  translations for frontmatter, protected structures and links.
 - Work on the ordinary `main` checkout by default, as requested by Mark on 11 September 2026. Create a separate branch only when Mark asks; do not create or use Git worktrees. Preserve unrelated uncommitted work.
 - Pages are MDX files with YAML frontmatter
 - Configuration lives in `docs.json`
@@ -45,8 +38,8 @@
   --root PATH`. The review projection carries a deterministic marker that makes
   this guard fail closed.
 - Run `.i18n/hosted-smoke.mjs` manually only after Spanish docs are published;
-  either the normal live registry or the hash-bound docs-only approval is
-  required. Never add hosted network checks to deterministic CI.
+  the canonical registry must mark the locale live. Never add hosted network
+  checks to deterministic CI.
 
 ## Terminology
 

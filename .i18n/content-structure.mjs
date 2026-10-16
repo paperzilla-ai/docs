@@ -1,4 +1,6 @@
 import { createHash } from 'node:crypto';
+import { existsSync } from 'node:fs';
+import path from 'node:path';
 
 const translatableFrontmatterKeys = new Set(['title', 'sidebarTitle', 'name', 'description', 'keywords']);
 const translatableJsxAttributes = new Set([
@@ -23,9 +25,16 @@ export function sha256(text) {
     return createHash('sha256').update(normalizeNfc(text), 'utf8').digest('hex');
 }
 
-export function localizeDocsTarget(target, locale = 'es') {
+export function localizeDocsTarget(target, locale = 'es', root = null) {
     if (typeof target !== 'string') {
         return target;
+    }
+    // MDX imports are resolved at build time, so HTTP redirects cannot fill them.
+    if (root && target.endsWith('.mdx')) {
+        const source = delocalizeDocsTarget(target, locale);
+        if (source.startsWith('/') && !source.includes('..')
+            && existsSync(path.join(root, source))
+            && !existsSync(path.join(root, locale, source))) return source;
     }
     const internalRoots = [
         '/answers',
@@ -350,15 +359,15 @@ export function protectedStructure(text) {
     };
 }
 
-export function localizedProtectedStructure(text, locale = 'es') {
+export function localizedProtectedStructure(text, locale = 'es', root = null) {
     const structure = protectedStructure(text);
     structure.imports = structure.imports.map((line) => line.replace(
         /(\bfrom\s+['"])(\/[^'"]+)(['"])/,
-        (match, before, target, after) => `${before}${localizeDocsTarget(target, locale)}${after}`,
+        (match, before, target, after) => `${before}${localizeDocsTarget(target, locale, root)}${after}`,
     ));
     structure.linkTargets = structure.linkTargets.map((entry) => {
         const separator = entry.indexOf(':');
-        return `${entry.slice(0, separator + 1)}${localizeDocsTarget(entry.slice(separator + 1), locale)}`;
+        return `${entry.slice(0, separator + 1)}${localizeDocsTarget(entry.slice(separator + 1), locale, root)}`;
     });
     structure.jsx = structure.jsx.map((tag) => ({
         ...tag,
@@ -374,7 +383,7 @@ export function localizedProtectedStructure(text, locale = 'es') {
             }
             const quote = rawValue[0];
             const target = rawValue.slice(1, -1);
-            return `${name}=${quote}${localizeDocsTarget(target, locale)}${quote}`;
+            return `${name}=${quote}${localizeDocsTarget(target, locale, root)}${quote}`;
         }),
     }));
     return structure;
@@ -384,6 +393,6 @@ export function protectedStructureSha256(text) {
     return sha256(canonicalJson(protectedStructure(text)));
 }
 
-export function localizedProtectedStructureSha256(text, locale = 'es') {
-    return sha256(canonicalJson(localizedProtectedStructure(text, locale)));
+export function localizedProtectedStructureSha256(text, locale = 'es', root = null) {
+    return sha256(canonicalJson(localizedProtectedStructure(text, locale, root)));
 }

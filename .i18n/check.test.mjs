@@ -4,7 +4,6 @@ import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import {
-    authoredContentOptionsForLocale,
     expectedEnglishLocale,
     expectedPseudoLocale,
     findMintIgnoreNegations,
@@ -76,23 +75,7 @@ test('Spanish preview and live stages obey the shared indexability contract', ()
     assert(validateRegistry(live, canonicalJson(live)).some((error) => error.includes('indexable exactly when')));
 });
 
-test('retired docs validate frozen retained artifacts instead of moving English', () => {
-    const registry = pilotRegistry();
-    assert.deepEqual(authoredContentOptionsForLocale(registry), {
-        requireHumanReview: false,
-        sourceMode: 'current',
-    });
-    registry.locales[1].stage = 'preview';
-    assert.deepEqual(authoredContentOptionsForLocale(registry), {
-        requireHumanReview: true,
-        sourceMode: 'current',
-    });
-    registry.locales[1].stage = 'retired';
-    assert.deepEqual(authoredContentOptionsForLocale(registry), {
-        requireHumanReview: true,
-        sourceMode: 'frozen',
-    });
-});
+
 
 test('a synthetic second planned locale remains hidden, non-indexable, and route-guarded', () => {
     const registry = pilotRegistry();

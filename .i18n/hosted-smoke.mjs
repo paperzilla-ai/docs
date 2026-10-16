@@ -4,7 +4,6 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { nonPromotableMarkerName } from './artifact-guard.mjs';
-import { loadDocsPublication } from './publication.mjs';
 import { validateAuthoredContent } from './content.mjs';
 
 const internalDirectory = path.dirname(fileURLToPath(import.meta.url));
@@ -314,7 +313,7 @@ function parseArguments(argv) {
 async function main() {
     const rawRegistry = await readFile(path.join(internalDirectory, 'locales.generated.json'), 'utf8');
     const registry = JSON.parse(rawRegistry);
-    assertHostedSmokeLiveStage(await loadDocsPublication(repositoryRoot, registry));
+    assertHostedSmokeLiveStage(registry);
     const errors = await validateAuthoredContent(repositoryRoot);
     if (errors.length) throw new Error(`Cannot audit stale docs: ${errors.join('; ')}`);
     const result = await auditHostedDocs(parseArguments(process.argv.slice(2)));

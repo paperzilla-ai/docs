@@ -3,7 +3,7 @@
 import { mkdir, readFile, realpath, rename, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { loadDocsPublication } from './publication.mjs';
+import { existsSync, readdirSync } from 'node:fs';
 
 const internalDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.dirname(internalDirectory);
@@ -91,6 +91,16 @@ export function englishDocsConfig(value, sourceLocale = 'en') {
     return config;
 }
 
+export function withNavigationFallback(source, translated) {
+    if (translated === undefined || translated === null || translated === '') return clone(source);
+    if (Array.isArray(source) && Array.isArray(translated)) return source.map((value, index) => withNavigationFallback(value, translated[index]));
+    if (isObject(source) && isObject(translated)) return Object.fromEntries(
+        [...new Set([...Object.keys(source), ...Object.keys(translated)])].map((key) => [key,
+            source[key] === undefined ? translated[key] : withNavigationFallback(source[key], translated[key])]),
+    );
+    return translated;
+}
+
 function localeEntry(locale, navigation, fallbackConfig) {
     if (!isObject(navigation?.navigation) || !isObject(navigation?.navbar)) {
         throw new Error(`Localized navigation for ${locale.tag} is incomplete.`);
@@ -107,15 +117,12 @@ function localeEntry(locale, navigation, fallbackConfig) {
     };
 }
 
-export function buildDeployConfig(currentConfig, registry, localizedNavigation = {}) {
+export function buildDeployConfig(currentConfig, registry, localizedNavigation = {}, root = repositoryRoot) {
     const sourceConfig = englishDocsConfig(currentConfig, registry.sourceLocale);
     const liveLocales = registry.locales.filter((locale) => locale.stage === 'live');
     const sourceLocale = liveLocales.find((locale) => locale.tag === registry.sourceLocale);
     if (!sourceLocale) {
         throw new Error('The source docs locale must remain live.');
-    }
-    if (liveLocales.length === 1) {
-        return sourceConfig;
     }
 
     const sourceNavigation = {
@@ -128,7 +135,7 @@ export function buildDeployConfig(currentConfig, registry, localizedNavigation =
     const languages = liveLocales.map((locale, index) => {
         const navigation = locale.tag === registry.sourceLocale
             ? sourceNavigation
-            : localizedNavigation[locale.tag];
+            : withNavigationFallback({ ...sourceNavigation, locale: locale.tag }, localizedNavigation[locale.tag]);
         const entry = localeEntry(locale, navigation, sourceConfig);
         if (index === 0) {
             return { language: entry.language, default: true, ...Object.fromEntries(
@@ -142,6 +149,43 @@ export function buildDeployConfig(currentConfig, registry, localizedNavigation =
     delete output.navbar;
     delete output.banner;
     delete output.footer;
+    // Native temporary redirects keep missing translated URLs useful without caching
+    // a permanent move after a translation is added later.
+    const prefixes = registry.locales.filter(({ tag, pathPrefix }) => tag !== registry.sourceLocale && pathPrefix);
+    const sourcePages = [];
+    function walk(directory, prefix = '') {
+        for (const entry of readdirSync(directory, { withFileTypes: true })) {
+            if (entry.name.startsWith('.') || ['node_modules', 'drafts', 'snippets', 'partials'].includes(entry.name) || prefixes.some(({ pathPrefix }) => pathPrefix === entry.name)) continue;
+            const relative = path.posix.join(prefix, entry.name);
+            if (entry.isDirectory()) walk(path.join(directory, entry.name), relative);
+            else if (entry.isFile() && entry.name.endsWith('.mdx')) sourcePages.push(relative.slice(0, -4));
+        }
+    }
+    walk(root);
+    const fallbackPaths = new Map();
+    for (const locale of prefixes) {
+        for (const page of sourcePages) {
+            if (locale.stage !== 'live' || !existsSync(path.join(root, locale.pathPrefix, `${page}.mdx`))) {
+                fallbackPaths.set(`/${locale.pathPrefix}/${page}`, `/${page}`);
+                if (page === 'index') fallbackPaths.set(`/${locale.pathPrefix}`, '/');
+            }
+        }
+    }
+    function fallbackLinks(value) {
+        if (typeof value === 'string') return fallbackPaths.get(value.startsWith('/') ? value : `/${value}`)?.replace(/^\//, value.startsWith('/') ? '/' : '') ?? value;
+        if (Array.isArray(value)) return value.map(fallbackLinks);
+        if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([key, child]) => [key, fallbackLinks(child)]));
+        return value;
+    }
+    output.navigation = liveLocales.length === 1 ? sourceConfig.navigation : fallbackLinks(output.navigation);
+    if (liveLocales.length === 1) {
+        for (const key of ['navbar', 'footer', 'banner']) if (sourceConfig[key] !== undefined) output[key] = sourceConfig[key];
+    }
+    const redirects = (output.redirects ?? []).filter(({ source, destination, permanent }) =>
+        !(permanent === false && prefixes.some(({ pathPrefix }) => (source === `/${pathPrefix}${destination}` || (destination === '/' && source === `/${pathPrefix}`)))));
+    redirects.push(...[...fallbackPaths].sort(([a], [b]) => a.localeCompare(b)).map(([source, destination]) => ({ source, destination, permanent: false })));
+    if (redirects.length) output.redirects = redirects;
+    else delete output.redirects;
     return output;
 }
 
@@ -160,7 +204,7 @@ async function loadInputs() {
     const [rawConfig, rawRegistry, rawSpanish] = await Promise.all([
         readFile(path.join(repositoryRoot, 'docs.json'), 'utf8'),
         readFile(path.join(internalDirectory, 'locales.generated.json'), 'utf8'),
-        readFile(path.join(internalDirectory, 'navigation.es.json'), 'utf8'),
+        readFile(path.join(internalDirectory, 'navigation.es.json'), 'utf8').catch((error) => { if (error.code === 'ENOENT') return 'null'; throw error; }),
     ]);
     return {
         rawConfig,
@@ -203,8 +247,7 @@ function parseArguments(argv) {
 
 async function main() {
     const options = parseArguments(process.argv.slice(2));
-    const inputs = await loadInputs();
-    inputs.registry = await loadDocsPublication(repositoryRoot, inputs.registry);
+    let inputs = await loadInputs();
     if (options.command === 'check') {
         if (options.output || options.futureLive) {
             throw new Error('check does not accept generation options.');
@@ -227,6 +270,13 @@ async function main() {
     if (options.futureLive) {
         registry = registryWithFutureLiveLocale(registry, options.futureLive);
         await assertPathOutsideRoot(options.output, repositoryRoot);
+    }
+    if (!options.futureLive && options.output === path.join(repositoryRoot, 'docs.json')) {
+        const { applyPathMap } = await import('./path-map.mjs');
+        for (const locale of registry.locales.filter(({ tag, stage }) => tag !== registry.sourceLocale && stage !== 'retired')) {
+            await applyPathMap(repositoryRoot, locale.tag);
+        }
+        inputs = await loadInputs();
     }
     const output = canonicalJson(buildDeployConfig(inputs.config, registry, inputs.localizedNavigation));
     await writeAtomic(options.output, output, {

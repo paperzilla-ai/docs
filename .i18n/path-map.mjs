@@ -8,18 +8,18 @@ import { englishMdxInventory, localizeDocsTarget } from './content.mjs';
 const internalDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.dirname(internalDirectory);
 
-export function localizeMdxPaths(text, locale = 'es') {
+export function localizeMdxPaths(text, locale = 'es', root = null) {
     let localized = text.replace(
         /(\bfrom\s+['"])(\/[^'"]+)(['"])/g,
-        (match, before, target, after) => `${before}${localizeDocsTarget(target, locale)}${after}`,
+        (match, before, target, after) => `${before}${localizeDocsTarget(target, locale, root)}${after}`,
     );
     localized = localized.replace(
         /(\]\()((?:\/)[^\s)]+)(\))/g,
-        (match, before, target, after) => `${before}${localizeDocsTarget(target, locale)}${after}`,
+        (match, before, target, after) => `${before}${localizeDocsTarget(target, locale, root)}${after}`,
     );
     localized = localized.replace(
         /(\b(?:href|to|path)=['"])(\/[^'"]+)(['"])/g,
-        (match, before, target, after) => `${before}${localizeDocsTarget(target, locale)}${after}`,
+        (match, before, target, after) => `${before}${localizeDocsTarget(target, locale, root)}${after}`,
     );
     return localized;
 }
@@ -45,15 +45,18 @@ export function localizeNavigationPaths(value, locale = 'es', key = '') {
 export async function applyPathMap(root = repositoryRoot, locale = 'es') {
     for (const relativePath of await englishMdxInventory(root)) {
         const translationPath = path.join(root, locale, relativePath);
-        const current = await readFile(translationPath, 'utf8');
-        const localized = localizeMdxPaths(current, locale);
+        const current = await readFile(translationPath, 'utf8').catch((error) => { if (error.code === 'ENOENT') return null; throw error; });
+        if (current === null) continue;
+        const localized = localizeMdxPaths(current, locale, root);
         if (localized !== current) {
             await writeFile(translationPath, localized, 'utf8');
         }
     }
 
-    const navigationPath = path.join(root, '.i18n/navigation.es.json');
-    const navigation = JSON.parse(await readFile(navigationPath, 'utf8'));
+    const navigationPath = path.join(root, `.i18n/navigation.${locale}.json`);
+    const raw = await readFile(navigationPath, 'utf8').catch((error) => { if (error.code === 'ENOENT') return null; throw error; });
+    if (raw === null) return;
+    const navigation = JSON.parse(raw);
     navigation.navigation = localizeNavigationPaths(navigation.navigation, locale);
     navigation.navbar = localizeNavigationPaths(navigation.navbar, locale);
     await writeFile(navigationPath, `${JSON.stringify(navigation, null, 2)}\n`, 'utf8');
