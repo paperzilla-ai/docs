@@ -545,6 +545,8 @@ With `--json`, `pz feed` returns structured data suitable for scripting and AI a
 
 **Source IDs:** `1` = arXiv, `2` = medRxiv, `3` = bioRxiv, `4` = ChinaXiv, `5` = PubMed, `6` = ChemRxiv
 
+IACR ePrint is also available. Its numeric source ID is assigned by the database; read it from the `sources` field in `pz project <project-id> --json` after adding IACR categories to the project.
+
 For PubMed records, `reference_label` uses the PMID even when `doi` is present. `pdf_url` is nullable for every source. Use `url` for the source landing page when no PDF is available.
 
 `pz project list --json` returns project summary objects with `id`, `name`, `mode`, and `visibility`.
