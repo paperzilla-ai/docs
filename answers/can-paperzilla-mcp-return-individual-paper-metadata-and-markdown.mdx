@@ -1,33 +1,12 @@
 ---
 title: "Can Paperzilla MCP return individual paper metadata and markdown?"
 sidebarTitle: "Paper metadata and markdown"
-description: "Yes. Paperzilla MCP can return one paper's metadata with paper_get and paper_markdown."
-keywords: ["Paperzilla MCP markdown", "paper metadata", "paper_get", "paper_markdown", "MCP paper detail"]
+description: "Yes. Paperzilla MCP can return one paper's metadata with paper_get and paper_markdown_get."
+keywords: ["MCP", "OAuth", "Paperzilla"]
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/answers/can-paperzilla-mcp-return-individual-paper-metadata-and-markdown" />
 
-Yes.
-
-Paperzilla MCP supports two per-paper tools:
-
-- `paper_get` returns one paper's metadata and status fields
-- `paper_markdown` returns that paper's markdown when it is ready
-
-If markdown is not ready yet, `paper_markdown` returns a structured result that tells you whether markdown generation was queued or unavailable.
-
-For feed-wide search, use `feed_search`. That is separate from the per-paper tools on this page.
-
-You can look up a paper by:
-
-- paper UUID
-- paper `short_id`
-- feed item / `project_paper` UUID
-- feed item / `project_paper` `short_id`
-
-See:
-
-- [Use Paperzilla with MCP](/guides/mcp)
-- [MCP endpoint (developer appendix)](/api-reference/mcp)
+Yes. `paper_get` resolves a Paperzilla ID/URL, DOI, or source URL against the existing catalog. `paper_markdown_get` reads prepared Markdown without generating work. `paper_markdown_request` explicitly requests generation with `markdown:generate` permission. Missing papers are not imported; ambiguous references return candidates. See [processing states and pagination](/guides/mcp).

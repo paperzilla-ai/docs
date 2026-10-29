@@ -73,6 +73,7 @@
                       "guides/openclaw",
                       "guides/openclaw-telegram-briefs",
                       "guides/mcp",
+                      "guides/openclaw-mcp",
                       "guides/codex",
                       "guides/codex-teams-briefs",
                       "guides/claude",
@@ -146,6 +147,7 @@
                       "answers/how-do-i-search-a-project-feed-through-paperzilla-mcp",
                       "answers/can-paperzilla-mcp-return-individual-paper-metadata-and-markdown",
                       "answers/how-do-i-use-paperzilla-mcp-with-claude",
+                      "answers/how-do-i-use-paperzilla-mcp-with-openclaw",
                       "answers/how-do-clients-discover-paperzilla-mcp"
                     ]
                   },
@@ -333,6 +335,7 @@
                       "es/guides/openclaw",
                       "es/guides/openclaw-telegram-briefs",
                       "es/guides/mcp",
+                      "guides/openclaw-mcp",
                       "es/guides/codex",
                       "es/guides/codex-teams-briefs",
                       "es/guides/claude",
@@ -406,6 +409,7 @@
                       "es/answers/how-do-i-search-a-project-feed-through-paperzilla-mcp",
                       "es/answers/can-paperzilla-mcp-return-individual-paper-metadata-and-markdown",
                       "es/answers/how-do-i-use-paperzilla-mcp-with-claude",
+                      "answers/how-do-i-use-paperzilla-mcp-with-openclaw",
                       "es/answers/how-do-clients-discover-paperzilla-mcp"
                     ]
                   },
@@ -557,5 +561,17 @@
       "cursor",
       "vscode"
     ]
-  }
+  },
+  "redirects": [
+    {
+      "source": "/es/answers/how-do-i-use-paperzilla-mcp-with-openclaw",
+      "destination": "/answers/how-do-i-use-paperzilla-mcp-with-openclaw",
+      "permanent": false
+    },
+    {
+      "source": "/es/guides/openclaw-mcp",
+      "destination": "/guides/openclaw-mcp",
+      "permanent": false
+    }
+  ]
 }

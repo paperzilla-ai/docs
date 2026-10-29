@@ -1,40 +1,11 @@
 ---
 title: "Does Paperzilla support MCP?"
 description: "Yes. You can connect MCP clients to Paperzilla and access projects, feeds, full-feed search, paper detail, and markdown."
-keywords: ["MCP", "Model Context Protocol", "client connection", "feed search"]
+keywords: ["MCP", "OAuth", "Paperzilla"]
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/answers/does-paperzilla-support-mcp" />
 
-Yes.
-
-Paperzilla provides an MCP endpoint at:
-
-`https://paperzilla.ai/api/mcp`
-
-Use your per-user MCP API key in either of these forms:
-
-- `Authorization: Bearer <key>`
-- `https://paperzilla.ai/api/mcp/?key=<key>`
-
-You can create or revoke this key from **MCP API key** in the top-right of the [dashboard](https://paperzilla.ai/dashboard).
-
-If you are using Claude, see [Use Paperzilla MCP with Claude](/guides/claude).
-
-Available tools today:
-
-- `projects_list`
-- `projects_get`
-- `feed_get`
-- `feed_search`
-- `feed_atom_url`
-- `paper_get`
-- `paper_markdown`
-
-There is also one optional prompt: `feed_title_filter`.
-
-`feed_search` searches title, author, abstract, and summary text across the full project feed, not just currently visible items.
-
-See setup and flow details in [MCP integration](/guides/mcp).
+Yes. Paperzilla provides an OAuth-protected Streamable HTTP MCP server at `https://paperzilla.ai/api/mcp`. Every authenticated account can read public digests and catalog papers, including Free accounts with no project. Owned projects add personalized feeds. See [setup](/guides/mcp).

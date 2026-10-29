@@ -50,6 +50,7 @@
                   "es/guides/openclaw",
                   "es/guides/openclaw-telegram-briefs",
                   "es/guides/mcp",
+                  "es/guides/openclaw-mcp",
                   "es/guides/codex",
                   "es/guides/codex-teams-briefs",
                   "es/guides/claude",
@@ -123,6 +124,7 @@
                   "es/answers/how-do-i-search-a-project-feed-through-paperzilla-mcp",
                   "es/answers/can-paperzilla-mcp-return-individual-paper-metadata-and-markdown",
                   "es/answers/how-do-i-use-paperzilla-mcp-with-claude",
+                  "es/answers/how-do-i-use-paperzilla-mcp-with-openclaw",
                   "es/answers/how-do-clients-discover-paperzilla-mcp"
                 ]
               },

@@ -46,7 +46,7 @@
 - Use **project** for the standing research topic a user tracks
 - Use **feed** for the list of papers in a project
 - Use **Must Read** and **Related** exactly as written when referring to relevance classes
-- Use **MCP API key** for Paperzilla MCP credentials
+- Use **OAuth connection** for Paperzilla MCP access; API keys are retired
 - Use **RSS/Atom** or **Atom feed URL**, not generic "XML feed"
 - Use **Paperzilla MCP** or **MCP endpoint** for the integration surface
 - Do not introduce terms like "workspace", "collection", or "monitor" unless the product actually uses them

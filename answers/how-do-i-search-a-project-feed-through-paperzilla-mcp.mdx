@@ -2,42 +2,11 @@
 title: "How do I search a project feed through Paperzilla MCP?"
 sidebarTitle: "Search via MCP"
 description: "Call feed_search with a project ID and query to search a full Paperzilla project feed through MCP."
-keywords: ["search project feed", "Paperzilla MCP", "feed_search", "project_id", "query"]
+keywords: ["MCP", "OAuth", "Paperzilla"]
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/answers/how-do-i-search-a-project-feed-through-paperzilla-mcp" />
 
-Call `feed_search`.
-
-At minimum, pass:
-
-- `project_id`
-- `q`
-
-You can also pass:
-
-- `feedback_filter`
-- `must_read`
-- `limit`
-- `offset`
-
-What comes back:
-
-- `items`
-- `limit`
-- `offset`
-- `has_more`
-- `query`
-
-Use `offset` and `limit` to fetch the next page only when `has_more` is `true`.
-
-Search uses prefix matching, so `Proxi` matches `Proximity`.
-
-If your MCP client still uses legacy dotted tool names, `feed.search` still works. New integrations should prefer `feed_search`.
-
-See:
-
-- [Use Paperzilla with MCP](/guides/mcp)
-- [MCP endpoint (developer appendix)](/api-reference/mcp)
+Use `projects_list` to choose an owned project, then call `feed_search` with `project_id` and `query`. For example: `{"project_id":"your-project-uuid","query":"retrieval augmented generation","limit":20}`. Results are ranked and paginated. Use `next_offset` to continue. The scope is `projects:read`. See the [reference](/api-reference/mcp).

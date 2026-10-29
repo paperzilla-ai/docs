@@ -1,239 +1,52 @@
 ---
 title: "MCP endpoint (developer appendix)"
 description: "Technical MCP endpoint details for developers integrating Paperzilla clients with projects, full-feed search, paper detail, and markdown."
-keywords: ["MCP endpoint", "developer", "SSE", "Bearer token", "query parameter", "tool list", "feed search"]
+keywords: ["MCP", "OAuth", "Paperzilla"]
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/api-reference/mcp" />
 
-This page is a technical appendix for developers.
+The canonical Streamable HTTP resource is `https://paperzilla.ai/api/mcp`. The server uses Python MCP SDK 2.3.0 with the `2026-07-28` per-request protocol and standard `2025-11-25` client interoperability. Use your SDK to handle version negotiation and request envelopes.
 
-If you are a Paperzilla user setting up MCP, start with [Use Paperzilla with MCP](/guides/mcp).
+## OAuth
 
-Paperzilla exposes a Streamable HTTP MCP endpoint:
+- Issuer: `https://paperzilla.ai/api/oauth`
+- Authorization metadata: `https://paperzilla.ai/.well-known/oauth-authorization-server/api/oauth`
+- Resource metadata: `https://paperzilla.ai/.well-known/oauth-protected-resource/api/mcp`
+- Endpoints under the issuer: `/authorize`, `/token`, `/register`, `/revoke`.
 
-```text
-POST /api/mcp
-```
+Use authorization code with mandatory PKCE S256. Supply `resource=https://paperzilla.ai/api/mcp` on authorization and code exchange. Callback URLs must match the client's registration; native loopback callbacks follow the SDK's native-client rules. CIMD, dynamic registration, and pre-registered public clients are supported. Set `token_endpoint_auth_method` to `none`. No machine-to-machine grant is available.
 
-Base URL example:
+The functional scopes are `catalog:read`, `projects:read`, and `markdown:generate`. Request `offline_access` for refresh access. Custom clients can request a subset. Codes expire after five minutes and are single-use. Access tokens last 15 minutes. Refresh tokens rotate and expire after 30 days of inactivity; reuse revokes the connection. Store each replacement before using it again and serialize refresh within the client.
 
-```text
-https://paperzilla.ai/api/mcp
-```
-
-If you want the short version of how discovery works, see [How do clients discover the Paperzilla MCP URL and tools?](/answers/how-do-clients-discover-paperzilla-mcp).
-
-## Authentication
-
-Send your MCP API key in either of these ways:
-
-```http
-Authorization: Bearer pzmcp_<prefix>_<secret>
-```
-
-```text
-https://paperzilla.ai/api/mcp/?key=pzmcp_<prefix>_<secret>
-```
-
-Use the header form when your client supports custom headers. Use the query-string form when your client only accepts a URL, including Claude's custom connector flow.
-
-For most users, create/revoke this key from **MCP API key** in the top-right of the [dashboard](https://paperzilla.ai/dashboard).
-
-Get or rotate that key from app-authenticated endpoints:
-
-- `GET /api/auth/mcp-key`
-- `POST /api/auth/mcp-key/rotate`
-- `DELETE /api/auth/mcp-key`
-
-These key-management endpoints use your normal app JWT, not your MCP key.
-
-## Key management endpoints (developer use)
-
-```text
-GET /api/auth/mcp-key
-POST /api/auth/mcp-key/rotate
-DELETE /api/auth/mcp-key
-```
-
-## MCP methods currently used
-
-Paperzilla supports standard MCP flows including:
-
-- `initialize`
-- `tools/list`
-- `tools/call`
-- `prompts/list`
-- `prompts/get`
-
-## Initialize example
-
-The examples below use header auth.
-
-```bash
-curl -s -X POST https://paperzilla.ai/api/mcp \
-  -H "Authorization: Bearer pzmcp_..." \
-  -H "Content-Type: application/json" \
-  -d '{
-    "jsonrpc":"2.0",
-    "id":1,
-    "method":"initialize",
-    "params":{
-      "protocolVersion":"2025-11-05",
-      "capabilities":{},
-      "clientInfo":{"name":"probe","version":"1.0"}
-    }
-  }'
-```
+Send only the dedicated OAuth access token in the Authorization header. Do not pass Supabase sessions to the MCP endpoint. Old keys and query credentials are rejected. Standard challenges identify discovery metadata; insufficient tool scopes return `mcp/www_authenticate` metadata.
 
 ## Tools
 
-| Tool | Input |
-|---|---|
-| `projects_list` | `{}` |
-| `projects_get` | `{ "project_id": "uuid" }` |
-| `feed_get` | `{ "project_id": "uuid", "must_read"?: boolean, "since"?: string, "limit"?: 1..100, "offset"?: 0.. }` |
-| `feed_search` | `{ "project_id": "uuid", "q": "string (3..200 chars after trim)", "feedback_filter"?: "enum", "must_read"?: boolean, "limit"?: 1..100, "offset"?: 0.. }` |
-| `feed_atom_url` | `{ "project_id": "uuid" }` |
-| `paper_get` | `{ "paper_id": "uuid-or-short-id-or-feed-item-id" }` |
-| `paper_markdown` | `{ "paper_id": "uuid-or-short-id-or-feed-item-id" }` |
+| Tool | Inputs | Scope |
+|---|---|---|
+| `account_status` | none | `catalog:read` |
+| `projects_list` | `limit`, `offset` | `projects:read` |
+| `projects_get` | `project_id` UUID | `projects:read` |
+| `feed_get` | `project_id`, optional `must_read`, ISO `since`, `limit`, `offset` | `projects:read` |
+| `feed_search` | `project_id`, `query` (3–200 characters), optional `must_read`, `limit`, `offset` | `projects:read` |
+| `public_digests_search` | optional `query` (up to 200 characters), `limit`, `offset` | `catalog:read` |
+| `public_digest_issues_list` | series `project_id`, `limit`, `offset` | `catalog:read` |
+| `public_digest_get` | `issue` UUID/short ID/Paperzilla URL, `limit`, `offset` | `catalog:read` |
+| `paper_get` | `reference` ID/URL/DOI | `catalog:read` |
+| `paper_markdown_get` | `reference`, optional character `offset`, `revision` | `catalog:read` |
+| `paper_markdown_request` | `reference` | `markdown:generate` |
 
-Legacy dotted names such as `paper.get` remain accepted for direct `tools/call` compatibility, but Claude-compatible clients should use the underscore names above. The feed search alias is `feed.search`.
+`reference` accepts a Paperzilla UUID, eight-character short ID or paper URL; a DOI (including doi.org links); `PMID 12345678` or `pmid:12345678`; an IACR ePrint `YYYY/NNN` identifier; and paper URLs from arXiv, PubMed, IACR ePrint, bioRxiv and medRxiv. arXiv and IACR PDF links are supported. arXiv, bioRxiv and medRxiv version URLs resolve against the existing catalog. bioRxiv and medRxiv URLs use `/content/10.1101/...`. Other website URLs return `not_found` with supported-reference guidance. Paperzilla never fetches the supplied URL or imports a missing paper.
 
-`paper_get` accepts the same identifier forms as the paper API:
+Lists default to 20 results and allow 1–50. Follow `next_offset` until null. Markdown uses 20,000-character pages with a revision hash. Only `paper_markdown_request` is a write. Its 10-request/minute limit is shared by all clients for the account. There is also a general 120-tool-call/minute account limit.
 
-- paper UUID
-- paper `short_id`
-- `project_paper` UUID
-- `project_paper` `short_id`
+Results are structured and include readable text. `needs_project`, `not_found`, `ambiguous`, `not_ready`, `queued`, `cooldown`, `unavailable`, `restart_required`, and `rate_limited` are product states. Errors do not include internal job IDs or hidden preview content. No legacy aliases or prompts are exposed. Atom remains a separate non-MCP integration.
 
-`projects_*` and `feed_*` outputs follow the same shape as the corresponding API responses.
+## Account management
 
-`feed_search` is the MCP path for full-feed text search. It searches title, author, abstract, and summary text across the entire project feed.
+Browser endpoints `GET /api/oauth/connections` and `DELETE /api/oauth/connections/{grant_id}` require the ordinary Paperzilla session. They never accept MCP access tokens. Browser-only consent is bound to a pending request and same-browser cookie; clients must follow `/authorize`, not call the consent endpoint directly.
 
-`feed_search.feedback_filter` accepts:
-
-- `all`
-- `unrated`
-- `liked`
-- `disliked`
-- `starred`
-- `not-relevant`
-- `low-quality`
-
-`feed_search` returns:
-
-- `items`
-- `limit`
-- `offset`
-- `has_more`
-- `query`
-
-Search semantics:
-
-- query terms use prefix matching, so `Proxi` matches `Proximity`
-- search is rank-first, not browse-order-first
-- no exact `total` is returned in v1
-
-`paper_get` returns the same paper detail fields as the authenticated paper API, including `markdown_ready`.
-
-PubMed paper details use `PMID <number>` as `reference_label`, preserve a DOI separately when present, and link to the PubMed record. `pdf_url` can be `null`; do not infer that a PubMed record has public full text.
-
-`paper_markdown` always returns a structured object:
-
-- ready:
-  ```json
-  {
-    "status": "ready",
-    "paper_id": "uuid",
-    "markdown": "# Markdown...",
-    "mime_type": "text/markdown",
-    "markdown_ready": true
-  }
-  ```
-- queued:
-  ```json
-  {
-    "status": "queued",
-    "detail": "Markdown queued",
-    "code": "markdown_queued",
-    "job_id": "uuid",
-    "created": true
-  }
-  ```
-- unavailable:
-  ```json
-  {
-    "status": "unavailable",
-    "detail": "Markdown source unavailable",
-    "code": "markdown_source_unavailable"
-  }
-  ```
-
-## Tool call examples
-
-List projects:
-
-```bash
-curl -s -X POST https://paperzilla.ai/api/mcp \
-  -H "Authorization: Bearer pzmcp_..." \
-  -H "Content-Type: application/json" \
-  -d '{
-    "jsonrpc":"2.0",
-    "id":2,
-    "method":"tools/call",
-    "params":{
-      "name":"projects_list",
-      "arguments":{}
-    }
-  }'
-```
-
-Search a full project feed:
-
-```bash
-curl -s -X POST https://paperzilla.ai/api/mcp \
-  -H "Authorization: Bearer pzmcp_..." \
-  -H "Content-Type: application/json" \
-  -d '{
-    "jsonrpc":"2.0",
-    "id":3,
-    "method":"tools/call",
-    "params":{
-      "name":"feed_search",
-      "arguments":{
-        "project_id":"20a9c4fd-779a-41c7-92e9-efabc5e9eea5",
-        "q":"latent retrieval",
-        "feedback_filter":"all",
-        "limit":20,
-        "offset":0
-      }
-    }
-  }'
-```
-
-## Prompt
-
-Prompt name:
-
-- `feed_title_filter`
-
-Arguments:
-
-- `project_id` (required)
-- `title_keyword` (required)
-- `must_read` (optional)
-- `feedback_filter` (optional)
-- `limit` (optional)
-
-The prompt instructs the model to call `feed_search` and explain that the search is server-side across the full feed.
-
-## Error semantics
-
-- Invalid/missing key: HTTP `401`
-- Disallowed `Origin`: HTTP `403`
-- Invalid MCP method/JSON-RPC shape: protocol-level error
-- Business/domain errors (ownership, missing project, missing paper, ambiguous short ID): tool result with `isError: true`
-- `paper_markdown` queueing and source-unavailable cases are normal tool results, not tool errors
+See [setup and reconnecting](/guides/mcp), the [MCP authorization specification](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization), and the [Python SDK](https://py.sdk.modelcontextprotocol.io/whats-new/).

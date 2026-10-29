@@ -1,33 +1,12 @@
 ---
 title: "¿Puede Paperzilla MCP devolver metadatos y Markdown de un artículo?"
 sidebarTitle: "Metadatos y Markdown del artículo"
-description: "Sí. Paperzilla MCP puede devolver los metadatos de un artículo con paper_get y paper_markdown."
-keywords: ["Markdown de Paperzilla MCP", "metadatos de artículos", "paper_get", "paper_markdown", "detalle de artículo MCP"]
+description: "Sí. Paperzilla MCP puede devolver los metadatos de un artículo con paper_get y paper_markdown_get."
+keywords: ["MCP", "OAuth", "Paperzilla"]
 ---
 
 import { AiAgents } from '/es/snippets/ai-agents.mdx';
 
 <AiAgents path="/es/answers/can-paperzilla-mcp-return-individual-paper-metadata-and-markdown" />
 
-Sí.
-
-Paperzilla MCP admite dos herramientas por artículo:
-
-- `paper_get` devuelve los metadatos y campos de estado de un artículo
-- `paper_markdown` devuelve el Markdown del artículo cuando está listo
-
-Si el Markdown aún no está listo, `paper_markdown` devuelve un resultado estructurado que indica si la generación se puso en cola o no está disponible.
-
-Para buscar en toda la lista, usa `feed_search`. Es una función distinta de las herramientas por artículo de esta página.
-
-Puedes buscar un artículo por:
-
-- UUID del artículo
-- identificador `short_id` del artículo
-- elemento de la lista / `project_paper` identificado por UUID
-- identificador del elemento de la lista / `project_paper` `short_id`
-
-Consulta:
-
-- [Usar Paperzilla con MCP](/es/guides/mcp)
-- [Endpoint MCP (apéndice para desarrollo)](/es/api-reference/mcp)
+Sí. `paper_get` busca un ID/URL de Paperzilla, DOI o URL de fuente en el catálogo existente. `paper_markdown_get` lee Markdown preparado sin generar trabajo. `paper_markdown_request` solicita generación explícita con el permiso `markdown:generate`. Los artículos desconocidos no se importan y las referencias ambiguas devuelven candidatos. Consulta [estados y paginación](/es/guides/mcp).

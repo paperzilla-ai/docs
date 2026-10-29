@@ -45,25 +45,9 @@ Codex works with Paperzilla in two ways. Add Paperzilla MCP from Codex **Setting
 - RSS/Atom for polling in feed infrastructure
 - Email digests for human review cadence
 
-## MCP tool surface
+## MCP tools
 
-Current tools:
-
-- `projects_list`
-- `projects_get`
-- `feed_get`
-- `feed_search`
-- `feed_atom_url`
-- `paper_get`
-- `paper_markdown`
-
-Optional prompt:
-
-- `feed_title_filter`
-
-Use `feed_search` when your workflow needs text search across an entire project feed. It is the MCP path for search by title, author, abstract, or summary terms.
-
-Setup details: [MCP integration](/guides/mcp).
+Use the [OAuth MCP guide](/guides/mcp) and [tool reference](/api-reference/mcp). Public digests and catalog papers work with any authenticated account. Reading Markdown and requesting generation are separate tools. Project-specific tools require an owned project.
 
 ## Example workflows
 
