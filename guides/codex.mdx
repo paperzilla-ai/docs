@@ -14,9 +14,9 @@ Use Paperzilla's OAuth MCP connection for research tools, or the separate [CLI g
 
 Add a remote HTTP MCP server named `paperzilla` at `https://paperzilla.ai/api/mcp` in Codex settings, then complete its OAuth sign-in. The Paperzilla plugin in the Paperzilla marketplace bundles the same URL. Install the replacement package, remove any old API-key configuration, and connect your account.
 
-Request `catalog:read projects:read markdown:generate offline_access` for the complete integration. No environment variable containing a Paperzilla API key is needed. Keep client-managed OAuth credentials in the client's secure storage.
+Request `catalog:read projects:read feedback:write markdown:generate offline_access` for the complete integration. No environment variable containing a Paperzilla API key is needed. Keep client-managed OAuth credentials in the client's secure storage.
 
-Ask Codex to find a public digest, read a catalog paper, or search an owned project feed. No project is required for public research access. Use `paper_markdown_get` to read and `paper_markdown_request` only when you want generation. Project writes, feedback changes, and paper imports are unavailable through this MCP release.
+Ask Codex to find a public digest, read a catalog paper, or search an owned project feed. No project is required for public research access. Use `paper_markdown_get` to read and `paper_markdown_request` only when you want generation. Use `feedback_set` or `feedback_clear` only when you explicitly want to rate, star, or clear feedback on an item in your own project feed. Feedback needs `feedback:write`; reconnect to approve it if your connection predates these tools. Project creation/editing and paper imports are unavailable through this MCP release.
 
 ## CLI workflows
 

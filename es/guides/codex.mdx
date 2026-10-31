@@ -14,9 +14,9 @@ Usa la conexión MCP OAuth de Paperzilla para herramientas de investigación o l
 
 En Codex añade un servidor MCP HTTP remoto llamado `paperzilla` con URL `https://paperzilla.ai/api/mcp` y completa OAuth. El plugin Paperzilla del marketplace de Paperzilla incluye la misma URL. Instala el paquete nuevo, elimina la configuración anterior con clave e inicia sesión.
 
-Para la integración completa solicita `catalog:read projects:read markdown:generate offline_access`. No hace falta una variable de entorno con una clave API. Deja las credenciales OAuth en el almacenamiento seguro del cliente.
+Para la integración completa solicita `catalog:read projects:read feedback:write markdown:generate offline_access`. No hace falta una variable de entorno con una clave API. Deja las credenciales OAuth en el almacenamiento seguro del cliente.
 
-Pide un digest público, un artículo del catálogo o una búsqueda en un feed propio. El acceso público no requiere proyectos. `paper_markdown_get` lee; `paper_markdown_request` solicita generación explícita. Esta versión MCP no modifica proyectos ni valoraciones ni importa artículos.
+Pide un digest público, un artículo del catálogo o una búsqueda en un feed propio. El acceso público no requiere proyectos. `paper_markdown_get` lee; `paper_markdown_request` solicita generación explícita. Usa `feedback_set` o `feedback_clear` solo cuando quieras valorar, marcar como favorito o borrar la valoración de un artículo de tu propio feed. Requiere `feedback:write`; reconecta para aprobarlo si tu conexión es anterior a estas herramientas. Esta versión MCP no crea ni edita proyectos ni importa artículos.
 
 ## Tareas con la CLI
 

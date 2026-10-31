@@ -35,7 +35,7 @@ Si Paperzilla está disponible en el directorio, instala esa integración y cone
 
 ### Claude
 
-Añade un conector personalizado con la URL del servidor en la configuración de conectores de Claude. Conecta y autoriza el acceso a Paperzilla. En **Tool permissions** del conector, configura las herramientas de solo lectura como **Always allow** para evitar confirmaciones repetidas y mantén `paper_markdown_request` en **Needs approval**. Consulta la [guía de Claude](/es/guides/claude).
+Añade un conector personalizado con la URL del servidor en la configuración de conectores de Claude. Conecta y autoriza el acceso a Paperzilla. En **Tool permissions** del conector, configura las herramientas de solo lectura como **Always allow** para evitar confirmaciones repetidas y mantén `paper_markdown_request`, `feedback_set` y `feedback_clear` en **Needs approval**. Estas herramientas inician el procesamiento o cambian valoraciones guardadas. Consulta la [guía de Claude](/es/guides/claude).
 
 ### OpenClaw
 
@@ -45,7 +45,7 @@ Consulta [Usar Paperzilla MCP con OpenClaw](/es/guides/openclaw-mcp) para ver la
 
 ### MCP Inspector
 
-Abre el [MCP Inspector oficial](https://modelcontextprotocol.io/docs/tools/inspector), selecciona Streamable HTTP, introduce la URL y completa OAuth. Solicita los cuatro permisos siguientes, conecta, lista las herramientas y llama a `account_status`. Prueba los digests públicos antes de los proyectos privados.
+Abre el [MCP Inspector oficial](https://modelcontextprotocol.io/docs/tools/inspector), selecciona Streamable HTTP, introduce la URL y completa OAuth. Solicita los permisos siguientes, conecta, lista las herramientas y llama a `account_status`. Prueba los digests públicos antes de los proyectos privados.
 
 ### Codex y agentes personalizados
 
@@ -57,6 +57,7 @@ Consulta [Codex](/es/guides/codex). Los agentes personalizados deben utilizar OA
 |---|---|
 | `catalog:read` | Digests públicos, metadatos del catálogo y Markdown preparado |
 | `projects:read` | Todos los proyectos propios actuales y futuros y sus feeds |
+| `feedback:write` | Valorar, marcar como favoritos o borrar valoraciones de artículos de tus propios feeds |
 | `markdown:generate` | Solicitar Markdown de un artículo existente |
 | `offline_access` | Mantener la conexión con credenciales de renovación rotatorias |
 
@@ -78,10 +79,18 @@ Una serie de digests se identifica por `project_id`; cada entrega publicada tien
 
 `projects_list`, `projects_get`, `feed_get` y `feed_search` leen tus proyectos. `needs_project` incluye un enlace para crear uno y no bloquea las herramientas públicas. Los digests públicos respetan las mismas restricciones de visibilidad y vista previa que el sitio web.
 
+## Valorar artículos de tus propios feeds
+
+Pide al cliente «Marca como favorito el segundo artículo de este proyecto», «Marca este artículo como no relevante para este proyecto» o «Borra mi valoración de ese artículo». El cliente utiliza `feedback_set` o `feedback_clear` con el permiso `feedback:write`. La valoración se aplica a un elemento de tu propio feed, no al artículo canónico ni al digest público de otra persona.
+
+El cliente debe identificar el elemento exacto antes de guardar la valoración. Si el artículo aparece en varios proyectos o no está claro cuál es, indica el proyecto y el artículo. Ordenar los artículos de un resumen no envía valoraciones. Una llamada exitosa confirma el voto guardado o que la valoración se ha borrado.
+
+Las conexiones existentes no obtienen permisos de escritura automáticamente. Actualiza la lista de herramientas del cliente si es necesario, solicita `feedback:write` y reconecta para revisar y aprobar el nuevo permiso. Leer un feed sigue requiriendo `projects:read`; el permiso de valoración no concede acceso de lectura a proyectos privados.
+
 ## Reconectar tras la sustitución
 
 Las claves API antiguas, las URL con credenciales y los nombres antiguos de herramientas se retiran. Elimina la conexión anterior y añade la URL canónica con OAuth. El cliente gestiona las credenciales en la cabecera Authorization.
 
 Los tokens de acceso duran 15 minutos. Con `offline_access`, el cliente rota los tokens de renovación, que caducan tras 30 días de inactividad. Revocar la conexión o desactivar o eliminar la cuenta invalida su acceso. Si falla la renovación, reconecta en lugar de reutilizar un token antiguo.
 
-La [referencia](/es/api-reference/mcp) enumera todas las herramientas. Esta versión no crea ni edita proyectos, no escribe valoraciones, no importa artículos ni incorpora interfaz dentro del cliente.
+La [referencia](/es/api-reference/mcp) enumera todas las herramientas. Esta versión no crea ni edita proyectos, no importa artículos ni incorpora interfaz dentro del cliente.

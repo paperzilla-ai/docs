@@ -44,7 +44,7 @@ The simple **Add server** form only asks for a name, transport, and URL. Use the
 Set `auth` to `oauth`. Under `oauth`, set `scope` to this single string:
 
 ```text
-catalog:read projects:read markdown:generate offline_access
+catalog:read projects:read feedback:write markdown:generate offline_access
 ```
 
 The corresponding server configuration is:
@@ -59,7 +59,7 @@ The corresponding server configuration is:
         enabled: true,
         auth: "oauth",
         oauth: {
-          scope: "catalog:read projects:read markdown:generate offline_access",
+          scope: "catalog:read projects:read feedback:write markdown:generate offline_access",
         },
       },
     },
@@ -77,10 +77,11 @@ These scopes request the complete integration:
 |---|---|
 | `catalog:read` | Read public digests, catalog paper details, and prepared Markdown |
 | `projects:read` | Read all your current and future owned projects and their feeds |
+| `feedback:write` | Rate, star, or clear feedback on papers in your own project feeds |
 | `markdown:generate` | Request Markdown processing for an existing catalog paper |
 | `offline_access` | Stay connected through automatic credential refresh |
 
-You can request fewer scopes. For example, `catalog:read offline_access` provides public reading and refresh without private-project access or Markdown generation.
+You can request fewer scopes. For example, `catalog:read offline_access` provides public reading and refresh without private-project access, feedback writes, or Markdown generation.
 
 <Note>OpenClaw uses a shared OAuth identity by default. Agents or users allowed to use that server can use the same Paperzilla connection. On a shared Gateway, choose an appropriate account and review OpenClaw's [per-requester identity options](https://docs.openclaw.ai/cli/mcp/transports) before connecting a personal account.</Note>
 
@@ -126,6 +127,14 @@ If you already have Paperzilla projects, try:
 If you have no projects, Paperzilla returns a setup link. Create your first project on the Paperzilla website, then ask OpenClaw again. Public digests and catalog papers remain available while you set it up.
 
 The `projects:read` permission includes projects you create later. You do not need to reconnect each time you add a project. Project creation and editing through MCP are outside this release.
+
+## Give feedback in a project
+
+After showing a feed, ask “Star the second paper in this project” or “Mark this paper as not relevant to this project.” To undo it, ask “Clear my feedback on that paper.” OpenClaw must use the exact `project_paper_id` from your own feed. The same canonical paper can have different feedback in different projects. Ask for feedback explicitly; a brief's rankings must not be saved as votes automatically.
+
+`feedback_set` supports `upvote`, `downvote`, and `star`; `feedback_clear` removes the saved feedback. Both require `feedback:write`. Keep write tools subject to approval if your client offers separate tool permissions. See the [feedback reference](/api-reference/mcp#project-paper-feedback).
+
+If you connected before feedback tools were added, refresh the tools, add `feedback:write` to `oauth.scope`, and sign in again to review the new permission. Existing grants and refresh tokens do not gain it automatically. `projects:read` is still required to find the target in your feed.
 
 ## Check the connection from a terminal
 

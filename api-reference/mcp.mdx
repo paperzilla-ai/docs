@@ -19,7 +19,7 @@ The canonical Streamable HTTP resource is `https://paperzilla.ai/api/mcp`. The s
 
 Use authorization code with mandatory PKCE S256. Supply `resource=https://paperzilla.ai/api/mcp` on authorization and code exchange. Callback URLs must match the client's registration; native loopback callbacks follow the SDK's native-client rules. CIMD, dynamic registration, and pre-registered public clients are supported. Set `token_endpoint_auth_method` to `none`. No machine-to-machine grant is available.
 
-The functional scopes are `catalog:read`, `projects:read`, and `markdown:generate`. Request `offline_access` for refresh access. Custom clients can request a subset. Codes expire after five minutes and are single-use. Access tokens last 15 minutes. Refresh tokens rotate and expire after 30 days of inactivity; reuse revokes the connection. Store each replacement before using it again and serialize refresh within the client.
+The functional scopes are `catalog:read`, `projects:read`, `feedback:write`, and `markdown:generate`. Request `offline_access` for refresh access. Custom clients can request a subset. Codes expire after five minutes and are single-use. Access tokens last 15 minutes. Refresh tokens rotate and expire after 30 days of inactivity; reuse revokes the connection. Store each replacement before using it again and serialize refresh within the client.
 
 Send only the dedicated OAuth access token in the Authorization header. Do not pass Supabase sessions to the MCP endpoint. Old keys and query credentials are rejected. Standard challenges identify discovery metadata; insufficient tool scopes return `mcp/www_authenticate` metadata.
 
@@ -38,14 +38,26 @@ Send only the dedicated OAuth access token in the Authorization header. Do not p
 | `paper_get` | `reference` ID/URL/DOI | `catalog:read` |
 | `paper_markdown_get` | `reference`, optional character `offset`, `revision` | `catalog:read` |
 | `paper_markdown_request` | `reference` | `markdown:generate` |
+| `feedback_set` | `project_paper_id` UUID, `vote` (`upvote`, `downvote`, `star`), optional `downvote_reason` (`not_relevant`, `low_quality`) | `feedback:write` |
+| `feedback_clear` | `project_paper_id` UUID | `feedback:write` |
 
-`account_status` returns granted `scopes`, `has_projects`, a `project_setup_url`, readable `guidance`, and a `capabilities` map. The map covers `public_digests`, `paper_lookup`, `prepared_markdown`, `personalized_feeds`, and `markdown_generation`, with values `available`, `needs_project`, or `needs_permission`. Public/catalog reads do not require a project. These values describe account access, not a successful lookup or the readiness of a particular paper. Use the corresponding read tool to test actual results.
+`account_status` returns granted `scopes`, `has_projects`, a `project_setup_url`, readable `guidance`, and a `capabilities` map. The map covers `public_digests`, `paper_lookup`, `prepared_markdown`, `personalized_feeds`, `paper_feedback`, and `markdown_generation`, with values `available`, `needs_project`, or `needs_permission`. Public/catalog reads do not require a project. These values describe account access, not a successful lookup or the readiness of a particular paper. Use the corresponding read tool to test actual results.
 
 `reference` accepts a Paperzilla UUID, eight-character short ID or paper URL; a DOI (including doi.org links); `PMID 12345678` or `pmid:12345678`; an IACR ePrint `YYYY/NNN` identifier; and paper URLs from arXiv, PubMed, IACR ePrint, bioRxiv and medRxiv. arXiv and IACR PDF links are supported. arXiv, bioRxiv and medRxiv version URLs resolve against the existing catalog. bioRxiv and medRxiv URLs use `/content/10.1101/...`. Other website URLs return `not_found` with supported-reference guidance. Paperzilla never fetches the supplied URL or imports a missing paper.
 
-Lists default to 20 results and allow 1–50. Follow `next_offset` until null. Markdown uses 20,000-character pages with a revision hash. Only `paper_markdown_request` is a write. Its 10-request/minute limit is shared by all clients for the account. There is also a general 120-tool-call/minute account limit.
+Lists default to 20 results and allow 1–50. Follow `next_offset` until null. Markdown uses 20,000-character pages with a revision hash. `paper_markdown_request`, `feedback_set`, and `feedback_clear` are writes. The Markdown generation 10-request/minute limit is shared by all clients for the account. There is also a general 120-tool-call/minute account limit.
 
 Results are structured and include readable text. `needs_project`, `not_found`, `ambiguous`, `not_ready`, `queued`, `cooldown`, `unavailable`, `restart_required`, and `rate_limited` are product states. Errors do not include internal job IDs or hidden preview content. No legacy aliases or prompts are exposed. Atom remains a separate non-MCP integration.
+
+## Project-paper feedback
+
+Use the exact `project_paper_id` returned by `feed_get` or `feed_search`. This is the owned feed item's UUID, not `paper.id`, a DOI, a short ID, or an arbitrary paper URL. Feedback targets must belong to the authenticated account's own project. Public visibility does not allow feedback on another account's digest. The same canonical paper can have separate feedback in different projects.
+
+`feedback_set` sets or replaces the item's current feedback. `downvote_reason` is optional for `downvote` and must be omitted for `upvote` and `star`. `feedback_clear` removes the current feedback. Repeating the same operation is idempotent. Both tools are annotated as writes that replace or remove saved feedback; call them only for an explicit user request.
+
+Successful results contain `status` (`saved` or `cleared`), `project_paper_id`, `project_id`, `paper_id`, and `feedback`. Saved feedback contains `vote`, `downvote_reason`, and `updated_at`; cleared feedback is null. The `paper_feedback` capability requires `feedback:write` and an owned project. Reading feed items independently requires `projects:read`.
+
+Existing grants keep their original scopes. Adding `feedback:write` requires a new authorization and explicit consent; refreshing an old token cannot add it. Refresh client tool discovery as needed and reconnect with the new scope. A read-only client may omit `feedback:write` entirely.
 
 ## Account management
 

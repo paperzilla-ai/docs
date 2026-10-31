@@ -11,8 +11,10 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 In OpenClaw, open **Settings → MCP → Add server**. Name it `paperzilla`, select **Streamable HTTP**, and enter `https://paperzilla.ai/api/mcp`.
 
-After adding it, use the scoped MCP editor to set `auth: "oauth"` and `oauth.scope` to `catalog:read projects:read markdown:generate offline_access`. Enable the server and select **Sign in**. Sign in or create a Paperzilla account, check the account and permissions, and select **Allow**.
+After adding it, use the scoped MCP editor to set `auth: "oauth"` and `oauth.scope` to `catalog:read projects:read feedback:write markdown:generate offline_access`. Enable the server and select **Sign in**. Sign in or create a Paperzilla account, check the account and permissions, and select **Allow**.
 
 Return to OpenClaw and ask: “Find public digests about robotics.” A Free account works, and you do not need a project for public digests or catalog papers. Personal feeds require an owned project. You can connect by URL without installing `pz` or a Paperzilla skill.
+
+To rate or star a paper in your own project feed, ask explicitly. Feedback tools require `feedback:write`. For an existing connection, update the scopes and sign in again to approve that permission.
 
 See [Use Paperzilla MCP with OpenClaw](/guides/openclaw-mcp) for the full setup, permissions, example requests, connection checks, and troubleshooting. Manage or revoke access in [Connect AI clients](https://paperzilla.ai/ai-connections).

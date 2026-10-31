@@ -35,7 +35,7 @@ If Paperzilla becomes available in the directory, install that listing and conne
 
 ### Claude
 
-Add a custom connector with the server URL in Claude's connector settings, then connect and approve Paperzilla access. In the connector's **Tool permissions**, set read-only tools to **Always allow** to avoid repeated prompts, and keep `paper_markdown_request` on **Needs approval**. See [Claude setup](/guides/claude).
+Add a custom connector with the server URL in Claude's connector settings, then connect and approve Paperzilla access. In the connector's **Tool permissions**, set read-only tools to **Always allow** to avoid repeated prompts, and keep `paper_markdown_request`, `feedback_set`, and `feedback_clear` on **Needs approval**. These tools start processing or change saved feedback. See [Claude setup](/guides/claude).
 
 ### OpenClaw
 
@@ -45,7 +45,7 @@ Follow [Use Paperzilla MCP with OpenClaw](/guides/openclaw-mcp) for the complete
 
 ### MCP Inspector
 
-Start the official [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector), select Streamable HTTP, enter the URL, and run its OAuth flow. Request the four scopes below, connect, list tools, and call `account_status`. Then search public digests before testing private project tools.
+Start the official [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector), select Streamable HTTP, enter the URL, and run its OAuth flow. Request the scopes below, connect, list tools, and call `account_status`. Then search public digests before testing private project tools.
 
 ### Codex and custom agents
 
@@ -57,6 +57,7 @@ See [Codex](/guides/codex). Custom agents should use their MCP SDK's OAuth clien
 |---|---|
 | `catalog:read` | Public digests, canonical paper metadata, prepared Markdown |
 | `projects:read` | All current and future projects owned by your account and their feeds |
+| `feedback:write` | Rate, star, or clear feedback on papers in your own project feeds |
 | `markdown:generate` | Request Markdown processing for an existing paper |
 | `offline_access` | Stay connected using rotating refresh credentials |
 
@@ -78,10 +79,18 @@ A digest series is identified by `project_id`; each published issue has its own 
 
 `projects_list`, `projects_get`, `feed_get`, and `feed_search` read your owned projects. `needs_project` includes a setup link. Public tools continue to work. Public digest reads follow the same visibility and preview limits as the website and do not expose hidden preview content.
 
+## Give feedback on your own feed
+
+Ask your client to “Star the second paper in this project,” “Mark this paper as not relevant to this project,” or “Clear my feedback on that paper.” The client uses `feedback_set` or `feedback_clear` with `feedback:write` permission. Feedback applies to one item in your own project feed, not to the canonical paper or another user's public digest.
+
+The client must identify the exact feed item before saving feedback. If a paper appears in several projects or the target is unclear, specify the project and paper. Ranking papers in a brief does not itself submit feedback. A successful call confirms the saved vote or that feedback was cleared.
+
+Existing connections do not automatically gain write access. Refresh the client's tool list if needed, request `feedback:write`, and reconnect to review and approve the new permission. Reading a feed still uses `projects:read`; feedback permission does not grant private-project reads.
+
 ## Reconnecting after the replacement
 
 Old API keys, credential-bearing URLs, and old tool names are retired. Remove the old connection and add the canonical URL with OAuth. Credentials are accepted only in Authorization headers managed by your client.
 
 Access tokens last 15 minutes. With your consent to `offline_access`, clients rotate refresh tokens automatically; refresh access expires after 30 days of inactivity. Revoking a connection, disabling the account, or deleting it invalidates its access. If refresh fails, reconnect rather than retrying an old refresh token.
 
-The [tool reference](/api-reference/mcp) lists the complete surface. Project creation/editing, feedback writes, paper imports, and embedded client UI are outside this release.
+The [tool reference](/api-reference/mcp) lists the complete surface. Project creation/editing, paper imports, and embedded client UI are outside this release.

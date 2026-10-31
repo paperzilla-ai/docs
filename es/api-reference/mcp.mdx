@@ -19,7 +19,7 @@ El recurso canónico Streamable HTTP es `https://paperzilla.ai/api/mcp`. Usa Pyt
 
 Usa código de autorización con PKCE S256 obligatorio. Incluye `resource=https://paperzilla.ai/api/mcp` al autorizar e intercambiar el código. La URL de retorno debe coincidir con la registrada; las direcciones loopback nativas siguen las reglas del SDK. Se admiten CIMD, registro dinámico y clientes públicos prerregistrados con `token_endpoint_auth_method` igual a `none`. No hay flujo máquina a máquina.
 
-Los permisos funcionales son `catalog:read`, `projects:read` y `markdown:generate`. Solicita `offline_access` para renovar el acceso. Los clientes pueden pedir un subconjunto. Los códigos duran cinco minutos y son de un solo uso. Los tokens de acceso duran 15 minutos. Los de renovación rotan y caducan tras 30 días de inactividad; reutilizarlos revoca la conexión. Guarda cada reemplazo y serializa las renovaciones.
+Los permisos funcionales son `catalog:read`, `projects:read`, `feedback:write` y `markdown:generate`. Solicita `offline_access` para renovar el acceso. Los clientes pueden pedir un subconjunto. Los códigos duran cinco minutos y son de un solo uso. Los tokens de acceso duran 15 minutos. Los de renovación rotan y caducan tras 30 días de inactividad; reutilizarlos revoca la conexión. Guarda cada reemplazo y serializa las renovaciones.
 
 Envía únicamente el token OAuth dedicado en Authorization, nunca la sesión Supabase. Las claves antiguas y las credenciales en la URL se rechazan. Los desafíos de autenticación indican los metadatos de descubrimiento; los permisos insuficientes devuelven metadatos `mcp/www_authenticate`.
 
@@ -38,14 +38,26 @@ Envía únicamente el token OAuth dedicado en Authorization, nunca la sesión Su
 | `paper_get` | `reference` ID/URL/DOI | `catalog:read` |
 | `paper_markdown_get` | `reference`, opcionales `offset` de caracteres, `revision` | `catalog:read` |
 | `paper_markdown_request` | `reference` | `markdown:generate` |
+| `feedback_set` | `project_paper_id` UUID, `vote` (`upvote`, `downvote`, `star`), opcional `downvote_reason` (`not_relevant`, `low_quality`) | `feedback:write` |
+| `feedback_clear` | `project_paper_id` UUID | `feedback:write` |
 
-`account_status` devuelve los `scopes` concedidos, `has_projects`, un `project_setup_url`, instrucciones legibles en `guidance` y un mapa `capabilities`. El mapa incluye `public_digests`, `paper_lookup`, `prepared_markdown`, `personalized_feeds` y `markdown_generation`, con los valores `available`, `needs_project` o `needs_permission`. Las lecturas públicas y del catálogo no requieren un proyecto. Estos valores describen el acceso de la cuenta, no una consulta exitosa ni la disponibilidad del Markdown de un artículo concreto. Usa la herramienta de lectura correspondiente para comprobar los resultados reales.
+`account_status` devuelve los `scopes` concedidos, `has_projects`, un `project_setup_url`, instrucciones legibles en `guidance` y un mapa `capabilities`. El mapa incluye `public_digests`, `paper_lookup`, `prepared_markdown`, `personalized_feeds`, `paper_feedback` y `markdown_generation`, con los valores `available`, `needs_project` o `needs_permission`. Las lecturas públicas y del catálogo no requieren un proyecto. Estos valores describen el acceso de la cuenta, no una consulta exitosa ni la disponibilidad del Markdown de un artículo concreto. Usa la herramienta de lectura correspondiente para comprobar los resultados reales.
 
 `reference` admite un UUID, un ID corto de ocho caracteres o una URL de artículo de Paperzilla; un DOI (incluidos enlaces de doi.org); `PMID 12345678` o `pmid:12345678`; un identificador IACR ePrint `YYYY/NNN`; y URL de artículos de arXiv, PubMed, IACR ePrint, bioRxiv y medRxiv. Se admiten enlaces PDF de arXiv e IACR. Las URL con versión de arXiv, bioRxiv y medRxiv se resuelven en el catálogo existente. Las URL de bioRxiv y medRxiv usan `/content/10.1101/...`. Otras URL devuelven `not_found` con indicaciones sobre los formatos admitidos. Paperzilla nunca descarga la URL proporcionada ni importa un artículo ausente.
 
-Las listas devuelven 20 resultados por defecto, con un rango de 1–50. Continúa con `next_offset` hasta que sea null. Markdown usa páginas de 20.000 caracteres y un hash de revisión. Solo `paper_markdown_request` escribe. Su límite de 10 solicitudes por minuto se comparte entre todos los clientes de la cuenta. El límite general es de 120 llamadas por minuto y cuenta.
+Las listas devuelven 20 resultados por defecto, con un rango de 1–50. Continúa con `next_offset` hasta que sea null. Markdown usa páginas de 20.000 caracteres y un hash de revisión. `paper_markdown_request`, `feedback_set` y `feedback_clear` son herramientas de escritura. El límite de generación Markdown de 10 solicitudes por minuto se comparte entre todos los clientes de la cuenta. El límite general es de 120 llamadas por minuto y cuenta.
 
 Las respuestas incluyen datos estructurados y texto legible. `needs_project`, `not_found`, `ambiguous`, `not_ready`, `queued`, `cooldown`, `unavailable`, `restart_required` y `rate_limited` son estados normales. No se exponen identificadores internos de trabajos ni contenido oculto de vistas previas. No hay alias ni prompts antiguos. Atom sigue disponible fuera de MCP.
+
+## Valoraciones de artículos de proyectos
+
+Usa el `project_paper_id` exacto devuelto por `feed_get` o `feed_search`. Es el UUID del elemento de tu feed, no `paper.id`, un DOI, un ID corto ni una URL arbitraria. El elemento debe pertenecer a un proyecto de la cuenta autenticada. Que un digest sea público no permite valorar artículos del proyecto de otra persona. Un mismo artículo canónico puede tener valoraciones distintas en varios proyectos.
+
+`feedback_set` guarda o sustituye la valoración actual. `downvote_reason` es opcional para `downvote` y debe omitirse para `upvote` y `star`. `feedback_clear` elimina la valoración. Repetir la misma operación es idempotente. Ambas herramientas se anotan como escrituras que sustituyen o borran valoraciones; utilízalas solo ante una petición explícita del usuario.
+
+Los resultados correctos incluyen `status` (`saved` o `cleared`), `project_paper_id`, `project_id`, `paper_id` y `feedback`. La valoración guardada contiene `vote`, `downvote_reason` y `updated_at`; una valoración borrada es null. La capacidad `paper_feedback` requiere `feedback:write` y un proyecto propio. Leer elementos del feed requiere además `projects:read`.
+
+Las concesiones existentes conservan sus permisos originales. Añadir `feedback:write` requiere una nueva autorización y consentimiento explícito; renovar un token antiguo no añade ese permiso. Actualiza el descubrimiento de herramientas del cliente si es necesario y reconecta con el nuevo permiso. Un cliente de solo lectura puede omitir `feedback:write` por completo.
 
 ## Gestión de conexiones
 
