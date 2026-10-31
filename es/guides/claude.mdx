@@ -12,6 +12,19 @@ Añade `https://paperzilla.ai/api/mcp` como conector personalizado en la configu
 
 Necesitas una cuenta de Paperzilla, pero no un plan de pago ni un proyecto. Para la integración completa solicita `catalog:read projects:read markdown:generate offline_access`. Si falta un permiso, autoriza el acceso adicional cuando lo solicite una herramienta.
 
+## Permitir consultas sin confirmaciones repetidas
+
+Después de conectar, abre **Customize → Connectors → Paperzilla → Tool permissions** en Claude. Para una conexión de pruebas, elige **Paperzilla beta**.
+
+- Configura las herramientas de solo lectura como **Always allow**. Incluyen el estado de la cuenta, proyectos y feeds, digests públicos, detalles de artículos y Markdown ya preparado. Las lecturas de proyectos privados siguen limitadas a tu cuenta y a los permisos concedidos.
+- Mantén **Prepare paper Markdown** (`paper_markdown_request`) en **Needs approval**. Esta herramienta inicia el procesamiento; leer Markdown ya preparado no lo inicia.
+
+Estos ajustes de Claude son independientes del consentimiento OAuth de Paperzilla. Tu organización puede restringir las opciones disponibles. Consulta las [instrucciones de permisos de Claude](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
+
+Para un resumen matinal diario, comprueba también el conector y los permisos de la tarea guardada y prueba **Run now** antes de depender de la entrega programada. Permitir lecturas no crea una programación ni verifica ejecuciones sin supervisión.
+
+## Pruébalo
+
 Prueba «Busca digests públicos sobre robótica», «Lee la última entrega» o «Lee el Markdown de este artículo». La lectura no genera Markdown: solicita su preparación explícitamente. Las herramientas de proyectos leen todos tus proyectos actuales y futuros. Una cuenta vacía recibe un enlace de configuración y mantiene el acceso a herramientas públicas.
 
 Revoca el acceso en [Conectar clientes de IA](https://paperzilla.ai/ai-connections). Elimina las conexiones antiguas con clave y reconecta con OAuth. No añadas credenciales a la URL.

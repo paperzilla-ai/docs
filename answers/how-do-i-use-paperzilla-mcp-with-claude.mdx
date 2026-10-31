@@ -9,4 +9,4 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/answers/how-do-i-use-paperzilla-mcp-with-claude" />
 
-Add `https://paperzilla.ai/api/mcp` as a custom connector in Claude, sign in to Paperzilla through OAuth, review permissions, and allow access. Try a public digest before using project tools. No project or paid Paperzilla plan is required to connect. See [Claude setup](/guides/claude).
+Add `https://paperzilla.ai/api/mcp` as a custom connector in Claude, sign in to Paperzilla through OAuth, review permissions, and allow access. Try a public digest before using project tools. No project or paid Paperzilla plan is required to connect. After connecting, open Paperzilla's **Tool permissions** in Claude and set read-only tools to **Always allow** to avoid repeated prompts. Keep `paper_markdown_request` on **Needs approval**, because it starts processing. See [Claude setup](/guides/claude).

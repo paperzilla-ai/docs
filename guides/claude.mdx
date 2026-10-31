@@ -12,6 +12,19 @@ Add `https://paperzilla.ai/api/mcp` as a custom connector in Claude's connector 
 
 A Paperzilla account is required; a paid Paperzilla plan or project is not. Request `catalog:read projects:read markdown:generate offline_access` for the complete integration. If the client requests fewer permissions, grant additional access when a tool requires it.
 
+## Allow research lookups without repeated prompts
+
+After connecting, open **Customize → Connectors → Paperzilla → Tool permissions** in Claude. For a staging connection, choose **Paperzilla beta**.
+
+- Set the read-only tools to **Always allow**. This covers account status, projects and feeds, public digests, paper details, and prepared Markdown. Private project reads remain limited to your account and the permissions you granted.
+- Keep **Prepare paper Markdown** (`paper_markdown_request`) on **Needs approval**. It starts processing; reading prepared Markdown does not.
+
+These Claude settings are separate from Paperzilla's OAuth consent. Your organization may restrict the available choices. See [Claude's connector permission instructions](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
+
+For a daily morning brief, also check the saved task's connector and permission settings and try **Run now** before relying on scheduled delivery. Allowing reads does not itself create a schedule or verify unattended runs.
+
+## Try it
+
 Try “Find public digests about robotics,” “Show the latest issue,” or “Read the Markdown for this paper.” Reading Markdown does not generate it. Ask explicitly to prepare it if needed. Project tools read all current and future owned projects; an empty account receives a setup link while public tools remain available.
 
 Revoke access in [Connect AI clients](https://paperzilla.ai/ai-connections). Remove any old key-based connection and reconnect with OAuth. Do not add a credential to the server URL.

@@ -39,6 +39,8 @@ Send only the dedicated OAuth access token in the Authorization header. Do not p
 | `paper_markdown_get` | `reference`, optional character `offset`, `revision` | `catalog:read` |
 | `paper_markdown_request` | `reference` | `markdown:generate` |
 
+`account_status` returns granted `scopes`, `has_projects`, a `project_setup_url`, readable `guidance`, and a `capabilities` map. The map covers `public_digests`, `paper_lookup`, `prepared_markdown`, `personalized_feeds`, and `markdown_generation`, with values `available`, `needs_project`, or `needs_permission`. Public/catalog reads do not require a project. These values describe account access, not a successful lookup or the readiness of a particular paper. Use the corresponding read tool to test actual results.
+
 `reference` accepts a Paperzilla UUID, eight-character short ID or paper URL; a DOI (including doi.org links); `PMID 12345678` or `pmid:12345678`; an IACR ePrint `YYYY/NNN` identifier; and paper URLs from arXiv, PubMed, IACR ePrint, bioRxiv and medRxiv. arXiv and IACR PDF links are supported. arXiv, bioRxiv and medRxiv version URLs resolve against the existing catalog. bioRxiv and medRxiv URLs use `/content/10.1101/...`. Other website URLs return `not_found` with supported-reference guidance. Paperzilla never fetches the supplied URL or imports a missing paper.
 
 Lists default to 20 results and allow 1–50. Follow `next_offset` until null. Markdown uses 20,000-character pages with a revision hash. Only `paper_markdown_request` is a write. Its 10-request/minute limit is shared by all clients for the account. There is also a general 120-tool-call/minute account limit.
