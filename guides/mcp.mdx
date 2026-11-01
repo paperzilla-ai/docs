@@ -35,9 +35,9 @@ If Paperzilla becomes available in the directory, install that listing and conne
 
 ### Claude
 
-If you have the Paperzilla plugin, open **Customize → Plugins → Paperzilla → Connectors → Connect**. Installing the plugin does not connect its account. Otherwise, add a custom connector with the server URL. On the authentication screen, choose **Sign in now** and **Use Claude’s published identity**, leave request headers empty, and select **Add**. Sign in to Paperzilla, approve access, then return to the original chat and ask Claude to continue.
+If you have the Paperzilla plugin, open **Settings → Customize → Plugins → Paperzilla → Connectors → Connect**. Installing the plugin does not connect its account. Claude may show **Connect** twice: first to add the connector, then, if it shows **Not connected**, to sign in to Paperzilla; **Connected** marks completion. If you do not have the plugin, add a custom connector with the server URL. On the authentication screen, choose **Sign in now** and **Use Claude’s published identity**, leave request headers empty, and select **Add**. Sign in to Paperzilla, approve access, then return to the original chat and ask Claude to continue.
 
-In the connector's **Tool permissions**, set read-only tools to **Always allow** to avoid repeated prompts, and keep `paper_markdown_request`, `feedback_set`, and `feedback_clear` on **Needs approval**. These tools start processing or change saved feedback. See [the complete Claude setup, screen choices, and troubleshooting](/guides/claude).
+In the connector's **Tool permissions**, set **all Paperzilla read-only tools** to **Always allow** for smooth lookups and morning briefs: otherwise, calls can pause for approval depending on the task's approval mode, and an unattended brief may not finish. Keep `paper_markdown_request`, `feedback_set`, and `feedback_clear` on **Needs approval**. These tools start processing or change saved feedback. See [the complete Claude setup, screen choices, and troubleshooting](/guides/claude).
 
 ### OpenClaw
 

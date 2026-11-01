@@ -9,12 +9,12 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/answers/how-do-i-use-paperzilla-mcp-with-claude" />
 
-If you have the Paperzilla plugin, open **Customize → Plugins → Paperzilla → Connectors** and select **Connect**. Installing the skill does not connect your account. Otherwise, add a custom connector at `https://paperzilla.ai/api/mcp`.
+If you have the Paperzilla plugin, open **Settings → Customize → Plugins → Paperzilla → Connectors** and select **Connect**. Installing the skill does not connect your account. Claude may show **Connect** twice: first to add the connector, then, if it shows **Not connected**, to open Paperzilla sign-in and OAuth consent. Finish when it shows **Connected**. If you do not have the plugin, add a custom connector at `https://paperzilla.ai/api/mcp`.
 
 On **Add custom connector — Step 2 of 2**, choose **Sign in now** and **Use Claude’s published identity**. Leave **Request headers** empty and **Advanced** at its defaults, then select **Add**. No API key, client ID, or client secret is needed.
 
 Sign in to Paperzilla, check the account and permissions, and allow access. Return to your chat, enable Paperzilla under **+ → Connectors** if needed, and say **“Connected, please continue my original request.”** Production and Paperzilla beta are separate connections.
 
-Set read-only tools to **Always allow** in the connector's **Tool permissions** if you want to avoid repeated prompts. Keep `paper_markdown_request`, `feedback_set`, and `feedback_clear` on **Needs approval** because they change state. Free accounts can use public digests and catalog papers; personalized feeds require a project.
+Set **all Paperzilla read-only tools** to **Always allow** in the connector's **Tool permissions** for smooth lookups and morning briefs. Otherwise, calls can wait for approval depending on the task's approval mode, and an unattended brief may not finish. Keep `paper_markdown_request`, `feedback_set`, and `feedback_clear` on **Needs approval** because they change state. Free accounts can use public digests and catalog papers; personalized feeds require a project.
 
 The plugin is currently in private review; the public MCP endpoint can be added as a custom connector. Follow the [complete Claude setup guide](/guides/claude) for connector statuses, the authentication screen, your first brief, and troubleshooting.

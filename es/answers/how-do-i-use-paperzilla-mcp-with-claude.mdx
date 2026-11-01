@@ -9,12 +9,12 @@ import { AiAgents } from '/es/snippets/ai-agents.mdx';
 
 <AiAgents path="/es/answers/how-do-i-use-paperzilla-mcp-with-claude" />
 
-Si tienes el plugin de Paperzilla, abre **Customize → Plugins → Paperzilla → Connectors** y selecciona **Connect**. Instalar la habilidad no conecta tu cuenta. Si no lo tienes, añade un conector personalizado con la URL `https://paperzilla.ai/api/mcp`.
+Si tienes el plugin de Paperzilla, abre **Settings → Customize → Plugins → Paperzilla → Connectors** y selecciona **Connect**. Instalar la habilidad no conecta tu cuenta. Claude puede mostrar **Connect** dos veces: primero para añadir el conector y después, si muestra **Not connected**, para abrir el inicio de sesión de Paperzilla y el consentimiento OAuth. Termina cuando muestre **Connected**. Si no tienes el plugin, añade un conector personalizado con la URL `https://paperzilla.ai/api/mcp`.
 
 En **Add custom connector — Step 2 of 2**, elige **Sign in now** y **Use Claude’s published identity**. Deja **Request headers** vacío y mantén los valores predeterminados de **Advanced**. Después selecciona **Add**. No necesitas una clave de API, un ID de cliente ni un secreto de cliente.
 
 Inicia sesión en Paperzilla, comprueba la cuenta y los permisos, y permite el acceso. Vuelve al chat, habilita Paperzilla en **+ → Connectors** si es necesario y di **«Conectado, continúa con mi solicitud original»**. Producción y Paperzilla beta son conexiones independientes.
 
-Configura las herramientas de solo lectura como **Always allow** en **Tool permissions** del conector si quieres evitar avisos repetidos. Mantén `paper_markdown_request`, `feedback_set` y `feedback_clear` en **Needs approval** porque cambian el estado. Las cuentas Free pueden usar digests públicos y artículos del catálogo; los feeds personalizados requieren un proyecto.
+Configura **todas las herramientas de solo lectura de Paperzilla** como **Always allow** en **Tool permissions** del conector para facilitar las consultas y los resúmenes matutinos. De lo contrario, las llamadas pueden esperar aprobación según el modo de aprobación de la tarea y un resumen sin supervisión puede no completarse. Mantén `paper_markdown_request`, `feedback_set` y `feedback_clear` en **Needs approval** porque cambian el estado. Las cuentas Free pueden usar digests públicos y artículos del catálogo; los feeds personalizados requieren un proyecto.
 
 El plugin está actualmente en revisión privada; puedes añadir el endpoint público de MCP como conector personalizado. Sigue la [guía completa de configuración de Claude](/es/guides/claude) para consultar los estados del conector, la pantalla de autenticación, tu primer resumen y la resolución de problemas.

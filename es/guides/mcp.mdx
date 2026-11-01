@@ -35,9 +35,9 @@ Si Paperzilla está disponible en el directorio, instala esa integración y cone
 
 ### Claude
 
-Si tienes el plugin de Paperzilla, abre **Customize → Plugins → Paperzilla → Connectors → Connect**. Instalar el plugin no conecta tu cuenta. Si no lo tienes, añade un conector personalizado con la URL del servidor. En la pantalla de autenticación, elige **Sign in now** y **Use Claude’s published identity**, deja vacías las cabeceras y selecciona **Add**. Inicia sesión en Paperzilla, autoriza el acceso y vuelve al chat original para pedir a Claude que continúe.
+Si tienes el plugin de Paperzilla, abre **Settings → Customize → Plugins → Paperzilla → Connectors → Connect**. Instalar el plugin no conecta tu cuenta. Claude puede mostrar **Connect** dos veces: primero para añadir el conector y después, si muestra **Not connected**, para iniciar sesión en Paperzilla; **Connected** indica que has terminado. Si no tienes el plugin, añade un conector personalizado con la URL del servidor. En la pantalla de autenticación, elige **Sign in now** y **Use Claude’s published identity**, deja vacías las cabeceras y selecciona **Add**. Inicia sesión en Paperzilla, autoriza el acceso y vuelve al chat original para pedir a Claude que continúe.
 
-En **Tool permissions** del conector, configura las herramientas de solo lectura como **Always allow** para evitar confirmaciones repetidas y mantén `paper_markdown_request`, `feedback_set` y `feedback_clear` en **Needs approval**. Estas herramientas inician el procesamiento o cambian valoraciones guardadas. Consulta la [configuración completa de Claude, las opciones de pantalla y la solución de problemas](/es/guides/claude).
+En **Tool permissions** del conector, configura **todas las herramientas de solo lectura de Paperzilla** como **Always allow** para facilitar las consultas y los resúmenes matutinos: de lo contrario, las llamadas pueden detenerse esperando aprobación según el modo de aprobación de la tarea y un resumen sin supervisión puede no completarse. Mantén `paper_markdown_request`, `feedback_set` y `feedback_clear` en **Needs approval**. Estas herramientas inician el procesamiento o cambian valoraciones guardadas. Consulta la [configuración completa de Claude, las opciones de pantalla y la solución de problemas](/es/guides/claude).
 
 ### OpenClaw
 

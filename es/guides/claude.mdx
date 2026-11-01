@@ -21,23 +21,30 @@ El plugin está actualmente en revisión privada. Puedes conectar el endpoint p�
 
 ### Si tienes el plugin de Paperzilla
 
-1. Abre **Customize → Plugins → Paperzilla** en Claude.
+1. Abre **Settings → Customize → Plugins → Paperzilla** en Claude.
 2. Abre su pestaña **Connectors**. El servidor incluido puede aparecer en minúsculas como **paperzilla**.
-3. Selecciona **Connect** junto a esa entrada. Usa este botón en lugar de crear manualmente un segundo conector personalizado.
+3. Selecciona **Connect** junto a esa entrada. Usa este botón en lugar de crear manualmente un segundo conector personalizado o pegar una URL del servidor.
+
+Claude puede usar **Connect** para dos pasos distintos:
+
+1. **Añadir el conector a Claude.** El primer **Connect** abre la configuración del servidor incluido en el plugin. Añadirlo todavía no da a Claude acceso a tu cuenta de Paperzilla.
+2. **Iniciar sesión en Paperzilla.** Si el conector muestra después **Not connected**, selecciona **Connect** otra vez para abrir el inicio de sesión de Paperzilla y el consentimiento OAuth.
+
+La configuración termina cuando el conector muestra **Connected**. Si ya tienes una conexión a la misma URL exacta del servidor y a la cuenta que quieres usar, es posible que puedas omitir estos pasos.
 
 El estado explica qué falta por hacer:
 
 | Estado | Qué hacer |
 | --- | --- |
-| **Not added** | Selecciona **Connect** para añadir el conector incluido y después inicia sesión. La habilidad puede estar instalada aunque este paso no se haya completado. |
-| **Not connected** | Selecciona **Connect** e inicia sesión en Paperzilla. |
+| **Not added** | Selecciona **Connect** para añadir el conector incluido. Si después muestra **Not connected**, selecciona **Connect** otra vez para iniciar sesión en Paperzilla. La habilidad puede estar instalada aunque estos pasos no se hayan completado. |
+| **Not connected** | El conector está añadido, pero falta autorizar el acceso a la cuenta. Selecciona **Connect** para iniciar sesión en Paperzilla y revisar el consentimiento OAuth. |
 | **Connected** | La conexión está disponible. Vuelve al chat y comprueba que esté habilitada allí. |
 
-Si seleccionaste **Try in chat** antes de conectarte, Claude puede explicar que las herramientas de producción no están disponibles. Mantén ese chat abierto, completa estos pasos y vuelve a él después.
+Para usar la habilidad instalada, abre un chat nuevo y escribe `/`. Selecciona la habilidad de resumen de investigación de Paperzilla en el menú y describe tu solicitud. **Try in chat**, cuando está disponible, es otra forma de empezar. Si Claude explica que las herramientas de producción no están disponibles, mantén ese chat abierto, completa los pasos de conexión y vuelve a él después.
 
 ### Si vas a añadir un conector personalizado
 
-Abre **Customize → Connectors** y elige la opción para añadir un conector personalizado. Introduce **Paperzilla** como nombre y esta URL del servidor:
+Abre **Settings → Customize → Connectors** y elige la opción para añadir un conector personalizado. Introduce **Paperzilla** como nombre y esta URL del servidor:
 
 ```text
 https://paperzilla.ai/api/mcp
@@ -46,6 +53,8 @@ https://paperzilla.ai/api/mcp
 Continúa hasta las opciones de autenticación. Un conector personalizado proporciona las herramientas; no instala la habilidad Morning Brief del plugin.
 
 ## Elige las opciones de autenticación
+
+Si el plugin abre **Add custom connector — Step 1 of 2**, el nombre y la URL del servidor ya están rellenados; comprueba que la URL sea `https://paperzilla.ai/api/mcp` y selecciona **Continue**.
 
 Claude puede mostrar **Add custom connector — Step 2 of 2**, incluso si empiezas con el botón **Connect** del plugin. Esta es la pantalla de configuración del conector de Claude. La pantalla de inicio de sesión y permisos de Paperzilla aparece después.
 
@@ -62,7 +71,7 @@ Mantén estas opciones, que Claude puede marcar como **Detected**:
 
 **Register automatically** también es compatible, pero no es necesario cuando está disponible la opción de identidad publicada. **Use your own OAuth client** no es necesario para esta configuración. Mantén **Sign in now** en lugar de **Sign in when needed** o **No sign-in**.
 
-Comprueba que el servidor sea exactamente `https://paperzilla.ai/api/mcp` y selecciona **Add**. Si el cuadro de diálogo es más alto que la ventana, desplázate hacia abajo dentro de él para encontrar el botón. Sigue las indicaciones de inicio de sesión que muestre Claude.
+Comprueba que el servidor sea exactamente `https://paperzilla.ai/api/mcp` y selecciona **Add**. Si el cuadro de diálogo es más alto que la ventana, desplázate hacia abajo dentro de él para encontrar el botón. Si Claude vuelve al conector y muestra **Not connected**, selecciona **Connect** otra vez para iniciar sesión en Paperzilla. Añadir el conector y autorizar tu cuenta de Paperzilla son pasos separados.
 
 Estos controles se describen en la [configuración de autenticación de Claude](https://claude.com/docs/connectors/custom/add-unlisted#choose-authentication-settings). Los nombres y la disponibilidad pueden variar según tu cuenta de Claude, tu organización o la versión de la interfaz.
 
@@ -110,15 +119,15 @@ Si tu cuenta todavía no tiene proyectos, pide **«Busca digests públicos sobre
 
 ## Permite las consultas de investigación sin avisos repetidos
 
-Abre **Customize → Connectors → Paperzilla → Tool permissions** en Claude.
+Abre **Settings → Customize → Connectors → Paperzilla → Tool permissions** en Claude.
 
-- Configura las herramientas de solo lectura como **Always allow** si quieres hacer consultas sin avisos de aprobación repetidos. Esto incluye el estado de la cuenta, los proyectos y feeds, los digests públicos, los detalles de los artículos y el Markdown ya preparado. La lectura de proyectos privados sigue limitada a tu cuenta y a los permisos concedidos.
+- Configura **todas las herramientas de solo lectura de Paperzilla** como **Always allow** para facilitar las consultas de investigación y los resúmenes matutinos. Esto incluye el estado de la cuenta, los proyectos y feeds, los digests públicos, los detalles de los artículos y el Markdown ya preparado. De lo contrario, las llamadas pueden detenerse esperando aprobación según el modo de aprobación de la tarea y un resumen sin supervisión puede no completarse. Esta opción no amplía el acceso más allá de tu cuenta de Paperzilla y los permisos OAuth.
 - Mantén **Prepare paper Markdown** (`paper_markdown_request`) en **Needs approval**. Esta herramienta inicia el procesamiento; leer Markdown ya preparado no lo inicia.
 - Mantén **Rate a paper in your feed** (`feedback_set`) y **Clear a paper's feedback** (`feedback_clear`) en **Needs approval**. Estas herramientas cambian las valoraciones guardadas en tus propios proyectos.
 
-Estas opciones de Claude son independientes del consentimiento OAuth de Paperzilla. Tu organización puede limitar las opciones disponibles. Consulta los [permisos de conectores de Claude](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
+Estas opciones de Claude son independientes del consentimiento OAuth de Paperzilla. Vuelve a comprobarlas después de eliminar y añadir de nuevo el conector; Claude puede restablecerlas. Tu organización puede limitar las opciones disponibles. Consulta los [permisos de conectores de Claude](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 
-Para un resumen matutino diario, comprueba también la conexión y los permisos de la tarea guardada y prueba **Run now** antes de depender de la entrega programada. La programación depende de las funciones disponibles en Claude. Permitir lecturas no crea una programación ni verifica las ejecuciones sin supervisión.
+Para un resumen matutino diario, comprueba también la conexión y los permisos de la tarea guardada. Prueba **Run now** y después verifica una ejecución programada real sin que tengas que aprobar llamadas antes de depender de la entrega. La programación depende de las funciones disponibles en Claude y del modo de aprobación de la tarea. Consulta los [modos de permisos de tareas de Claude](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) y la [configuración de tareas recurrentes](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork). Permitir lecturas no crea una programación ni garantiza que las ejecuciones sin supervisión funcionen.
 
 ## Si Claude no puede usar la conexión
 
