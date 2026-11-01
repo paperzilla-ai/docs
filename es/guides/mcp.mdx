@@ -35,7 +35,9 @@ Si Paperzilla está disponible en el directorio, instala esa integración y cone
 
 ### Claude
 
-Añade un conector personalizado con la URL del servidor en la configuración de conectores de Claude. Conecta y autoriza el acceso a Paperzilla. En **Tool permissions** del conector, configura las herramientas de solo lectura como **Always allow** para evitar confirmaciones repetidas y mantén `paper_markdown_request`, `feedback_set` y `feedback_clear` en **Needs approval**. Estas herramientas inician el procesamiento o cambian valoraciones guardadas. Consulta la [guía de Claude](/es/guides/claude).
+Si tienes el plugin de Paperzilla, abre **Customize → Plugins → Paperzilla → Connectors → Connect**. Instalar el plugin no conecta tu cuenta. Si no lo tienes, añade un conector personalizado con la URL del servidor. En la pantalla de autenticación, elige **Sign in now** y **Use Claude’s published identity**, deja vacías las cabeceras y selecciona **Add**. Inicia sesión en Paperzilla, autoriza el acceso y vuelve al chat original para pedir a Claude que continúe.
+
+En **Tool permissions** del conector, configura las herramientas de solo lectura como **Always allow** para evitar confirmaciones repetidas y mantén `paper_markdown_request`, `feedback_set` y `feedback_clear` en **Needs approval**. Estas herramientas inician el procesamiento o cambian valoraciones guardadas. Consulta la [configuración completa de Claude, las opciones de pantalla y la solución de problemas](/es/guides/claude).
 
 ### OpenClaw
 

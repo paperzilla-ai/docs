@@ -35,7 +35,9 @@ If Paperzilla becomes available in the directory, install that listing and conne
 
 ### Claude
 
-Add a custom connector with the server URL in Claude's connector settings, then connect and approve Paperzilla access. In the connector's **Tool permissions**, set read-only tools to **Always allow** to avoid repeated prompts, and keep `paper_markdown_request`, `feedback_set`, and `feedback_clear` on **Needs approval**. These tools start processing or change saved feedback. See [Claude setup](/guides/claude).
+If you have the Paperzilla plugin, open **Customize → Plugins → Paperzilla → Connectors → Connect**. Installing the plugin does not connect its account. Otherwise, add a custom connector with the server URL. On the authentication screen, choose **Sign in now** and **Use Claude’s published identity**, leave request headers empty, and select **Add**. Sign in to Paperzilla, approve access, then return to the original chat and ask Claude to continue.
+
+In the connector's **Tool permissions**, set read-only tools to **Always allow** to avoid repeated prompts, and keep `paper_markdown_request`, `feedback_set`, and `feedback_clear` on **Needs approval**. These tools start processing or change saved feedback. See [the complete Claude setup, screen choices, and troubleshooting](/guides/claude).
 
 ### OpenClaw
 

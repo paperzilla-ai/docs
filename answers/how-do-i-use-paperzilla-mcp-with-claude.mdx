@@ -1,7 +1,7 @@
 ---
 title: "How do I use Paperzilla MCP with Claude?"
 sidebarTitle: "MCP with Claude"
-description: "Add Paperzilla as a custom connector in Claude, then let Claude use projects, full-feed search, paper metadata, and markdown from your Paperzilla account."
+description: "Connect the Paperzilla plugin or add a custom connector, choose OAuth settings, and continue your research request in Claude."
 keywords: ["MCP", "OAuth", "Paperzilla"]
 ---
 
@@ -9,4 +9,12 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/answers/how-do-i-use-paperzilla-mcp-with-claude" />
 
-Add `https://paperzilla.ai/api/mcp` as a custom connector in Claude, sign in to Paperzilla through OAuth, review permissions, and allow access. Try a public digest before using project tools. No project or paid Paperzilla plan is required to connect. After connecting, open Paperzilla's **Tool permissions** in Claude and set read-only tools to **Always allow** to avoid repeated prompts. Keep `paper_markdown_request`, `feedback_set`, and `feedback_clear` on **Needs approval**, because they start processing or change feedback. Rating papers in your own projects needs `feedback:write`; existing connections must reconnect to approve it. See [Claude setup](/guides/claude).
+If you have the Paperzilla plugin, open **Customize → Plugins → Paperzilla → Connectors** and select **Connect**. Installing the skill does not connect your account. Otherwise, add a custom connector at `https://paperzilla.ai/api/mcp`.
+
+On **Add custom connector — Step 2 of 2**, choose **Sign in now** and **Use Claude’s published identity**. Leave **Request headers** empty and **Advanced** at its defaults, then select **Add**. No API key, client ID, or client secret is needed.
+
+Sign in to Paperzilla, check the account and permissions, and allow access. Return to your chat, enable Paperzilla under **+ → Connectors** if needed, and say **“Connected, please continue my original request.”** Production and Paperzilla beta are separate connections.
+
+Set read-only tools to **Always allow** in the connector's **Tool permissions** if you want to avoid repeated prompts. Keep `paper_markdown_request`, `feedback_set`, and `feedback_clear` on **Needs approval** because they change state. Free accounts can use public digests and catalog papers; personalized feeds require a project.
+
+The plugin is currently in private review; the public MCP endpoint can be added as a custom connector. Follow the [complete Claude setup guide](/guides/claude) for connector statuses, the authentication screen, your first brief, and troubleshooting.

@@ -1,7 +1,7 @@
 ---
 title: "¿Cómo uso Paperzilla MCP con Claude?"
 sidebarTitle: "MCP con Claude"
-description: "Añade Paperzilla como conector personalizado en Claude para que Claude use proyectos, búsqueda completa, metadatos y Markdown de tu cuenta de Paperzilla."
+description: "Conecta el plugin de Paperzilla o añade un conector personalizado, elige las opciones de OAuth y continúa tu solicitud de investigación en Claude."
 keywords: ["MCP", "OAuth", "Paperzilla"]
 ---
 
@@ -9,4 +9,12 @@ import { AiAgents } from '/es/snippets/ai-agents.mdx';
 
 <AiAgents path="/es/answers/how-do-i-use-paperzilla-mcp-with-claude" />
 
-Añade `https://paperzilla.ai/api/mcp` como conector personalizado en Claude, inicia sesión mediante OAuth y revisa y autoriza los permisos. Prueba un digest público antes de las herramientas de proyectos. No necesitas proyecto ni plan de pago de Paperzilla. Después de conectar, abre **Tool permissions** de Paperzilla en Claude y configura las herramientas de solo lectura como **Always allow** para evitar confirmaciones repetidas. Mantén `paper_markdown_request`, `feedback_set` y `feedback_clear` en **Needs approval**, porque inician procesamiento o cambian valoraciones. Para valorar artículos de tus propios proyectos necesitas `feedback:write`; las conexiones existentes deben reconectar para aprobarlo. Consulta la [guía de Claude](/es/guides/claude).
+Si tienes el plugin de Paperzilla, abre **Customize → Plugins → Paperzilla → Connectors** y selecciona **Connect**. Instalar la habilidad no conecta tu cuenta. Si no lo tienes, añade un conector personalizado con la URL `https://paperzilla.ai/api/mcp`.
+
+En **Add custom connector — Step 2 of 2**, elige **Sign in now** y **Use Claude’s published identity**. Deja **Request headers** vacío y mantén los valores predeterminados de **Advanced**. Después selecciona **Add**. No necesitas una clave de API, un ID de cliente ni un secreto de cliente.
+
+Inicia sesión en Paperzilla, comprueba la cuenta y los permisos, y permite el acceso. Vuelve al chat, habilita Paperzilla en **+ → Connectors** si es necesario y di **«Conectado, continúa con mi solicitud original»**. Producción y Paperzilla beta son conexiones independientes.
+
+Configura las herramientas de solo lectura como **Always allow** en **Tool permissions** del conector si quieres evitar avisos repetidos. Mantén `paper_markdown_request`, `feedback_set` y `feedback_clear` en **Needs approval** porque cambian el estado. Las cuentas Free pueden usar digests públicos y artículos del catálogo; los feeds personalizados requieren un proyecto.
+
+El plugin está actualmente en revisión privada; puedes añadir el endpoint público de MCP como conector personalizado. Sigue la [guía completa de configuración de Claude](/es/guides/claude) para consultar los estados del conector, la pantalla de autenticación, tu primer resumen y la resolución de problemas.

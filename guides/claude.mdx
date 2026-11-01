@@ -1,6 +1,6 @@
 ---
 title: "Use Paperzilla MCP with Claude"
-description: "Add Paperzilla as a custom connector in Claude and use your projects, full-feed search, paper detail, and markdown in Claude."
+description: "Connect Paperzilla in Claude, choose the right sign-in settings, and prepare a morning research brief from your feeds."
 keywords: ["MCP", "OAuth", "Paperzilla"]
 ---
 
@@ -8,28 +8,130 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/guides/claude" />
 
-Add `https://paperzilla.ai/api/mcp` as a custom connector in Claude's connector settings. Choose OAuth, sign in or create a Paperzilla account, review the client identity and permissions, and allow the connection. Return to Claude and ask it to find a public digest.
+Connect Claude to Paperzilla to read research, search your project feeds, and prepare a morning brief. You need a Paperzilla account. A Free account can read public digests and catalog papers; a brief from your own feeds requires a project.
 
-A Paperzilla account is required; a paid Paperzilla plan or project is not. Request `catalog:read projects:read feedback:write markdown:generate offline_access` for the complete integration. If the client requests fewer permissions, grant additional access when a tool requires it.
+There are two parts to the setup:
+
+- The **connector** gives Claude access to your Paperzilla account through OAuth.
+- The **plugin** also includes the Morning Brief skill: instructions for selecting feeds, ranking new papers, and preparing a brief. Installing the plugin does not sign you in to its connector.
+
+The plugin is currently in private review. You can connect the public MCP endpoint without it using the custom-connector steps below. Directory availability is separate from connecting your account.
+
+## Open the connection setup
+
+### If you have the Paperzilla plugin
+
+1. Open **Customize → Plugins → Paperzilla** in Claude.
+2. Open its **Connectors** tab. The included server may appear as lowercase **paperzilla**.
+3. Select **Connect** beside that entry. Use this button rather than creating a second custom connector manually.
+
+The status explains what is still needed:
+
+| Status | What to do |
+| --- | --- |
+| **Not added** | Select **Connect** to add the included connector, then complete sign-in. The skill can already be installed while this step is unfinished. |
+| **Not connected** | Select **Connect** and sign in to Paperzilla. |
+| **Connected** | The connection is available. Return to your chat and check that it is enabled there. |
+
+If you selected **Try in chat** before connecting, Claude may explain that the production tools are unavailable. Keep that chat open, complete the steps here, and return to it afterward.
+
+### If you are adding a custom connector
+
+Open **Customize → Connectors** and choose the option to add a custom connector. Enter **Paperzilla** as its name and this server URL:
+
+```text
+https://paperzilla.ai/api/mcp
+```
+
+Continue to the authentication settings. A custom connector provides the tools; it does not install the plugin's Morning Brief skill.
+
+## Choose the authentication settings
+
+Claude may show **Add custom connector — Step 2 of 2**, including when you start from the plugin's **Connect** button. This is Claude's connector configuration screen. Paperzilla's sign-in and permission screen comes afterward.
+
+Keep these choices, which Claude may mark **Detected**:
+
+| Section | Choose |
+| --- | --- |
+| **Authentication** | **Sign in now** |
+| **OAuth client** | **Use Claude’s published identity** |
+| **Request headers** | Leave empty; do not add a header. |
+| **Advanced** | Keep the defaults. |
+
+**Sign in now** is the right choice because Paperzilla requires an account, including for public digests. **Use Claude’s published identity** lets Paperzilla recognize Claude automatically. You do not need an API key, client ID, or client secret.
+
+**Register automatically** is also supported, but is unnecessary when the published-identity option is available. **Use your own OAuth client** is not needed for this setup. Keep **Sign in now** rather than **Sign in when needed** or **No sign-in**.
+
+Check that the server is exactly `https://paperzilla.ai/api/mcp`, then select **Add**. If the dialog is taller than your window, scroll down inside it to find the button. Follow any sign-in prompt Claude presents.
+
+These controls are documented in [Claude's authentication setup](https://claude.com/docs/connectors/custom/add-unlisted#choose-authentication-settings). Names and availability can vary with your Claude account, organization, or interface version.
+
+## Sign in and review access
+
+1. In the Paperzilla window, sign in or create an account.
+2. Check the signed-in Paperzilla account. Select **Use a different account** if it is not the account whose feeds you want.
+3. Review the client identity and requested permissions, then select **Allow** to connect or **Deny** to cancel.
+4. Return to Claude and confirm the connector shows **Connected**.
+
+The permissions cover public research, your owned projects and feeds, paper feedback, Markdown processing, and staying connected when requested. You do not need to enter scope names into the normal Claude setup. See the [permission reference](/guides/mcp) for details.
+
+If the request expires while you are reading or signing in, start **Connect** again from Claude and finish the new request in the browser where it opened.
+
+## Return to your original request
+
+Close the setup panel and return to the same chat. Open the **+** menu beside the message box, choose **Connectors**, and enable **Paperzilla** for the chat if needed.
+
+If you had already asked for a brief, send:
+
+```text
+Connected, please continue my original morning brief request.
+Use fresh calls through the production Paperzilla connection.
+```
+
+The plugin's skill is designed to check the connection and continue with the feed choices and preferences already in that conversation. Connecting does not itself send another message, prepare a brief, or schedule delivery.
+
+For a first check, ask:
+
+```text
+Use Paperzilla to check my account status and list my projects.
+Make fresh tool calls. Do not change anything.
+```
+
+Then try a brief from your selected feeds:
+
+```text
+Prepare a morning research brief from my [project name] and
+[second project name] feeds. Include up to five relevant papers
+added in the last 24 hours. Link each paper and explain why it matters.
+Use Europe/Athens for dates. Say when a summary is based on the abstract.
+```
+
+If your account has no projects yet, ask **“Find public digests about robotics and show three papers from the latest issue.”** You can use public research immediately and set up a project on the Paperzilla website when you want a personalized feed. A setup link or an empty feed is not a connection failure.
 
 ## Allow research lookups without repeated prompts
 
-After connecting, open **Customize → Connectors → Paperzilla → Tool permissions** in Claude. For a staging connection, choose **Paperzilla beta**.
+Open **Customize → Connectors → Paperzilla → Tool permissions** in Claude.
 
-- Set the read-only tools to **Always allow**. This covers account status, projects and feeds, public digests, paper details, and prepared Markdown. Private project reads remain limited to your account and the permissions you granted.
+- Set the read-only tools to **Always allow** if you want lookups without repeated approval prompts. This covers account status, projects and feeds, public digests, paper details, and prepared Markdown. Private project reads remain limited to your account and granted permissions.
 - Keep **Prepare paper Markdown** (`paper_markdown_request`) on **Needs approval**. It starts processing; reading prepared Markdown does not.
-- Keep **Rate a paper in your feed** (`feedback_set`) and **Clear a paper's feedback** (`feedback_clear`) on **Needs approval**. These tools change saved feedback in your own projects; they are not read-only.
+- Keep **Rate a paper in your feed** (`feedback_set`) and **Clear a paper's feedback** (`feedback_clear`) on **Needs approval**. They change saved feedback in your own projects.
 
-These Claude settings are separate from Paperzilla's OAuth consent. Your organization may restrict the available choices. See [Claude's connector permission instructions](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
+These Claude settings are separate from Paperzilla's OAuth consent. Your organization may restrict the available choices. See [Claude's connector permissions](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 
-For a daily morning brief, also check the saved task's connector and permission settings and try **Run now** before relying on scheduled delivery. Allowing reads does not itself create a schedule or verify unattended runs.
+For a daily morning brief, also check the saved task's connector and permission settings and try **Run now** before relying on scheduled delivery. Scheduling depends on Claude's available features. Allowing reads does not create a schedule or verify unattended runs.
 
-## Try it
+## If Claude cannot use the connection
 
-Try “Find public digests about robotics,” “Show the latest issue,” or “Read the Markdown for this paper.” Reading Markdown does not generate it. Ask explicitly to prepare it if needed. Project tools read all current and future owned projects; an empty account receives a setup link while public tools remain available.
+| What you see | Next step |
+| --- | --- |
+| The skill loads, but Claude says Paperzilla is not connected | Open the plugin's **Connectors** tab and check its status. Installation and account connection are separate. |
+| The connector says **Connected**, but tools are unavailable in the chat | Enable Paperzilla in the chat's **+ → Connectors** menu, then ask for a fresh account-status check. |
+| Claude uses **Paperzilla beta** | Open the production plugin's **Connectors** tab and connect `https://paperzilla.ai/api/mcp`. Select production for this chat and invoke the production skill. Beta is a separate connection; it does not establish production access. |
+| The wrong Paperzilla account is connected | Revoke that specific connection in [Connect AI clients](https://paperzilla.ai/ai-connections), reconnect from Claude, and choose **Use a different account** before approving access. |
+| Feedback permission is missing | Refresh Claude's tools and reconnect to review consent including `feedback:write`. Existing grants do not gain new permissions automatically. |
 
-To rate or star a paper in your own feed, ask explicitly and identify the project and paper. Existing connections need a new OAuth consent granting `feedback:write`; refresh Claude's tools and reconnect if that permission is missing. See [project feedback](/guides/mcp).
+An existing connection can be reused only for the exact same server URL and intended account. You can keep a working beta connection while adding production. Do not delete unrelated connections or scheduled tasks to fix this setup.
 
-Revoke access in [Connect AI clients](https://paperzilla.ai/ai-connections). Remove any old key-based connection and reconnect with OAuth. Do not add a credential to the server URL.
+Revoke individual connections in [Connect AI clients](https://paperzilla.ai/ai-connections). Old API-key connections are retired; reconnect through OAuth and never add credentials to the server URL.
 
-See [all client instructions and processing states](/guides/mcp) and the [tool reference](/api-reference/mcp). Custom connector availability depends on Claude's account and workspace controls. Directory listing is separate from connecting a custom server.
+See [all MCP capabilities and processing states](/guides/mcp) and the [tool reference](/api-reference/mcp). [Claude's plugin documentation](https://claude.com/docs/plugins/overview#bundled-connectors) explains how bundled connectors differ from installed skills.
