@@ -41,7 +41,15 @@ En **Tool permissions** del conector, configura **todas las herramientas de solo
 
 ### OpenClaw
 
-Abre **Settings → MCP → Add server**. Asigna el nombre `paperzilla`, elige **Streamable HTTP** e introduce `https://paperzilla.ai/api/mcp`. Después de añadirlo, configura OAuth en el editor de MCP y pulsa **Sign in** para autorizar el acceso en Paperzilla.
+Instala el [plugin Paperzilla MCP](https://clawhub.ai/pors/plugins/paperzilla-mcp) para obtener su conexión OAuth y la habilidad Morning Brief. Usa OpenClaw 2026.10.8 o posterior. En **Plugins**, busca **Paperzilla MCP** de `pors`, instálalo y actívalo. También puedes instalarlo desde la línea de comandos:
+
+```sh
+openclaw plugins install clawhub:@pors/paperzilla-mcp
+```
+
+Después abre **Paperzilla MCP → Overview → Accounts**, pulsa **Connect** junto a `paperzilla` y autoriza el acceso en Paperzilla. Instalar el plugin no conecta tu cuenta. El plugin ya incluye el servidor, así que no lo añadas de nuevo en **Settings → MCP**.
+
+Para conectarte sin el plugin, abre **Settings → MCP → Add server**. Asigna el nombre `paperzilla`, elige **Streamable HTTP** e introduce `https://paperzilla.ai/api/mcp`. Después de añadirlo, configura OAuth en el editor de MCP y pulsa **Sign in** para autorizar el acceso en Paperzilla.
 
 Consulta [Usar Paperzilla MCP con OpenClaw](/es/guides/openclaw-mcp) para ver la configuración completa, los permisos, ejemplos de solicitudes y la solución de problemas. Puedes empezar con una cuenta Free y sin proyectos.
 
