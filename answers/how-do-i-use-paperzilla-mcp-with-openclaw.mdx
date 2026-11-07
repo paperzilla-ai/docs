@@ -11,12 +11,12 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 Install [Paperzilla MCP](https://clawhub.ai/pors/plugins/paperzilla-mcp) by `pors` from OpenClaw's **Plugins** catalog. Its package name is `@pors/paperzilla-mcp`. Then open **Plugins → Paperzilla MCP → Overview → Accounts → Connect** next to `paperzilla`. Sign in or create a Paperzilla account, check the account and permissions, and select **Allow**.
 
-The plugin includes the production OAuth MCP connection and a Morning Brief skill. It does not need `pz` or replace the existing CLI skills. Plugin accounts need not appear in **Settings → MCP**; use the plugin's **Accounts → Connect** control. OpenClaw 2026.10.8 or later is the tested setup.
+The plugin includes the production OAuth MCP connection and a Morning Brief skill. It does not need `pz` or replace the existing CLI skills. Plugin accounts need not appear in **Settings → MCP**; use the plugin's **Accounts → Connect** control. These steps were tested with OpenClaw 2026.10.8 and Paperzilla MCP 1.0.1.
 
 You can also connect directly without a plugin: **Settings → MCP → Add server**, name `paperzilla`, **Streamable HTTP**, URL `https://paperzilla.ai/api/mcp`. In the scoped editor, set `auth: "oauth"` and `oauth.scope` to `catalog:read projects:read feedback:write markdown:generate offline_access`, then select **Sign in**. Follow this manual route only if you want to manage the server definition yourself.
 
-Return to OpenClaw and ask: “Find public digests about robotics.” A Free account works, and you do not need a project for public digests or catalog papers. Personal feeds require an owned project. You can connect by URL without installing `pz` or a Paperzilla skill.
+Once OpenClaw has a working chat model, ask “Find the latest public Paperzilla digest about OCD and show three papers with source links.” A Free account works, and you do not need a project for public digests or catalog papers. Personal feeds require an owned project.
 
 To rate or star a paper in your own project feed, ask explicitly. Feedback tools require `feedback:write`. For an existing connection, update the scopes and sign in again to approve that permission.
 
-See [Use Paperzilla MCP with OpenClaw](/guides/openclaw-mcp) for the full setup, permissions, example requests, connection checks, and troubleshooting. Manage or revoke access in [Connect AI clients](https://paperzilla.ai/ai-connections).
+See [Use Paperzilla MCP with OpenClaw](/guides/openclaw-mcp) for the full setup, permissions, example requests, connection checks, and troubleshooting. Manage or revoke access in [Connect AI clients](https://paperzilla.ai/ai-connections). If OpenClaw still says **Connected** after revocation, follow the [reconnection steps](/guides/openclaw-mcp#disconnect-or-change-accounts).

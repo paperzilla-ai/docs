@@ -14,7 +14,7 @@ Install the **Paperzilla MCP** plugin for its OAuth connection and Morning Brief
 
 ## Before you start
 
-- OpenClaw must be running, and you need administrator access to its **Plugins** or **Settings → MCP** page. The plugin was tested with OpenClaw 2026.10.8; use that version or later.
+- OpenClaw must be running, and you need administrator access to its **Plugins** or **Settings → MCP** page. The steps below were tested with OpenClaw 2026.10.8 and Paperzilla MCP 1.0.1.
 - You need a Paperzilla account, or you can create one during sign-in. A Free or preview account works. You can start without a project, trial, or payment details.
 - OpenClaw needs a working AI provider for chat. You can configure the MCP connection before connecting that provider.
 - For browser sign-in, open the Control UI on your Gateway's own HTTPS address, its local loopback address, or its published Tailscale address. A separately hosted Control UI cannot receive the Gateway's OAuth callback.
@@ -26,8 +26,8 @@ Labels and save controls can vary by OpenClaw release. See OpenClaw's [plugin bu
 1. Open **Plugins** in OpenClaw and search for [Paperzilla MCP](https://clawhub.ai/pors/plugins/paperzilla-mcp) by `pors`. Check the package name: `@pors/paperzilla-mcp`.
 2. Install and enable it, then open **Paperzilla MCP → Overview → Accounts**.
 3. Select **Connect** next to `paperzilla`. This starts browser OAuth; installing the plugin alone does not authorize your account.
-4. Sign in to Paperzilla or create an account, check the account and requested permissions, and select **Allow**.
-5. Return to OpenClaw and start a fresh chat. Ask: “Check my Paperzilla connection and list my feeds.”
+4. Sign in to Paperzilla or select **Create a free account**. Enter your email verification code in the same browser. After signup, Paperzilla returns you to the consent screen. Check the account and requested permissions, then select **Allow**.
+5. Return to OpenClaw and confirm that the plugin's **Accounts** section shows **Connected**. If chat shows **No models available**, go to **Settings → Models → Connect provider**, sign in to a model provider, and select a model.
 
 The equivalent CLI installation is:
 
@@ -40,6 +40,14 @@ The plugin supplies the production MCP server, all five requested scopes, and th
 If you already configured a server named `paperzilla`, your manual definition takes precedence. Check its URL and scopes; a beta connection must not be mistaken for production. The plugin does not remove existing configuration or CLI skills.
 
 Source and release details: [Paperzilla OpenClaw plugin](https://github.com/paperzilla-ai/paperzilla-openclaw-plugin).
+
+### Try your first brief
+
+Start a fresh OpenClaw chat and ask:
+
+> I just connected Paperzilla. Do I have any personal feeds yet? Give me a short brief from the latest public Paperzilla OCD digest, with three papers, their source links, and a reason to read each.
+
+This works with a new account. If you have no personal feeds, OpenClaw can share a project setup link and still read the public digest. If a search page is empty but more results are available, ask OpenClaw to check the next page.
 
 ### Ask for a morning brief
 
@@ -190,7 +198,13 @@ Use your chosen server name if you used something other than `paperzilla`. A sav
 
 Open Paperzilla's [Connect AI clients](https://paperzilla.ai/ai-connections), find the OpenClaw connection, and revoke it. This immediately invalidates its Paperzilla credentials. You can disable or remove the server definition in OpenClaw as well.
 
-To reconnect a plugin account, open **Plugins → Paperzilla MCP → Overview → Accounts → Connect**. For a manually configured server, select **Settings → MCP → Sign in**. Complete consent again. Check the account shown on the consent screen before allowing access. Revocation affects the connection, not your Paperzilla account or projects.
+To reconnect the plugin:
+
+1. Open **Plugins → Paperzilla MCP → Overview → Accounts**. If it still says **Connected** after revocation, ask OpenClaw in chat to make a fresh Paperzilla connection check. After it reports that sign-in is required, reopen the plugin's **Accounts** section.
+2. Select **Connect** next to `paperzilla`. The **Edit paperzilla connection** button opens **Settings → MCP**, which manages manually added servers.
+3. Check the account on the Paperzilla consent screen, select **Allow**, and retry your original request.
+
+For a manually configured server, select **Settings → MCP → Sign in**. Revocation leaves your Paperzilla account and projects in place.
 
 ## Troubleshooting
 
@@ -212,7 +226,7 @@ Check OpenClaw's server enablement, tool filters, agent tool policy, and convers
 
 ### OpenClaw reports an AI provider authentication failure
 
-Check the AI provider configured in OpenClaw. Its chat credentials are separate from the Paperzilla OAuth connection.
+Go to **Settings → Models** to connect a provider or verify your model selection. OpenClaw's model sign-in is separate from Paperzilla OAuth.
 
 ### A request needs a project, permission, or prepared Markdown
 
