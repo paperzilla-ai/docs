@@ -1,6 +1,6 @@
 ---
 title: "Usar Paperzilla MCP con Claude"
-description: "Conecta Paperzilla en Claude, elige las opciones de inicio de sesión y prepara un resumen matutino de investigación a partir de tus feeds."
+description: "Instala Paperzilla desde el directorio de Claude, conecta tu cuenta y prepara un resumen matutino de investigación a partir de tus feeds."
 keywords: ["MCP", "OAuth", "Paperzilla"]
 ---
 
@@ -8,22 +8,22 @@ import { AiAgents } from '/es/snippets/ai-agents.mdx';
 
 <AiAgents path="/es/guides/claude" />
 
-Conecta Claude a Paperzilla para leer investigaciones, buscar en los feeds de tus proyectos y preparar un resumen matutino. Necesitas una cuenta de Paperzilla. Una cuenta Free puede leer digests públicos y artículos del catálogo; para preparar un resumen de tus propios feeds necesitas un proyecto.
+Conecta Claude a Paperzilla para leer investigaciones, buscar en los feeds de tus proyectos y preparar un resumen matutino. Necesitas una cuenta de Paperzilla. Una cuenta Paperzilla Free puede leer digests públicos y artículos del catálogo; para preparar un resumen de tus propios feeds necesitas un proyecto.
 
 La configuración tiene dos partes:
 
 - El **conector** da a Claude acceso a tu cuenta de Paperzilla mediante OAuth.
 - El **plugin** también incluye la habilidad Morning Brief: instrucciones para seleccionar feeds, ordenar los artículos nuevos por relevancia y preparar un resumen. Instalar el plugin no inicia sesión en su conector.
 
-El plugin está actualmente en revisión privada. Puedes conectar el endpoint público de MCP sin el plugin siguiendo los pasos del conector personalizado que se indican abajo. La disponibilidad en el directorio es independiente de la conexión de tu cuenta.
+El plugin está disponible en los [planes de pago de Claude](https://claude.com/docs/plugins/overview). Si usas Claude Free, instala el conector independiente desde el directorio.
 
 ## Abre la configuración de la conexión
 
-### Si tienes el plugin de Paperzilla
+### Instala el plugin de Paperzilla
 
-1. Abre **Settings → Customize → Plugins → Paperzilla** en Claude.
-2. Abre su pestaña **Connectors**. El servidor incluido puede aparecer en minúsculas como **paperzilla**.
-3. Selecciona **Connect** junto a esa entrada. Usa este botón en lugar de crear manualmente un segundo conector personalizado o pegar una URL del servidor.
+1. Abre la [ficha del plugin de Paperzilla](https://claude.ai/customize/plugins/id/5bceceee-cb5b-41a8-afa9-ce07bef3aeb1%40anthropic-plugin-directory?via=directory) y selecciona **Add to Claude**. También puedes buscar Paperzilla en **Customize → Plugins → Discover**.
+2. Abre **Settings → Customize → Plugins → Paperzilla → Connectors**. El conector incluido puede aparecer en minúsculas como **paperzilla**.
+3. Si muestra **Connected**, puedes usar la habilidad. Si falta la conexión, selecciona **Connect** junto al conector incluido.
 
 Claude puede usar **Connect** para dos pasos distintos:
 
@@ -42,6 +42,10 @@ El estado explica qué falta por hacer:
 
 Para usar la habilidad instalada, abre un chat nuevo y escribe `/`. Selecciona la habilidad de resumen de investigación de Paperzilla en el menú y describe tu solicitud. **Try in chat**, cuando está disponible, es otra forma de empezar. Si Claude explica que las herramientas de producción no están disponibles, mantén ese chat abierto, completa los pasos de conexión y vuelve a él después.
 
+### Usa el conector independiente
+
+Abre la [ficha del conector de Paperzilla](https://claude.ai/directory/paperzilla) y sigue las indicaciones de Claude para conectar e iniciar sesión en Paperzilla. Así Claude puede usar las herramientas de Paperzilla. La habilidad Morning Brief viene incluida en el plugin.
+
 ### Si vas a añadir un conector personalizado
 
 Abre **Settings → Customize → Connectors** y elige la opción para añadir un conector personalizado. Introduce **Paperzilla** como nombre y esta URL del servidor:
@@ -58,7 +62,7 @@ Si el plugin abre **Add custom connector — Step 1 of 2**, el nombre y la URL d
 
 Claude puede mostrar **Add custom connector — Step 2 of 2**, incluso si empiezas con el botón **Connect** del plugin. Esta es la pantalla de configuración del conector de Claude. La pantalla de inicio de sesión y permisos de Paperzilla aparece después.
 
-Mantén estas opciones, que Claude puede marcar como **Detected**:
+Mantén estas opciones, que Claude puede marcar como **Detected**.
 
 | Sección | Opción |
 | --- | --- |

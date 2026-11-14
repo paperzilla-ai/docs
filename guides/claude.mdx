@@ -1,6 +1,6 @@
 ---
 title: "Use Paperzilla MCP with Claude"
-description: "Connect Paperzilla in Claude, choose the right sign-in settings, and prepare a morning research brief from your feeds."
+description: "Install Paperzilla from the Claude directory, connect your account, and prepare a morning research brief from your feeds."
 keywords: ["MCP", "OAuth", "Paperzilla"]
 ---
 
@@ -8,22 +8,22 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/guides/claude" />
 
-Connect Claude to Paperzilla to read research, search your project feeds, and prepare a morning brief. You need a Paperzilla account. A Free account can read public digests and catalog papers; a brief from your own feeds requires a project.
+Connect Claude to Paperzilla to read research, search your project feeds, and prepare a morning brief. You need a Paperzilla account. A Paperzilla Free account can read public digests and catalog papers; a brief from your own feeds requires a project.
 
 There are two parts to the setup:
 
 - The **connector** gives Claude access to your Paperzilla account through OAuth.
 - The **plugin** also includes the Morning Brief skill: instructions for selecting feeds, ranking new papers, and preparing a brief. Installing the plugin does not sign you in to its connector.
 
-The plugin is currently in private review. You can connect the public MCP endpoint without it using the custom-connector steps below. Directory availability is separate from connecting your account.
+The plugin is available on [paid Claude plans](https://claude.com/docs/plugins/overview). On Claude Free, use the standalone connector from the directory.
 
 ## Open the connection setup
 
-### If you have the Paperzilla plugin
+### Install the Paperzilla plugin
 
-1. Open **Settings → Customize → Plugins → Paperzilla** in Claude.
-2. Open its **Connectors** tab. The included server may appear as lowercase **paperzilla**.
-3. Select **Connect** beside that entry. Use this button rather than creating a second custom connector manually or pasting a server URL.
+1. Open the [Paperzilla plugin listing](https://claude.ai/customize/plugins/id/5bceceee-cb5b-41a8-afa9-ce07bef3aeb1%40anthropic-plugin-directory?via=directory) and select **Add to Claude**. You can also find Paperzilla under **Customize → Plugins → Discover**.
+2. Open **Settings → Customize → Plugins → Paperzilla → Connectors**. The included connector may appear as lowercase **paperzilla**.
+3. If it shows **Connected**, you can use the skill. Otherwise, select **Connect** beside the included connector.
 
 Claude may use **Connect** for two separate steps:
 
@@ -42,6 +42,10 @@ The status explains what is still needed:
 
 To use the installed skill, open a new chat and type `/`. Select Paperzilla's research brief skill from the menu, then describe your request. **Try in chat**, when available, is another way to start. If Claude explains that the production tools are unavailable, keep that chat open, complete the connection steps here, and return to it afterward.
 
+### Use the standalone connector
+
+Open the [Paperzilla connector listing](https://claude.ai/directory/paperzilla) and follow Claude’s prompts to connect and sign in to Paperzilla. This gives Claude access to the Paperzilla tools. The Morning Brief skill comes with the plugin.
+
 ### If you are adding a custom connector
 
 Open **Settings → Customize → Connectors** and choose the option to add a custom connector. Enter **Paperzilla** as its name and this server URL:
@@ -58,7 +62,7 @@ If the plugin opens **Add custom connector — Step 1 of 2**, the name and serve
 
 Claude may show **Add custom connector — Step 2 of 2**, including when you start from the plugin's **Connect** button. This is Claude's connector configuration screen. Paperzilla's sign-in and permission screen comes afterward.
 
-Keep these choices, which Claude may mark **Detected**:
+Keep these choices, which Claude may mark **Detected**.
 
 | Section | Choose |
 | --- | --- |

@@ -1,7 +1,7 @@
 ---
 title: "¿Cómo uso Paperzilla MCP con Claude?"
 sidebarTitle: "MCP con Claude"
-description: "Conecta el plugin de Paperzilla o añade un conector personalizado, elige las opciones de OAuth y continúa tu solicitud de investigación en Claude."
+description: "Instala el plugin o el conector de Paperzilla desde el directorio de Claude y conecta tu cuenta para empezar un informe de investigación."
 keywords: ["MCP", "OAuth", "Paperzilla"]
 ---
 
@@ -9,12 +9,12 @@ import { AiAgents } from '/es/snippets/ai-agents.mdx';
 
 <AiAgents path="/es/answers/how-do-i-use-paperzilla-mcp-with-claude" />
 
-Si tienes el plugin de Paperzilla, abre **Settings → Customize → Plugins → Paperzilla → Connectors** y selecciona **Connect**. Instalar la habilidad no conecta tu cuenta. Claude puede mostrar **Connect** dos veces: primero para añadir el conector y después, si muestra **Not connected**, para abrir el inicio de sesión de Paperzilla y el consentimiento OAuth. Termina cuando muestre **Connected**. Si no tienes el plugin, añade un conector personalizado con la URL `https://paperzilla.ai/api/mcp`.
+Abre la [ficha del plugin de Paperzilla](https://claude.ai/customize/plugins/id/5bceceee-cb5b-41a8-afa9-ce07bef3aeb1%40anthropic-plugin-directory?via=directory) y selecciona **Add to Claude** para obtener la habilidad Morning Brief. Después abre **Settings → Customize → Plugins → Paperzilla → Connectors**. Si el conector ya muestra **Connected**, puedes empezar un informe. Si falta la conexión, selecciona **Connect**. Claude puede mostrar **Connect** otra vez después de añadir el conector para iniciar sesión en Paperzilla.
 
-En **Add custom connector — Step 2 of 2**, elige **Sign in now** y **Use Claude’s published identity**. Deja **Request headers** vacío y mantén los valores predeterminados de **Advanced**. Después selecciona **Add**. No necesitas una clave de API, un ID de cliente ni un secreto de cliente.
+Si usas Claude Free o solo quieres usar las herramientas de Paperzilla, abre la [ficha del conector independiente de Paperzilla](https://claude.ai/directory/paperzilla) y sigue las indicaciones de Claude. El plugin está disponible en los planes de pago de Claude.
 
 Inicia sesión en Paperzilla, comprueba la cuenta y los permisos, y permite el acceso. Vuelve al chat, habilita Paperzilla en **+ → Connectors** si es necesario y di **«Conectado, continúa con mi solicitud original»**. Producción y Paperzilla beta son conexiones independientes.
 
 Configura **todas las herramientas de solo lectura de Paperzilla** como **Always allow** en **Tool permissions** del conector para facilitar las consultas y los resúmenes matutinos. De lo contrario, las llamadas pueden esperar aprobación según el modo de aprobación de la tarea y un resumen sin supervisión puede no completarse. Mantén `paper_markdown_request`, `feedback_set` y `feedback_clear` en **Needs approval** porque cambian el estado. Las cuentas Free pueden usar digests públicos y artículos del catálogo; los feeds personalizados requieren un proyecto.
 
-El plugin está actualmente en revisión privada; puedes añadir el endpoint público de MCP como conector personalizado. Sigue la [guía completa de configuración de Claude](/es/guides/claude) para consultar los estados del conector, la pantalla de autenticación, tu primer resumen y la resolución de problemas.
+Sigue la [guía completa de configuración de Claude](/es/guides/claude) para consultar los estados del conector, la configuración manual, tu primer informe y la resolución de problemas.
