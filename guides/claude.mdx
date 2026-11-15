@@ -1,6 +1,6 @@
 ---
-title: "Use Paperzilla MCP with Claude"
-description: "Install Paperzilla from the Claude directory, connect your account, and prepare a morning research brief from your feeds."
+title: "Get your first research brief in Claude"
+description: "Add Paperzilla to Claude, connect your account, and get a morning brief from an existing project or a new research topic."
 keywords: ["MCP", "OAuth", "Paperzilla"]
 ---
 
@@ -8,45 +8,70 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/guides/claude" />
 
-Connect Claude to Paperzilla to read research, search your project feeds, and prepare a morning brief. You need a Paperzilla account. A Paperzilla Free account can read public digests and catalog papers; a brief from your own feeds requires a project.
-
-There are two parts to the setup:
-
-- The **connector** gives Claude access to your Paperzilla account through OAuth.
-- The **plugin** also includes the Morning Brief skill: instructions for selecting feeds, ranking new papers, and preparing a brief. Installing the plugin does not sign you in to its connector.
-
-The plugin is available on [paid Claude plans](https://claude.com/docs/plugins/overview). On Claude Free, use the standalone connector from the directory.
+A personal research brief uses the papers in a Paperzilla project, which tracks a research topic for you. If Paperzilla already shows **Connected** in Claude, start with [Choose or create a research topic](#choose-or-create-a-research-topic).
 
 ## Open the connection setup
 
 ### Install the Paperzilla plugin
 
+The plugin includes the connector and the Morning Brief skill. Install it on a paid Claude plan, then connect it to your Paperzilla account. [Claude plugin availability](https://claude.com/docs/plugins/overview)
+
 1. Open the [Paperzilla plugin listing](https://claude.ai/customize/plugins/id/5bceceee-cb5b-41a8-afa9-ce07bef3aeb1%40anthropic-plugin-directory?via=directory) and select **Add to Claude**. You can also find Paperzilla under **Customize → Plugins → Discover**.
-2. Open **Settings → Customize → Plugins → Paperzilla → Connectors**. The included connector may appear as lowercase **paperzilla**.
-3. If it shows **Connected**, you can use the skill. Otherwise, select **Connect** beside the included connector.
+2. Open **Settings → Customize → Plugins → Paperzilla → Connectors**. Check the status of the included connector, which may appear as **paperzilla**.
 
-Claude may use **Connect** for two separate steps:
-
-1. **Add the connector to Claude.** The first **Connect** opens the setup for the plugin's included server. Adding it does not yet give Claude access to your Paperzilla account.
-2. **Sign in to Paperzilla.** If the connector then shows **Not connected**, select **Connect** again to open Paperzilla sign-in and OAuth consent.
-
-The setup is complete when the connector shows **Connected**. An existing connection to the exact same server URL and intended account may let you skip these steps.
-
-The status explains what is still needed:
+Claude may show **Connect** twice, first to add the connector and then to sign in to Paperzilla.
 
 | Status | What to do |
 | --- | --- |
-| **Not added** | Select **Connect** to add the included connector. If it then shows **Not connected**, select **Connect** again for Paperzilla sign-in. The skill can already be installed while these steps are unfinished. |
-| **Not connected** | The connector is added, but account access is unfinished. Select **Connect** to sign in to Paperzilla and review OAuth consent. |
-| **Connected** | The connection is available. Return to your chat and check that it is enabled there. |
-
-To use the installed skill, open a new chat and type `/`. Select Paperzilla's research brief skill from the menu, then describe your request. **Try in chat**, when available, is another way to start. If Claude explains that the production tools are unavailable, keep that chat open, complete the connection steps here, and return to it afterward.
+| **Not added** | Select **Connect** to add the included connector. If Claude opens **Add custom connector**, follow [Choose the authentication settings](#choose-the-authentication-settings). |
+| **Not connected** | Select **Connect** to open Paperzilla sign-in. |
+| **Connected** | Continue to [Choose or create a research topic](#choose-or-create-a-research-topic). |
 
 ### Use the standalone connector
 
-Open the [Paperzilla connector listing](https://claude.ai/directory/paperzilla) and follow Claude’s prompts to connect and sign in to Paperzilla. This gives Claude access to the Paperzilla tools. The Morning Brief skill comes with the plugin.
+Use the standalone connector on Claude Free or if you only want the Paperzilla tools. Open the [Paperzilla connector listing](https://claude.ai/directory/paperzilla) and follow Claude’s prompts until the Paperzilla sign-in window opens. For a manual connection, see [Add a custom connector](#if-you-are-adding-a-custom-connector).
 
-### If you are adding a custom connector
+## Sign in and review access {#sign-in-and-review-access}
+
+1. In the Paperzilla window, sign in or create an account. If you already have a project, sign in to the account you used to create it.
+2. Check the signed-in account. Select **Use a different account** if you need to switch.
+3. Review the requested access, including access to your projects and feeds, then select **Allow**.
+4. Return to Claude and confirm that Paperzilla shows **Connected**.
+
+If the request expires, select **Connect** again in Claude and finish sign-in in the browser where it opens. [Paperzilla MCP permissions](/guides/mcp)
+
+## Choose or create a research topic {#choose-or-create-a-research-topic}
+
+Open a Claude chat. If needed, open the **+** menu beside the message box, choose **Connectors**, and enable **Paperzilla** for that chat.
+
+### Use an existing project
+
+Choose the project you want to use for your brief. To see your options, ask Claude **“Use Paperzilla to list my projects.”** You can also find the project name in your [Paperzilla dashboard](https://paperzilla.ai/dashboard). Once you’ve picked a feed with papers, [ask Claude for your first brief](#ask-claude-for-your-first-brief).
+
+### Create a research topic {#create-a-research-topic}
+
+1. Open the [Paperzilla setup chat](https://paperzilla.ai/?openChat=true) using the same Paperzilla account you connected to Claude.
+2. Describe what you want to follow. For example, you might ask for research on how people evaluate the reliability of AI agents that use tools. Review the proposed categories and keywords.
+3. Select **Create project** and complete any account confirmation Paperzilla prompts you for.
+4. When your first papers appear in your project feed, return to Claude and [ask for your first brief](#ask-claude-for-your-first-brief).
+
+While Paperzilla prepares your first papers, you can try a sample brief from a public digest. Ask Claude **“Use Paperzilla to find a public digest about robotics. Pick up to three papers from its latest issue, link to each, and explain why it’s worth reading.”**
+
+## Ask Claude for your first brief {#ask-claude-for-your-first-brief}
+
+Use a chat with Paperzilla enabled. [Check that Paperzilla is enabled in your chat](#choose-or-create-a-research-topic)
+
+If you installed the plugin, type `/` and select the Paperzilla research brief skill. You can also open it from **Try in chat** when Claude shows that option.
+
+Replace **[project name]** with the name of your project and send this prompt.
+
+> Use Paperzilla to prepare my first morning research brief from my [project name] feed. Pick up to five of the latest papers in the feed. Link each paper and explain why it matters for my research topic.
+
+### Return to your original request
+
+If you already asked for a brief before connecting Paperzilla, return to that chat once you’ve chosen a project with papers. Ask Claude **“Paperzilla is connected. Please continue my morning brief request using my [project name] feed.”**
+
+## If you are adding a custom connector {#if-you-are-adding-a-custom-connector}
 
 Open **Settings → Customize → Connectors** and choose the option to add a custom connector. Enter **Paperzilla** as its name and this server URL:
 
@@ -54,9 +79,9 @@ Open **Settings → Customize → Connectors** and choose the option to add a cu
 https://paperzilla.ai/api/mcp
 ```
 
-Continue to the authentication settings. A custom connector provides the tools; it does not install the plugin's Morning Brief skill.
+Continue to the authentication settings.
 
-## Choose the authentication settings
+### Choose the authentication settings {#choose-the-authentication-settings}
 
 If the plugin opens **Add custom connector — Step 1 of 2**, the name and server URL are already filled in; check that the URL is `https://paperzilla.ai/api/mcp`, then select **Continue**.
 
@@ -75,51 +100,9 @@ Keep these choices, which Claude may mark **Detected**.
 
 **Register automatically** is also supported, but is unnecessary when the published-identity option is available. **Use your own OAuth client** is not needed for this setup. Keep **Sign in now** rather than **Sign in when needed** or **No sign-in**.
 
-Check that the server is exactly `https://paperzilla.ai/api/mcp`, then select **Add**. If the dialog is taller than your window, scroll down inside it to find the button. If Claude returns to the connector and shows **Not connected**, select **Connect** again to start Paperzilla sign-in. Adding the connector and authorizing your Paperzilla account are separate steps.
+Check that the server is exactly `https://paperzilla.ai/api/mcp`, then select **Add**. If the dialog is taller than your window, scroll down inside it to find the button. If the connector shows **Not connected**, select **Connect** again, then [sign in and review access](#sign-in-and-review-access).
 
 These controls are documented in [Claude's authentication setup](https://claude.com/docs/connectors/custom/add-unlisted#choose-authentication-settings). Names and availability can vary with your Claude account, organization, or interface version.
-
-## Sign in and review access
-
-1. In the Paperzilla window, sign in or create an account.
-2. Check the signed-in Paperzilla account. Select **Use a different account** if it is not the account whose feeds you want.
-3. Review the client identity and requested permissions, then select **Allow** to connect or **Deny** to cancel.
-4. Return to Claude and confirm the connector shows **Connected**.
-
-The permissions cover public research, your owned projects and feeds, paper feedback, Markdown processing, and staying connected when requested. You do not need to enter scope names into the normal Claude setup. See the [permission reference](/guides/mcp) for details.
-
-If the request expires while you are reading or signing in, start **Connect** again from Claude and finish the new request in the browser where it opened.
-
-## Return to your original request
-
-Close the setup panel and return to the same chat. Open the **+** menu beside the message box, choose **Connectors**, and enable **Paperzilla** for the chat if needed.
-
-If you had already asked for a brief, send:
-
-```text
-Connected, please continue my original morning brief request.
-Use fresh calls through the production Paperzilla connection.
-```
-
-The plugin's skill is designed to check the connection and continue with the feed choices and preferences already in that conversation. Connecting does not itself send another message, prepare a brief, or schedule delivery.
-
-For a first check, ask:
-
-```text
-Use Paperzilla to check my account status and list my projects.
-Make fresh tool calls. Do not change anything.
-```
-
-Then try a brief from your selected feeds:
-
-```text
-Prepare a morning research brief from my [project name] and
-[second project name] feeds. Include up to five relevant papers
-added in the last 24 hours. Link each paper and explain why it matters.
-Use Europe/Athens for dates. Say when a summary is based on the abstract.
-```
-
-If your account has no projects yet, ask **“Find public digests about robotics and show three papers from the latest issue.”** You can use public research immediately and set up a project on the Paperzilla website when you want a personalized feed. A setup link or an empty feed is not a connection failure.
 
 ## Allow research lookups without repeated prompts
 
@@ -133,12 +116,15 @@ These Claude settings are separate from Paperzilla's OAuth consent. Recheck them
 
 For a daily morning brief, also check the saved task's connector and permission settings. Try **Run now**, then verify an actual scheduled run without you approving calls before relying on delivery. Scheduling depends on Claude's available features and the task's approval mode. See [Claude's task permission modes](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) and [recurring-task setup](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork). Allowing reads does not create a schedule or guarantee that unattended runs will succeed.
 
+For a weekday brief in a Slack channel, follow the [Claude and Slack walkthrough](/guides/claude-slack-briefs).
+
 ## If Claude cannot use the connection
 
 | What you see | Next step |
 | --- | --- |
 | The skill loads, but Claude says Paperzilla is not connected | Open the plugin's **Connectors** tab and check its status. Installation and account connection are separate. |
 | The connector says **Connected**, but tools are unavailable in the chat | Enable Paperzilla in the chat's **+ → Connectors** menu, then ask for a fresh account-status check. |
+| Claude asks you to set up a project | Follow [Create a research topic](#create-a-research-topic). If you already have a project, check which Paperzilla account Claude is connected to. |
 | Claude uses **Paperzilla beta** | Open the production plugin's **Connectors** tab and connect `https://paperzilla.ai/api/mcp`. Select production for this chat and invoke the production skill. Beta is a separate connection; it does not establish production access. |
 | The wrong Paperzilla account is connected | Revoke that specific connection in [Connect AI clients](https://paperzilla.ai/ai-connections), reconnect from Claude, and choose **Use a different account** before approving access. |
 | Feedback permission is missing | Refresh Claude's tools and reconnect to review consent including `feedback:write`. Existing grants do not gain new permissions automatically. |

@@ -1,6 +1,6 @@
 ---
 title: "Paperzilla docs portal"
-description: "Official Paperzilla docs portal for projects, feeds, CLI, MCP, agent workflows, and integrations."
+description: "Official Paperzilla docs portal for projects, feeds, research briefs, CLI, MCP, agent workflows, and integrations."
 keywords: ["research tracking", "paper feed", "email digest", "project", "MCP", "documentation"]
 ---
 
@@ -8,9 +8,9 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/index" />
 
-Paperzilla helps you track a research topic as a **project**.
+Paperzilla continuously tracks the research topics you are interested in.
 
-Each project gives you five ways to consume papers:
+For each topic, you have five ways to access papers.
 
 - In-app feed
 - RSS/Atom feed URL
@@ -26,17 +26,20 @@ Paperzilla also works as a **data layer for agents** through CLI, RSS/Atom, and 
   <Card title="What is Paperzilla?" icon="compass" href="/what-is-paperzilla">
     See who it helps, when to use it, and how it fits your workflow.
   </Card>
+  <Card title="Daily research briefs" icon="newspaper" href="/guides/claude">
+    Ask your AI agent which new papers on your topic are worth reading and why.
+  </Card>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Create your first project to find papers and get a research brief.
+  </Card>
+  <Card title="Projects" icon="folder-open" href="/guides/projects">
+    Define a research topic to track and tune which papers appear in its feed.
+  </Card>
   <Card title="Agent workflows" icon="bot" href="/guides/agent-workflows">
     Use CLI, RSS/Atom, and MCP for automation.
   </Card>
   <Card title="MCP" icon="plug" href="/guides/mcp">
-    Connect Claude, Cursor, and other MCP clients to Paperzilla.
-  </Card>
-  <Card title="Quickstart" icon="rocket" href="/quickstart">
-    Create your first project and start reading papers in minutes.
-  </Card>
-  <Card title="Projects" icon="folder-open" href="/guides/projects">
-    Learn how projects work and how to tune relevance.
+    Connect Claude, ChatGPT, Cursor, and other MCP clients to Paperzilla.
   </Card>
   <Card title="In-app feed" icon="rss" href="/guides/feed-in-app">
     Use filters, search, and relevance labels in the app.
@@ -57,8 +60,7 @@ Paperzilla also works as a **data layer for agents** through CLI, RSS/Atom, and 
 - **Project**: your standing research intent (topic + interests + keywords + settings)
 - **Feed**: continuously updated list of matched papers for a project
 - **Email digest**: a scheduled email selection from your project
-- **Must Read**: highest relevance class in your project
-- **Related**: relevant but lower-priority papers in your project
+- **Research brief** — a selection of new papers from your project feed, with notes from your AI agent on why each is worth reading
 
 ## Next steps
 
