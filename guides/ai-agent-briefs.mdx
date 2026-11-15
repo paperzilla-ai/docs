@@ -1,0 +1,37 @@
+---
+title: "Get your first research brief with an AI agent"
+description: "Connect an AI agent to Paperzilla with MCP and ask it to pick new papers from your project feed."
+keywords: ["AI agent", "Paperzilla MCP", "OAuth", "research brief"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/guides/ai-agent-briefs" />
+
+Ask an AI agent to read your Paperzilla project feed and explain which new papers are worth reading. A Paperzilla project tracks a research topic for you.
+
+For plugin setup, follow the guide for [Claude](/guides/claude), [ChatGPT or Codex](/guides/chatgpt-codex-briefs), or [OpenClaw](/guides/openclaw-briefs).
+
+## Connect Paperzilla to your agent
+
+1. In your agent’s MCP settings, add a server named **Paperzilla** at `https://paperzilla.ai/api/mcp`. Select **Streamable HTTP** and **OAuth** where your client asks for them.
+2. Sign in or create a Paperzilla account in the browser. If you already have a project, use the account that owns it.
+3. Check the account and requested permissions, then select **Allow**. Enable Paperzilla for the conversation if your client has per-chat tool controls.
+
+For public digests, the agent needs `catalog:read`. To read your own project feeds, it also needs `projects:read`. See [Paperzilla MCP setup and permissions](/guides/mcp). If your agent has shell access, it can also read your project feed with the [Paperzilla CLI](/guides/cli-getting-started).
+
+## Choose or create a research topic
+
+To use an existing project, ask the agent **“Use Paperzilla to list my projects.”** Pick a project with papers in its feed. You can also find its name in your [Paperzilla dashboard](https://paperzilla.ai/dashboard).
+
+To start a new topic, follow the [Paperzilla quickstart](/quickstart) with the account you connected. Describe what you want to track, review the suggested categories and keywords, and save your project. Return to your agent once papers appear in the feed.
+
+You can try a sample while your first papers are being prepared. Ask **“Use Paperzilla to find a public digest about machine learning. Pick up to three papers from its latest issue, link to each, and explain why it’s worth reading.”** Public digests are available with a Paperzilla account before you create a project.
+
+## Ask your agent for your first brief
+
+Replace **[project name]** with the name of your project and send this prompt.
+
+> Use Paperzilla to prepare a morning research brief from my [project name] feed. Pick up to five of the latest papers. Link to each paper, explain why it matters for my research topic, and tell me what dates you checked. If the feed has no papers, tell me that.
+
+If the agent can read public digests but cannot find your project, check that you connected the account that owns it and granted `projects:read`. You can inspect or revoke the connection in [Connect AI clients](https://paperzilla.ai/ai-connections).

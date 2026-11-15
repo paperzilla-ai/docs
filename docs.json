@@ -77,6 +77,9 @@
                       "guides/codex",
                       "guides/codex-teams-briefs",
                       "guides/claude",
+                      "guides/chatgpt-codex-briefs",
+                      "guides/openclaw-briefs",
+                      "guides/ai-agent-briefs",
                       "guides/claude-slack-briefs"
                     ]
                   },
@@ -339,6 +342,9 @@
                       "es/guides/codex",
                       "es/guides/codex-teams-briefs",
                       "es/guides/claude",
+                      "es/guides/chatgpt-codex-briefs",
+                      "es/guides/openclaw-briefs",
+                      "es/guides/ai-agent-briefs",
                       "es/guides/claude-slack-briefs"
                     ]
                   },

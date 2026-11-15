@@ -1,0 +1,43 @@
+---
+title: "Get your first research brief in OpenClaw"
+description: "Install the published Paperzilla MCP plugin, connect your account, and ask OpenClaw for a morning research brief from your project feed."
+keywords: ["OpenClaw", "ClawHub", "Paperzilla MCP", "research brief"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/guides/openclaw-briefs" />
+
+Connect Paperzilla to OpenClaw and ask for a brief from a project that tracks your research topic. If Paperzilla already shows **Connected** in OpenClaw, skip to [Choose or create a research topic](#choose-or-create-a-research-topic).
+
+## Install the Paperzilla MCP plugin
+
+Use OpenClaw 2026.10.8 or later with a model provider connected for chat.
+
+1. In OpenClaw, open **Plugins** and find [Paperzilla MCP by `pors`](https://clawhub.ai/pors/plugins/paperzilla-mcp).
+2. Install and enable the plugin. It includes the Paperzilla OAuth connection and the Morning Brief skill.
+3. Open **Paperzilla MCP → Overview → Accounts** and select **Connect** next to `paperzilla`.
+
+For command-line installation or manual MCP setup, see [Use Paperzilla MCP with OpenClaw](/guides/openclaw-mcp).
+
+## Sign in and review access
+
+1. In the Paperzilla window, sign in or create a free account. If you already have a project, use the account that owns it.
+2. Check the account and requested permissions, then select **Allow**.
+3. Return to OpenClaw and confirm that the plugin’s **Accounts** section shows **Connected**.
+
+## Choose or create a research topic {#choose-or-create-a-research-topic}
+
+To use an existing project, ask OpenClaw **“Use Paperzilla to list my projects.”** Pick a project with papers in its feed. You can also find its name in your [Paperzilla dashboard](https://paperzilla.ai/dashboard).
+
+To start a new topic, follow the [Paperzilla quickstart](/quickstart) with the account you connected. Describe what you want to track, review the suggested categories and keywords, and save your project. Return to OpenClaw once papers appear in the feed.
+
+You can try a sample while your first papers are being prepared. Ask **“Use Paperzilla to find a public digest about machine learning. Pick up to three papers from its latest issue, link to each, and explain why it’s worth reading.”**
+
+## Ask OpenClaw for your first brief
+
+Open a chat with the agent that can use the Paperzilla MCP plugin. Replace **[project name]** with the name of your project and send this prompt.
+
+> Use Paperzilla’s Morning Brief skill to prepare a research brief from my [project name] feed. Pick up to five of the latest papers. Link to each paper, explain why it matters for my research topic, and tell me what dates you checked.
+
+If OpenClaw cannot use Paperzilla, check the plugin’s **Accounts** section and your agent’s tool access. See [OpenClaw connection troubleshooting](/guides/openclaw-mcp#troubleshooting).

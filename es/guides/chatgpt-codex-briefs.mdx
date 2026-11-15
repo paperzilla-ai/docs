@@ -1,0 +1,47 @@
+---
+title: "Obtén tu primer resumen de investigación en ChatGPT o Codex"
+description: "Instala el plugin de Paperzilla, conecta tu cuenta y obtén un resumen matutino de investigación en ChatGPT o Codex a partir de la lista de artículos de tu proyecto."
+keywords: ["ChatGPT", "Codex", "plugin de Paperzilla", "resumen de investigación"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/chatgpt-codex-briefs" />
+
+Conecta Paperzilla a ChatGPT o Codex y pide un resumen a partir del proyecto que sigue tu tema de investigación. Si ya conectaste Paperzilla, ve a [Elige o crea un tema de investigación](#choose-or-create-a-research-topic).
+
+## Instala el plugin de Paperzilla
+
+<Info>El plugin de Paperzilla está pendiente de revisión por parte de OpenAI. El enlace directo a su ficha en el directorio se añadirá cuando esté disponible.</Info>
+
+1. Abre **Plugins** en ChatGPT y busca **Paperzilla** en el directorio.
+2. Selecciona **Install plugin**. El plugin incluye la aplicación de Paperzilla y la habilidad Morning Brief.
+3. Cuando aparezca la opción **Connect** para Paperzilla, selecciónala. Si cerraste el aviso, abre el plugin en **Settings → Plugins** e inicia la conexión desde allí.
+
+El acceso al plugin y las opciones disponibles dependen de tu cuenta de OpenAI y de la configuración de tu espacio de trabajo. Consulta la [guía de plugins de OpenAI](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt).
+
+Si tienes acceso a conexiones MCP personalizadas, también puedes [añadir Paperzilla directamente en ChatGPT](/es/guides/mcp#chatgpt) o [conectar Paperzilla MCP en Codex](/es/guides/codex#mcp-connection).
+
+## Inicia sesión y revisa el acceso
+
+1. En la ventana de Paperzilla, inicia sesión o crea una cuenta. Si ya tienes un proyecto, usa la cuenta a la que pertenece.
+2. Revisa la cuenta y los permisos solicitados. Luego selecciona **Allow**.
+3. Vuelve a tu conversación. En ChatGPT, selecciona **Paperzilla** en el menú **+** junto al cuadro de mensaje o menciona el plugin con **@**. Si tu tarea de Codex ofrece **Sources → Use plugins**, selecciona **Paperzilla** allí.
+
+## Elige o crea un tema de investigación {#choose-or-create-a-research-topic}
+
+Para usar un proyecto existente, pide **«Usa Paperzilla para mostrarme mis proyectos»**. Elige un proyecto cuya lista ya tenga artículos. También puedes buscar su nombre en tu [panel de Paperzilla](https://paperzilla.ai/dashboard).
+
+Para empezar con un tema nuevo, sigue el [inicio rápido de Paperzilla](/es/quickstart) con la cuenta que conectaste. Describe el tema, revisa las categorías y palabras clave sugeridas y guarda tu proyecto. Vuelve a la conversación cuando aparezcan artículos en la lista.
+
+Mientras Paperzilla prepara tus primeros artículos, puedes probar con un ejemplo. Pide **«Usa Paperzilla para buscar un resumen periódico público sobre aprendizaje automático. Elige hasta tres artículos del último número, incluye un enlace a cada uno y explica por qué vale la pena leerlo»**.
+
+## Pide tu primer resumen
+
+Sustituye **[nombre del proyecto]** por el nombre de tu proyecto y envía este mensaje.
+
+> Usa Paperzilla para preparar un resumen matutino de investigación con la lista de artículos de [nombre del proyecto]. Elige hasta cinco de los artículos más recientes. Incluye un enlace a cada uno, explica por qué es relevante para mi tema de investigación e indica qué fechas revisaste.
+
+Si no ves tus proyectos en ChatGPT o Codex, comprueba que Paperzilla esté disponible en la conversación y conectado a la cuenta a la que pertenece el proyecto. Si la sesión caducó, vuelve a conectarte desde el plugin y repite la solicitud. Consulta los [permisos y la gestión de conexiones de Paperzilla MCP](/es/guides/mcp).
+
+Para preparar un resumen que puedas compartir con tu equipo, consulta [Usa Codex y Microsoft Teams para preparar resúmenes de investigación](/es/guides/codex-teams-briefs).

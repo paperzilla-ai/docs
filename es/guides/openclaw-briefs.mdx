@@ -1,0 +1,43 @@
+---
+title: "Obtén tu primer resumen de investigación en OpenClaw"
+description: "Instala el plugin publicado de Paperzilla MCP, conecta tu cuenta y pide a OpenClaw un resumen matutino de investigación a partir de la lista de artículos de tu proyecto."
+keywords: ["OpenClaw", "ClawHub", "Paperzilla MCP", "resumen de investigación"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/openclaw-briefs" />
+
+Conecta Paperzilla a OpenClaw y pide un resumen a partir del proyecto que sigue tu tema de investigación. Si Paperzilla ya aparece como **Connected** en OpenClaw, ve a [Elige o crea un tema de investigación](#choose-or-create-a-research-topic).
+
+## Instala el plugin de Paperzilla MCP
+
+Usa OpenClaw 2026.10.8 o posterior y conecta un proveedor de modelos para el chat.
+
+1. En OpenClaw, abre **Plugins** y busca [Paperzilla MCP de `pors`](https://clawhub.ai/pors/plugins/paperzilla-mcp).
+2. Instala y activa el plugin. Incluye la conexión OAuth de Paperzilla y la habilidad Morning Brief.
+3. Abre **Paperzilla MCP → Overview → Accounts** y selecciona **Connect** junto a `paperzilla`.
+
+Para instalarlo desde la línea de comandos o configurar MCP de forma manual, consulta [Usa Paperzilla MCP con OpenClaw](/es/guides/openclaw-mcp).
+
+## Inicia sesión y revisa el acceso
+
+1. En la ventana de Paperzilla, inicia sesión o crea una cuenta gratuita. Si ya tienes un proyecto, usa la cuenta a la que pertenece.
+2. Revisa la cuenta y los permisos solicitados. Luego selecciona **Allow**.
+3. Vuelve a OpenClaw y comprueba que la sección **Accounts** del plugin muestre **Connected**.
+
+## Elige o crea un tema de investigación {#choose-or-create-a-research-topic}
+
+Para usar un proyecto existente, pide a OpenClaw **«Usa Paperzilla para mostrarme mis proyectos»**. Elige un proyecto cuya lista ya tenga artículos. También puedes buscar su nombre en tu [panel de Paperzilla](https://paperzilla.ai/dashboard).
+
+Para empezar con un tema nuevo, sigue el [inicio rápido de Paperzilla](/es/quickstart) con la cuenta que conectaste. Describe el tema, revisa las categorías y palabras clave sugeridas y guarda tu proyecto. Vuelve a OpenClaw cuando aparezcan artículos en la lista.
+
+Mientras Paperzilla prepara tus primeros artículos, puedes probar con un ejemplo. Pide **«Usa Paperzilla para buscar un resumen periódico público sobre aprendizaje automático. Elige hasta tres artículos del último número, incluye un enlace a cada uno y explica por qué vale la pena leerlo»**.
+
+## Pide a OpenClaw tu primer resumen
+
+Abre un chat con el agente que tiene acceso al plugin de Paperzilla MCP. Sustituye **[nombre del proyecto]** por el nombre de tu proyecto y envía este mensaje.
+
+> Usa la habilidad Morning Brief de Paperzilla para preparar un resumen de investigación con la lista de artículos de [nombre del proyecto]. Elige hasta cinco de los artículos más recientes. Incluye un enlace a cada uno, explica por qué es relevante para mi tema de investigación e indica qué fechas revisaste.
+
+Si OpenClaw no puede usar Paperzilla, revisa la sección **Accounts** del plugin y comprueba a qué herramientas tiene acceso tu agente. Consulta [Cómo resolver problemas de conexión en OpenClaw](/es/guides/openclaw-mcp#troubleshooting).

@@ -1,0 +1,47 @@
+---
+title: "Get your first research brief in ChatGPT or Codex"
+description: "Install the Paperzilla plugin, connect your account, and get a morning research brief from your project feed in ChatGPT or Codex."
+keywords: ["ChatGPT", "Codex", "Paperzilla plugin", "research brief"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/guides/chatgpt-codex-briefs" />
+
+Connect Paperzilla to ChatGPT or Codex and ask for a brief from a project that tracks your research topic. If you already connected Paperzilla, skip to [Choose or create a research topic](#choose-or-create-a-research-topic).
+
+## Install the Paperzilla plugin
+
+<Info>The Paperzilla plugin is awaiting OpenAI review. The direct link to its directory listing will be added when it’s available.</Info>
+
+1. Open **Plugins** in ChatGPT and find **Paperzilla** in the directory.
+2. Select **Install plugin**. The plugin includes the Paperzilla app and the Morning Brief skill.
+3. Select **Connect** for Paperzilla when prompted. If you closed the prompt, open the plugin in **Settings → Plugins** and start the connection there.
+
+Plugin access and controls depend on your OpenAI account and workspace settings. See [OpenAI’s plugin guide](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt).
+
+If you have access to custom MCP connections, you can also [add Paperzilla directly in ChatGPT](/guides/mcp#chatgpt) or [connect Paperzilla MCP in Codex](/guides/codex#mcp-connection).
+
+## Sign in and review access
+
+1. In the Paperzilla window, sign in or create an account. If you already have a project, use the account that owns it.
+2. Check the account and requested permissions, then select **Allow**.
+3. Return to your conversation. In ChatGPT, select **Paperzilla** from the composer’s **+** menu or mention it with **@**. In a Codex task that offers **Sources → Use plugins**, select **Paperzilla** there.
+
+## Choose or create a research topic {#choose-or-create-a-research-topic}
+
+To use an existing project, ask **“Use Paperzilla to list my projects.”** Pick a project with papers in its feed. You can also find its name in your [Paperzilla dashboard](https://paperzilla.ai/dashboard).
+
+To start a new topic, follow the [Paperzilla quickstart](/quickstart) with the account you connected. Describe what you want to track, review the suggested categories and keywords, and save your project. Return to the conversation once papers appear in the feed.
+
+You can try a sample while your first papers are being prepared. Ask **“Use Paperzilla to find a public digest about machine learning. Pick up to three papers from its latest issue, link to each, and explain why it’s worth reading.”**
+
+## Ask for your first brief
+
+Replace **[project name]** with the name of your project and send this prompt.
+
+> Use Paperzilla to prepare a morning research brief from my [project name] feed. Pick up to five of the latest papers. Link to each paper, explain why it matters for my research topic, and tell me what dates you checked.
+
+If ChatGPT or Codex cannot list your projects, check that Paperzilla is available in the conversation and connected to the account that owns the project. If sign-in has expired, reconnect from the plugin and retry the request. See [Paperzilla MCP permissions and connection management](/guides/mcp).
+
+For a brief you can share with your team, see [Use Codex and Microsoft Teams for research briefs](/guides/codex-teams-briefs).
