@@ -8,40 +8,99 @@ import { AiAgents } from '/es/snippets/ai-agents.mdx';
 
 <AiAgents path="/es/guides/chatgpt-codex-briefs" />
 
-Conecta Paperzilla a ChatGPT o Codex y pide un resumen a partir del proyecto que sigue tu tema de investigación. Si ya conectaste Paperzilla, ve a [Elige o crea un tema de investigación](#choose-or-create-a-research-topic).
+Conecta Paperzilla y obtén tu primer resumen de investigación a partir de un proyecto que siga tu tema. Si ya conectaste Paperzilla, [elige o crea un tema de investigación](#choose-or-create-a-research-topic). Si usas Codex, ve a [Usa Paperzilla en Codex](#use-paperzilla-in-codex).
 
-## Instala el plugin de Paperzilla
+## Guía paso a paso en ChatGPT {#chatgpt-walkthrough}
 
-<Info>El plugin de Paperzilla está pendiente de revisión por parte de OpenAI. El enlace directo a su ficha en el directorio se añadirá cuando esté disponible.</Info>
+### Instala el plugin de Paperzilla {#install-the-paperzilla-plugin}
 
-1. Abre **Plugins** en ChatGPT y busca **Paperzilla** en el directorio.
-2. Selecciona **Install plugin**. El plugin incluye la aplicación de Paperzilla y la habilidad Morning Brief.
-3. Cuando aparezca la opción **Connect** para Paperzilla, selecciónala. Si cerraste el aviso, abre el plugin en **Settings → Plugins** e inicia la conexión desde allí.
+Abre **Plugins** en ChatGPT y busca **Paperzilla**, o abre directamente la [ficha del plugin de Paperzilla](https://chatgpt.com/plugins/plugin_asdk_app_6ae8647a41148191ba7794dd2f6e979e). Selecciona **Install plugin**.
 
-El acceso al plugin y las opciones disponibles dependen de tu cuenta de OpenAI y de la configuración de tu espacio de trabajo. Consulta la [guía de plugins de OpenAI](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt).
+<Frame caption="Selecciona Install plugin en la ficha de Paperzilla.">
+  <img src="/images/guides/chatgpt/directory-install/02-paperzilla-plugin-listing.jpg" alt="Ficha del plugin de Paperzilla en ChatGPT con el botón Install plugin" />
+</Frame>
 
-Si tienes acceso a conexiones MCP personalizadas, también puedes [añadir Paperzilla directamente en ChatGPT](/es/guides/mcp#chatgpt) o [conectar Paperzilla MCP en Codex](/es/guides/codex#mcp-connection).
+El acceso al plugin y las opciones disponibles dependen de tu cuenta de OpenAI y de la configuración de tu espacio de trabajo. [Guía de plugins de OpenAI](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt)
 
-## Inicia sesión y revisa el acceso
+### Inicia sesión y revisa el acceso {#sign-in-and-review-access}
 
-1. En la ventana de Paperzilla, inicia sesión o crea una cuenta. Si ya tienes un proyecto, usa la cuenta a la que pertenece.
-2. Revisa la cuenta y los permisos solicitados. Luego selecciona **Allow**.
-3. Vuelve a tu conversación. En ChatGPT, selecciona **Paperzilla** en el menú **+** junto al cuadro de mensaje o menciona el plugin con **@**. Si tu tarea de Codex ofrece **Sources → Use plugins**, selecciona **Paperzilla** allí.
+Cuando ChatGPT te pida que conectes Paperzilla, selecciona **Connect Paperzilla**. Si cerraste el aviso, vuelve a abrir Paperzilla en **Settings → Plugins** para conectarlo.
+
+<Frame caption="Selecciona Connect Paperzilla para continuar.">
+  <img src="/images/guides/chatgpt/directory-install/03-connect-paperzilla-in-chatgpt.jpg" alt="Cuadro de diálogo de ChatGPT para conectar Paperzilla con el botón Connect Paperzilla" />
+</Frame>
+
+Inicia sesión con la cuenta de Paperzilla a la que pertenecen tus proyectos. Si es la primera vez que usas Paperzilla, selecciona **Create a free account** e introduce tu nombre y tu correo electrónico.
+
+<Frame caption="Si es la primera vez que usas Paperzilla, crea una cuenta.">
+  <img src="/images/guides/chatgpt/directory-install/14-create-a-free-paperzilla-account.jpg" alt="Formulario de registro de Paperzilla con campos para el nombre y el correo electrónico" />
+</Frame>
+
+Si Paperzilla te envía un código de seis dígitos por correo, introdúcelo en la ventana de Paperzilla para continuar.
+
+<Frame caption="Introduce el código que recibiste por correo de Paperzilla.">
+  <img src="/images/guides/chatgpt/directory-install/15-enter-the-email-code.jpg" alt="Pantalla de verificación de Paperzilla con seis casillas vacías para el código" />
+</Frame>
+
+En **Allow this connection?**, comprueba la cuenta y revisa los permisos solicitados. Si necesitas cambiar de cuenta, selecciona **Use a different account**. Para conectar, selecciona **Allow**. Si no ves el botón **Allow**, desplázate hacia abajo.
+
+<Frame caption="Revisa la cuenta y los permisos y selecciona Allow para conectar.">
+  <img src="/images/guides/chatgpt/directory-install/16-review-complete-paperzilla-consent.jpg" alt="Pantalla de permisos de Paperzilla para ChatGPT con el acceso solicitado y el botón Allow al final" />
+</Frame>
+
+### Abre Paperzilla en un chat {#open-paperzilla-in-a-chat}
+
+De vuelta en ChatGPT, selecciona **Try in chat** para abrir un chat con Paperzilla. Si quieres usar un chat existente, elige **Paperzilla** en el menú **+** junto al cuadro de mensaje o selecciónalo con **@**.
+
+<Frame caption="Selecciona Try in chat para empezar una conversación con Paperzilla.">
+  <img src="/images/guides/chatgpt/directory-install/06-open-paperzilla-in-chat.jpg" alt="Plugin de Paperzilla instalado con el botón Try in chat" />
+</Frame>
 
 ## Elige o crea un tema de investigación {#choose-or-create-a-research-topic}
 
-Para usar un proyecto existente, pide **«Usa Paperzilla para mostrarme mis proyectos»**. Elige un proyecto cuya lista ya tenga artículos. También puedes buscar su nombre en tu [panel de Paperzilla](https://paperzilla.ai/dashboard).
+### Usa un proyecto existente {#use-an-existing-project}
 
-Para empezar con un tema nuevo, sigue el [inicio rápido de Paperzilla](/es/quickstart) con la cuenta que conectaste. Describe el tema, revisa las categorías y palabras clave sugeridas y guarda tu proyecto. Vuelve a la conversación cuando aparezcan artículos en la lista.
+Pide **«Usa Paperzilla para mostrarme mis proyectos»**. Elige el proyecto que quieras usar. También puedes buscar su nombre en tu [panel de Paperzilla](https://paperzilla.ai/dashboard). Después, [pide tu primer resumen](#ask-for-your-first-brief).
 
-Mientras Paperzilla prepara tus primeros artículos, puedes probar con un ejemplo. Pide **«Usa Paperzilla para buscar un resumen periódico público sobre aprendizaje automático. Elige hasta tres artículos del último número, incluye un enlace a cada uno y explica por qué vale la pena leerlo»**.
+### Crea un tema de investigación {#create-a-research-topic}
 
-## Pide tu primer resumen
+1. Usa el enlace de configuración que te dé tu agente. En ChatGPT, también puedes abrir el [chat de configuración de Paperzilla](https://paperzilla.ai/digests/new?briefAgent=chatgpt) o usar **Create my research topic** en el correo de confirmación de la conexión. Usa la misma cuenta de Paperzilla que conectaste.
+2. Describe la investigación que quieres seguir y revisa las categorías y palabras clave sugeridas. Cuando el tema quede como quieres, selecciona **Create project**.
+3. Vuelve al mismo chat cuando Paperzilla guarde tu proyecto. Puedes pedir el primer resumen allí mientras se prepara la vista previa.
+
+<Frame caption="Revisa el tema sugerido y selecciona Create project.">
+  <img src="/images/guides/chatgpt/directory-install/09-review-and-create-project.jpg" alt="Chat de configuración de Paperzilla con un tema propuesto, categorías, palabras clave y el botón Create project" />
+</Frame>
+
+Si necesitas ayuda para describir el tema, consulta el [inicio rápido de Paperzilla](/es/quickstart).
+
+## Pide tu primer resumen {#ask-for-your-first-brief}
 
 Sustituye **[nombre del proyecto]** por el nombre de tu proyecto y envía este mensaje.
 
-> Usa Paperzilla para preparar un resumen matutino de investigación con la lista de artículos de [nombre del proyecto]. Elige hasta cinco de los artículos más recientes. Incluye un enlace a cada uno, explica por qué es relevante para mi tema de investigación e indica qué fechas revisaste.
+> Usa Paperzilla para preparar mi primer resumen de investigación del proyecto [nombre del proyecto]. Elige hasta cinco artículos de mi lista, incluye un enlace a cada uno y explica por qué es relevante para mi tema.
 
-Si no ves tus proyectos en ChatGPT o Codex, comprueba que Paperzilla esté disponible en la conversación y conectado a la cuenta a la que pertenece el proyecto. Si la sesión caducó, vuelve a conectarte desde el plugin y repite la solicitud. Consulta los [permisos y la gestión de conexiones de Paperzilla MCP](/es/guides/mcp).
+Si Paperzilla todavía está preparando tus primeros artículos, ChatGPT o Codex puede consultar el estado de la vista previa. Puede tardar 30 minutos o más. Paperzilla te enviará un correo cuando la vista previa esté lista. Vuelve al mismo chat y pide el resumen de nuevo. [Qué esperar de tu vista previa](/es/guides/ai-agent-briefs#preview-status)
+
+<Frame caption="Cuando la vista previa esté lista, vuelve a ChatGPT para incluir esos artículos en tu resumen.">
+  <img src="/images/guides/chatgpt/directory-install/12-preview-ready-return-to-chatgpt.jpg" alt="Vista previa de Paperzilla con los primeros artículos y una pregunta sugerida para ChatGPT" />
+</Frame>
+
+Puedes usar los artículos de la vista previa en un resumen aunque el seguimiento esté en pausa. Si quieres recibir resúmenes periódicos con artículos nuevos, comprueba que el seguimiento del proyecto esté activo antes de programarlos.
+
+<Frame caption="Un primer resumen de investigación en ChatGPT con artículos de la vista previa del proyecto.">
+  <img src="/images/guides/chatgpt/directory-install/18-clean-install-first-brief.jpg" alt="Inicio de un resumen de Paperzilla en ChatGPT con ocho artículos revisados, cinco seleccionados y una síntesis de los hallazgos" />
+</Frame>
+
+## Usa Paperzilla en Codex {#use-paperzilla-in-codex}
+
+Si tu tarea de Codex ofrece **Sources → Use plugins**, selecciona **Paperzilla** y conecta tu cuenta de Paperzilla cuando se te pida. También puedes [conectar Paperzilla en Codex mediante MCP](/es/guides/codex#mcp-connection). Una vez conectado, [elige o crea un tema de investigación](#choose-or-create-a-research-topic) y [pide tu primer resumen](#ask-for-your-first-brief).
 
 Para preparar un resumen que puedas compartir con tu equipo, consulta [Usa Codex y Microsoft Teams para preparar resúmenes de investigación](/es/guides/codex-teams-briefs).
+
+## Si tu agente no puede ver tus proyectos {#if-your-agent-cannot-see-your-projects}
+
+- Comprueba que **Paperzilla** esté seleccionado en el chat o en la tarea.
+- Confirma que la conexión usa la cuenta de Paperzilla a la que pertenece el proyecto. Si la conexión caducó o usa otra cuenta, vuelve a conectarte desde el plugin e inténtalo de nuevo.
+
+Si tu espacio de trabajo usa conectores personalizados, consulta [Añade Paperzilla directamente en ChatGPT](/es/guides/mcp#chatgpt).
