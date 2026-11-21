@@ -22,13 +22,15 @@ Use these depending on your workflow:
 
 See [CLI guide](/guides/cli), [MCP integration](/guides/mcp), [Codex guide](/guides/codex), [Claude guide](/guides/claude), and [RSS/Atom guide](/guides/feeds).
 
+For a walkthrough, [automate a CLI feed export](/guides/cli-automation) or [connect a custom agent via MCP](/guides/custom-agent-mcp).
+
 ## Recommended setup for agent workflows
 
 1. Create and tune projects in the app.
 2. Authenticate CLI with `pz login`.
 3. Use `pz project list --json` to get the project ID you need from structured output.
 4. Use `pz feed <project-id> --json` for browse-style automation, or `pz feed search --project-id <id> --query <q> --json` for text search across the full feed.
-5. Add filters (`--must-read`, `--since`, `--limit`, `--feedback-filter`) based on your workflow.
+5. Use `--must-read`, `--since`, or `--limit` with `pz feed`. To filter search results by your feedback, use `pz feed search --feedback-filter`.
 
 ## OpenClaw skill
 
@@ -36,7 +38,9 @@ The Paperzilla CLI is published as an [OpenClaw skill on ClawHub](https://clawhu
 
 ## Codex
 
-Codex works with Paperzilla in two ways. Add Paperzilla MCP from Codex **Settings** > **Integrations & MCP** when you want native tool calling. Then confirm the server in `/mcp`. Use `pz` directly when Codex already works in a shell or repo. A useful Codex skill should cover setup verification, docs pointers, and the Paperzilla tool sequence, not just "prefer MCP" or "use the CLI." A plugin is only needed when you want an installable package. See [Use Paperzilla with Codex](/guides/codex).
+<Info>**Start with the Paperzilla plugin in Codex.** [Install the plugin and connect your account](/guides/codex#install-the-paperzilla-plugin) to give Codex access to Paperzilla's research tools.</Info>
+
+For a managed configuration, see [manual MCP setup in Codex](/guides/codex#mcp-connection). Use `pz` directly when Codex works in a shell or repo. A Codex skill for Paperzilla can document how to check the setup, find the relevant docs, and use the tools in order.
 
 ## Data surfaces you can combine
 

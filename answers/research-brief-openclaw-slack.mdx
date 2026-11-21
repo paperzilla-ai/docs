@@ -1,7 +1,7 @@
 ---
 title: "Can I use OpenClaw and Slack for academic paper briefs?"
 sidebarTitle: "OpenClaw + Slack briefs"
-description: "Use OpenClaw, Slack, and the Paperzilla CLI to create scheduled academic paper briefs."
+description: "Send scheduled academic paper briefs from Paperzilla to Slack with OpenClaw."
 keywords: ["OpenClaw Slack academic paper brief", "OpenClaw Slack research brief", "Paperzilla OpenClaw Slack", "Slack paper brief", "academic paper brief"]
 ---
 
@@ -11,7 +11,9 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 Yes.
 
-OpenClaw supports [Slack as a channel](https://docs.openclaw.ai/channels/slack). Use the same Paperzilla mechanics as the Telegram workflow: OpenClaw runs the schedule, the Paperzilla CLI (`pz`) reads your project feed, and Slack receives the brief.
+<Info>**Connect Paperzilla first.** [Install the Paperzilla MCP plugin in OpenClaw](/guides/openclaw-mcp#install-the-paperzilla-mcp-plugin) to connect your account, then continue here for Slack.</Info>
+
+OpenClaw supports [Slack as a channel](https://docs.openclaw.ai/channels/slack). OpenClaw runs the schedule, reads your project feed through the Paperzilla plugin, and sends the brief to Slack. You can also use the CLI setup in the Telegram guide.
 
 Use [OpenClaw and Telegram for research briefs](/guides/openclaw-telegram-briefs) as the closest detailed guide. Replace the Telegram channel setup and delivery target with your OpenClaw Slack channel setup.
 

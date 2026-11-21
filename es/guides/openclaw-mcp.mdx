@@ -1,0 +1,244 @@
+---
+title: "Usa Paperzilla MCP con OpenClaw"
+description: "Conecta OpenClaw a Paperzilla mediante OAuth, consulta resúmenes públicos, lee el Markdown de los artículos y busca en las listas de tus proyectos."
+keywords: ["OpenClaw", "MCP", "OAuth", "Paperzilla"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/openclaw-mcp" />
+
+Conecta OpenClaw a tu cuenta de Paperzilla para consultar en el chat resúmenes públicos, el Markdown de los artículos y las listas de tus proyectos.
+
+Instala el plugin **Paperzilla MCP** para usar su conexión OAuth y la habilidad Morning Brief, o conéctate directamente por URL. Ambas opciones usan `https://paperzilla.ai/api/mcp` con **Streamable HTTP** y **OAuth**. Puedes usar cualquiera de ellas sin instalar la herramienta de línea de comandos `pz`. Las habilidades existentes de la CLI de Paperzilla forman parte de otra integración.
+
+## Antes de empezar {#before-you-start}
+
+- OpenClaw debe estar en funcionamiento y necesitas acceso de administrador a **Plugins** o **Settings → MCP**. Estos pasos se probaron con OpenClaw 2026.10.8 y Paperzilla MCP 1.0.1.
+- Necesitas una cuenta de Paperzilla. Si aún no tienes una, puedes crearla al iniciar sesión. Sirve una cuenta gratuita o de vista previa. Puedes empezar sin proyecto, periodo de prueba ni datos de pago.
+- Para usar el chat, OpenClaw necesita un proveedor de IA que funcione. Puedes configurar la conexión MCP antes de conectar el proveedor.
+- Para iniciar sesión en el navegador, abre la interfaz de control en la dirección HTTPS de tu Gateway, en su dirección local de loopback o en su dirección publicada en Tailscale. Si la interfaz de control se aloja por separado, no puede recibir la redirección de OAuth del Gateway.
+
+Los nombres de los controles y la forma de guardar los cambios pueden variar según la versión de OpenClaw. Consulta la [guía de paquetes de plugins](https://docs.openclaw.ai/plugins/bundles) y la [guía de conexión MCP](https://docs.openclaw.ai/tools/mcp) de OpenClaw para tu versión.
+
+## Instala el plugin de Paperzilla MCP {#install-the-paperzilla-mcp-plugin}
+
+1. Abre **Plugins** en OpenClaw y busca [Paperzilla MCP](https://clawhub.ai/pors/plugins/paperzilla-mcp) de `pors`. Comprueba que el paquete se llame `@pors/paperzilla-mcp`.
+2. Instala y activa el plugin. Después, abre **Paperzilla MCP → Overview → Accounts**.
+3. Selecciona **Connect** junto a `paperzilla` para iniciar OAuth en el navegador y autorizar el acceso a tu cuenta.
+4. Inicia sesión en Paperzilla o selecciona **Create a free account**. Introduce el código de verificación que recibiste por correo en el mismo navegador. Después del registro, Paperzilla te devuelve a la pantalla de autorización. Revisa la cuenta y los permisos solicitados y selecciona **Allow**.
+5. Vuelve a OpenClaw y comprueba que la sección **Accounts** del plugin muestre **Connected**. Si el chat muestra **No models available**, abre **Settings → Models → Connect provider**, inicia sesión con un proveedor y selecciona un modelo.
+
+También puedes instalar el plugin desde la línea de comandos.
+
+```sh
+openclaw plugins install clawhub:@pors/paperzilla-mcp
+```
+
+El plugin incluye el servidor MCP de producción, los cinco permisos solicitados y el flujo para preparar el resumen matutino. Inicia sesión desde **Accounts → Connect**. **Settings → MCP** muestra los servidores configurados manualmente, por lo que es posible que allí no aparezcan los servidores de un plugin. Usa el control del plugin aunque el servidor no aparezca en esa lista.
+
+Si ya configuraste un servidor llamado `paperzilla`, tu configuración manual tiene prioridad. Comprueba su URL y sus permisos para confirmar si apunta a producción o a la versión beta. El plugin conserva tu configuración y las habilidades de la CLI existentes.
+
+Consulta el [repositorio del plugin de Paperzilla para OpenClaw](https://github.com/paperzilla-ai/paperzilla-openclaw-plugin) para ver el código fuente y los detalles de las versiones.
+
+### Prueba tu primer resumen {#try-your-first-brief}
+
+Abre un chat nuevo en OpenClaw y pide lo siguiente.
+
+> Acabo de conectar Paperzilla. ¿Tengo alguna lista de artículos personal? Prepara un resumen breve con tres artículos de la última edición del resumen público de Paperzilla sobre el trastorno obsesivo-compulsivo. Incluye el enlace a la fuente y un motivo para leer cada artículo.
+
+Puedes hacerlo con una cuenta nueva. Si no tienes listas personales, OpenClaw puede darte un enlace para configurar un proyecto y aun así leer el resumen público. Si una página de búsqueda está vacía pero hay más resultados, pídele a OpenClaw que consulte la página siguiente.
+
+### Pide un resumen matutino {#ask-for-a-morning-brief}
+
+> Ayúdame a configurar un resumen matutino diario con una o varias de mis listas de artículos de Paperzilla. Primero muéstrame mis listas para que pueda elegir. Me interesan los agentes de IA fiables y su evaluación. Sugiere entre tres y cinco artículos, con enlaces y motivos para leerlos.
+
+Elige las listas, la hora y la zona horaria. La habilidad busca artículos recién añadidos, agrupa los que aparecen en varias listas e indica qué fuentes revisó y en qué datos se basa. La programación depende de las herramientas de automatización de OpenClaw y de sus permisos. Configura el horario después de instalar el plugin y prueba una ejecución manual antes de confiar en la entrega automática.
+
+Para evitar que una ejecución desatendida se detenga, permite las llamadas de solo lectura de Paperzilla sin pedir confirmación cada vez, si los controles de OpenClaw lo permiten. Un resumen requiere varias lecturas y una solicitud de aprobación puede dejar la tarea en espera. Mantén `paper_markdown_request`, `feedback_set` y `feedback_clear` sujetos a aprobación, salvo que decidas lo contrario. La autorización de OAuth y la aprobación de herramientas se gestionan por separado.
+
+## Conéctate directamente sin el plugin {#connect-directly-without-the-plugin}
+
+Sigue estos pasos manuales si solo quieres la conexión MCP o prefieres gestionar la configuración del servidor. Si ya instalaste el plugin, usa su propia conexión.
+
+### Paso 1. Añade el servidor {#step-1-add-the-server}
+
+1. Abre **Settings → MCP** en OpenClaw.
+2. En **Configured servers**, selecciona **Add server**.
+3. Introduce estos valores.
+
+| Campo | Valor |
+|---|---|
+| **Name** | `paperzilla` |
+| **Transport** | **Streamable HTTP** |
+| **URL or command** | `https://paperzilla.ai/api/mcp` |
+
+4. Selecciona **Add server**.
+
+Elige un nombre que no esté en uso en tu configuración de OpenClaw. Este paso añade el servidor. Iniciarás sesión más adelante. Conserva el valor actual de **MCP Apps**. Las herramientas de Paperzilla funcionan con ese ajuste.
+
+### Paso 2. Configura OAuth {#step-2-configure-oauth}
+
+El formulario básico **Add server** solo pide un nombre, el transporte y la URL. Busca más abajo en la página el editor de configuración de MCP y úsalo para editar el servidor `paperzilla`.
+
+Asigna a `auth` el valor `oauth`. Dentro de `oauth`, asigna a `scope` esta cadena de texto.
+
+```text
+catalog:read projects:read feedback:write markdown:generate offline_access
+```
+
+La configuración del servidor queda así.
+
+```json5
+{
+  mcp: {
+    servers: {
+      paperzilla: {
+        url: "https://paperzilla.ai/api/mcp",
+        transport: "streamable-http",
+        enabled: true,
+        auth: "oauth",
+        oauth: {
+          scope: "catalog:read projects:read feedback:write markdown:generate offline_access",
+        },
+      },
+    },
+  },
+}
+```
+
+Conserva el resto de servidores cuando actualices la configuración. Si el editor tiene controles para guardar o publicar, aplícalos ahí. Otras versiones de OpenClaw guardan los cambios automáticamente. Consulta la [referencia de configuración de MCP](https://docs.openclaw.ai/gateway/config-extensions) de OpenClaw si quieres editar el archivo de configuración.
+
+Paperzilla proporciona el descubrimiento de OAuth y el registro del cliente. El flujo no requiere que crees una clave de API ni que introduzcas un secreto de cliente. Mantén las credenciales fuera de la URL del servidor.
+
+Estos permisos habilitan la integración completa.
+
+| Permiso | Qué permite |
+|---|---|
+| `catalog:read` | Leer resúmenes públicos, datos de artículos del catálogo y Markdown ya preparado |
+| `projects:read` | Leer todos tus proyectos actuales y futuros y sus listas de artículos |
+| `feedback:write` | Valorar, destacar o borrar valoraciones de artículos de tus propias listas |
+| `markdown:generate` | Solicitar que se prepare el Markdown de un artículo que ya existe en el catálogo |
+| `offline_access` | Mantener la conexión mediante la renovación automática de credenciales |
+
+Puedes solicitar menos permisos. Por ejemplo, `catalog:read offline_access` permite leer contenido público y renovar la conexión sin dar acceso a proyectos privados, modificar valoraciones ni generar Markdown.
+
+<Note>OpenClaw usa una identidad de OAuth compartida por defecto. Los agentes o usuarios con acceso a ese servidor pueden usar la misma conexión de Paperzilla. Si compartes el Gateway, elige una cuenta adecuada y consulta las [opciones de identidad por usuario](https://docs.openclaw.ai/cli/mcp/transports) de OpenClaw antes de conectar una cuenta personal.</Note>
+
+### Paso 3. Inicia sesión en Paperzilla {#step-3-sign-in-to-paperzilla}
+
+1. Comprueba que el servidor `paperzilla` esté activado y selecciona **Sign in** en su fila.
+2. OpenClaw abre Paperzilla en una pestaña del navegador. Si el navegador bloquea la ventana emergente, usa el enlace de inicio de sesión que aparece en el cuadro de diálogo de OpenClaw.
+3. Inicia sesión o crea una cuenta de Paperzilla. Completa la verificación en ese mismo navegador.
+4. En la pantalla de autorización de Paperzilla, revisa la identidad del cliente, tu cuenta y los permisos solicitados.
+5. Selecciona **Allow** para conectar la cuenta o **Deny** para cancelar.
+6. Vuelve a OpenClaw cuando el navegador complete la conexión.
+
+Si creaste una cuenta, volverás a la pantalla de autorización después de registrarte. Puedes dejar la configuración del proyecto para cuando necesites listas personalizadas. Tus credenciales de inicio de sesión de Paperzilla se quedan en Paperzilla.
+
+OpenClaw puede mostrar **Authentication saved**. Haz una llamada real a una herramienta para comprobar que el servidor responde.
+
+## Paso 4. Prueba los resúmenes públicos y los artículos {#step-4-try-public-digests-and-papers}
+
+Abre un chat y prueba peticiones como estas.
+
+- «Usa Paperzilla para comprobar a qué tengo acceso».
+- «Busca resúmenes públicos sobre robótica».
+- «Muéstrame la última edición publicada de ese resumen, con enlaces a sus artículos».
+- «Busca este DOI en Paperzilla y muéstrame los datos del artículo: [DOI]».
+- «Lee el Markdown ya preparado de ese artículo. Avísame si aún no está disponible».
+
+Estas peticiones funcionan con una cuenta gratuita y sin proyectos. Los resúmenes públicos tienen las mismas reglas de visibilidad y los mismos límites de vista previa que en el sitio web de Paperzilla.
+
+La búsqueda de artículos consulta el catálogo existente de Paperzilla. Si un artículo no está en el catálogo, tendrás que buscarlo en su fuente. Si una referencia coincide con varios artículos, elige entre los resultados.
+
+Leer el Markdown solo recupera contenido que ya está preparado. Para solicitar que se prepare, pide explícitamente «Prepara el Markdown de este artículo si la fuente está disponible». OpenClaw puede usar entonces `paper_markdown_request`. La solicitud puede quedar en cola, no estar disponible o estar sujeta a un periodo de espera tras un fallo. Repetir la petición no crea tareas duplicadas. El límite de generación es de 10 solicitudes por minuto por cuenta de Paperzilla, entre todos los clientes.
+
+Los resultados largos se dividen en páginas. Pide a OpenClaw que continúe si necesitas la página siguiente. Consulta la [guía de MCP](/es/guides/mcp) para conocer los estados del procesamiento y la paginación.
+
+## Paso 5. Usa tus proyectos {#step-5-use-your-projects}
+
+Si ya tienes proyectos en Paperzilla, prueba estas peticiones.
+
+- «Enumera mis proyectos de Paperzilla».
+- «Muéstrame los últimos artículos Must Read de mi proyecto de robótica».
+- «Busca artículos sobre aprendizaje por refuerzo en toda la lista del proyecto».
+
+Si no tienes proyectos, Paperzilla te devuelve un enlace para configurar uno. Crea tu primer proyecto en el sitio web de Paperzilla y vuelve a pedirlo en OpenClaw. Mientras tanto, puedes consultar los resúmenes públicos y los artículos del catálogo.
+
+El permiso `projects:read` también incluye los proyectos que crees más adelante. La conexión sigue sirviendo al añadir un proyecto. Crea y edita tus proyectos desde el sitio web de Paperzilla.
+
+## Valora artículos de un proyecto {#give-feedback-in-a-project}
+
+Cuando OpenClaw muestre una lista, pídele «Destaca el segundo artículo de este proyecto» o «Marca este artículo como no relevante para este proyecto». Para deshacerlo, pide «Borra mi valoración de ese artículo». OpenClaw debe usar el `project_paper_id` exacto de tu propia lista. Un mismo artículo del catálogo puede tener valoraciones diferentes en distintos proyectos. Pide las valoraciones explícitamente. El orden de los artículos en un resumen no se guarda como valoración.
+
+`feedback_set` admite `upvote`, `downvote` y `star`. `feedback_clear` borra la valoración guardada. Ambos requieren `feedback:write`. Si el cliente permite gestionar permisos por herramienta, mantén las operaciones de escritura sujetas a aprobación. Consulta la [referencia de MCP](/es/api-reference/mcp) para ver los detalles sobre las valoraciones.
+
+Si conectaste la cuenta antes de que se añadieran las herramientas de valoración, actualiza la lista de herramientas, añade `feedback:write` a `oauth.scope` e inicia sesión de nuevo para revisar el permiso. Las autorizaciones y los tokens de actualización existentes mantienen sus permisos originales. Para encontrar el artículo en tu lista sigues necesitando `projects:read`.
+
+## Comprueba desde la terminal una conexión manual {#check-a-manually-configured-connection-from-a-terminal}
+
+Estos comandos opcionales inspeccionan servidores MCP configurados manualmente. Para una conexión mediante el plugin, usa su control **Accounts** y pide una nueva llamada a una herramienta en el chat.
+
+Para un servidor manual, ejecuta el siguiente comando en la instalación de OpenClaw que lo gestiona.
+
+```sh
+openclaw mcp doctor paperzilla --probe
+```
+
+También puedes consultar la configuración y el estado de la autorización.
+
+```sh
+openclaw mcp status --verbose
+```
+
+Si usaste otro nombre en lugar de `paperzilla`, sustituye el del ejemplo por el tuyo. Para confirmar que tienes acceso a las herramientas, comprueba que el diagnóstico o una llamada a una herramienta se complete correctamente.
+
+## Desconecta o cambia de cuenta {#disconnect-or-change-accounts}
+
+Abre [Conectar clientes de IA](https://paperzilla.ai/ai-connections) en Paperzilla, busca la conexión de OpenClaw y revócala. Esto invalida de inmediato sus credenciales de Paperzilla. También puedes desactivar o quitar la configuración del servidor en OpenClaw.
+
+Para volver a conectar el plugin, sigue estos pasos.
+
+1. Abre **Plugins → Paperzilla MCP → Overview → Accounts**. Si sigue mostrando **Connected** después de revocar el acceso, pide a OpenClaw en el chat que vuelva a comprobar la conexión de Paperzilla. Cuando indique que debes iniciar sesión, vuelve a abrir **Accounts** en el plugin.
+2. Selecciona **Connect** junto a `paperzilla`. El botón **Edit paperzilla connection** abre **Settings → MCP**, donde se gestionan los servidores añadidos manualmente.
+3. Comprueba la cuenta en la pantalla de autorización de Paperzilla, selecciona **Allow** y vuelve a intentar tu petición original.
+
+Para volver a conectar un servidor añadido manualmente, selecciona **Settings → MCP → Sign in**. Al revocar la conexión, conservas tu cuenta de Paperzilla y tus proyectos.
+
+## Solución de problemas {#troubleshooting}
+
+### No aparece Connect ni Sign in {#there-is-no-connect-or-sign-in-button}
+
+Para el plugin, abre **Plugins → Paperzilla MCP → Overview → Accounts** y selecciona **Connect** junto a `paperzilla`. Es posible que la cuenta no aparezca en Settings → MCP. Si no ves Accounts, comprueba que el plugin esté activado y que uses OpenClaw 2026.10.8 o posterior.
+
+Para un servidor añadido manualmente, comprueba que esté activado, que use Streamable HTTP y que tenga `auth: "oauth"`. Confirma que tienes acceso de administrador y que usas una dirección de Gateway compatible de las que se indican en [Antes de empezar](#before-you-start).
+
+Para los servidores manuales, algunas versiones anteriores de OpenClaw o ciertas credenciales ya guardadas pueden requerir que inicies sesión desde la terminal. Sigue las [instrucciones alternativas para OAuth](https://docs.openclaw.ai/cli/mcp/transports) de OpenClaw. Para iniciar sesión desde la CLI tienes que detener primero el Gateway. Si está en funcionamiento, usa el inicio de sesión de Settings.
+
+### El inicio de sesión caduca o el navegador no vuelve a OpenClaw {#sign-in-expires-or-the-browser-does-not-return}
+
+Para el plugin, vuelve a iniciar el flujo desde **Accounts → Connect**. Para un servidor manual, usa **Settings → MCP → Sign in**. Completa la petición más reciente en el mismo navegador. Usa el último código de verificación que recibiste por correo. Comprueba que el navegador pueda acceder a la dirección de redirección del Gateway. Si reinicias el Gateway, el inicio de sesión en curso se interrumpe.
+
+### Paperzilla se conecta, pero no aparecen sus herramientas {#paperzilla-connects-but-its-tools-are-missing}
+
+Comprueba que el servidor esté activado en OpenClaw. Revisa los filtros de herramientas, los permisos del agente y el acceso a herramientas en la conversación. Estos controles siguen aplicándose después de conectar la cuenta. Para un servidor manual, ejecuta el diagnóstico anterior para distinguir los fallos de conexión de las restricciones de herramientas. Para el plugin, revisa el estado de la cuenta e inicia una nueva llamada a una herramienta en el chat. Consulta la [guía de MCP de OpenClaw](https://docs.openclaw.ai/tools/mcp).
+
+### OpenClaw muestra un error de autenticación del proveedor de IA {#openclaw-reports-an-ai-provider-authentication-failure}
+
+Abre **Settings → Models** para conectar un proveedor o verificar el modelo seleccionado. El inicio de sesión con el proveedor del modelo se gestiona por separado de OAuth de Paperzilla.
+
+### Una petición necesita un proyecto, un permiso o Markdown preparado {#a-request-needs-a-project-permission-or-prepared-markdown}
+
+Sigue la indicación de la herramienta. Un enlace de configuración indica que necesitas un proyecto para esa petición. Si falta un permiso, vuelve a conectar la cuenta y concédelo. El estado del Markdown indica si está pendiente o si no está disponible. Puedes seguir haciendo otras consultas públicas.
+
+### Antes usabas una clave de API {#you-previously-connected-with-an-api-key}
+
+Quita la conexión que usaba la clave y configura OAuth con esta guía. Las claves de API antiguas, las credenciales en parámetros de URL y los nombres antiguos de herramientas MCP se han retirado.
+
+## Guías relacionadas {#related}
+
+- [Usa Paperzilla con MCP](/es/guides/mcp)
+- [Referencia de herramientas de MCP](/es/api-reference/mcp)
+- [¿Cómo uso Paperzilla MCP con OpenClaw?](/es/answers/how-do-i-use-paperzilla-mcp-with-openclaw)
+- [Usa la CLI de Paperzilla con OpenClaw](/es/guides/openclaw)

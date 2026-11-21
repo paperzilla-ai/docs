@@ -1,0 +1,22 @@
+---
+title: "¿Cómo uso Paperzilla MCP con OpenClaw?"
+sidebarTitle: "MCP con OpenClaw"
+description: "Añade Paperzilla a OpenClaw con Streamable HTTP y OAuth. Después, consulta resúmenes públicos, el Markdown de los artículos y las listas de tus proyectos."
+keywords: ["OpenClaw", "MCP", "OAuth", "Paperzilla"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/answers/how-do-i-use-paperzilla-mcp-with-openclaw" />
+
+Instala [Paperzilla MCP](https://clawhub.ai/pors/plugins/paperzilla-mcp) de `pors` desde el catálogo **Plugins** de OpenClaw. El paquete se llama `@pors/paperzilla-mcp`. Después, abre **Plugins → Paperzilla MCP → Overview → Accounts → Connect** junto a `paperzilla`. Inicia sesión o crea una cuenta de Paperzilla, revisa la cuenta y los permisos y selecciona **Allow**.
+
+El plugin incluye la conexión OAuth de Paperzilla MCP en producción y una habilidad llamada Morning Brief. No requiere `pz` ni reemplaza las habilidades de la CLI que ya tengas. La cuenta del plugin puede no aparecer en **Settings → MCP**. Usa **Accounts → Connect** en el plugin. Estos pasos se probaron con OpenClaw 2026.10.8 y Paperzilla MCP 1.0.1.
+
+También puedes conectarte directamente sin el plugin. Abre **Settings → MCP → Add server**, usa el nombre `paperzilla`, elige **Streamable HTTP** e introduce la URL `https://paperzilla.ai/api/mcp`. En el editor de configuración del servidor, establece `auth: "oauth"` y asigna a `oauth.scope` el valor `catalog:read projects:read feedback:write markdown:generate offline_access`. Luego selecciona **Sign in**. Usa esta opción si quieres gestionar tú la configuración del servidor.
+
+Cuando OpenClaw tenga un modelo de chat disponible, pide «Busca el último resumen público de Paperzilla sobre el trastorno obsesivo-compulsivo y muéstrame tres artículos con enlaces a sus fuentes». Con una cuenta gratuita puedes consultar resúmenes públicos y artículos del catálogo sin crear un proyecto. Para consultar listas personales, necesitas un proyecto propio.
+
+Para valorar o destacar un artículo en la lista de un proyecto propio, pídelo explícitamente. Las herramientas de valoración requieren `feedback:write`. Si ya conectaste la cuenta, actualiza los permisos e inicia sesión de nuevo para aprobar ese permiso.
+
+Consulta [Usa Paperzilla MCP con OpenClaw](/es/guides/openclaw-mcp) para ver la configuración completa, los permisos, ejemplos de peticiones, comprobaciones y soluciones a problemas. Gestiona o revoca el acceso en [Conectar clientes de IA](https://paperzilla.ai/ai-connections). Si OpenClaw sigue mostrando **Connected** después de revocar el acceso, sigue los [pasos para volver a conectar](/es/guides/openclaw-mcp#disconnect-or-change-accounts).

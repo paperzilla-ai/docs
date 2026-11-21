@@ -1,0 +1,46 @@
+---
+title: "Connect a custom AI agent via MCP"
+sidebarTitle: "Connect a custom agent"
+description: "Configure your agent's MCP client, authorize a Paperzilla account, and verify access with a read-only tool call."
+keywords: ["custom agent", "MCP", "OAuth", "Streamable HTTP", "Paperzilla"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/guides/custom-agent-mcp" />
+
+Use Paperzilla MCP to let an agent you build read public digests or a user's own project feeds. Use an MCP SDK with Streamable HTTP and OAuth client support.
+
+<Info>**Setting up an existing AI client?** See [Paperzilla plugin setup](/guides/mcp) for Claude, ChatGPT, Codex, and OpenClaw.</Info>
+
+## Configure the transport and scopes
+
+1. Point your MCP client at `https://paperzilla.ai/api/mcp` and select **Streamable HTTP**. Let the SDK negotiate the MCP version and follow the server's OAuth discovery metadata.
+2. Request `catalog:read` to check account access and read public digests. Add `projects:read` if the agent reads the user's own project feeds. Add `offline_access` if your agent needs to refresh the connection between runs.
+3. Configure your SDK's OAuth callback. For a public client, use authorization code with PKCE S256, a redirect URI that matches the registration, and `token_endpoint_auth_method` set to `none`. Send the advertised resource `https://paperzilla.ai/api/mcp` on both the authorization request and the code exchange. See the [Paperzilla OAuth reference](/api-reference/mcp#oauth) for registration options and metadata URLs.
+
+## Authorize the account
+
+1. Start the OAuth flow from your client and open the authorization URL in the user's browser. The user signs in to Paperzilla and reviews the requested access.
+2. On return to your callback, let the SDK verify the OAuth state and exchange the code. Store credentials securely with the corresponding user connection. Send the OAuth access token in the Authorization header on MCP requests.
+3. If you requested refresh access, serialize refreshes for each connection and save the replacement refresh token after each successful exchange. If the user revokes access, start a new browser authorization before resuming reads.
+
+## Verify access before enabling the agent
+
+1. Use your SDK to list tools and call `account_status` with an empty arguments object. Check the granted scopes. An account can read public digests before it owns any projects.
+2. Call `public_digests_search` with the following arguments to try a public read. Use the returned series ID with `public_digest_issues_list` and open an issue from that list with `public_digest_get`. See the [MCP tool reference](/api-reference/mcp).
+
+```json
+{
+  "query": "robotics",
+  "limit": 5
+}
+```
+
+3. If you requested private feed access, call `projects_list` and use a returned `project_id` with `feed_get`. If there are more results, use the returned `next_offset` to request the next page. If the account has no project, use the setup URL from `account_status`.
+
+## Diagnose connection issues
+
+- If discovery or authorization fails, compare the same URL and scopes in [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector). Check your callback URL and that your SDK sends the resource during authorization and code exchange.
+- If a tool needs a scope you didn't request, start a new authorization with that scope. Refreshing the existing token preserves the existing grant.
+- If you're testing an unattended run, authorize in the browser first. Run it with the saved connection and confirm it can refresh before relying on a schedule. You can revoke a test connection from [Connect AI clients](https://paperzilla.ai/ai-connections).

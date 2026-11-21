@@ -1,6 +1,6 @@
 ---
 title: "Use OpenClaw and Telegram for research briefs"
-description: "Run Paperzilla brief workflows in Telegram through OpenClaw and the Paperzilla CLI."
+description: "Use the Paperzilla MCP plugin or CLI with OpenClaw to discuss papers and get research briefs in Telegram."
 keywords: ["OpenClaw", "Telegram", "Paperzilla CLI", "pz", "research brief", "daily brief"]
 ---
 
@@ -10,20 +10,21 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 Use this guide when you want to discuss one Paperzilla project in Telegram and receive a weekday research brief there.
 
-This walkthrough uses OpenClaw for chat and scheduling, Telegram as the delivery surface, and the Paperzilla CLI (`pz`) as the Paperzilla data transport.
+OpenClaw runs the agent and the schedule. Paperzilla provides the research feed, and Telegram carries the conversation and the brief.
 
 ## Before you start
 
-- Complete the [CLI guide](/guides/cli) and [OpenClaw guide](/guides/openclaw).
-- Make sure `pz project list` works in the same environment where OpenClaw runs.
-- Make sure your Telegram channel is working in OpenClaw. See [Telegram in OpenClaw](https://docs.openclaw.ai/channels/telegram).
+<Info>**Connect Paperzilla in OpenClaw first.** [Install the Paperzilla MCP plugin](/guides/openclaw-mcp#install-the-paperzilla-mcp-plugin) and connect your account. Then return here to add Telegram.</Info>
+
+- If your agent already uses the [Paperzilla CLI with OpenClaw](/guides/openclaw), you can keep that setup. Check that `pz project list` works where OpenClaw runs.
+- [Set up Telegram in OpenClaw](https://docs.openclaw.ai/channels/telegram). In a Telegram chat with your agent, ask it to list your Paperzilla projects to check both connections.
 - Pick one Paperzilla project for this workflow.
 - Prepare one short sentence for "our work" if the agent does not already know it. Example: `Our work is evaluation infrastructure for coding agents.`
 
 ## How this stack works
 
 - You ask for papers in Telegram.
-- OpenClaw reads your Paperzilla data through `pz`.
+- OpenClaw reads your Paperzilla data through MCP or the CLI, depending on your setup.
 - OpenClaw can either browse the latest feed items or search the full feed for a topic.
 - For the weekday brief, OpenClaw runs a cron job and sends the result back to Telegram.
 - Paperzilla still owns the project, feed, and relevance ranking. OpenClaw is the chat and delivery layer on top.
@@ -93,8 +94,9 @@ openclaw cron add \
   --name "Paperzilla weekday brief" \
   --cron "30 8 * * 1-5" \
   --tz "Europe/Athens" \
+  --agent "<agent-id>" \
   --session isolated \
-  --message "Use my Paperzilla project <project-name>. Our work: <one-sentence team context>. Pull the newest papers from the feed. Return a Telegram-ready brief with: project name and date; newest papers checked; for each selected paper, one short summary and one sentence on why it is relevant to our work; if there are no new papers, say that explicitly. Keep it concise." \
+  --message "Use my Paperzilla project <project-name>. Our work: <one-sentence team context>. Check papers added to the feed in the last 72 hours on Mondays and 24 hours on other weekdays. Return a short brief with the project name, date, time window, and number of papers checked. For each selected paper, include its source link and why it matters to our work. Say if no new papers match." \
   --announce \
   --channel telegram \
   --to "<telegram target>"
@@ -102,6 +104,7 @@ openclaw cron add \
 
 Replace these placeholders before you run it:
 
+- `<agent-id>` with the ID of the agent that successfully read Paperzilla in the Telegram test. Use `openclaw agents list` to find the ID.
 - `<project-name>` with the Paperzilla project name you want to follow
 - `<one-sentence team context>` with your short "our work" description
 - `Europe/Athens` with your own timezone
@@ -110,17 +113,17 @@ Replace these placeholders before you run it:
 The expected brief format is:
 
 - project name and date
-- how many new papers were checked
-- for each selected paper, one short summary and one sentence on why it is relevant to your work
+- time window and how many new papers were checked
+- for each selected paper, a source link and why it is relevant to your work
 - a clear "no new papers today" line when nothing new qualifies
 
 See [OpenClaw cron jobs](https://docs.openclaw.ai/automation/cron-jobs) and [OpenClaw message delivery](https://docs.openclaw.ai/cli/message) for channel and target details.
 
 ## Limits and troubleshooting
 
-- If `pz` does not work in OpenClaw, fix the CLI setup first with [CLI guide](/guides/cli) and [OpenClaw guide](/guides/openclaw).
+- If your agent cannot read Paperzilla data, check the plugin's account connection and tool access in [OpenClaw](/guides/openclaw-mcp). If you use `pz`, check the [CLI setup](/guides/openclaw).
 - If the agent returns no papers, confirm the project is active and already has feed items.
-- If markdown is not ready yet, retry after a short wait instead of changing the prompt.
+- If Markdown is queued, try again later. If it is unavailable, use the abstract and other available information and say so in the brief.
 - If the cron job does not fire, check that the OpenClaw Gateway is running continuously and that your timezone is correct.
 
 ## Optional shortcut

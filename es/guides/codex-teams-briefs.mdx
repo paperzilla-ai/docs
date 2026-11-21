@@ -12,15 +12,12 @@ Usa esta guía para que Codex lea un proyecto de Paperzilla y prepare informes d
 
 Este procedimiento usa Paperzilla MCP para acceder a los datos de Paperzilla, Codex para el análisis y la programación y la aplicación o plugin de Microsoft Teams para contexto opcional. El resultado predeterminado es un borrador listo para Teams.
 
-La documentación actual de OpenAI lo denomina aplicación. Codex puede mostrar la misma integración como plugin.
-
-Paperzilla documenta la parte de Paperzilla de este flujo. El comportamiento de búsqueda y escritura de Teams lo controlan OpenAI, Microsoft y la configuración de tu espacio.
-
 ## Antes de empezar
 
-- Completa [Usar Paperzilla con Codex](/es/guides/codex).
-- Confirma que `/mcp paperzilla` muestra Paperzilla como activo en Codex.
-- Conecta la aplicación o plugin de Microsoft Teams en ChatGPT o Codex. Consulta [Aplicación Microsoft Teams para ChatGPT](https://help.openai.com/en/articles/12552368-microsoft-teams-connector-for-chatgpt).
+<Info>**Conecta Paperzilla en Codex primero.** Sigue los pasos para [configurar el plugin de Paperzilla en Codex](/es/guides/chatgpt-codex-briefs#use-paperzilla-in-codex) y conecta tu cuenta. Después vuelve a esta guía para añadir Microsoft Teams.</Info>
+
+- Pide a Codex que enumere tus proyectos de Paperzilla para comprobar la conexión.
+- Si quieres añadir contexto de Teams, conecta la [aplicación de Microsoft Teams](https://help.openai.com/en/articles/12552368-microsoft-teams-app-and-setup-in-chatgpt) y comprueba que esté disponible en tu tarea de Codex. Si Codex no puede usarla, pega el contexto o prepara el borrador solo con Paperzilla.
 - Si usas un espacio Business o Enterprise/Edu, confirma que el administrador activó la aplicación y las acciones necesarias. Consulta [Aplicaciones en ChatGPT](https://help.openai.com/en/articles/11487775-connectors-in-chatgpt).
 - Elige un proyecto de Paperzilla para este flujo.
 - Prepara una frase breve sobre «nuestro trabajo» si Codex no debe deducirlo de Teams. Ejemplo: `Our work is evaluation infrastructure for coding agents.`
@@ -32,7 +29,7 @@ Paperzilla documenta la parte de Paperzilla de este flujo. El comportamiento de 
 - Codex lee el proyecto de Paperzilla mediante Paperzilla MCP.
 - Codex puede usar contexto reciente de Microsoft Teams cuando la aplicación está conectada y autorizada.
 - Codex puede preparar un informe listo para Teams con los artículos más recientes de un proyecto.
-- Las automatizaciones de Codex pueden ejecutarlo según una programación y colocar el resultado en Triage.
+- Revisa los informes recurrentes en **Scheduled** en la aplicación de escritorio de ChatGPT.
 - Si existen acciones de escritura en el espacio, Codex puede pedir confirmación antes de publicar en Teams.
 
 Usa contexto de Teams cuando el informe deba reflejar el debate activo del equipo. Usa solo contexto de Paperzilla para mantenerlo independiente del historial del chat.
@@ -100,9 +97,9 @@ Las buenas respuestas para este flujo deben:
 
 Este patrón usa una automatización de Codex para preparar un informe los días laborables.
 
-Las automatizaciones de Codex informan de los hallazgos en Triage. Úsalo como punto de revisión predeterminado. Tras revisar el resultado, pide a Codex que publique el borrador aprobado solo si la aplicación admite publicaciones en tu espacio.
+En la aplicación de escritorio de ChatGPT, crea una [tarea programada en Codex](https://learn.chatgpt.com/docs/automations?surface=app) y elige un horario entre semana. Comprueba que la tarea pueda usar tu conexión de Paperzilla. Revisa cada resultado en **Scheduled** y comparte el borrador en Teams.
 
-Crea una automatización de Codex con un prompt como este:
+Usa instrucciones como estas.
 
 ```text
 Use my Paperzilla project `Agents evaluation`.
@@ -110,14 +107,13 @@ Use recent Microsoft Teams context from the research discussion if available.
 Our work: we build evaluation infrastructure for coding agents.
 
 Every weekday morning:
-1. Pull the newest papers from this project.
+1. Check papers added to the feed in the last 72 hours on Mondays and 24 hours on other weekdays.
 2. Prefer Must Read papers, then strong Related papers.
 3. Keep the brief concise.
 4. For each selected paper, include the title, one short summary, and one sentence on why it is relevant to our work.
-5. Include the project name and today's date at the top.
+5. Include the project name, today's date, the time window, and the number of papers checked.
 6. If there are no new papers, say that explicitly.
-7. Prepare a Microsoft Teams-ready draft and put it in Triage.
-8. Do not post to Teams automatically unless I explicitly approve the send action.
+7. Return a Microsoft Teams-ready draft for review. Keep the result in the task.
 ```
 
 El formato esperado del informe es:
@@ -135,9 +131,9 @@ Si los primeros informes resultan útiles, mantén la automatización. Si tienen
 - Si Codex no puede acceder a Paperzilla, corrige primero la configuración de Paperzilla MCP en [Usar Paperzilla con Codex](/es/guides/codex).
 - Si Codex no puede acceder a Teams, vuelve a conectar la aplicación de Microsoft Teams y comprueba los controles del espacio.
 - Si falla la publicación, sigue usando borradores. El espacio puede permitir búsquedas, pero no escritura.
-- Si una automatización no produce un elemento de Triage, confirma que la aplicación de Codex está activa y la automatización habilitada.
+- Si el informe no aparece en **Scheduled**, comprueba que la tarea esté activa y abre la ejecución más reciente. Si usa archivos locales, mantén el equipo encendido y la aplicación de escritorio de ChatGPT abierta.
 - Si el agente no devuelve artículos, confirma que el proyecto está activo y ya tiene elementos en la lista.
-- Si `paper_markdown_get` está en cola o no disponible, reintenta más tarde en lugar de cambiar el flujo.
+- Si `paper_markdown_get` devuelve `queued`, vuelve a intentarlo más tarde. Si devuelve `unavailable`, usa el resumen del artículo y la información disponible e indícalo en el informe.
 
 ## Contenido relacionado
 

@@ -1,57 +1,54 @@
 ---
 title: "Portal de documentación de Paperzilla"
-description: "Portal oficial de documentación de Paperzilla para proyectos, listas de artículos, resúmenes de investigación, CLI, MCP, flujos de trabajo con agentes e integraciones."
+sidebarTitle: "¿Qué es Paperzilla?"
+description: "Dedica menos tiempo a buscar artículos nuevos y más a leer los que son relevantes para tu investigación."
 keywords: ["seguimiento de investigación", "lista de artículos", "resumen por correo", "proyecto", "MCP", "documentación"]
 ---
 
 import { AiAgents } from '/es/snippets/ai-agents.mdx';
 
-<AiAgents path="/es" />
+Cada día se publican artículos nuevos en servidores de preprints y revistas científicas. Revisar varios sitios y filtrar alertas lleva tiempo, y aun así es fácil pasar por alto trabajos relevantes.
 
-Paperzilla hace un seguimiento continuo de los temas de investigación que te interesan.
+Paperzilla se encarga de revisar las fuentes por ti. Busca continuamente artículos nuevos y evalúa su relevancia para el tema que describes en un proyecto. Sigue tu proyecto en la aplicación o por correo, o pídele a tu agente de IA un resumen de investigación que explique por qué vale la pena leer cada artículo.
 
-Para cada tema, tienes cinco formas de consultar artículos.
+<Frame>
+  <img src="/images/paperzilla-relevance-overview.png" alt="Diagrama de cómo Paperzilla filtra y ordena artículos de distintas fuentes para las listas de artículos, los resúmenes por correo y los resúmenes de investigación preparados por agentes de IA." />
+</Frame>
 
-- Lista de artículos en la aplicación
-- URL de fuente RSS/Atom
-- CLI (`pz`)
-- MCP
-- Resúmenes por correo
-
-Paperzilla también funciona como **capa de datos para agentes** mediante CLI, RSS/Atom y MCP.
+El diagrama incluye funciones cuya disponibilidad depende del plan, como los conjuntos de datos, repositorios de software, patentes y el acceso a la API. Consulta los [detalles de cada plan](https://paperzilla.ai/pricing).
 
 ## Por dónde empezar
 
 <CardGroup cols={2}>
-  <Card title="¿Qué es Paperzilla?" icon="compass" href="/es/what-is-paperzilla">
-    Descubre a quién ayuda, cuándo conviene usarlo y cómo se integra en tu flujo de trabajo.
+  <Card title="Inicio rápido" icon="rocket" type="tip" href="/es/quickstart">
+    Crea tu primer proyecto y encuentra artículos sobre tu tema.
   </Card>
-  <Card title="Resúmenes diarios de investigación" icon="newspaper" href="/es/guides/ai-agent-briefs">
-    Pregúntale a tu agente de IA qué artículos nuevos sobre tu tema vale la pena leer y por qué.
-  </Card>
-  <Card title="Inicio rápido" icon="rocket" href="/es/quickstart">
-    Crea tu primer proyecto para encontrar artículos y obtener un resumen de investigación.
+  <Card title="Resúmenes de investigación con IA" icon="newspaper" type="tip" href="/es/guides/ai-agent-briefs">
+    Elige tu agente de IA y obtén tu primer resumen de investigación de la mañana.
   </Card>
   <Card title="Proyectos" icon="folder-open" href="/es/guides/projects">
-    Define el tema de investigación que quieres seguir y ajusta qué artículos aparecen en tu lista.
+    Ajusta el tema y las palabras clave, o gestiona un proyecto existente.
   </Card>
-  <Card title="Flujos de trabajo con agentes" icon="bot" href="/es/guides/agent-workflows">
-    Usa CLI, RSS/Atom y MCP para automatizar tareas.
+  <Card title="Lee tus artículos" icon="book-open" href="/es/guides/feed-in-app">
+    Explora tu lista, busca y valora artículos, y lee resúmenes.
+  </Card>
+  <Card title="Recibe novedades" icon="mail">
+    Configura [resúmenes por correo](/es/guides/email-digests) o sigue tu proyecto en un [lector RSS/Atom](/es/guides/feeds).
+  </Card>
+  <Card title="Compartir y proyectos públicos" icon="share-2">
+    [Comparte artículos y proyectos](/es/guides/sharing-and-visibility) o [explora proyectos públicos](/es/guides/public-projects).
+  </Card>
+  <Card title="CLI" icon="terminal" href="/es/guides/cli-getting-started">
+    Instala `pz` y usa Paperzilla desde la terminal.
   </Card>
   <Card title="MCP" icon="plug" href="/es/guides/mcp">
-    Conecta Claude, ChatGPT, Cursor y otros clientes MCP con Paperzilla.
+    Conecta un cliente de IA y gestiona su acceso a Paperzilla.
   </Card>
-  <Card title="Lista de artículos en la aplicación" icon="rss" href="/es/guides/feed-in-app">
-    Usa filtros, búsqueda y etiquetas de relevancia en la aplicación.
-  </Card>
-  <Card title="Resúmenes por correo" icon="mail" href="/es/guides/email-digests">
-    Controla el volumen de los resúmenes y el comportamiento de entrega.
-  </Card>
-  <Card title="RSS y Atom" icon="rss" href="/es/guides/feeds">
-    Añade URL seguras de fuentes a tu lector.
+  <Card title="Ayuda" icon="life-buoy" href="/es/guides/troubleshooting">
+    Resuelve problemas comunes con proyectos, listas de artículos, correos y enlaces compartidos.
   </Card>
   <Card title="Preguntas y respuestas" icon="circle-question-mark" href="/es/answers/index">
-    Encuentra respuestas rápidas, con una pregunta por página.
+    Encuentra una respuesta rápida a una pregunta concreta.
   </Card>
 </CardGroup>
 
@@ -68,3 +65,5 @@ Paperzilla también funciona como **capa de datos para agentes** mediante CLI, R
 2. Configura tu proyecto en [Proyectos](/es/guides/projects).
 3. Elige dónde prefieres leer: [lista de artículos en la aplicación](/es/guides/feed-in-app), [RSS/Atom](/es/guides/feeds), [CLI](/es/guides/cli) o [MCP](/es/guides/mcp).
 4. Si usas flujos de trabajo con agentes, empieza por [Flujos de trabajo con agentes](/es/guides/agent-workflows).
+
+<AiAgents path="/es" />

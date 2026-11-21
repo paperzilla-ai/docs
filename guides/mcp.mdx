@@ -12,6 +12,8 @@ Connect an AI client to your Paperzilla account at `https://paperzilla.ai/api/mc
 
 An account is required. Free and preview accounts can read public digests and catalog papers without creating a project. Personal feeds require an owned project. A missing project does not prevent connection.
 
+<Info>**Start with the Paperzilla plugin for your agent.** Follow the setup for [Claude](/guides/claude#open-the-connection-setup), [ChatGPT](/guides/chatgpt-codex-briefs#chatgpt-walkthrough), [Codex](/guides/chatgpt-codex-briefs#use-paperzilla-in-codex), or [OpenClaw](/guides/openclaw-mcp#install-the-paperzilla-mcp-plugin). Use the steps below when you need to add the server manually.</Info>
+
 ## Connect
 
 1. Add the server URL in your client's MCP settings and select OAuth.
@@ -59,7 +61,7 @@ Start the official [MCP Inspector](https://modelcontextprotocol.io/docs/tools/in
 
 ### Codex and custom agents
 
-See [Codex](/guides/codex). Custom agents should use their MCP SDK's OAuth client and secure credential storage. Use authorization-code flow with PKCE S256 and the advertised resource; public clients register with `token_endpoint_auth_method: "none"`. There is no client-credentials grant. See the [protocol reference](/api-reference/mcp).
+See the [Codex guide](/guides/codex) if you're setting up Codex. If you're building your own agent, follow [Connect a custom AI agent via MCP](/guides/custom-agent-mcp) to configure OAuth and verify the connection.
 
 ## Permissions
 

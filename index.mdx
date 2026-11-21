@@ -1,57 +1,54 @@
 ---
 title: "Paperzilla docs portal"
-description: "Official Paperzilla docs portal for projects, feeds, research briefs, CLI, MCP, agent workflows, and integrations."
+sidebarTitle: "What is Paperzilla?"
+description: "Spend less time looking for new papers and more time reading the ones relevant to your research."
 keywords: ["research tracking", "paper feed", "email digest", "project", "MCP", "documentation"]
 ---
 
 import { AiAgents } from '/snippets/ai-agents.mdx';
 
-<AiAgents path="/index" />
+New papers appear every day across preprint servers and journals. Checking multiple sites and sorting through alerts takes time, and relevant work can still slip by.
 
-Paperzilla continuously tracks the research topics you are interested in.
+Paperzilla does the scanning for you. It continuously checks its sources for new papers and matches them to the research topic you describe in a project. Follow your project in the app or by email, or ask your AI agent for a research brief that explains why each paper is worth reading.
 
-For each topic, you have five ways to access papers.
+<Frame>
+  <img src="/images/paperzilla-relevance-overview.png" alt="Diagram showing how Paperzilla filters and ranks papers from multiple sources for project feeds, email digests, and research briefs prepared by AI agents." />
+</Frame>
 
-- In-app feed
-- RSS/Atom feed URL
-- CLI (`pz`)
-- MCP
-- Email digests
-
-Paperzilla also works as a **data layer for agents** through CLI, RSS/Atom, and MCP.
+The diagram includes features whose availability varies by plan, including datasets, software repositories, patents, and API access. See [plan details](https://paperzilla.ai/pricing).
 
 ## Start here
 
 <CardGroup cols={2}>
-  <Card title="What is Paperzilla?" icon="compass" href="/what-is-paperzilla">
-    See who it helps, when to use it, and how it fits your workflow.
+  <Card title="Quickstart" icon="rocket" type="tip" href="/quickstart">
+    Create your first project and find papers on your topic.
   </Card>
-  <Card title="Daily research briefs" icon="newspaper" href="/guides/ai-agent-briefs">
-    Ask your AI agent which new papers on your topic are worth reading and why.
-  </Card>
-  <Card title="Quickstart" icon="rocket" href="/quickstart">
-    Create your first project to find papers and get a research brief.
+  <Card title="AI research briefs" icon="newspaper" type="tip" href="/guides/ai-agent-briefs">
+    Choose your AI agent and get your first morning research brief.
   </Card>
   <Card title="Projects" icon="folder-open" href="/guides/projects">
-    Define a research topic to track and tune which papers appear in its feed.
+    Tune your topic and keywords, or manage an existing project.
   </Card>
-  <Card title="Agent workflows" icon="bot" href="/guides/agent-workflows">
-    Use CLI, RSS/Atom, and MCP for automation.
+  <Card title="Read your papers" icon="book-open" href="/guides/feed-in-app">
+    Browse and search your feed, rate papers, and read summaries.
+  </Card>
+  <Card title="Get updates" icon="mail">
+    Set up [email digests](/guides/email-digests) or follow your project in an [RSS/Atom reader](/guides/feeds).
+  </Card>
+  <Card title="Sharing and public projects" icon="share-2">
+    [Share papers and projects](/guides/sharing-and-visibility) or [browse public projects](/guides/public-projects).
+  </Card>
+  <Card title="CLI" icon="terminal" href="/guides/cli-getting-started">
+    Install `pz` and use Paperzilla from the terminal.
   </Card>
   <Card title="MCP" icon="plug" href="/guides/mcp">
-    Connect Claude, ChatGPT, Cursor, and other MCP clients to Paperzilla.
+    Connect an AI client and manage its access to Paperzilla.
   </Card>
-  <Card title="In-app feed" icon="rss" href="/guides/feed-in-app">
-    Use filters, search, and relevance labels in the app.
-  </Card>
-  <Card title="Email digests" icon="mail" href="/guides/email-digests">
-    Control digest volume and delivery behavior.
-  </Card>
-  <Card title="RSS and Atom" icon="rss" href="/guides/feeds">
-    Add secure feed URLs to your feed reader.
+  <Card title="Help" icon="life-buoy" href="/guides/troubleshooting">
+    Fix common issues with projects, feeds, email delivery, and sharing.
   </Card>
   <Card title="Questions and answers" icon="circle-question-mark" href="/answers/index">
-    Find fast answers in one-question-per-page format.
+    Find a quick answer to a specific question.
   </Card>
 </CardGroup>
 
@@ -68,3 +65,5 @@ Paperzilla also works as a **data layer for agents** through CLI, RSS/Atom, and 
 2. Configure your project in [projects](/guides/projects).
 3. Choose your preferred reading surface: [in-app feed](/guides/feed-in-app), [RSS/Atom](/guides/feeds), [CLI](/guides/cli), or [MCP](/guides/mcp).
 4. If you run agent workflows, start with [Agent workflows](/guides/agent-workflows).
+
+<AiAgents path="/index" />

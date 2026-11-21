@@ -12,15 +12,12 @@ Use this guide when you want Codex to read one Paperzilla project and prepare re
 
 This walkthrough uses Paperzilla MCP for Paperzilla data access, Codex for analysis and scheduling, and the Microsoft Teams app or plugin for optional team context. The default output is a Teams-ready draft.
 
-OpenAI's current help docs call this an app. Codex may surface the same integration as a plugin.
-
-Paperzilla documents the Paperzilla side of this workflow. Teams search and write behavior is controlled by OpenAI, Microsoft, and your workspace settings.
-
 ## Before you start
 
-- Complete [Use Paperzilla with Codex](/guides/codex).
-- Confirm `/mcp paperzilla` shows Paperzilla as enabled in Codex.
-- Connect the Microsoft Teams app or plugin in ChatGPT or Codex. See [Microsoft Teams app for ChatGPT](https://help.openai.com/en/articles/12552368-microsoft-teams-connector-for-chatgpt).
+<Info>**Connect Paperzilla in Codex first.** Follow the [Paperzilla plugin setup in Codex](/guides/chatgpt-codex-briefs#use-paperzilla-in-codex) and connect your account. Then return here to add Microsoft Teams.</Info>
+
+- Ask Codex to list your Paperzilla projects to check the connection.
+- For optional Teams context, connect the [Microsoft Teams app](https://help.openai.com/en/articles/12552368-microsoft-teams-app-and-setup-in-chatgpt) and check that it is available in your Codex task. If Codex cannot use it, paste the context or prepare the draft from Paperzilla alone.
 - If you use a Business or Enterprise/Edu workspace, confirm your admin has enabled the Teams app and the Teams actions you need. See [Apps in ChatGPT](https://help.openai.com/en/articles/11487775-connectors-in-chatgpt).
 - Pick one Paperzilla project for this workflow.
 - Prepare one short sentence for "our work" if Codex should not infer it from Teams. Example: `Our work is evaluation infrastructure for coding agents.`
@@ -32,7 +29,7 @@ Paperzilla documents the Paperzilla side of this workflow. Teams search and writ
 - Codex reads your Paperzilla project through Paperzilla MCP.
 - Codex can use recent Microsoft Teams context when the Teams app is connected and allowed.
 - Codex can prepare a Teams-ready research brief from the newest papers in one project.
-- Codex automations can run the brief on a schedule and put the result in Triage.
+- Review recurring briefs in **Scheduled** in the ChatGPT desktop app.
 - If Teams write actions are available in your workspace, Codex may be able to ask for confirmation before posting to Teams.
 
 Use Teams context when the brief should reflect what your team is actively discussing. Use only Paperzilla context when you want the brief to stay independent from chat history.
@@ -100,9 +97,9 @@ Good replies for this flow should:
 
 This pattern uses a Codex automation to prepare a brief on weekdays.
 
-Codex automations report findings in Triage. Treat that as the default review point. After you review the output, ask Codex to post the approved draft to Teams only if the Teams app supports posting in your workspace.
+In the ChatGPT desktop app, create a [scheduled task in Codex](https://learn.chatgpt.com/docs/automations?surface=app) and choose a weekday schedule. Check that the task can use your Paperzilla connection. Review each result in **Scheduled**, then share the draft in Teams.
 
-Create a Codex automation with a prompt like this:
+Use a prompt like this.
 
 ```text
 Use my Paperzilla project `Agents evaluation`.
@@ -110,14 +107,13 @@ Use recent Microsoft Teams context from the research discussion if available.
 Our work: we build evaluation infrastructure for coding agents.
 
 Every weekday morning:
-1. Pull the newest papers from this project.
+1. Check papers added to the feed in the last 72 hours on Mondays and 24 hours on other weekdays.
 2. Prefer Must Read papers, then strong Related papers.
 3. Keep the brief concise.
 4. For each selected paper, include the title, one short summary, and one sentence on why it is relevant to our work.
-5. Include the project name and today's date at the top.
+5. Include the project name, today's date, the time window, and the number of papers checked.
 6. If there are no new papers, say that explicitly.
-7. Prepare a Microsoft Teams-ready draft and put it in Triage.
-8. Do not post to Teams automatically unless I explicitly approve the send action.
+7. Return a Microsoft Teams-ready draft for review. Keep the result in the task.
 ```
 
 The expected brief format is:
@@ -135,9 +131,9 @@ If the first few briefs are useful, keep the automation. If they are too noisy, 
 - If Codex cannot access Paperzilla, fix the Paperzilla MCP setup first in [Use Paperzilla with Codex](/guides/codex).
 - If Codex cannot access Teams, reconnect the Microsoft Teams app and check workspace app controls.
 - If Teams posting fails, keep using Teams-ready drafts. Your workspace may allow search but not write actions.
-- If an automation produces no Triage item, confirm the Codex app is running and the automation is enabled.
+- If no brief appears in **Scheduled**, check that the task is enabled and open its latest run. For a task that uses local files, keep the computer on and the ChatGPT desktop app open.
 - If the agent returns no papers, confirm the project is active and already has feed items.
-- If `paper_markdown_get` is queued or unavailable, retry later instead of changing the workflow.
+- If `paper_markdown_get` returns `queued`, try again later. If it returns `unavailable`, use the abstract and other available information and say so in the brief.
 
 ## Related
 

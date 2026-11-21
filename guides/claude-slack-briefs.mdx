@@ -8,30 +8,29 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 <AiAgents path="/guides/claude-slack-briefs" />
 
-Use this guide when you want to discuss one Paperzilla project in Slack and send a weekday research brief to Slack from Cowork.
+Discuss papers with Claude in Slack and use Cowork to prepare a weekday brief you can share in Slack.
 
-This walkthrough uses Claude in Slack for the live discussion, Paperzilla MCP for Paperzilla data access, and Cowork scheduled tasks for recurring delivery.
+Claude in Slack handles the discussion. Cowork reads your project through Paperzilla MCP and prepares the scheduled brief.
 
 ## Before you start
 
-- Complete [Use Paperzilla MCP with Claude](/guides/claude).
-- Make sure Claude is already available in Slack. See [Getting started with Claude in Slack](https://support.claude.com/en/articles/11506255-getting-started-with-claude-in-slack).
-- Make sure Cowork is available in Claude Desktop. See [Get started with Cowork](https://support.claude.com/en/articles/13345190-get-started-with-cowork).
+<Info>**Connect Paperzilla in Claude first.** Follow the [Paperzilla plugin setup in Claude](/guides/claude#open-the-connection-setup) and connect your account. Then return here to set up Slack and Cowork.</Info>
+
+- Connect Claude to your Slack workspace and start a DM with Claude. Ask it to list your Paperzilla projects to confirm the Slack conversation can use your connection. See [Claude in Slack](https://claude.com/docs/claude-tag/overview).
+- Open Cowork and check that it can list the same projects. To send from Cowork after reviewing a draft, connect the [Slack connector](https://claude.com/connectors/slack) in Claude and check that it can access your destination. You can also paste the draft into Slack yourself.
 - Pick one Paperzilla project for this workflow.
 - Prepare one short sentence for "our work" if Claude does not already know it. Example: `Our work is evaluation infrastructure for coding agents.`
-
-<Warning>Set up the Paperzilla MCP connection in Claude first. Anthropic says you cannot create or manage integrations from Slack itself.</Warning>
 
 ## How this stack works
 
 - You discuss papers with Claude in Slack.
-- Claude reads your Paperzilla data through the Paperzilla MCP connection you already configured in Claude.
+- Claude reads your Paperzilla data when the Paperzilla connector is available in the Slack conversation or Cowork task.
 - For the weekday brief, Cowork runs a scheduled task and prepares a Slack-ready post.
-- Start with a Slack draft. Move to direct send only after you trust the brief format.
+- Review the draft in Cowork before sharing it with your team.
 
 ## Use case 1: on-demand paper discussion
 
-For the cleanest flow, use a Claude DM in Slack. If you want team visibility, mention `@Claude` in a channel or thread and review the private draft before posting it.
+Start in a DM with Claude in Slack. In a shared channel, `@Claude` replies can be visible to other people. Share only paper details you intend the channel to see.
 
 First ask for the latest papers from one project:
 
@@ -72,32 +71,28 @@ Good replies for this flow should:
 - explain relevance in terms of your actual work, not generic importance
 - make it easy to continue the discussion in the same Slack conversation
 
-If you use `@Claude` in a shared thread, Claude in Slack shows the draft privately first and lets you decide whether to post it.
+To share results in a channel, review your draft in the DM first and post the parts you want the team to see.
 
 ## Use case 2: weekday research brief in Slack
 
 This pattern runs in Cowork on weekdays and prepares a brief for Slack.
 
-Start a Cowork task, paste a prompt like this, then type `/schedule` and set the run to weekdays at your preferred time:
+Open **Scheduled** in Claude, select **New task**, and add the prompt below. Choose weekdays and your preferred time. Run the saved task once to check that it can read Paperzilla.
 
 ```text
 Use my Paperzilla project `Agents evaluation`.
 Our work: we build evaluation infrastructure for coding agents.
 
 Every weekday morning:
-1. Pull the newest papers from this project.
+1. Check papers added to the feed in the last 72 hours on Mondays and 24 hours on other weekdays.
 2. Keep the brief concise.
 3. For each selected paper, include the title, one short summary, and one sentence on why it is relevant to our work.
-4. Include the project name and today's date at the top.
+4. Include the project name, today's date, the time window, and the number of papers checked.
 5. If there are no new papers, say that explicitly.
 6. Draft a Slack post for #research-briefs and show it to me first.
 ```
 
-Start with the draft pattern above. Once the output is stable, you can switch the last line to direct send:
-
-```text
-Send the Slack message to #research-briefs instead of drafting it.
-```
+Review each result in **Scheduled**. Copy it to Slack or ask Claude to send the reviewed draft with the Slack connector. If Claude requests approval, confirm the message and destination before sending.
 
 The expected brief format is:
 
@@ -106,17 +101,17 @@ The expected brief format is:
 - for each selected paper, one short summary and one sentence on why it is relevant to your work
 - a clear "no new papers today" line when nothing new qualifies
 
-<Warning>Cowork scheduled tasks only run while your computer is awake and the Claude Desktop app is open.</Warning>
+<Note>Cowork can run connector-based scheduled tasks remotely. If your task requires local files or apps, keep the computer awake and Claude Desktop open.</Note>
 
-See [Get started with Cowork](https://support.claude.com/en/articles/13345190-get-started-with-cowork) for scheduling entry points and [Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude) for Slack draft/send behavior.
+See [Schedule recurring tasks in Claude Cowork](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork) and [Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude) for the scheduling and Slack controls.
 
 ## Limits and troubleshooting
 
-- If Claude in Slack cannot access Paperzilla, reconnect or re-enable the Paperzilla connector in Claude settings first.
-- If Claude in Slack cannot access Slack delivery actions, check your Slack connector and permissions in Claude.
-- If the scheduled task does not run, confirm Claude Desktop is open and your computer is awake.
+- If Claude cannot access Paperzilla in Slack, test in a DM. For a channel, [check the connectors Claude Tag can access](https://claude.com/docs/claude-tag/overview) and try again.
+- If Cowork cannot send the reviewed draft to Slack, check the Slack connector’s permissions for that channel or paste the draft yourself.
+- If the scheduled task does not run, check its schedule, connector approvals, and whether it requires your computer.
 - If the agent returns no papers, confirm the project is active and already has feed items.
-- If `paper_markdown_get` is queued or unavailable, retry later instead of changing the workflow.
+- If `paper_markdown_get` returns `queued`, try again later. If it returns `unavailable`, use the abstract and other available information and say so in the brief.
 
 ## Optional shortcut
 

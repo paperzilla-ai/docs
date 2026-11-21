@@ -1,0 +1,78 @@
+---
+title: "Automate a feed export with the Paperzilla CLI"
+sidebarTitle: "CLI automation"
+description: "Export recent Must Read papers to a TSV file and refresh it on a schedule with pz and jq."
+keywords: ["CLI", "automation", "JSON", "cron", "Paperzilla"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/guides/cli-automation" />
+
+Use `pz` in a shell script to export up to 10 Must Read papers from the past seven days. The report contains each paper's title, source URL, and the time Paperzilla finished ranking it for your project.
+
+## Sign in and find the project
+
+On the macOS or Linux machine that will run the script, [install `pz` and sign in](/guides/cli-getting-started). Install `jq` and make sure `pz` and `jq` are on the shell's `PATH`. Use the same operating system account for the sign-in and the scheduled run so `pz` can use its saved session.
+
+```bash
+pz login
+pz project list
+```
+
+Copy the project ID from the list. For a machine-readable list, use `pz project list --json`.
+
+## Export the feed
+
+Save the following script as `paperzilla-feed.sh`. It sends the feed results through `jq` and replaces the report after a successful export.
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ $# -ne 2 || -d ${2:-} ]]; then
+  echo 'Usage: paperzilla-feed.sh PROJECT_ID REPORT.tsv' >&2
+  exit 2
+fi
+
+project_id=$1
+report=$2
+since=$(jq -nr 'now - 7 * 86400 | todateiso8601')
+temporary_report=$(mktemp "${report}.XXXXXX")
+trap 'rm -f -- "$temporary_report"' EXIT
+
+pz feed "$project_id" --must-read --since "$since" --limit 10 --json |
+  jq -er '
+    .items
+    | if type == "array" then
+        ["title", "source_url", "ready_at"],
+        (.[] | [.paper.title, .paper.url, .ready_at])
+      else
+        error("Expected an items array in the Paperzilla feed")
+      end
+    | @tsv
+  ' > "$temporary_report"
+
+mv -f -- "$temporary_report" "$report"
+```
+
+Make the script executable and run it once. Replace `PROJECT_ID` with the ID you copied.
+
+```bash
+chmod +x paperzilla-feed.sh
+./paperzilla-feed.sh PROJECT_ID ./paperzilla-feed.tsv
+```
+
+Open the TSV file and check that it contains the expected project papers. A header with no rows means no papers matched the filter. Each run exports a fresh seven-day window, so consecutive reports can include the same paper.
+
+## Run it on weekday mornings
+
+Add an entry like this to your user crontab with `crontab -e`. Use your own project ID and absolute paths. Set `PATH` in the entry to include the directories reported by `command -v pz` and `command -v jq`.
+
+```text
+30 8 * * 1-5 PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin "/path/to/paperzilla-feed.sh" PROJECT_ID "/path/to/paperzilla-feed.tsv" 2>> "/path/to/paperzilla-feed-errors.log"
+```
+
+This runs at 08:30 on weekdays in the scheduler's timezone. Keep the machine running at that time. After the first scheduled run, check the report's modification time and the error log.
+
+If the report stops updating, read the error log and run the same command as the scheduled user. If the saved session needs sign-in, run `pz login` as that user and retry. See the [CLI command and JSON reference](/guides/cli) for other feed filters and fields.

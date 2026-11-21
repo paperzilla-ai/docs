@@ -13,7 +13,7 @@ Sí. Puedes usar Codex o Claude para crear una automatización que consulte las 
 
 La primera versión parece sencilla: obtener artículos, pedirle a un modelo que decida cuáles importan y enviar un correo. Conseguir una lista de lectura útil requiere más trabajo.
 
-Pero con 10.000 artículos nuevos cada día, evaluar cada uno en profundidad consume tiempo y llamadas a modelos. Necesitas reducir ese conjunto de forma inteligente sin descartar los artículos que podrían interesarte. Un artículo puede contener todas tus palabras clave y aun así ser irrelevante. Otro puede describir exactamente lo que necesitas con una terminología diferente.
+Evaluar cada artículo nuevo en profundidad consume tiempo y llamadas a modelos. Un artículo puede contener todas tus palabras clave y aun así ser irrelevante. Otro puede describir exactamente lo que necesitas con una terminología diferente.
 
 Paperzilla primero reduce el conjunto mediante filtros de fuentes y categorías, señales de palabras clave y similitud semántica. Después, un LLM evalúa la selección según tu pregunta de investigación y la filtra de nuevo. Las recomendaciones incluyen una explicación de por qué se seleccionó cada artículo. [Más información sobre las funciones de selección](https://paperzilla.ai/features).
 
@@ -28,7 +28,9 @@ Como con otros servicios de software, puedes elegir entre desarrollarlo o contra
 
 Compara las listas de lectura y los costes continuos, incluido tu tiempo. Conseguir que funcione el primer script es solo una parte del cálculo.
 
-Y puedes seguir usando tu automatización. [Conecta tu agente a Paperzilla mediante MCP o la CLI](https://paperzilla.ai/agents) y dale una tarea como esta:
+<Info>**Conecta Paperzilla a tu automatización.** Usa la [guía de configuración del plugin de Paperzilla](/es/guides/mcp) para Claude, ChatGPT, Codex u OpenClaw. También puedes [conectarte mediante la CLI](https://paperzilla.ai/agents).</Info>
+
+Después, dale a tu agente una tarea como esta.
 
 > Revisa mi proyecto de Paperzilla cada mañana. De los artículos nuevos de mi lista, elige hasta 10 que sean especialmente relevantes para mi trabajo actual. Explica por qué merece la pena leer cada uno. Si solo dos cumplen el criterio, envía dos.
 

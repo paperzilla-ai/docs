@@ -10,9 +10,21 @@ import { AiAgents } from '/es/snippets/ai-agents.mdx';
 
 Usa la conexión MCP OAuth de Paperzilla para herramientas de investigación o la [guía CLI](/es/guides/cli) para tareas de terminal.
 
+<Info>**Empieza con el plugin de Paperzilla.** El plugin configura el servidor MCP por ti. Sigue los [pasos de instalación](#install-the-paperzilla-plugin) para conectar tu cuenta.</Info>
+
+## Instala el plugin de Paperzilla {#install-the-paperzilla-plugin}
+
+Añade el [marketplace de Paperzilla](https://github.com/paperzilla-ai/codex-plugins#install) desde tu terminal.
+
+```bash
+codex plugin marketplace add paperzilla-ai/codex-plugins
+```
+
+Abre **Plugins** en Codex, elige **Paperzilla** en el marketplace de Paperzilla e instálalo. Sigue las instrucciones de inicio de sesión para conectar tu cuenta de Paperzilla.
+
 ## Conexión MCP {#mcp-connection}
 
-En Codex añade un servidor MCP HTTP remoto llamado `paperzilla` con URL `https://paperzilla.ai/api/mcp` y completa OAuth. El plugin Paperzilla del marketplace de Paperzilla incluye la misma URL. Instala el paquete nuevo, elimina la configuración anterior con clave e inicia sesión.
+Para configurarlo manualmente, añade en Codex un servidor MCP HTTP remoto llamado `paperzilla` con URL `https://paperzilla.ai/api/mcp` y completa OAuth. Si tienes una configuración antigua con clave API, sustitúyela por esta conexión OAuth.
 
 Para la integración completa solicita `catalog:read projects:read feedback:write markdown:generate offline_access`. No hace falta una variable de entorno con una clave API. Deja las credenciales OAuth en el almacenamiento seguro del cliente.
 

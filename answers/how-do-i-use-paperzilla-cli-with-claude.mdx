@@ -11,6 +11,8 @@ import { AiAgents } from '/snippets/ai-agents.mdx';
 
 Use `pz` directly in Claude Code.
 
+<Info>**Connecting through MCP?** Follow the [Paperzilla plugin setup in Claude](/guides/claude#open-the-connection-setup).</Info>
+
 The short version:
 
 1. Install the [Paperzilla CLI](/guides/cli) and run `pz login`.
@@ -33,8 +35,6 @@ Use `pz paper` for canonical paper metadata.
 Use `pz rec --markdown` after a project feed search when you want markdown in project context. That path can queue markdown generation if it is not ready yet.
 
 You do not need a custom Paperzilla connector for this CLI path. Claude Code can already run shell commands in your workspace.
-
-If you want the remote tool-calling path in Claude instead, use [Paperzilla MCP with Claude](/guides/claude).
 
 For the full CLI command reference, see [CLI guide](/guides/cli).
 

@@ -1,7 +1,7 @@
 ---
 title: "¿Puedo usar OpenClaw y Slack para informes de artículos académicos?"
 sidebarTitle: "Informes con OpenClaw + Slack"
-description: "Usa OpenClaw, Slack y la CLI de Paperzilla para crear informes programados de artículos académicos."
+description: "Envía informes programados de artículos académicos de Paperzilla a Slack con OpenClaw."
 keywords: ["informe académico OpenClaw Slack", "informe de investigación OpenClaw Slack", "Paperzilla OpenClaw Slack", "informe de artículos Slack", "informe de artículos académicos"]
 ---
 
@@ -11,7 +11,9 @@ import { AiAgents } from '/es/snippets/ai-agents.mdx';
 
 Sí.
 
-OpenClaw admite [Slack como canal](https://docs.openclaw.ai/channels/slack). Usa el mismo mecanismo de Paperzilla que en el flujo de Telegram: OpenClaw ejecuta la programación, la CLI de Paperzilla (`pz`) lee la lista del proyecto y Slack recibe el informe.
+<Info>**Conecta Paperzilla primero.** [Instala el plugin de Paperzilla MCP en OpenClaw](/es/guides/openclaw-mcp#install-the-paperzilla-mcp-plugin) para conectar tu cuenta. Después vuelve a esta página para continuar con Slack.</Info>
+
+OpenClaw admite [Slack como canal](https://docs.openclaw.ai/channels/slack). OpenClaw ejecuta la tarea programada, lee la lista del proyecto mediante el plugin de Paperzilla y envía el informe a Slack. También puedes usar la configuración con la CLI de la guía de Telegram.
 
 Usa [OpenClaw y Telegram para informes de investigación](/es/guides/openclaw-telegram-briefs) como guía detallada más cercana. Sustituye la configuración del canal y el destino de Telegram por la configuración de tu canal de Slack en OpenClaw.
 

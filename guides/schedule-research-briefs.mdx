@@ -1,0 +1,37 @@
+---
+title: "Schedule a recurring research brief"
+sidebarTitle: "Schedule a brief"
+description: "Use your AI agent to prepare a daily or weekly research brief from your Paperzilla project feed."
+keywords: ["research briefs", "scheduling", "Claude", "Codex", "OpenClaw"]
+---
+
+import { AiAgents } from '/snippets/ai-agents.mdx';
+
+<AiAgents path="/guides/schedule-research-briefs" />
+
+Schedule your AI agent to check a Paperzilla project and tell you which new papers are worth reading. Paperzilla tracks your topic and ranks papers in your feed. Your agent runs the scheduled task and prepares the brief.
+
+## Test the brief in chat
+
+<Info>**Connect Paperzilla before scheduling.** Follow the plugin setup for [Claude](/guides/claude#open-the-connection-setup), [Codex](/guides/chatgpt-codex-briefs#use-paperzilla-in-codex), or [OpenClaw](/guides/openclaw-mcp#install-the-paperzilla-mcp-plugin). For other agents, [connect Paperzilla through MCP](/guides/ai-agent-briefs). Then return here to test and schedule your brief.</Info>
+
+1. Make sure the project belongs to the account you connected and that its tracking is active.
+2. Pick the project, cadence, and timezone. Set the lookback window in the prompt to cover the time between runs. A weekday schedule can use three days on Monday and one day on the other weekdays.
+3. Run the prompt below in chat. Replace **Robotics evaluation** with your project name and adjust the research focus.
+
+> Use my Paperzilla project named Robotics evaluation. Check papers added to its feed since the last successful brief. If you can't see that run, use a three-day lookback on Monday and a 24-hour lookback on other weekdays. Pick up to three papers relevant to evaluating robots in unfamiliar environments. For each, give the title, source link, and one reason to read it. State the time window you checked. If nothing matches, say so. Return the brief for me to review.
+
+## Save the schedule in your agent
+
+| Agent | Where to set it up |
+|---|---|
+| Claude | Use **Scheduled** in Claude Cowork. Add the prompt, choose the cadence, and verify that the scheduled task can use Paperzilla's read-only tools. [Paperzilla setup for Claude](/guides/claude#schedule-recurring-brief) · [Claude scheduling instructions](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork) |
+| Codex | Create a task under **Scheduled** and choose when to run it. Make sure the task has access to the same Paperzilla connection as your successful test. [Codex and Microsoft Teams walkthrough](/guides/codex-teams-briefs) · [OpenAI scheduling instructions](https://learn.chatgpt.com/docs/automations?surface=app) |
+| OpenClaw | Use an OpenClaw automation on the Gateway that has your Paperzilla connection. Keep that Gateway running for the schedule to fire. [OpenClaw and Telegram walkthrough](/guides/openclaw-telegram-briefs) · [OpenClaw automation guide](https://docs.openclaw.ai/automation/cron-jobs/how-it-works) |
+| Other AI agents | Use your agent's scheduler if scheduled runs can access the Paperzilla connection. Check how that scheduler handles tool approvals and where it puts the result. |
+
+## Verify the scheduled run
+
+1. Run the saved task on demand. Check the project, sources, and first delivery destination. If the task pauses for approval, check whether your agent can allow the Paperzilla read-only calls needed for the brief.
+2. Review the first automatic run in your agent's history. If it reports no new papers, compare the time window with your project feed. If the task never started, check the timezone, whether the schedule is enabled, and whether any required app or host was running.
+3. Start with a private result or draft. When you're ready to deliver it to a channel, use the dedicated [Slack](/guides/claude-slack-briefs), [Teams](/guides/codex-teams-briefs), or [Telegram](/guides/openclaw-telegram-briefs) walkthrough and verify the recipient.

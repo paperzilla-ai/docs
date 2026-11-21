@@ -1,0 +1,46 @@
+---
+title: "Conecta un agente de IA personalizado mediante MCP"
+sidebarTitle: "Conecta un agente personalizado"
+description: "Configura el cliente MCP de tu agente, autoriza una cuenta de Paperzilla y verifica el acceso con una llamada de solo lectura."
+keywords: ["agente personalizado", "MCP", "OAuth", "Streamable HTTP", "Paperzilla"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/custom-agent-mcp" />
+
+Usa Paperzilla MCP para que un agente que desarrolles pueda leer resúmenes públicos o las listas de artículos de los proyectos del usuario. Usa un SDK de MCP con un cliente compatible con Streamable HTTP y OAuth.
+
+<Info>**¿Vas a conectar un cliente de IA existente?** Consulta la [configuración del plugin de Paperzilla](/es/guides/mcp) para Claude, ChatGPT, Codex y OpenClaw.</Info>
+
+## Configura el transporte y los permisos
+
+1. Configura tu cliente MCP con la URL `https://paperzilla.ai/api/mcp` y selecciona **Streamable HTTP**. Deja que el SDK negocie la versión de MCP y use los metadatos de descubrimiento de OAuth que publica el servidor.
+2. Solicita `catalog:read` para verificar el acceso de la cuenta y leer resúmenes públicos. Añade `projects:read` si el agente lee las listas de artículos de los proyectos del usuario. Añade `offline_access` si el agente necesita renovar la conexión entre ejecuciones.
+3. Configura la redirección de OAuth en tu SDK. Para un cliente público, usa el flujo de código de autorización con PKCE S256, una URI de redirección que coincida con la registrada y configura `token_endpoint_auth_method` con el valor `none`. Envía el recurso anunciado, `https://paperzilla.ai/api/mcp`, tanto en la solicitud de autorización como en el intercambio del código. Consulta la [referencia de OAuth de Paperzilla](/es/api-reference/mcp#oauth) para ver las opciones de registro y las URL de los metadatos.
+
+## Autoriza la cuenta
+
+1. Inicia el flujo de OAuth desde tu cliente y abre la URL de autorización en el navegador del usuario. El usuario inicia sesión en Paperzilla y revisa el acceso solicitado.
+2. Cuando el navegador vuelva a tu URL de redirección, deja que el SDK verifique el estado de OAuth e intercambie el código. Guarda las credenciales de forma segura junto con la conexión del usuario correspondiente. Envía el token de acceso de OAuth en el encabezado Authorization de las solicitudes MCP.
+3. Si solicitaste permiso para renovar el acceso, haz las renovaciones de cada conexión de una en una y guarda el nuevo token de actualización después de cada intercambio correcto. Si el usuario revoca el acceso, inicia una nueva autorización en el navegador antes de reanudar las lecturas.
+
+## Verifica el acceso antes de activar el agente
+
+1. Usa tu SDK para listar las herramientas y llama a `account_status` con un objeto de argumentos vacío. Comprueba los permisos concedidos. Una cuenta puede leer resúmenes públicos aunque todavía no tenga proyectos propios.
+2. Llama a `public_digests_search` con los argumentos siguientes para probar una lectura pública. Usa el identificador de la serie con `public_digest_issues_list` y abre una edición de esa lista con `public_digest_get`. Consulta la [referencia de herramientas de MCP](/es/api-reference/mcp).
+
+```json
+{
+  "query": "robotics",
+  "limit": 5
+}
+```
+
+3. Si solicitaste acceso a listas privadas, llama a `projects_list` y usa uno de los valores de `project_id` devueltos con `feed_get`. Si hay más resultados, usa el valor de `next_offset` para pedir la página siguiente. Si la cuenta no tiene proyectos, usa la URL de configuración que devuelve `account_status`.
+
+## Diagnostica problemas de conexión
+
+- Si falla el descubrimiento o la autorización, prueba la misma URL y los mismos permisos en [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector). Comprueba la URL de redirección y que el SDK envíe el recurso durante la autorización y el intercambio del código.
+- Si una herramienta necesita un permiso que no solicitaste, inicia una nueva autorización que lo incluya. Renovar el token actual conserva los permisos existentes.
+- Si estás probando una ejecución desatendida, autoriza el acceso primero en el navegador. Ejecuta la tarea con la conexión guardada y comprueba que pueda renovarla antes de confiar en una programación. Puedes revocar una conexión de prueba desde [Conectar clientes de IA](https://paperzilla.ai/ai-connections).

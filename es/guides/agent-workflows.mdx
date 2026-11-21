@@ -22,13 +22,15 @@ Usa estas interfaces según tu flujo:
 
 Consulta la [guía de CLI](/es/guides/cli), [Integración con MCP](/es/guides/mcp), la [guía de Codex](/es/guides/codex), la [guía de Claude](/es/guides/claude) y la [guía de RSS/Atom](/es/guides/feeds).
 
+Para seguir un ejemplo paso a paso, [automatiza una exportación con la CLI](/es/guides/cli-automation) o [conecta un agente personalizado mediante MCP](/es/guides/custom-agent-mcp).
+
 ## Configuración recomendada para flujos con agentes
 
 1. Crea y ajusta proyectos en la aplicación.
 2. Autentica la CLI con `pz login`.
 3. Usa `pz project list --json` para obtener el ID de proyecto desde un resultado estructurado.
 4. Usa `pz feed <project-id> --json` para automatizar la exploración, o `pz feed search --project-id <id> --query <q> --json` para buscar texto en toda la lista.
-5. Añade filtros (`--must-read`, `--since`, `--limit`, `--feedback-filter`) según el flujo.
+5. Usa `--must-read`, `--since` o `--limit` con `pz feed`. Para filtrar los resultados de búsqueda según tus valoraciones, usa `pz feed search --feedback-filter`.
 
 ## Skill de OpenClaw
 
@@ -36,7 +38,9 @@ La CLI de Paperzilla está publicada como [skill de OpenClaw en ClawHub](https:/
 
 ## Codex
 
-Codex funciona con Paperzilla de dos formas. Añade Paperzilla MCP desde **Settings** > **Integrations & MCP** de Codex para usar llamadas nativas a herramientas. Confirma después el servidor en `/mcp`. Usa `pz` directamente cuando Codex ya trabaje en un shell o repositorio. Una skill útil de Codex debe cubrir la verificación, los enlaces a documentación y la secuencia de herramientas de Paperzilla, no solo «preferir MCP» o «usar la CLI». Solo necesitas un plugin si quieres un paquete instalable. Consulta [Usar Paperzilla con Codex](/es/guides/codex).
+<Info>**Empieza con el plugin de Paperzilla en Codex.** [Instala el plugin y conecta tu cuenta](/es/guides/codex#install-the-paperzilla-plugin) para que Codex pueda usar las herramientas de investigación de Paperzilla.</Info>
+
+Si necesitas gestionar la configuración, consulta la [conexión MCP manual en Codex](/es/guides/codex#mcp-connection). Usa `pz` directamente cuando Codex trabaje en un shell o repositorio. Una skill de Codex para Paperzilla puede explicar cómo verificar la configuración, encontrar la documentación y usar las herramientas en orden.
 
 ## Superficies de datos que puedes combinar
 

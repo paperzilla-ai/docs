@@ -1,0 +1,21 @@
+.callout[data-callout-type="info"] {
+  --info-accent: #1d4ed8;
+  --info-text: #1e3a5f;
+  background-color: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+html.dark .callout[data-callout-type="info"] {
+  --info-accent: #93c5fd;
+  --info-text: #dbeafe;
+  background-color: #172840;
+  border-color: #2f527d;
+}
+
+.callout[data-callout-type="info"] [data-component-part="callout-icon"] svg {
+  color: var(--info-accent);
+}
+
+.callout[data-callout-type="info"] [data-component-part="callout-content"] {
+  color: var(--info-text);
+}

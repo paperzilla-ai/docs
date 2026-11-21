@@ -1,0 +1,37 @@
+---
+title: "Programa un resumen de investigación recurrente"
+sidebarTitle: "Programa un resumen"
+description: "Usa tu agente de IA para preparar un resumen diario o semanal a partir de la lista de artículos de tu proyecto en Paperzilla."
+keywords: ["resúmenes de investigación", "programación", "Claude", "Codex", "OpenClaw"]
+---
+
+import { AiAgents } from '/es/snippets/ai-agents.mdx';
+
+<AiAgents path="/es/guides/schedule-research-briefs" />
+
+Programa tu agente de IA para que revise un proyecto de Paperzilla y te cuente qué artículos nuevos merece la pena leer. Paperzilla sigue tu tema y ordena por relevancia los artículos de tu lista. Tu agente ejecuta la tarea programada y prepara el resumen.
+
+## Prueba el resumen en el chat
+
+<Info>**Conecta Paperzilla antes de programar el resumen.** Sigue la configuración del plugin para [Claude](/es/guides/claude#open-the-connection-setup), [Codex](/es/guides/chatgpt-codex-briefs#use-paperzilla-in-codex) u [OpenClaw](/es/guides/openclaw-mcp#install-the-paperzilla-mcp-plugin). Si usas otro agente, [conecta Paperzilla mediante MCP](/es/guides/ai-agent-briefs). Después vuelve a esta página para probar y programar el resumen.</Info>
+
+1. Comprueba que el proyecto pertenezca a la cuenta que conectaste y que el seguimiento esté activo.
+2. Elige el proyecto, la frecuencia y la zona horaria. Ajusta el periodo de búsqueda en las instrucciones para cubrir el tiempo entre ejecuciones. Si el resumen se prepara solo entre semana, puedes revisar tres días el lunes y un día el resto de la semana.
+3. Prueba estas instrucciones en el chat. Sustituye **Robotics evaluation** por el nombre de tu proyecto y ajusta el tema de investigación.
+
+> Usa mi proyecto de Paperzilla llamado Robotics evaluation. Revisa los artículos añadidos a su lista desde el último resumen que se completó correctamente. Si no puedes consultar esa ejecución, revisa los últimos tres días el lunes y las últimas 24 horas el resto de los días laborables. Elige hasta tres artículos sobre la evaluación de robots en entornos desconocidos. Para cada uno, indica el título, el enlace a la fuente y un motivo para leerlo. Indica qué periodo has revisado. Si ningún artículo encaja, dilo. Devuélveme el resumen para que pueda revisarlo.
+
+## Guarda la programación en tu agente
+
+| Agente | Dónde configurarla |
+|---|---|
+| Claude | Usa **Scheduled** en Claude Cowork. Añade las instrucciones, elige la frecuencia y verifica que la tarea pueda usar las herramientas de solo lectura de Paperzilla. [Configuración de Paperzilla para Claude](/es/guides/claude#schedule-recurring-brief) · [Instrucciones de programación de Claude](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork) |
+| Codex | Crea una tarea en **Scheduled** y elige cuándo ejecutarla. Asegúrate de que tenga acceso a la misma conexión de Paperzilla que usaste en la prueba. [Guía de Codex y Microsoft Teams](/es/guides/codex-teams-briefs) · [Instrucciones de programación de OpenAI](https://learn.chatgpt.com/docs/automations?surface=app) |
+| OpenClaw | Usa una automatización de OpenClaw en la instancia de Gateway que tiene tu conexión de Paperzilla. Mantén esa instancia en funcionamiento para que se ejecute la tarea. [Guía de OpenClaw y Telegram](/es/guides/openclaw-telegram-briefs) · [Guía de automatizaciones de OpenClaw](https://docs.openclaw.ai/automation/cron-jobs/how-it-works) |
+| Otros agentes de IA | Usa el programador de tu agente si las ejecuciones programadas pueden acceder a la conexión de Paperzilla. Comprueba cómo gestiona la aprobación de herramientas y dónde deja el resultado. |
+
+## Verifica la ejecución programada
+
+1. Ejecuta la tarea guardada manualmente. Comprueba el proyecto, las fuentes y el destino de la primera entrega. Si se detiene y pide autorización, comprueba si puedes permitir que el agente use las herramientas de solo lectura de Paperzilla que necesita para el resumen.
+2. Revisa la primera ejecución automática en el historial de tu agente. Si indica que no hay artículos nuevos, compara el periodo de búsqueda con la lista de tu proyecto. Si la tarea no llegó a iniciarse, comprueba la zona horaria, si el horario está activado y si la aplicación o el equipo que necesita estaban en funcionamiento.
+3. Empieza con un resultado privado o un borrador. Cuando quieras enviarlo a un canal, sigue la guía de [Slack](/es/guides/claude-slack-briefs), [Teams](/es/guides/codex-teams-briefs) o [Telegram](/es/guides/openclaw-telegram-briefs) y comprueba el destinatario.
