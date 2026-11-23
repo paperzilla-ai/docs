@@ -74,14 +74,14 @@ En este ejemplo ilustrativo de ChemRxiv, la fuente solo indica el mes en que se 
   "published_precision": null,
   "published_basis": null,
   "seen": "2026-11-20T09:14:00.000000Z",
-  "seen_precision": "day",
+  "seen_precision": "microsecond",
   "seen_basis": "paperzilla-ingested"
 }
 ```
 
 Si `seen_basis` vale `paperzilla-ingested`, la fecha indica la primera incorporación confirmada de esa versión. Con `paperzilla-record-ingested`, `seen` indica cuándo se incorporó el registro identificado por `paper_id` mientras se verifica su etiqueta de versión.
 
-Cada campo `_basis` identifica la evidencia de la fecha. Por ejemplo, `crossref-posted` indica que la fecha de publicación del preprint procede del registro de esa versión en Crossref. Cada campo `_precision` vale `day`, `month` o `year` cuando se conoce la fecha. Para `seen`, la marca temporal conserva la hora UTC y `seen_precision` describe la precisión de la fecha.
+Cada campo `_basis` identifica la evidencia de la fecha. Por ejemplo, `crossref-posted` indica que la fecha de publicación del preprint procede del registro de esa versión en Crossref. Cuando se conocen las fechas `posted` y `published`, su precisión es `day`, `month` o `year`. La marca temporal de incorporación en UTC incluye seis cifras decimales, por lo que `seen_precision` vale `microsecond` incluso cuando las seis cifras son cero.
 
 `posted` y `published` conservan la precisión de la fuente con el formato `YYYY-MM-DD`, `YYYY-MM` o `YYYY`. Para una reconstrucción histórica, usa el último día del mes o el 31 de diciembre si solo se conoce el año. Por ejemplo, `2024-02` cuenta a partir del 29 de febrero. Si falta `posted`, excluye esa versión de la reconstrucción por fecha. Usa el `paper_id` de la versión elegida para solicitar su Markdown.
 

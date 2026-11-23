@@ -74,14 +74,14 @@ In this illustrative ChemRxiv entry, the source gives only the posting month. Th
   "published_precision": null,
   "published_basis": null,
   "seen": "2026-11-20T09:14:00.000000Z",
-  "seen_precision": "day",
+  "seen_precision": "microsecond",
   "seen_basis": "paperzilla-ingested"
 }
 ```
 
 A `seen_basis` of `paperzilla-ingested` gives the earliest confirmed ingestion time for this revision. With `paperzilla-record-ingested`, `seen` gives the ingestion time for the returned `paper_id` while its revision label awaits verification.
 
-Each `_basis` identifies the evidence for its date. For example, `crossref-posted` identifies the posting date in the Crossref deposit for that revision. Each `_precision` is `day`, `month`, or `year` when the date is known. For `seen`, the timestamp retains the UTC time of day and `seen_precision` describes its calendar precision.
+Each `_basis` identifies the evidence for its date. For example, `crossref-posted` identifies the posting date in the Crossref deposit for that revision. For known `posted` and `published` dates, the precision is `day`, `month`, or `year`. The UTC ingestion timestamp has six fractional digits, so `seen_precision` is `microsecond` even when those digits are all zero.
 
 `posted` and `published` preserve the source’s precision as `YYYY-MM-DD`, `YYYY-MM`, or `YYYY`. For a replay, treat a month as its last day and a year as December 31. For example, `2024-02` first qualifies on February 29. If `posted` is missing, leave that version out of a date-gated replay. Use the selected version’s `paper_id` to request its Markdown.
 
