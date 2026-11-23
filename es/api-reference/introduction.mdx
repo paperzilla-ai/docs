@@ -18,7 +18,7 @@ Paperzilla se utiliza principalmente mediante estas superficies del producto:
 
 Esta referencia cubre los registros públicos de artículos, las fuentes RSS/Atom y MCP.
 
-Los metadatos de los artículos pueden proceder de servidores de preprints o de literatura biomédica y clínica indexada en PubMed. Los registros de PubMed incluyen una URL a la página de la fuente, mientras que `pdf_url` puede ser `null` si no se conoce un PDF público.
+Los metadatos de los artículos pueden proceder de servidores de preprints o de literatura biomédica y clínica indexada en PubMed. Para las fuentes con seguimiento de versiones, `pdf_url` enlaza al PDF de esa versión. Si Paperzilla solo conoce un enlace general al PDF, `pdf_url` vale `null` y `publisher_pdf_url` contiene el enlace general. La página de la fuente figura en `url`. Su `url_kind` vale `revision` para una versión concreta y `publisher` para una página general.
 
 ## Consultar una versión de un artículo
 

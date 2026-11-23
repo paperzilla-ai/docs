@@ -38,6 +38,7 @@ Envía únicamente el token OAuth dedicado en Authorization, nunca la sesión Su
 | `public_digest_issues_list` | `project_id` de la serie, `limit`, `offset` | `catalog:read` |
 | `public_digest_get` | `issue` UUID/ID corto/URL de Paperzilla, `limit`, `offset` | `catalog:read` |
 | `paper_get` | `reference` ID/URL/DOI | `catalog:read` |
+| `paper_revisions` | `reference` ID/URL/DOI | `catalog:read` |
 | `paper_markdown_get` | `reference`, opcionales `offset` de caracteres, `revision` | `catalog:read` |
 | `paper_markdown_request` | `reference` | `markdown:generate` |
 | `feedback_set` | `project_paper_id` UUID, `vote` (`upvote`, `downvote`, `star`), opcional `downvote_reason` (`not_relevant`, `low_quality`) | `feedback:write` |
@@ -47,7 +48,9 @@ Envía únicamente el token OAuth dedicado en Authorization, nunca la sesión Su
 
 `reference` admite un UUID, un ID corto de ocho caracteres o una URL de artículo de Paperzilla; un DOI (incluidos enlaces de doi.org); `PMID 12345678` o `pmid:12345678`; un identificador IACR ePrint `YYYY/NNN`; y URL de artículos de arXiv, PubMed, IACR ePrint, bioRxiv y medRxiv. Se admiten enlaces PDF de arXiv e IACR. Otras URL devuelven `not_found` con indicaciones sobre los formatos admitidos. Paperzilla nunca descarga la URL proporcionada ni importa un artículo ausente.
 
-En arXiv, bioRxiv y medRxiv, una URL de la fuente sin número de versión devuelve la versión más reciente que figura en el catálogo de Paperzilla. Una URL con número de versión solicita esa versión exacta. Por ejemplo, `https://www.medrxiv.org/content/10.64898/2026.09.02.26362037v1` selecciona v1 aunque v2 esté disponible. Si falta la versión solicitada, el resultado es `not_found`. Para ver las versiones registradas, usa el ID de artículo devuelto en la [API REST pública](/es/api-reference/introduction).
+En arXiv, bioRxiv y medRxiv, una URL de la fuente sin número de versión devuelve la versión más reciente que figura en el catálogo de Paperzilla. Una URL con número de versión solicita esa versión exacta. Por ejemplo, `https://www.medrxiv.org/content/10.64898/2026.09.02.26362037v1` selecciona v1 aunque v2 esté disponible. Si falta la versión solicitada, el resultado es `not_found`. Usa `paper_revisions` con la misma referencia para listar las versiones registradas. Una respuesta correcta incluye `status: ready`, `paper_id` y `revisions` con el [formato del historial REST](/es/api-reference/introduction). En `paper_get`, el campo opcional `paper.revision` contiene `source`, `native_id` y `version`.
+
+En `public_digest_get`, una actualización enviada y visible incluye `revision_update.previous_url` y `current_url`, junto con las dos etiquetas de versión y los dos ID de artículo registrados para ese correo.
 
 Las listas devuelven 20 resultados por defecto, con un rango de 1–50. Continúa con `next_offset` hasta que sea null. `paper_markdown_get` devuelve hasta 20.000 caracteres por página. Su valor `revision` es un hash del texto Markdown. Para leer la página siguiente, pasa ese hash y `next_offset` como valores de `revision` y `offset`, respectivamente. Si cambia el texto, `restart_required` indica que debes volver a empezar en la posición cero. `paper_markdown_request`, `feedback_set` y `feedback_clear` son herramientas de escritura. El límite de generación Markdown de 10 solicitudes por minuto se comparte entre todos los clientes de la cuenta. El límite general es de 120 llamadas por minuto y cuenta.
 

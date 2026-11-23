@@ -18,7 +18,7 @@ Paperzilla is primarily consumed through product surfaces:
 
 This reference covers public paper records, RSS/Atom feeds and MCP.
 
-Paper metadata can come from preprint servers or PubMed-indexed biomedical and clinical literature. A source landing-page URL is available for PubMed records, while `pdf_url` can be `null` when no public PDF is known.
+Paper metadata can come from preprint servers or PubMed-indexed biomedical and clinical literature. For sources with revision tracking, `pdf_url` links to a PDF for that revision. If Paperzilla only knows a general PDF link, `pdf_url` is `null` and `publisher_pdf_url` contains the general link. The source landing page is in `url`. Its `url_kind` is `revision` for an exact version and `publisher` for a general page.
 
 ## Look up a paper revision
 
