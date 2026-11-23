@@ -16,9 +16,39 @@ Paperzilla is primarily consumed through product surfaces:
 - CLI (`pz`)
 - MCP endpoint (`/api/mcp`)
 
-This API reference section documents public integration surfaces for feeds and MCP.
+This reference covers public paper records, RSS/Atom feeds and MCP.
 
 Paper metadata can come from preprint servers or PubMed-indexed biomedical and clinical literature. A source landing-page URL is available for PubMed records, while `pdf_url` can be `null` when no public PDF is known.
+
+## Look up a paper revision
+
+Use `GET /api/public/papers/{paper_ref}` with a Paperzilla paper UUID or eight-character short ID. When Paperzilla knows the source revision, the response includes `revision.source`, `revision.native_id` and `revision.version`. For example, two medRxiv records can share a DOI and have different paper IDs for v1 and v2.
+
+Use `GET /api/public/papers/{paper_ref}/revisions` with either ID to see the versions Paperzilla has observed, highest numbered version first. Each entry has its own `paper_id`. To link to that version, open its `path` on `https://paperzilla.ai`. A publisher URL can open the latest version.
+
+```bash
+curl -sS https://paperzilla.ai/api/public/papers/49e21baa-2b67-4997-9285-b8b8017cb24d/revisions
+```
+
+```json
+{
+  "paper_id": "49e21baa-2b67-4997-9285-b8b8017cb24d",
+  "revisions": [
+    {
+      "paper_id": "49e21baa-2b67-4997-9285-b8b8017cb24d",
+      "version": "v2",
+      "path": "/p/49e21baa-2b67-4997-9285-b8b8017cb24d"
+    },
+    {
+      "paper_id": "af429483-f897-4696-a3e8-6c6ed6c0da5f",
+      "version": "v1",
+      "path": "/p/af429483-f897-4696-a3e8-6c6ed6c0da5f"
+    }
+  ]
+}
+```
+
+History can start at v3 or contain v3 and v1 with a gap. Paperzilla tracks revisions for arXiv, bioRxiv, medRxiv, ChemRxiv, PubMed and IACR ePrint. Other sources return an empty `revisions` list. An entry labeled `unversioned` is a recorded ChemRxiv or IACR version whose number is unknown.
 
 ## Start points
 

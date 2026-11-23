@@ -16,9 +16,39 @@ Paperzilla se utiliza principalmente mediante estas superficies del producto:
 - CLI (`pz`)
 - Endpoint MCP (`/api/mcp`)
 
-Esta sección de referencia de API documenta las superficies públicas de integración para fuentes y MCP.
+Esta referencia cubre los registros públicos de artículos, las fuentes RSS/Atom y MCP.
 
 Los metadatos de los artículos pueden proceder de servidores de preprints o de literatura biomédica y clínica indexada en PubMed. Los registros de PubMed incluyen una URL a la página de la fuente, mientras que `pdf_url` puede ser `null` si no se conoce un PDF público.
+
+## Consultar una versión de un artículo
+
+Usa `GET /api/public/papers/{paper_ref}` con el UUID de un artículo de Paperzilla o su ID corto de ocho caracteres. Cuando Paperzilla conoce la versión de la fuente, la respuesta incluye `revision.source`, `revision.native_id` y `revision.version`. Por ejemplo, dos registros de medRxiv pueden compartir un DOI y tener distintos ID de artículo para v1 y v2.
+
+Usa `GET /api/public/papers/{paper_ref}/revisions` con el ID de cualquiera de las dos versiones para ver las que Paperzilla ha registrado, empezando por la de número más alto. Cada entrada tiene su propio `paper_id`. Para enlazar a esa versión, abre su `path` en `https://paperzilla.ai`. La URL del editor puede abrir la versión más reciente.
+
+```bash
+curl -sS https://paperzilla.ai/api/public/papers/49e21baa-2b67-4997-9285-b8b8017cb24d/revisions
+```
+
+```json
+{
+  "paper_id": "49e21baa-2b67-4997-9285-b8b8017cb24d",
+  "revisions": [
+    {
+      "paper_id": "49e21baa-2b67-4997-9285-b8b8017cb24d",
+      "version": "v2",
+      "path": "/p/49e21baa-2b67-4997-9285-b8b8017cb24d"
+    },
+    {
+      "paper_id": "af429483-f897-4696-a3e8-6c6ed6c0da5f",
+      "version": "v1",
+      "path": "/p/af429483-f897-4696-a3e8-6c6ed6c0da5f"
+    }
+  ]
+}
+```
+
+El historial puede empezar en v3 o contener v3 y v1 aunque falte v2. Paperzilla registra las versiones de arXiv, bioRxiv, medRxiv, ChemRxiv, PubMed e IACR ePrint. Para otras fuentes, la lista `revisions` está vacía. La etiqueta `unversioned` indica que Paperzilla registró una versión de ChemRxiv o IACR cuyo número se desconoce.
 
 ## Puntos de partida
 
