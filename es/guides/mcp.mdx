@@ -77,13 +77,15 @@ Los clientes pueden solicitar un subconjunto. Un permiso ausente devuelve una ac
 
 ## Leer y preparar Markdown
 
-`paper_get` acepta ID/URL de Paperzilla, DOI o URL de una fuente compatible. Solo consulta el catálogo existente: no importa artículos desconocidos y devuelve candidatos si la referencia es ambigua.
+`paper_get` acepta ID/URL de Paperzilla, DOI o URL de una fuente compatible. Solo consulta el catálogo existente: no importa artículos desconocidos y devuelve candidatos si la referencia es ambigua. Para leer o citar una versión anterior, usa el `paper_id` que devuelve `paper_revisions` para esa versión.
 
 `paper_markdown_get` lee contenido preparado o consulta su estado. Para solicitar el procesamiento explícitamente, usa `paper_markdown_request`. Es una acción de escritura con un límite de 10 solicitudes por minuto y cuenta, compartido entre clientes y sin cuota diaria. En conjunto, las herramientas permiten 120 llamadas por minuto y cuenta. Repetir una solicitud no duplica el trabajo.
 
 Los estados normales incluyen `ready`, `not_ready`, `queued`, `unavailable`, `cooldown` y `rate_limited`. Espera antes de consultar trabajos pendientes y respeta `retry_after_seconds` cuando aparezca. Una fuente no disponible no es un error de autenticación.
 
-Las listas usan `limit`, `offset` y `next_offset`. Continúa la búsqueda pública mientras haya `next_offset`, incluso si una página filtrada está vacía. Cada página Markdown tiene como máximo 20.000 caracteres; pasa `revision` y `next_offset` para continuar. Con `restart_required`, vuelve a empezar desde cero.
+Las listas paginadas usan `limit`, `offset` y `next_offset`. Continúa la búsqueda pública mientras haya `next_offset`, incluso si una página filtrada está vacía.
+
+Cada página de Markdown contiene como máximo 20.000 caracteres. Para seguir leyendo el mismo artículo, conserva su `paper_id` como referencia, pasa `next_offset` como `offset` y usa el hash del contenido Markdown devuelto como `revision`. Si el texto cambia, `restart_required` indica que debes volver a empezar desde cero.
 
 ## Proyectos y digests públicos
 

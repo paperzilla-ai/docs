@@ -77,13 +77,15 @@ Clients can request a subset. A missing permission produces an authorization act
 
 ## Read and prepare Markdown
 
-Use `paper_get` with a Paperzilla ID/URL, DOI, or supported source URL. Paperzilla searches its existing catalog. A missing paper is not imported, and ambiguous references return candidates.
+Use `paper_get` with a Paperzilla ID/URL, DOI, or supported source URL. Paperzilla searches its existing catalog. A missing paper is not imported, and ambiguous references return candidates. To read or cite an older version, use the `paper_id` for that version from `paper_revisions`.
 
 `paper_markdown_get` only reads existing content or reports availability. If you explicitly want processing, use `paper_markdown_request`. Generation is a write action, limited to 10 requests per minute per account across clients, with no daily quota. All tools together allow 120 calls per minute per account. Repeating a request does not queue duplicate work.
 
 Normal states include `ready`, `not_ready`, `queued`, `unavailable`, `cooldown`, and `rate_limited`. Wait before retrying queued work; respect `retry_after_seconds` when returned. An unavailable source or cooldown is not an authentication failure.
 
-Listings use `limit`, `offset`, and `next_offset`. Continue public searches while `next_offset` is present, even if a filtered page is empty. Markdown pages contain at most 20,000 characters; pass the returned `revision` and `next_offset` to continue. `restart_required` means read again from offset zero.
+Paginated lists use `limit`, `offset`, and `next_offset`. Continue public searches while `next_offset` is present, even if a filtered page is empty.
+
+Markdown pages contain at most 20,000 characters. To continue reading the same paper, keep its `paper_id` as the reference, pass `next_offset` as `offset`, and use the returned Markdown content hash as `revision`. If the text changes, `restart_required` tells you to start again at offset zero.
 
 ## Projects and public digests
 
